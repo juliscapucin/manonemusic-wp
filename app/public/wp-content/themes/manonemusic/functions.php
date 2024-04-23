@@ -53,18 +53,6 @@ add_action('pre_get_posts', 'adjust_queries');
  * Note that this particular metadata is saved as one multidimensional array (serialized)
  */
 
-function hhs_get_sample_options()
-{
-  $options = array(
-    'Option 1' => 'option1',
-    'Option 2' => 'option2',
-    'Option 3' => 'option3',
-    'Option 4' => 'option4',
-  );
-
-  return $options;
-}
-
 add_action('admin_init', 'hhs_add_meta_boxes', 1);
 function hhs_add_meta_boxes()
 {
@@ -76,7 +64,6 @@ function hhs_repeatable_meta_box_display()
   global $post;
 
   $repeatable_fields = get_post_meta($post->ID, 'repeatable_fields', true);
-  $options = hhs_get_sample_options();
 
   wp_nonce_field('hhs_repeatable_meta_box_nonce', 'hhs_repeatable_meta_box_nonce');
 ?>
@@ -100,7 +87,6 @@ function hhs_repeatable_meta_box_display()
     <thead>
       <tr>
         <th width="40%">Name</th>
-        <th width="12%">Select</th>
         <th width="40%">URL</th>
         <th width="8%"></th>
       </tr>
@@ -115,14 +101,6 @@ function hhs_repeatable_meta_box_display()
           <tr>
             <td><input type="text" class="widefat" name="name[]" value="<?php if ($field['name'] != '') echo esc_attr($field['name']); ?>" /></td>
 
-            <td>
-              <select name="select[]">
-                <?php foreach ($options as $label => $value) : ?>
-                  <option value="<?php echo $value; ?>" <?php selected($field['select'], $value); ?>><?php echo $label; ?></option>
-                <?php endforeach; ?>
-              </select>
-            </td>
-
             <td><input type="text" class="widefat" name="url[]" value="<?php if ($field['url'] != '') echo esc_attr($field['url']);
                                                                         else echo 'http://'; ?>" /></td>
 
@@ -136,14 +114,6 @@ function hhs_repeatable_meta_box_display()
         <tr>
           <td><input type="text" class="widefat" name="name[]" /></td>
 
-          <td>
-            <select name="select[]">
-              <?php foreach ($options as $label => $value) : ?>
-                <option value="<?php echo $value; ?>"><?php echo $label; ?></option>
-              <?php endforeach; ?>
-            </select>
-          </td>
-
           <td><input type="text" class="widefat" name="url[]" value="http://" /></td>
 
           <td><a class="button remove-row" href="#">Remove</a></td>
@@ -153,14 +123,6 @@ function hhs_repeatable_meta_box_display()
       <!-- empty hidden one for jQuery -->
       <tr class="empty-row screen-reader-text">
         <td><input type="text" class="widefat" name="name[]" /></td>
-
-        <td>
-          <select name="select[]">
-            <?php foreach ($options as $label => $value) : ?>
-              <option value="<?php echo $value; ?>"><?php echo $label; ?></option>
-            <?php endforeach; ?>
-          </select>
-        </td>
 
         <td><input type="text" class="widefat" name="url[]" value="http://" /></td>
 
@@ -190,7 +152,6 @@ function hhs_repeatable_meta_box_save($post_id)
 
   $old = get_post_meta($post_id, 'repeatable_fields', true);
   $new = array();
-  $options = hhs_get_sample_options();
 
   $names = $_POST['name'];
   $selects = $_POST['select'];
@@ -201,11 +162,6 @@ function hhs_repeatable_meta_box_save($post_id)
   for ($i = 0; $i < $count; $i++) {
     if ($names[$i] != '') :
       $new[$i]['name'] = stripslashes(strip_tags($names[$i]));
-
-      if (in_array($selects[$i], $options))
-        $new[$i]['select'] = $selects[$i];
-      else
-        $new[$i]['select'] = '';
 
       if ($urls[$i] == 'http://')
         $new[$i]['url'] = '';
