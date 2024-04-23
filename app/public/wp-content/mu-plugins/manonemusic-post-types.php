@@ -1,6 +1,6 @@
 <?php 
 function postTypes(){
-   register_post_type('event', array(
+   register_post_type('release', array(
      'public' => true,
      'labels' => array(
        'name' => 'Releases',
@@ -11,6 +11,17 @@ function postTypes(){
      ),
      'menu_icon' => 'dashicons-album'
    ));
+   register_post_type('project', array(
+      'public' => true,
+      'labels' => array(
+        'name' => 'Projects',
+        'add_new_item' => 'Add New Project',
+        'edit_item' => 'Edit Project',
+        'all_items' => 'All Projects',
+        'singular_name' => 'Project'
+      ),
+      'menu_icon' => 'dashicons-portfolio'
+    ));
  }
  
  add_action('init', 'postTypes');
