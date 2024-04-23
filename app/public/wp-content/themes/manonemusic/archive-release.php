@@ -11,7 +11,10 @@ if ($page) {
 // Custom query for 'release' post type
 $args = array(
    'post_type' => 'release',
-   'posts_per_page' => -1 // -1 for all posts
+   'posts_per_page' => -1, // -1 for all posts
+   'meta_key' => 'release_date', // Custom field key
+   'orderby' => 'meta_value_num', // Order by custom field value
+   'order' => 'DESC', // Descending order
 );
 $releases_query = new WP_Query($args);
 
