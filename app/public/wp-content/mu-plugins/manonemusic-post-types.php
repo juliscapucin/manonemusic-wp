@@ -16,6 +16,22 @@ function postTypes()
       ),
       'menu_icon' => 'dashicons-album'
    ));
+
+   register_post_type('track', array(
+      'supports' => array('title', 'editor'),
+      'rewrite' => array('slug' => 'tracks'),
+      'public' => true,
+      'show_in_rest' => true,
+      'labels' => array(
+         'name' => 'Tracks',
+         'add_new_item' => 'Add New Track',
+         'edit_item' => 'Edit Track',
+         'all_items' => 'All Tracks',
+         'singular_name' => 'Track'
+      ),
+      'menu_icon' => 'dashicons-playlist-audio'
+   ));
+
    register_post_type('project', array(
       'supports' => array('title', 'editor', 'thumbnail'),
       'rewrite' => array('slug' => 'projects'),
