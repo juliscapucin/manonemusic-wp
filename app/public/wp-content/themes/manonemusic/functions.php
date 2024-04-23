@@ -46,3 +46,4 @@ function adjust_queries($query) {
 }
 
 add_action('pre_get_posts', 'adjust_queries');
+

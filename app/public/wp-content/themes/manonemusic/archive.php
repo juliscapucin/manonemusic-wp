@@ -1,13 +1,12 @@
-<!-- This is the posts initial page -->
-
 <?php
 
 get_header();
 // pageBanner(array(
-//   'title' => 'Man/One Music',
-//   'subtitle' => 'Tailored sound design and audio identities'
+//   'title' => get_the_archive_title(),
+//   'subtitle' => get_the_archive_description()
 // ));
  ?>
+
 <div class="container container--narrow page-section">
 <?php
   while(have_posts()) {
