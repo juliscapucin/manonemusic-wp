@@ -1,18 +1,24 @@
 <?php 
 function postTypes(){
    register_post_type('release', array(
-     'public' => true,
-     'labels' => array(
-       'name' => 'Releases',
-       'add_new_item' => 'Add New Release',
-       'edit_item' => 'Edit Release',
-       'all_items' => 'All Releases',
-       'singular_name' => 'Release'
-     ),
-     'menu_icon' => 'dashicons-album'
+      'rewrite' => array('slug' => 'releases'),
+      'has_archive' => true,
+      'public' => true,
+      'show_in_rest' => true,
+      'labels' => array(
+         'name' => 'Releases',
+         'add_new_item' => 'Add New Release',
+         'edit_item' => 'Edit Release',
+         'all_items' => 'All Releases',
+         'singular_name' => 'Release'
+      ),
+      'menu_icon' => 'dashicons-album'
    ));
    register_post_type('project', array(
+      'rewrite' => array('slug' => 'projects'),
+      'has_archive' => true,
       'public' => true,
+      'show_in_rest' => true,
       'labels' => array(
         'name' => 'Projects',
         'add_new_item' => 'Add New Project',
