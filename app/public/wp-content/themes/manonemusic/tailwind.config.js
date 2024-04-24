@@ -1,9 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+	content: ["../manonemusic/**/*.php"],
+	theme: {
+		extend: {},
+	},
+	plugins: [],
 }
-

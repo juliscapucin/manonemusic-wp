@@ -5,10 +5,11 @@ function releases()
    // Query for the 'releases' page content
    $page = get_page_by_path('releases');
    if ($page) {
-      echo '<h1>' . get_the_title($page->ID) . '</h1>';
+      echo '<h1 class="text-9xl">' . get_the_title($page->ID) . '</h1>';
       echo apply_filters('the_content', $page->post_content);
    }
 
+   echo '<div class="flex">';
    while (have_posts()) {
       the_post();
 
@@ -25,5 +26,6 @@ function releases()
       </div>
 <?php
    }
+   echo '</div>';
 }
 ?>
