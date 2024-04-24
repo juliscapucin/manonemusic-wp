@@ -3,3 +3,7 @@ Theme name: Man One Music
 Author: Juli Scapucin
 Version: 2024
 */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
