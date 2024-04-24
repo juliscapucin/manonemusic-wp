@@ -1,4 +1,4 @@
 <?php
 get_header();
-releases(['page' => 'releases']);
+projects(['page' => 'projects']);
 get_footer();

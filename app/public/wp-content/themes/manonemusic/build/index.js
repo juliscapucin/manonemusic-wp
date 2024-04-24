@@ -2,6 +2,35 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/modules/HorizontalScroll.js":
+/*!*****************************************!*\
+  !*** ./src/modules/HorizontalScroll.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+class HorizontalScroll {
+  constructor() {
+    this.init();
+  }
+  init() {
+    this.bindEvents();
+    console.log("init");
+  }
+  bindEvents() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+  handleScroll() {
+    console.log("scrolling");
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HorizontalScroll);
+
+/***/ }),
+
 /***/ "./src/modules/MobileMenu.js":
 /*!***********************************!*\
   !*** ./src/modules/MobileMenu.js ***!
@@ -95,13 +124,16 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/MobileMenu */ "./src/modules/MobileMenu.js");
+/* harmony import */ var _modules_HorizontalScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/HorizontalScroll */ "./src/modules/HorizontalScroll.js");
 // import "../css/style.scss"
 
 // Our modules / classes
 
 
+
 // Instantiate a new object using our modules/classes
-var mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]();
+const mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]();
+const horizontalScroll = new _modules_HorizontalScroll__WEBPACK_IMPORTED_MODULE_1__["default"]();
 })();
 
 /******/ })()

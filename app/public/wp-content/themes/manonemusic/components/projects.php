@@ -1,8 +1,8 @@
 <?php
 
-function releases($args)
+function projects($args)
 {
-   // Query for the 'releases' page content
+   // Query for the 'projects' page content
    $page = get_page_by_path($args['page']);
    if ($page) {
       echo '<h1 class="text-9xl">' . get_the_title($page->ID) . '</h1>';
@@ -11,7 +11,7 @@ function releases($args)
 
    // Set up a new WP_Query to fetch posts
    $query_args = array(
-      'post_type' => 'release', // Adjust to your post type
+      'post_type' => 'project', // Adjust to your post type
       'posts_per_page' => -1
    );
    $query = new WP_Query($query_args);
