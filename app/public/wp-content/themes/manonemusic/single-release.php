@@ -15,7 +15,7 @@ while (have_posts()) {
           }
           ?></div>
     <div>
-      <div class=""><?php the_post_thumbnail(); ?></div>
+      <div class=""><?php the_post_thumbnail('releaseFull'); ?></div>
       <div class=""><?php the_content(); ?></div>
     </div>
     <ul>
