@@ -1,4 +1,18 @@
 {
+  "name": "manonemusic",
+"version": "1.0.0",
+  "description": "Manone Music",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "dev": "wp-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "manonemusic"
+  ],
+  "author": "Juli Scapucin",
   "devDependencies": {
     "@wordpress/scripts": "^27.7.0"
   }
