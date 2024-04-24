@@ -136,6 +136,7 @@ function hhs_repeatable_meta_box_display()
 }
 
 add_action('save_post', 'hhs_repeatable_meta_box_save');
+
 function hhs_repeatable_meta_box_save($post_id)
 {
   if (
@@ -154,7 +155,6 @@ function hhs_repeatable_meta_box_save($post_id)
   $new = array();
 
   $names = $_POST['name'];
-  $selects = $_POST['select'];
   $urls = $_POST['url'];
 
   $count = count($names);
