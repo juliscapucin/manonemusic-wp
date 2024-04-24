@@ -14,11 +14,15 @@ while (have_posts()) {
             echo $formattedDate->format('M Y');
           }
           ?></div>
-    <div class=""><?php the_content(); ?></div>
+    <div>
+      <div class=""><?php the_post_thumbnail(); ?></div>
+      <div class=""><?php the_content(); ?></div>
+    </div>
     <ul>
       <?php
-      $repeatable_fields = get_post_meta($post->ID, 'repeatable_fields', true);
-      foreach ($repeatable_fields as $track) { ?>
+      $repeatable_fields = get_post_meta($post->ID, 'repeatable_fields', true); // Get the repeatable fields for tracks
+      if ($repeatable_fields)
+        foreach ($repeatable_fields as $track) { ?>
         <li><a href="<?php echo $track['url'] ?>"><?php echo $track['name']; ?></a></li>
       <?php }
       ?>

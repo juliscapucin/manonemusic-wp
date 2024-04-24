@@ -17,8 +17,8 @@ function features()
   add_theme_support('post-thumbnails');
   register_nav_menu('headerMenu', 'Header Menu');
   register_nav_menu('footerMenu', 'Footer Menu');
-  add_image_size('professorLandscape', 400, 260, true);
-  add_image_size('professorPortrait', 480, 650, true);
+  add_image_size('releaseThumbnail', 260, 260, true);
+  add_image_size('releaseFull', 650, 650, true);
   add_image_size('pageBanner', 1500, 350, true);
 }
 
