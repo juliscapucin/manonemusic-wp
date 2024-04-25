@@ -5,7 +5,7 @@ class HorizontalScroll {
 
 	init() {
 		this.bindEvents()
-		console.log("init")
+		// console.log(siteData.root_url) // get root url from wp_localize_script in functions/files.php
 	}
 
 	bindEvents() {
