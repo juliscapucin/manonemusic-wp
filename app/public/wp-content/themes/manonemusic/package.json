@@ -4,8 +4,7 @@
   "description": "Manone Music",
   "main": "index.js",
   "scripts": {
-    "start": "wp-scripts start",
-    "build": "wp-scripts build",
+    "start": "wp-scripts start src/index.js blocks/home.js",
     "dev": "wp-scripts start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
