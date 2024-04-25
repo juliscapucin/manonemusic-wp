@@ -5,13 +5,13 @@ function projects($args)
    // Query for the 'projects' page content
    $page = get_page_by_path($args['page']);
    if ($page) {
-      echo '<h1 class="text-9xl">' . get_the_title($page->ID) . '</h1>';
+      echo '<div class="min-w-full"><h1 class="text-9xl">' . get_the_title($page->ID) . '</h1>';
       echo apply_filters('the_content', $page->post_content);
    }
 
    // Set up a new WP_Query to fetch posts
    $query_args = array(
-      'post_type' => 'project', // Adjust to your post type
+      'post_type' => 'project',
       'posts_per_page' => -1
    );
    $query = new WP_Query($query_args);
@@ -31,6 +31,6 @@ function projects($args)
       </a>
 <?php
    }
-   echo '</div>';
+   echo '</div></div>';
 }
 ?>

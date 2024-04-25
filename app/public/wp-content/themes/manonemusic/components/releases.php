@@ -5,7 +5,7 @@ function releases($args)
    // Query for the 'releases' page content
    $page = get_page_by_path($args['page']);
    if ($page) {
-      echo '<h1 class="text-9xl">' . get_the_title($page->ID) . '</h1>';
+      echo '<div class="min-w-full"><h1 class="text-9xl">' . get_the_title($page->ID) . '</h1>';
       echo apply_filters('the_content', $page->post_content);
    }
 
@@ -31,6 +31,6 @@ function releases($args)
       </a>
 <?php
    }
-   echo '</div>';
+   echo '</div></div>';
 }
 ?>
