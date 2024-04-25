@@ -1,10 +1,12 @@
+<!-- This is the posts initial page -->
+
 <?php
 
 get_header();
-pageBanner(array(
-  'title' => 'Man/One Music',
-  'subtitle' => 'Tailored sound design and audio identities'
-));
+// pageBanner(array(
+//   'title' => 'Man/One Music',
+//   'subtitle' => 'Tailored sound design and audio identities'
+// ));
  ?>
 <div class="container container--narrow page-section">
 <?php

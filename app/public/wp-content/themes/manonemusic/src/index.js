@@ -1,9 +1,9 @@
-import "../css/style.scss"
+// import "../css/style.scss"
 
 // Our modules / classes
 import MobileMenu from "./modules/MobileMenu"
-import HeroSlider from "./modules/HeroSlider"
+import HorizontalScroll from "./modules/HorizontalScroll"
 
 // Instantiate a new object using our modules/classes
-var mobileMenu = new MobileMenu()
-var heroSlider = new HeroSlider()
+const mobileMenu = new MobileMenu()
+const horizontalScroll = new HorizontalScroll()
