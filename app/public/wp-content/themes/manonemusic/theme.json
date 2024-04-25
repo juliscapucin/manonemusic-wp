@@ -1,6 +1,25 @@
 {
    "version": 2,
    "settings": {
+      "color": {
+         "palette": [
+            {
+               "slug": "primary",
+               "color": "#FF0000", 
+               "name": "Primary"
+            },
+            {
+               "slug": "secondary",
+               "color": "#00FF00",
+               "name": "Secondary"
+            },
+            {
+               "slug": "tertiary",
+               "color": "#0000FF",
+               "name": "Tertiary"
+            }  
+         ]
+      },
       "layout": {
          "contentSize": "840px"
       }
