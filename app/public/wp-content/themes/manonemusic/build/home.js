@@ -116,33 +116,71 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("manonemusic/home", {
   title: "Home",
   icon: "admin-home",
+  attributes: {
+    slogan: {
+      type: "string",
+      default: "Music & Sound Design"
+    },
+    paragraph: {
+      type: "string",
+      default: `Tailored sound design and audio identities that captures the spirit of your brand and resonate with your audience. Let's elevate your identity through sound.`
+    },
+    align: {
+      type: "string",
+      default: "full"
+    }
+  },
+  supports: {
+    align: ["full"]
+  },
   edit: EditComponent,
   save: SaveComponent
 });
 function EditComponent(props) {
+  function editSlogan(x) {
+    props.setAttributes({
+      slogan: x
+    });
+  }
+  function editParagraph(x) {
+    props.setAttributes({
+      paragraph: x
+    });
+  }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "relative w-screen h-screen min-h-svh bg-slate-500"
+    className: "w-screen h-screen min-h-svh bg-slate-500"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "relative flex mt-48 w-screen pr-16"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "w-1/2"
-  }, "Music & Sound Design"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Location: Amsterdam")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "w-3/4 md:w-1/4 mt-32 md:mt-4"
-  }, "Tailored sound design and audio identities that captures the spirit of your brand and resonate with your audience. Let's elevate your identity through sound."));
+    className: "flex mt-48 w-screen pr-16"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+    tagName: "h2",
+    className: "w-3/4 md:w-1/4 mt-32 md:mt-4",
+    value: props.attributes.slogan,
+    onChange: editSlogan
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Location: Amsterdam"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+    tagName: "p",
+    className: "w-3/4 md:w-1/4 mt-32 md:mt-4",
+    value: props.attributes.paragraph,
+    onChange: editParagraph
+  }));
 }
 function SaveComponent(props) {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "relative w-screen h-screen min-h-svh bg-slate-500"
+    className: "w-screen h-screen min-h-svh bg-slate-500"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "relative flex mt-48 w-screen pr-16"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "w-1/2"
-  }, "Music & Sound Design"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Location: Amsterdam")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "w-3/4 md:w-1/4 mt-32 md:mt-4"
-  }, "Tailored sound design and audio identities that captures the spirit of your brand and resonate with your audience. Let's elevate your identity through sound."));
+    className: "flex mt-48 w-screen pr-16"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "h2",
+    className: "w-3/4 md:w-1/4 mt-32 md:mt-4",
+    value: props.attributes.slogan
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Location: Amsterdam"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    tagName: "p",
+    className: "w-3/4 md:w-1/4 mt-32 md:mt-4",
+    value: props.attributes.paragraph
+  }));
 }
 })();
 

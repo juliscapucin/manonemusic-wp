@@ -137,7 +137,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     size: {
       type: "string",
-      default: "text-9xl color-red-500"
+      default: "text-9xl"
     },
     tag: {
       type: "string",
@@ -184,7 +184,7 @@ function EditComponent(props) {
 function SaveComponent(props) {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
     tagName: props.attributes.tag,
-    className: props.attributes.size,
+    className: `${props.attributes.size} text-9xl text-slate-800`,
     value: props.attributes.text
   });
 }

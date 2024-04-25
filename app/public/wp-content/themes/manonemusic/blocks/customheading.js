@@ -6,7 +6,7 @@ registerBlockType("manonemusic/customheading", {
 	title: "Heading Custom",
 	attributes: {
 		text: { type: "string" },
-		size: { type: "string", default: "text-9xl color-red-500" },
+		size: { type: "string", default: "text-9xl" },
 		tag: { type: "string", default: "h1" },
 	},
 	edit: EditComponent,
@@ -56,7 +56,7 @@ function SaveComponent(props) {
 	return (
 		<RichText.Content
 			tagName={props.attributes.tag}
-			className={props.attributes.size}
+			className={`${props.attributes.size} text-9xl text-slate-800`}
 			value={props.attributes.text}
 		/>
 	)
