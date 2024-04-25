@@ -30,6 +30,16 @@ module.exports = window["wp"]["blockEditor"];
 
 module.exports = window["wp"]["blocks"];
 
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
 /***/ })
 
 /******/ 	});
@@ -103,49 +113,83 @@ module.exports = window["wp"]["blocks"];
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!************************!*\
-  !*** ./blocks/home.js ***!
-  \************************/
+/*!*********************************!*\
+  !*** ./blocks/customheading.js ***!
+  \*********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("manonemusic/home", {
-  title: "Home",
-  icon: "admin-home",
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("manonemusic/customheading", {
+  title: "Heading Custom",
+  attributes: {
+    text: {
+      type: "string"
+    },
+    size: {
+      type: "string",
+      default: "text-9xl color-red-500"
+    },
+    tag: {
+      type: "string",
+      default: "h1"
+    }
+  },
   edit: EditComponent,
   save: SaveComponent
 });
 function EditComponent(props) {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "relative w-screen h-screen min-h-svh bg-slate-500"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "relative flex mt-48 w-screen pr-16"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "w-1/2"
-  }, "Music & Sound Design"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Location: Amsterdam")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "w-3/4 md:w-1/4 mt-32 md:mt-4"
-  }, "Tailored sound design and audio identities that captures the spirit of your brand and resonate with your audience. Let's elevate your identity through sound."));
+  function handleTextChange(x) {
+    props.setAttributes({
+      text: x
+    });
+  }
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarGroup, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarButton, {
+    icon: "heading",
+    title: "Heading",
+    isPressed: props.attributes.tag === "h1",
+    onClick: () => props.setAttributes({
+      tag: "h1"
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarButton, {
+    icon: "heading",
+    title: "Subheading",
+    isPressed: props.attributes.tag === "h2",
+    onClick: () => props.setAttributes({
+      tag: "h2"
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToolbarButton, {
+    icon: "heading",
+    title: "Title",
+    isPressed: props.attributes.tag === "h3",
+    onClick: () => props.setAttributes({
+      tag: "h3"
+    })
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+    tagName: props.attributes.tag,
+    className: props.attributes.size,
+    value: props.attributes.text,
+    onChange: handleTextChange
+  }));
 }
 function SaveComponent(props) {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "relative w-screen h-screen min-h-svh bg-slate-500"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "relative flex mt-48 w-screen pr-16"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
-    className: "w-1/2"
-  }, "Music & Sound Design"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Location: Amsterdam")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "w-3/4 md:w-1/4 mt-32 md:mt-4"
-  }, "Tailored sound design and audio identities that captures the spirit of your brand and resonate with your audience. Let's elevate your identity through sound."));
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
+    tagName: props.attributes.tag,
+    className: props.attributes.size,
+    value: props.attributes.text
+  });
 }
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=customheading.js.map

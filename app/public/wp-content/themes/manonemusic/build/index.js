@@ -2,6 +2,28 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/modules/Credits.js":
+/*!********************************!*\
+  !*** ./src/modules/Credits.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+class Credits {
+  constructor() {
+    this.init();
+  }
+  init() {
+    console.log("Website by https://juliscapucin.com");
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Credits);
+
+/***/ }),
+
 /***/ "./src/modules/HorizontalScroll.js":
 /*!*****************************************!*\
   !*** ./src/modules/HorizontalScroll.js ***!
@@ -18,7 +40,8 @@ class HorizontalScroll {
   }
   init() {
     this.bindEvents();
-    // console.log(siteData.root_url) // get root url from wp_localize_script in functions/files.php
+    // get root url from wp_localize_script in functions/files.php
+    // console.log(siteData.root_url)
   }
   bindEvents() {
     window.addEventListener("scroll", this.handleScroll);
@@ -123,17 +146,20 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/MobileMenu */ "./src/modules/MobileMenu.js");
-/* harmony import */ var _modules_HorizontalScroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/HorizontalScroll */ "./src/modules/HorizontalScroll.js");
+/* harmony import */ var _modules_Credits__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Credits */ "./src/modules/Credits.js");
+/* harmony import */ var _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/MobileMenu */ "./src/modules/MobileMenu.js");
+/* harmony import */ var _modules_HorizontalScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/HorizontalScroll */ "./src/modules/HorizontalScroll.js");
 // import "../css/style.scss"
 
 // Our modules / classes
 
 
 
+
 // Instantiate a new object using our modules/classes
-const mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_0__["default"]();
-const horizontalScroll = new _modules_HorizontalScroll__WEBPACK_IMPORTED_MODULE_1__["default"]();
+const credits = new _modules_Credits__WEBPACK_IMPORTED_MODULE_0__["default"]();
+const mobileMenu = new _modules_MobileMenu__WEBPACK_IMPORTED_MODULE_1__["default"]();
+const horizontalScroll = new _modules_HorizontalScroll__WEBPACK_IMPORTED_MODULE_2__["default"]();
 })();
 
 /******/ })()

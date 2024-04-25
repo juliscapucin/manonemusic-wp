@@ -1,16 +1,22 @@
 <?php
-function registerBlock()
-{
-   // Register the block script
-   wp_register_script(
-      'homeBlockScript',
-      get_stylesheet_directory_uri() . '/build/home.js',
-      array('wp-blocks', 'wp-editor')
-   );
 
-   // Register the block type
-   register_block_type('manonemusic/home', array(
-      'editor_script' => 'homeBlockScript',
-   ));
+class JSXBlock
+{
+   private $blockName;
+   function __construct($blockName)
+   {
+      $this->blockName = $blockName;
+      add_action('init', [$this, 'onInit']);
+   }
+
+   function onInit()
+   {
+      wp_register_script($this->blockName, get_stylesheet_directory_uri() . "/build/{$this->blockName}.js", array('wp-blocks', 'wp-editor'));
+      register_block_type("ourblocktheme/{$this->blockName}", array(
+         'editor_script' => $this->blockName
+      ));
+   }
 }
-add_action('init', 'registerBlock');
+
+new JSXBlock('home');
+new JSXBlock('customheading');

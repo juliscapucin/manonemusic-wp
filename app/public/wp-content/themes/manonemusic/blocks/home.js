@@ -1,6 +1,7 @@
 import { InnerBlocks } from "@wordpress/block-editor"
+import { registerBlockType } from "@wordpress/blocks"
 
-wp.blocks.registerBlockType("manonemusic/home", {
+registerBlockType("manonemusic/home", {
 	title: "Home",
 	icon: "admin-home",
 	edit: EditComponent,
