@@ -16,4 +16,4 @@ require_once $theme_dir . '/components/releases.php';
 require_once $theme_dir . '/components/projects.php';
 
 // Require blocks
-require_once $stylesheet_dir . '/functions/blocks.php';
+// require_once $stylesheet_dir . '/functions/blocks.php';

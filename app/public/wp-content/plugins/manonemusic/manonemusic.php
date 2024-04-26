@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:       Manonemusic
  * Description:       Example block scaffolded with Create Block tool.
@@ -13,7 +14,7 @@
  * @package CreateBlock
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -24,7 +25,24 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_manonemusic_block_init() {
-	register_block_type( __DIR__ . '/build' );
+function create_block_manonemusic_block_init_ori()
+{
+	register_block_type(__DIR__ . '/build');
 }
-add_action( 'init', 'create_block_manonemusic_block_init' );
+
+
+function create_block_manonemusic_block_init()
+{
+	$build_path = __DIR__ . '/build';
+	$directories = new DirectoryIterator($build_path);
+
+	foreach ($directories as $folder) {
+		if ($folder->isDir() && !$folder->isDot()) {
+			$block_path = $build_path . '/' . $folder->getFilename();
+
+			register_block_type($block_path);
+		}
+	}
+}
+
+add_action('init', 'create_block_manonemusic_block_init');
