@@ -44,7 +44,7 @@ class HorizontalScroll {
     // console.log(siteData.root_url)
   }
   bindEvents() {
-    window.addEventListener("scroll", this.handleScroll);
+    // window.addEventListener("scroll", this.handleScroll)
   }
   handleScroll() {
     console.log("scrolling");
@@ -71,7 +71,7 @@ class MobileMenu {
     this.events();
   }
   events() {
-    this.openButton.addEventListener("click", () => this.openMenu());
+    if (this.openButton) this.openButton.addEventListener("click", () => this.openMenu());
   }
   openMenu() {
     this.openButton.classList.toggle("fa-bars");
@@ -155,6 +155,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// Blocks
+// import CustomButton from "./blocks/custombutton"
 
 // Instantiate a new object using our modules/classes
 const credits = new _modules_Credits__WEBPACK_IMPORTED_MODULE_0__["default"]();

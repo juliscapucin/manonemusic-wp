@@ -10,7 +10,7 @@ class HorizontalScroll {
 	}
 
 	bindEvents() {
-		window.addEventListener("scroll", this.handleScroll)
+		// window.addEventListener("scroll", this.handleScroll)
 	}
 
 	handleScroll() {
