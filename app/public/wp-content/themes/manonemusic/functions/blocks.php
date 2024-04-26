@@ -12,7 +12,7 @@ class JSXBlock
    function onInit()
    {
 
-      wp_register_script($this->blockName, get_stylesheet_directory_uri() . "/build/blocks/{$this->blockName}/index.js", array('wp-blocks', 'wp-editor', 'wp-element'), filemtime(get_stylesheet_directory() . "/build/blocks/{$this->blockName}/index.js"), true);
+      wp_register_script($this->blockName, get_stylesheet_directory_uri() . "/build/blocks/{$this->blockName}/index.js", array('wp-blocks', 'wp-editor', 'wp-element'), true);
       register_block_type(__DIR__ . "/build/blocks/{$this->blockName}/block.json");
    }
 }

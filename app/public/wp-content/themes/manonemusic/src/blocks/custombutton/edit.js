@@ -16,6 +16,8 @@ import { useState } from "react"
 export default function Edit(props) {
 	const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false)
 
+	console.log("custombutton")
+
 	function handleTextChange(x) {
 		props.setAttributes({ text: x })
 	}

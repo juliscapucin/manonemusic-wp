@@ -56,6 +56,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit(props) {
   const [isLinkPickerVisible, setIsLinkPickerVisible] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  console.log("custombutton");
   function handleTextChange(x) {
     props.setAttributes({
       text: x
