@@ -25,11 +25,6 @@ if (!defined('ABSPATH')) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_manonemusic_block_init_ori()
-{
-	register_block_type(__DIR__ . '/build');
-}
-
 
 function create_block_manonemusic_block_init()
 {
