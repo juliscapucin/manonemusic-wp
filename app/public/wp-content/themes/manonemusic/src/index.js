@@ -6,7 +6,6 @@ import MobileMenu from "./modules/MobileMenu"
 import HorizontalScroll from "./modules/HorizontalScroll"
 
 // Blocks
-// import CustomButton from "./blocks/custombutton"
 
 // Instantiate a new object using our modules/classes
 const credits = new Credits()

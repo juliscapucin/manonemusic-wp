@@ -2,17 +2,19 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "manonemusic/custombutton",
-	"title": "Custom Button",
-	"category": "layout",
-	"keywords": [ "button", "custom" ],
+	"version": "0.1.0",
+	"title": "Button Custom",
+	"category": "widgets",
    "attributes": {
 		"text": { "type": "string" },
 		"linkObject": { "type": "object", "default": { "url": "" } },
 		"className": { "type": "string", "default": "bg-red-400 p-2 w-fit" },
 		"isExternal": { "type": "boolean", "default": false }
 	},
-	"icon": "button",
+	"icon": "smiley",
 	"description": "Custom Button",
+	"example": {},
 	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
 	"render": "file:./render.php"
 }

@@ -157,7 +157,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Blocks
-// import CustomButton from "./blocks/custombutton"
 
 // Instantiate a new object using our modules/classes
 const credits = new _modules_Credits__WEBPACK_IMPORTED_MODULE_0__["default"]();
