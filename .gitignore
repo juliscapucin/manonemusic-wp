@@ -1,6 +1,6 @@
 # Dependencies
 ## Avoid any node_modules folders anywhere in the repo;
-node_modules/
+node_modules
 
 ## Avoid package*.json files only at repo root
 /package.json
@@ -9,8 +9,8 @@ node_modules/
 # Uploads directory
 /uploads/
 
-# mu-plugins; these are managed at the platform-level
-/mu-plugins/
+# Logs
+/logs
 
 # drop-ins; these are managed at the platform-level
 /object-cache.php
