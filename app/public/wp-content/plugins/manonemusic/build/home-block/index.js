@@ -56,10 +56,6 @@ function Edit({
   setAttributes,
   attributes
 }) {
-  // const blockProps = useBlockProps();
-
-  // console.log(blockProps);
-
   function editSlogan(x) {
     setAttributes({
       slogan: x
@@ -76,12 +72,12 @@ function Edit({
     className: "flex mt-48 w-screen pr-16"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "h2",
-    className: "w-3/4 md:w-1/4 mt-32 md:mt-4",
+    className: "text-6xl w-3/4 md:w-1/4 mt-32 md:mt-4",
     value: attributes.slogan,
     onChange: editSlogan
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Location: Amsterdam"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     tagName: "p",
-    className: "text-4xl w-3/4 md:w-1/4 mt-32 md:mt-4",
+    className: "w-3/4 md:w-1/4 mt-32 md:mt-4",
     value: attributes.paragraph,
     onChange: editParagraph
   }));

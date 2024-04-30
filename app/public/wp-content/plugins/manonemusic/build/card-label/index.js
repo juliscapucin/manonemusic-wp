@@ -51,10 +51,21 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Card Label – hello from the editor!', 'card-label'));
+function Edit({
+  setAttributes,
+  attributes
+}) {
+  function editContent(x) {
+    setAttributes({
+      label: x
+    });
+  }
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    tagName: "p",
+    className: "w-3/4 md:w-1/4 mt-32 md:mt-4",
+    value: attributes.label,
+    onChange: editContent
+  });
 }
 
 /***/ }),
@@ -177,7 +188,7 @@ module.exports = window["wp"]["i18n"];
   \***********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"card-label/card-label","version":"0.1.0","title":"Card Label","category":"text","icon":"label","description":"Label for Release and Project cards","example":{},"supports":{"html":false},"textdomain":"card-label","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/card-label","version":"0.1.0","title":"Card Label","category":"text","icon":"label","description":"Label for Release and Project cards","example":{},"supports":{"html":false},"attributes":{"label":{"type":"string","default":"Label"}},"textdomain":"card-label","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

@@ -1,8 +1,8 @@
 <?php
-/**
- * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
- */
-?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Project Card – hello from a dynamic block!', 'project-card' ); ?>
-</p>
+foreach ($block->inner_blocks as $inner_block) {
+	if (!empty($inner_block->inner_content) && is_array($inner_block->inner_content)) {
+		echo '<div>' . $inner_block->inner_content[0] . '</div>';
+	} else {
+		echo '<div>' . $inner_block->attributes['label'] . '</div>';
+	}
+}

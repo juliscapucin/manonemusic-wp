@@ -5,11 +5,17 @@
   "version": "0.1.0",
   "title": "Project Card",
   "category": "design",
-  "icon": "card",
+  "icon": "dashicons-images-alt",
   "description": "Cards for Projects page",
   "example": {},
   "supports": {
     "html": false
+  },
+  "attributes": {
+    "link": {
+      "type": "string",
+      "default": "#"
+    }
   },
   "textdomain": "project-card",
   "editorScript": "file:./index.js",

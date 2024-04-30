@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "card-label/card-label",
+  "name": "manonemusic/card-label",
   "version": "0.1.0",
   "title": "Card Label",
   "category": "text",
@@ -10,6 +10,12 @@
   "example": {},
   "supports": {
     "html": false
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Label"
+    }
   },
   "textdomain": "card-label",
   "editorScript": "file:./index.js",
