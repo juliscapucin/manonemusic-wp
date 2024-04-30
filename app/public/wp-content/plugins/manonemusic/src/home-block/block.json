@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "home-block/home-block",
+	"version": "0.1.0",
+	"title": "Home Block",
+	"category": "design",
+	"icon": "home",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"attributes": {
+		"slogan": {
+			"type": "string",
+			"default": "Music & Sound Design"
+		},
+		"paragraph": {
+			"type": "string",
+			"default": "Tailored sound design and audio identities that captures the spirit of your brand and resonate with your audience. Let's elevate your identity through sound."
+		},
+		"align": { "type": "string", "default": "full" }
+	},
+	"supports": { "align": ["full"] },
+	"textdomain": "home-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
