@@ -15,7 +15,7 @@ export default function Edit({ setAttributes, attributes }) {
 
 	return (
 		<div {...blockProps}>
-			<section className="min-w-screen h-screen min-h-svh">
+			<section className="min-w-screen h-screen min-h-svh p-8">
 				<RichText
 					tagName={"h1"}
 					className={"text-6xl w-3/4 md:w-1/4 mt-32 md:mt-4"}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> data-theme='dark'>
 
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
@@ -7,7 +7,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body class="h-svh min-h-svh bg-slate-300">
+<body class="h-svh min-h-svh bg-primary text-secondary">
   <header class="flex justify-between h-16">
     <h1 class=""><a href="<?php echo site_url() ?>">Man/One Music</a></h1>
     <span class="js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
