@@ -24,12 +24,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const CARD_TEMPLATE = [["core/image", {}], ["manonemusic/card-label", {
+  placeholder: "Project Title"
+}]];
 function Edit({
   attributes,
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)();
   const {
     linkObject
   } = attributes;
@@ -44,8 +46,9 @@ function Edit({
   }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...innerBlocksProps
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
+    template: CARD_TEMPLATE,
+    templateLock: "all"
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarGroup, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
     onClick: buttonHandler,
     icon: "admin-links"
@@ -136,12 +139,9 @@ function Save({
   attributes
 }) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
-  const innerBlocksProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps.save();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...innerBlocksProps
-  }));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks.Content, null));
 }
 
 /***/ }),
@@ -216,7 +216,7 @@ module.exports = window["wp"]["components"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"project-card/project-card","version":"0.1.0","title":"Project Card","category":"design","icon":"dashicons-images-alt","description":"Cards for Projects page","example":{},"supports":{"html":false},"attributes":{"linkObject":{"type":"object","default":{"url":"","opensInNewTab":false}}},"textdomain":"project-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"project-card/project-card","version":"0.1.0","title":"Project Card","category":"design","icon":"dashicons-images-alt","description":"Cards for Projects page","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"linkObject":{"type":"object","default":{"url":"","opensInNewTab":false}}},"textdomain":"project-card","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

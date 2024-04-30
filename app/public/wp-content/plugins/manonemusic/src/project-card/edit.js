@@ -2,6 +2,7 @@ import "./editor.scss";
 import {
 	useBlockProps,
 	useInnerBlocksProps,
+	InnerBlocks,
 	BlockControls,
 	__experimentalLinkControl as LinkControl,
 } from "@wordpress/block-editor";
@@ -14,9 +15,13 @@ import {
 } from "@wordpress/components";
 import { useState } from "react";
 
+const CARD_TEMPLATE = [
+	["core/image", {}],
+	["manonemusic/card-label", { placeholder: "Project Title" }],
+];
+
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
-	const innerBlocksProps = useInnerBlocksProps();
 	const { linkObject } = attributes;
 
 	const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false);
@@ -31,7 +36,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<div {...blockProps}>
-			<div {...innerBlocksProps} />
+			<InnerBlocks template={CARD_TEMPLATE} templateLock="all" />
 			<BlockControls>
 				<ToolbarGroup>
 					<ToolbarButton onClick={buttonHandler} icon="admin-links" />

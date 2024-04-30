@@ -9,7 +9,11 @@
   "description": "Cards for Projects page",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
   },
   "attributes": {
     "linkObject": {
