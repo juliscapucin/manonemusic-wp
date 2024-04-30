@@ -12,9 +12,12 @@
     "html": false
   },
   "attributes": {
-    "link": {
-      "type": "string",
-      "default": "#"
+    "linkObject": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "opensInNewTab": false
+      }
     }
   },
   "textdomain": "project-card",

@@ -1,45 +1,61 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
-import { __ } from "@wordpress/i18n";
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
+import "./editor.scss";
 import {
-	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
+	BlockControls,
+	__experimentalLinkControl as LinkControl,
 } from "@wordpress/block-editor";
+import {
+	ToolbarGroup,
+	ToolbarButton,
+	Popover,
+	Button,
+	ToggleControl,
+} from "@wordpress/components";
+import { useState } from "react";
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-import "./editor.scss";
-
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {Element} Element to render.
- */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps();
+	const { linkObject } = attributes;
+
+	const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false);
+
+	function buttonHandler() {
+		setIsLinkPickerVisible((prev) => !prev);
+	}
+
+	function handleLinkChange(newLink) {
+		setAttributes({ linkObject: newLink });
+	}
 
 	return (
 		<div {...blockProps}>
 			<div {...innerBlocksProps} />
+			<BlockControls>
+				<ToolbarGroup>
+					<ToolbarButton onClick={buttonHandler} icon="admin-links" />
+				</ToolbarGroup>
+			</BlockControls>
+			{isLinkPickerVisible && (
+				<Popover
+					position="bottom-start"
+					onFocusOutside={() => setIsLinkPickerVisible(false)}
+				>
+					<LinkControl
+						settings={[]}
+						value={linkObject}
+						onChange={handleLinkChange}
+					/>
+					<Button
+						variant="primary"
+						onClick={() => setIsLinkPickerVisible(false)}
+						style={{ display: "block", width: "100%" }}
+					>
+						Close Link Picker
+					</Button>
+				</Popover>
+			)}
 		</div>
 	);
 }
