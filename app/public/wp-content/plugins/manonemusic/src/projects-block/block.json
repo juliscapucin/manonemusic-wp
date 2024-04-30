@@ -6,10 +6,22 @@
 	"title": "Projects Block",
 	"category": "design",
 	"icon": "project",
-	"description": "Block container for Projects Page",
+	"description": "Block for Projects Page",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"align": ["full", "wide"]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Projects"
+		},
+		"paragraph": {
+			"type": "string",
+			"default": "Projects that I have worked on."
+		},
+		"align": { "type": "string", "default": "full" }
 	},
 	"textdomain": "projects-block",
 	"editorScript": "file:./index.js",

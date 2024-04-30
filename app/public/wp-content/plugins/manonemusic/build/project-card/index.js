@@ -331,7 +331,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"project-card/index": 0,
-/******/ 			"card-label/style-index": 0,
+/******/ 			"about-block/style-index": 0,
 /******/ 			"project-card/style-index": 0
 /******/ 		};
 /******/ 		
@@ -382,7 +382,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["card-label/style-index","project-card/style-index"], () => (__webpack_require__("./src/project-card/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["about-block/style-index","project-card/style-index"], () => (__webpack_require__("./src/project-card/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

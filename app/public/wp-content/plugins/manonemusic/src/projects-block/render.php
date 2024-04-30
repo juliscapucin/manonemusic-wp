@@ -1,8 +1,8 @@
-<?php
-/**
- * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
- */
-?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
-	<?php esc_html_e( 'Projects Block – hello from a dynamic block!', 'projects-block' ); ?>
-</p>
+<section class="min-w-screen h-screen min-h-svh" <?php echo get_block_wrapper_attributes(); ?>>
+	<div class="flex mt-48 w-screen pr-16">
+		<h1 class="text-6xl w-3/4 md:w-1/4 mt-32 md:mt-4">
+			<?php echo esc_html($attributes['title']); ?>
+		</h1>
+	</div>
+	<p class="w-3/4 md:w-1/4 mt-32 md:mt-4"><?php echo esc_html($attributes['paragraph']); ?></p>
+</section>
