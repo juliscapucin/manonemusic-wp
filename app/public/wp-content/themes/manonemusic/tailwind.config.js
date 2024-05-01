@@ -7,6 +7,10 @@ module.exports = {
 		"../../../../../app/**/*.{html,js}",
 	],
 	theme: {
+		fontFamily: {
+			primary: ["var(--font-primary)"],
+			secondary: ["var(--font-secondary)"],
+		},
 		colors: {
 			primary: "rgb(var(--color-primary) / <alpha-value>)",
 			secondary: "rgb(var(--color-secondary) / <alpha-value>)",

@@ -455,6 +455,8 @@ video {
 }
 
 :root {
+  --font-primary: "PPSupplyMono", monospace;
+  --font-secondary: "ff-real-text-pro", sans-serif;
   --color-primary: 30 30 30;
   --color-secondary: 40 209 194;
   --color-secondary-rgb: 182, 209, 194;
@@ -2527,6 +2529,14 @@ body{
   vertical-align: super;
 }
 
+.font-primary{
+  font-family: var(--font-primary), monospace;
+}
+
+.font-secondary{
+  font-family: var(--font-secondary), sans-serif;
+}
+
 .text-3xl{
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -3063,7 +3073,18 @@ body{
   xml: lang;
 }
 
+@font-face {
+  font-family: "PPSupplyMono";
+
+  src: url("./assets/fonts/PPSupplyMono-Regular.otf") format("opentype");
+
+  font-weight: normal;
+
+  font-style: normal;
+}
+
 :root {
+  --font-primary: "PPSupplyMono", monospace;
   --font-secondary: "ff-real-text-pro", sans-serif;
 }
 

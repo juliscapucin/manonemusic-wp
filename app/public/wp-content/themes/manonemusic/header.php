@@ -7,15 +7,15 @@
   <?php wp_head(); ?>
 </head>
 
-<body class="h-svh min-h-svh bg-primary text-secondary">
+<body class="h-svh min-h-svh bg-primary text-secondary font-secondary">
   <header class="flex justify-between h-16">
-    <h1 class=""><a href="<?php echo site_url() ?>">Man/One Music</a></h1>
+    <h1 class="font-primary uppercase"><a href="<?php echo site_url() ?>">Man/One Music</a></h1>
     <span class="js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
     <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
     <nav class="flex">
       <?php wp_nav_menu(array(
         'theme_location' => 'headerMenu',
         'container' => false,
-        'menu_class' => 'flex gap-4'
+        'menu_class' => 'flex gap-4 uppercase font-primary',
       )) ?>
   </header>
