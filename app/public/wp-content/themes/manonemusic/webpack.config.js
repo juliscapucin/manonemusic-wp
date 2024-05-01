@@ -13,6 +13,11 @@ module.exports = {
 	...{
 		entry: {
 			index: path.resolve(process.cwd(), "src", "index.js"),
+			"assets/fonts": path.resolve(
+				process.cwd(),
+				"src/assets/fonts",
+				"fonts.scss"
+			),
 		},
 	},
 }

@@ -3085,21 +3085,6 @@ body{
   xml: lang;
 }
 
-@font-face {
-  font-family: "PPSupplyMono";
-
-  src: url("./assets/fonts/PPSupplyMono-Regular.otf") format("opentype");
-
-  font-weight: normal;
-
-  font-style: normal;
-}
-
-:root {
-  --font-primary: "PPSupplyMono", monospace;
-  --font-secondary: "ff-real-text-pro", sans-serif;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;

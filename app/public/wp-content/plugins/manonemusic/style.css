@@ -10,21 +10,8 @@ Version: 2024
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-	font-family: "PPSupplyMono";
-	src: url("./assets/fonts/PPSupplyMono-Regular.otf") format("opentype");
-	font-weight: normal;
-	font-style: normal;
-}
-
-:root {
-	--font-primary: "PPSupplyMono", monospace;
-	--font-secondary: "ff-real-text-pro", sans-serif;
-}
-
 @layer base {
 	:root {
-		--font-primary: "PPSupplyMono", monospace;
 		--font-secondary: "ff-real-text-pro", sans-serif;
 		--color-primary: 30 30 30;
 		--color-secondary: 40 209 194;
