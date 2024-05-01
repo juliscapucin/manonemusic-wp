@@ -1,4 +1,4 @@
-<section class="min-w-screen h-screen min-h-svh p-8" <?php echo get_block_wrapper_attributes(); ?>>
+<section class="min-w-screen h-screen min-h-svh p-8 text-secondary" <?php echo get_block_wrapper_attributes(); ?>>
 	<p class="w-3/4 md:w-1/4 mt-32 md:mt-4"><?php echo esc_html($attributes['paragraph']); ?></p>
 	<?php
 	foreach ($block->inner_blocks as $inner_block) {

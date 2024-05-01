@@ -1140,6 +1140,10 @@ body{
   height: 0.25rem;
 }
 
+.h-12{
+  height: 3rem;
+}
+
 .h-16{
   height: 4rem;
 }
@@ -1162,18 +1166,6 @@ body{
 
 .h-svh{
   height: 100svh;
-}
-
-.h-full{
-  height: 100%;
-}
-
-.h-8{
-  height: 2rem;
-}
-
-.h-12{
-  height: 3rem;
 }
 
 .min-h-svh{
@@ -1207,10 +1199,6 @@ body{
 
 .w-screen{
   width: 100vw;
-}
-
-.w-full{
-  width: 100%;
 }
 
 .min-w-full{
@@ -2204,22 +2192,13 @@ body{
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-faded-10{
+  background-color: rgba(var(--color-secondary-rgb), 0.1);
+}
+
 .bg-primary{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
-}
-
-.bg-secondary{
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
-}
-
-.bg-faded-30{
-  background-color: rgba(var(--color-secondary-rgb), 0.3);
-}
-
-.bg-faded-10{
-  background-color: rgba(var(--color-secondary-rgb), 0.1);
 }
 
 .decoration-slice{
@@ -2586,15 +2565,6 @@ body{
   line-height: 1;
 }
 
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.text-\[2px\]{
-  font-size: 2px;
-}
-
 .font-bold{
   font-weight: 700;
 }
@@ -2720,10 +2690,6 @@ body{
 .subpixel-antialiased{
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
-}
-
-.opacity-40{
-  opacity: 0.4;
 }
 
 .opacity-30{
