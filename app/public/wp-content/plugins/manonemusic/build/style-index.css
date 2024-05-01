@@ -455,7 +455,7 @@ video {
 }
 
 :root {
-  --font-primary: "PPSupplyMono", monospace;
+  /* --font-primary: "PPSupplyMono", monospace; */
   --font-secondary: "ff-real-text-pro", sans-serif;
   --color-primary: 30 30 30;
   --color-secondary: 40 209 194;

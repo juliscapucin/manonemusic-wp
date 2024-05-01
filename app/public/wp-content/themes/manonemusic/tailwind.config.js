@@ -8,7 +8,7 @@ module.exports = {
 	],
 	theme: {
 		fontFamily: {
-			primary: ["PPSupplyMono", "monospace"],
+			primary: ["var(--font-primary)"],
 			secondary: ["var(--font-secondary)"],
 		},
 		colors: {
