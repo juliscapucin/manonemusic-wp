@@ -20,6 +20,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const TEMPLATE = [["manonemusic/custom-heading", {
+  placeholder: "Insert Your Title Here"
+}], ["manonemusic/project-card", {
+  placeholder: "Project Card"
+}]];
 function Edit({
   setAttributes,
   attributes
@@ -37,8 +42,11 @@ function Edit({
   }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "min-w-screen h-screen min-h-svh p-8"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+    template: TEMPLATE,
+    templateLock: "all"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
+    className: "min-w-screen h-screen min-h-svh p-8 text-secondary"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     tagName: "h1",
     className: "text-6xl w-3/4 md:w-1/4 mt-32 md:mt-4",
@@ -162,7 +170,7 @@ module.exports = window["wp"]["blocks"];
   \***************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"projects-block/projects-block","version":"0.1.0","title":"Projects Block","category":"design","icon":"project","description":"Block for Projects Page","example":{},"supports":{"html":false,"align":["full","wide"]},"attributes":{"title":{"type":"string","default":"Projects"},"paragraph":{"type":"string","default":"Projects that I have worked on."},"align":{"type":"string","default":"full"}},"textdomain":"projects-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"projects-block/projects-block","version":"0.1.0","title":"Projects Block","category":"design","icon":"project","description":"Block for Projects Page","example":{},"supports":{"html":false,"align":["full","wide"]},"attributes":{"paragraph":{"type":"string","default":"Projects that I have worked on."},"align":{"type":"string","default":"full"}},"textdomain":"projects-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

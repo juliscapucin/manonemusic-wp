@@ -13,10 +13,6 @@
 		"align": ["full", "wide"]
 	},
 	"attributes": {
-		"title": {
-			"type": "string",
-			"default": "Projects"
-		},
 		"paragraph": {
 			"type": "string",
 			"default": "Projects that I have worked on."

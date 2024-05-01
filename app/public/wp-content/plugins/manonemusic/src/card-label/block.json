@@ -13,8 +13,7 @@
 	},
 	"attributes": {
 		"label": {
-			"type": "string",
-			"default": "Label"
+			"type": "string"
 		}
 	},
 	"textdomain": "card-label",

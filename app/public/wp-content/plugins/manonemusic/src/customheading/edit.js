@@ -1,38 +1,44 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
+import { ToolbarGroup, ToolbarButton } from "@wordpress/components";
+import { RichText, BlockControls } from "@wordpress/block-editor";
 
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
+import "./editor.scss";
 
-/**
- * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
- * Those files can contain any CSS code that gets applied to the editor.
- *
- * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
- */
-import './editor.scss';
+export default function Edit({ setAttributes, attributes }) {
+	function handleTextChange(x) {
+		setAttributes({ text: x });
+	}
 
-/**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
- *
- * @return {Element} Element to render.
- */
-export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Custom Heading – hello from the editor!', 'customheading' ) }
-		</p>
+		<>
+			<BlockControls>
+				<ToolbarGroup>
+					<ToolbarButton
+						icon="heading"
+						title="Heading"
+						isPressed={attributes.tag === "h1"}
+						onClick={() => setAttributes({ tag: "h1" })}
+					/>
+					<ToolbarButton
+						icon="heading"
+						title="Subheading"
+						isPressed={attributes.tag === "h2"}
+						onClick={() => setAttributes({ tag: "h2" })}
+					/>
+					<ToolbarButton
+						icon="heading"
+						title="Title"
+						isPressed={attributes.tag === "h3"}
+						onClick={() => setAttributes({ tag: "h3" })}
+					/>
+				</ToolbarGroup>
+			</BlockControls>
+			<RichText
+				tagName={attributes.tag}
+				className={`font-primary text-secondary uppercase ${attributes.size}`}
+				value={attributes.text}
+				onChange={handleTextChange}
+				placeholder="Enter your title here"
+			/>
+		</>
 	);
 }
