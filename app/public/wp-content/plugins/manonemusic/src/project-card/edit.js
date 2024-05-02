@@ -4,6 +4,7 @@ import {
 	useInnerBlocksProps,
 	InnerBlocks,
 	BlockControls,
+	InspectorControls,
 	__experimentalLinkControl as LinkControl,
 } from "@wordpress/block-editor";
 import {
@@ -13,6 +14,9 @@ import {
 	Button,
 	ToggleControl,
 	Placeholder,
+	Panel,
+	PanelBody,
+	PanelRow,
 } from "@wordpress/components";
 import { link } from "@wordpress/icons";
 import { useState } from "react";
@@ -42,6 +46,19 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<div {...blockProps}>
+			<InspectorControls>
+				<Panel>
+					<PanelBody title="Link Settings">
+						<PanelRow>
+							<LinkControl
+								settings={[]}
+								value={linkObject}
+								onChange={handleLinkChange}
+							/>
+						</PanelRow>
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
 			{isLinkPickerVisible ? (
 				<Popover
 					position="bottom-start"

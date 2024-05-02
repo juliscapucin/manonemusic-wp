@@ -38,7 +38,7 @@ function Edit({
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
-    className: "min-w-screen h-screen min-h-svh p-8"
+    className: "min-w-screen h-screen min-h-svh p-8 text-secondary"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     tagName: "h1",
     className: "text-6xl w-3/4 md:w-1/4 mt-32 md:mt-4",
