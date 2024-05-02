@@ -30,6 +30,9 @@ function Edit({
   attributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps, {
+    template: TEMPLATE
+  });
   function editTitle(x) {
     setAttributes({
       title: x
@@ -40,11 +43,15 @@ function Edit({
       paragraph: x
     });
   }
+
+  // console.log({ ...blockProps });
+  console.log("inner block", {
+    ...innerBlocksProps.children.props.template
+  });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...blockProps
+    ...innerBlocksProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
-    template: TEMPLATE,
-    templateLock: "all"
+    template: TEMPLATE
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     className: "min-w-screen h-screen min-h-svh p-8 text-secondary"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {

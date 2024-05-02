@@ -1,4 +1,9 @@
-import { RichText, useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import {
+	RichText,
+	useBlockProps,
+	InnerBlocks,
+	useInnerBlocksProps,
+} from "@wordpress/block-editor";
 
 import "./editor.scss";
 
@@ -9,6 +14,9 @@ const TEMPLATE = [
 
 export default function Edit({ setAttributes, attributes }) {
 	const blockProps = useBlockProps();
+	const innerBlocksProps = useInnerBlocksProps(blockProps, {
+		template: TEMPLATE,
+	});
 
 	function editTitle(x) {
 		setAttributes({ title: x });
@@ -18,9 +26,12 @@ export default function Edit({ setAttributes, attributes }) {
 		setAttributes({ paragraph: x });
 	}
 
+	// console.log({ ...blockProps });
+	console.log("inner block", { ...innerBlocksProps.children.props.template });
+
 	return (
-		<div {...blockProps}>
-			<InnerBlocks template={TEMPLATE} templateLock="all" />
+		<div {...innerBlocksProps}>
+			<InnerBlocks template={TEMPLATE} />
 			<section className="min-w-screen h-screen min-h-svh p-8 text-secondary">
 				<RichText
 					tagName={"p"}
