@@ -459,14 +459,14 @@ video {
   --font-secondary: "ff-real-text-pro", sans-serif;
   --color-primary: 30 30 30;
   --color-secondary: 40 209 194;
-  --color-secondary-rgb: 182, 209, 194;
+  --color-secondary-rgb: 40, 209, 194;
   --color-focus: 154, 152, 152;
 }
 
 :root[data-theme="dark"] {
   --color-primary: 30 30 30;
   --color-secondary: 40 209 194;
-  --color-secondary-rgb: 182, 209, 194;
+  --color-secondary-rgb: 40, 209, 194;
   --color-focus: 154, 152, 152;
 }
 
@@ -481,12 +481,9 @@ body{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
   padding: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-secondary) / var(--tw-text-opacity));
 }
-
-/* p {
-		@apply text-bodyLarge;
-		@apply mb-8;
-	} */
 
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
@@ -1160,12 +1157,20 @@ body{
   height: 1.5rem;
 }
 
+.h-\[500px\]{
+  height: 500px;
+}
+
 .h-screen{
   height: 100vh;
 }
 
 .h-svh{
   height: 100svh;
+}
+
+.max-h-svh{
+  max-height: 100svh;
 }
 
 .min-h-svh{
@@ -1199,10 +1204,6 @@ body{
 
 .w-screen{
   width: 100vw;
-}
-
-.min-w-full{
-  min-width: 100%;
 }
 
 .flex-shrink{
@@ -1430,6 +1431,11 @@ body{
        columns: 2;
 }
 
+.columns-12{
+  -moz-columns: 12;
+       columns: 12;
+}
+
 .break-before-auto{
   -moz-column-break-before: auto;
        break-before: auto;
@@ -1547,6 +1553,10 @@ body{
 
 .grid-flow-col-dense{
   grid-auto-flow: column dense;
+}
+
+.grid-cols-12{
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .flex-row{
@@ -1735,6 +1745,10 @@ body{
 
 .gap-4{
   gap: 1rem;
+}
+
+.gap-8{
+  gap: 2rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -3090,6 +3104,14 @@ body{
   xml: lang;
 }
 
+:root {
+  --font-secondary: "ff-real-text-pro", sans-serif;
+  --color-primary: 30 30 30;
+  --color-secondary: 40 209 194;
+  --color-secondary-rgb: 40, 209, 194;
+  --color-focus: 154, 152, 152;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -3101,7 +3123,12 @@ body {
   font-weight: 200;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.2s linear;
+  color: rgba(var(--color-secondary-rgb), 1);
 }
+
+/* p {
+	color: rgba(var(--color-secondary-rgb));
+} */
 
 @media (min-width: 640px){
   .sm\:container{

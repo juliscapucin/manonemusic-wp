@@ -1,4 +1,12 @@
 <?php
 get_header();
-releases(['page' => 'releases']);
+?>
+
+<main class='h-[500px] overflow-y-scroll'>
+   <?php
+   pageQuery(['page' => 'releases']);
+   ?>
+</main>
+
+<?php
 get_footer();

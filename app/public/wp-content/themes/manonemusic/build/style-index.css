@@ -1168,6 +1168,18 @@ body{
   height: 100svh;
 }
 
+.h-full{
+  height: 100%;
+}
+
+.h-\[500px\]{
+  height: 500px;
+}
+
+.max-h-svh{
+  max-height: 100svh;
+}
+
 .min-h-svh{
   min-height: 100svh;
 }
@@ -1430,6 +1442,11 @@ body{
        columns: 2;
 }
 
+.columns-12{
+  -moz-columns: 12;
+       columns: 12;
+}
+
 .break-before-auto{
   -moz-column-break-before: auto;
        break-before: auto;
@@ -1547,6 +1564,10 @@ body{
 
 .grid-flow-col-dense{
   grid-auto-flow: column dense;
+}
+
+.grid-cols-12{
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
 .flex-row{
@@ -1735,6 +1756,10 @@ body{
 
 .gap-4{
   gap: 1rem;
+}
+
+.gap-8{
+  gap: 2rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){

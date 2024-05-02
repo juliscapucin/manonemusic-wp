@@ -13,3 +13,9 @@ require_once $theme_dir . '/functions/repeatable-custom-types.php';
 // Require components
 require_once $theme_dir . '/components/releases.php';
 require_once $theme_dir . '/components/projects.php';
+
+// Require common functions
+require_once $theme_dir . '/functions/common.php';
+
+// Require styles
+require_once $theme_dir . '/functions/styles.php';

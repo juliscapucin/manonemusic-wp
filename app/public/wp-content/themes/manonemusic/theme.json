@@ -46,6 +46,33 @@
          "fontSizes": []
        }
    },
+   
+      "styles": {
+         "blocks": {
+            "core/button": {
+               "variations": {
+                  "outline": {
+                     "border": {
+                        "color": "var:preset|color|red",
+                        "radius": "0",
+                        "style": "solid",
+                        "width": "3px"
+                     },
+                     "shadow": "var:preset|shadow|outlined",
+                     "spacing": {
+                        "padding": {
+                           "top": "0.5rem",
+                           "bottom": "0.5rem",
+                           "left": "1.5rem",
+                           "right": "1.5rem"
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      },
+
    "customTemplates": [
 		{
 			"name": "page-no-title",

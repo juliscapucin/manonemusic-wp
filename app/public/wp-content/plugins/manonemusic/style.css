@@ -12,19 +12,27 @@ Version: 2024
 
 @import url("./src/assets/fonts/fonts.scss");
 
+:root {
+	--font-secondary: "ff-real-text-pro", sans-serif;
+	--color-primary: 30 30 30;
+	--color-secondary: 40 209 194;
+	--color-secondary-rgb: 40, 209, 194;
+	--color-focus: 154, 152, 152;
+}
+
 @layer base {
 	:root {
 		/* --font-primary: "PPSupplyMono", monospace; */
 		--font-secondary: "ff-real-text-pro", sans-serif;
 		--color-primary: 30 30 30;
 		--color-secondary: 40 209 194;
-		--color-secondary-rgb: 182, 209, 194;
+		--color-secondary-rgb: 40, 209, 194;
 		--color-focus: 154, 152, 152;
 	}
 	:root[data-theme="dark"] {
 		--color-primary: 30 30 30;
 		--color-secondary: 40 209 194;
-		--color-secondary-rgb: 182, 209, 194;
+		--color-secondary-rgb: 40, 209, 194;
 		--color-focus: 154, 152, 152;
 	}
 	:root[data-theme="light"] {
@@ -35,13 +43,8 @@ Version: 2024
 	}
 
 	body {
-		@apply bg-primary p-8;
+		@apply bg-primary p-8 text-secondary;
 	}
-
-	/* p {
-		@apply text-bodyLarge;
-		@apply mb-8;
-	} */
 }
 
 * {
@@ -55,4 +58,9 @@ body {
 	font-weight: 200;
 	-webkit-font-smoothing: antialiased;
 	transition: background-color 0.2s linear;
+	color: rgba(var(--color-secondary-rgb), 1);
 }
+
+/* p {
+	color: rgba(var(--color-secondary-rgb));
+} */
