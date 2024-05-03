@@ -60,7 +60,16 @@ body {
 	transition: background-color 0.2s linear;
 }
 
-.is-style-juli a,
-.is-style-juli > * {
+/* CUSTOM CORE BLOCK STYLES */
+.is-style-button-manonemusic a,
+.is-style-button-manonemusic > * {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}
+
+p {
+	@apply text-secondary font-secondary;
+}
+
+.wp-element-button {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;
 }

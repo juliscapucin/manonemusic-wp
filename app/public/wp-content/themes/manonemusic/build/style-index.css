@@ -970,8 +970,26 @@ body {
   transition: background-color 0.2s linear;
 }
 
-.is-style-juli a,
-.is-style-juli > *{
+/* CUSTOM CORE BLOCK STYLES */
+
+.is-style-button-manonemusic a,
+.is-style-button-manonemusic > *{
+  border-radius: 0px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-primary) / var(--tw-text-opacity));
+}
+
+p{
+  font-family: var(--font-secondary);
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-secondary) / var(--tw-text-opacity));
+}
+
+.wp-element-button{
   border-radius: 0px;
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));

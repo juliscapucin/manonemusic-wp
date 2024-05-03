@@ -25,11 +25,6 @@ function manonemusic_block_styles()
       'label'        => __('Theme Button', 'themeslug'),
       'isDefault'    => true,
    ));
-   register_block_style('core/button', array(
-      'name'         => 'juli',
-      'label'        => __('Juli Test', 'themeslug'),
-      'isDefault'    => true,
-   ));
 }
 
 add_action('init', 'manonemusic_block_styles');
