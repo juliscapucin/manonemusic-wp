@@ -462,6 +462,12 @@ video {
   --color-secondary: 40 209 194;
   --color-secondary-rgb: 40, 209, 194;
   --color-focus: 154, 152, 152;
+  --margin-mobile: 1rem;
+  --margin-desktop: 2rem;
+  --padding-mobile: 1rem;
+  --padding-desktop: 2rem;
+  --container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
+  --container-width-desktop: calc(100vw - var(--padding-desktop) * 2);
 }
 
 :root[data-theme="dark"] {
@@ -1000,13 +1006,6 @@ li,
   hostname: port !important;
 }
 
-:root {
-  --color-primary: 30 30 30;
-  --color-secondary: 40 209 194;
-  --color-secondary-rgb: 182, 209, 194;
-  --color-focus: 154, 152, 152;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -1062,19 +1061,18 @@ body {
   position: relative;
   margin: auto;
   min-height: 100svh;
-  width: 100vw;
+  width: var(--container-width-desktop);
   max-width: 1920px;
 }
 
 .is-style-group-full{
   position: relative;
-  width: 100vw;
+  width: var(--container-width-desktop);
   max-width: 1920px;
 }
 
 .is-style-group-section{
-  width: 100vw;
-  min-width: 100vw;
+  width: var(--container-width-desktop);
   max-width: 1920px;
   padding: 2rem;
 }
@@ -1084,7 +1082,7 @@ body {
 .is-style-home-heading{
   position: absolute;
   top: 0px;
-  width: 100vw;
+  width: var(--container-width-desktop);
   max-width: 1920px;
 }
 
@@ -1099,7 +1097,7 @@ body {
   position: relative;
   display: flex;
   min-height: 100svh;
-  width: 100vw;
+  width: var(--container-width-desktop);
   max-width: 1920px;
 }
 
