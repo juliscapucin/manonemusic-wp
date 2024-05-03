@@ -20,6 +20,16 @@ function manonemusic_block_styles()
 			border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
 		}'
    ));
+   register_block_style('core/button', array(
+      'name'         => 'button-manonemusic',
+      'label'        => __('Theme Button', 'themeslug'),
+      'isDefault'    => true,
+   ));
+   register_block_style('core/button', array(
+      'name'         => 'juli',
+      'label'        => __('Juli Test', 'themeslug'),
+      'isDefault'    => true,
+   ));
 }
 
 add_action('init', 'manonemusic_block_styles');

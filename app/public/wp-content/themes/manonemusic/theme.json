@@ -2,77 +2,33 @@
    "$schema": "https://schemas.wp.org/trunk/theme.json",
    "version": 3,
    "settings": {
-      "color": {
-         "background": true,
-         "text": false,
-         "link": false,
-         "custom": false,
-         "defaultPalette": false,
-         "duotone": [],
-         "customDuotone": false,
-         "gradients": [],
-         "customGradient": false,
-         "palette": [
-            {
-               "slug": "primary",
-               "color": "#FF0000", 
-               "name": "Primary"
+      "blocks": {
+         "core/button": {
+            "color": {
+               "background": false,
+               "text": false,
+               "defaultPalette": false
             },
-            {
-               "slug": "secondary",
-               "color": "#00FF00",
-               "name": "Secondary"
+            "border": {
+               "radius": false,
+               "width": false
             },
-            {
-               "slug": "tertiary",
-               "color": "#0000FF",
-               "name": "Tertiary"
-            }  
-         ]
-      },
-      "layout": {
-         "contentSize": "840px"
-      },
-      "typography": {
-         "fontFamilies": [],
-         "fontStyle": false,
-         "fontWeight": false,
-         "letterSpacing": false,
-         "textDecoration": false,
-         "lineHeight": false,
-         "textTransform": false,
-         "dropCap": false,
-         "customFontSize": false,
-         "fontSizes": []
-       }
-   },
-   
-      "styles": {
-         "blocks": {
-            "core/button": {
-               "variations": {
-                  "outline": {
-                     "border": {
-                        "color": "var:preset|color|red",
-                        "radius": "0",
-                        "style": "solid",
-                        "width": "3px"
-                     },
-                     "shadow": "var:preset|shadow|outlined",
-                     "spacing": {
-                        "padding": {
-                           "top": "0.5rem",
-                           "bottom": "0.5rem",
-                           "left": "1.5rem",
-                           "right": "1.5rem"
-                        }
-                     }
-                  }
-               }
+            "typography": {
+               "fontSizes": [],
+               "customFontSize": false,
+               "lineHeight": false,
+               "letterSpacing": false
+            },
+            "shadow": {
+               "defaultPresets": false
             }
          }
-      },
-
+      }
+   },
+   "styles": {
+      "blocks": { 
+      }
+   },
    "customTemplates": [
 		{
 			"name": "page-no-title",
