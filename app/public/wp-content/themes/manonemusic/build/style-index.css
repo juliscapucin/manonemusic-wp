@@ -484,7 +484,6 @@ body{
   overflow-x: scroll;
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
-  padding: 2rem;
   font-family: var(--font-secondary);
 }
 
@@ -501,7 +500,7 @@ h1,
 }
 
 h1{
-  font-size: 3.75rem;
+  font-size: 6rem;
   line-height: 1;
 }
 
@@ -794,6 +793,10 @@ li,
   width: 75% !important;
 }
 
+.w-full{
+  width: 100% !important;
+}
+
 .w-screen{
   width: 100vw !important;
 }
@@ -877,6 +880,11 @@ li,
 
 .p-8{
   padding: 2rem !important;
+}
+
+.px-8{
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .pr-16{
@@ -1054,23 +1062,59 @@ body {
   position: relative;
   margin: auto;
   min-height: 100svh;
+  width: 100vw;
   max-width: 1920px;
 }
 
-/* // Columns // */
-
-.wp-block-columns{
-  min-height: 100svh;
-  justify-content: center;
-  gap: 0.25rem;
-}
-
-.wp-block-column{
+.is-style-group-full{
   position: relative;
+  width: 100vw;
+  max-width: 1920px;
 }
 
 .is-style-group-section{
+  width: 100vw;
   min-width: 100vw;
+  max-width: 1920px;
+  padding: 2rem;
+}
+
+/* class applied in the editor */
+
+.is-style-home-heading{
+  position: absolute;
+  top: 0px;
+  width: 100vw;
+  max-width: 1920px;
+}
+
+.is-style-logo-huge{
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(2rem, 12vw, 15.3rem);
+}
+
+.is-style-columns-full{
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  width: 100vw;
+  max-width: 1920px;
+}
+
+.is-style-columns-full p{
+  width: 50%;
+}
+
+.is-style-column-full{
+  position: relative;
+  display: flex;
+  min-height: 100%;
+  flex: 1 1 0%;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(var(--color-secondary-rgb), 0.05);
 }
 
 .is-style-button-manonemusic a,

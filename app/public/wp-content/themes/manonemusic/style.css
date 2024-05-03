@@ -43,7 +43,7 @@ Version: 2024
 	}
 
 	body {
-		@apply font-secondary bg-primary p-8 min-h-svh relative overflow-x-scroll;
+		@apply font-secondary bg-primary min-h-svh relative overflow-x-scroll;
 	}
 
 	h1,
@@ -56,7 +56,7 @@ Version: 2024
 	}
 
 	h1 {
-		@apply text-6xl;
+		@apply text-8xl;
 	}
 
 	cite {
@@ -105,20 +105,37 @@ body {
 .container,
 .is-root-container,
 .generic-content {
-	@apply min-h-svh max-w-wide m-auto relative;
+	@apply min-h-svh w-screen max-w-wide m-auto relative;
 }
 
-/* // Columns // */
-.wp-block-columns {
-	@apply min-h-svh gap-1 justify-center;
-}
-
-.wp-block-column {
-	@apply relative;
+.is-style-group-full {
+	@apply relative w-screen max-w-wide;
 }
 
 .is-style-group-section {
-	@apply min-w-screen;
+	@apply min-w-screen w-screen max-w-wide p-8;
+}
+
+/* class applied in the editor */
+.is-style-home-heading {
+	@apply absolute top-0 w-screen max-w-wide;
+}
+
+.is-style-logo-huge {
+	@apply block w-full text-center;
+	font-size: clamp(2rem, 12vw, 15.3rem);
+}
+
+.is-style-columns-full {
+	@apply relative min-h-svh w-screen max-w-wide flex;
+}
+
+.is-style-columns-full p {
+	@apply w-1/2;
+}
+
+.is-style-column-full {
+	@apply min-h-full flex-1 relative flex flex-col justify-between bg-faded-5;
 }
 
 .is-style-button-manonemusic a,

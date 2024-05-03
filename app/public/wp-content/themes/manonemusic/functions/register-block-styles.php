@@ -17,16 +17,24 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
+      'core/columns',
+      array(
+         'name'         => 'columns-full',
+         'label'        => 'Columns Full',
+      ),
+   );
+   register_block_style(
+      'core/column',
+      array(
+         'name'         => 'column-full',
+         'label'        => 'Column Full',
+      ),
+   );
+   register_block_style(
       'core/heading',
       array(
          'name'         => 'logo-huge',
          'label'        => 'Logo Huge',
-         'inline_style' => '.is-style-logo-huge { 
-            display: block;
-            width: 100%;
-            font-size: 10.4vw;
-            text-align: center; 
-         }',
       ),
    );
    register_block_style('core/button', array(
