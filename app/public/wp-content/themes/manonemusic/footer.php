@@ -1,4 +1,4 @@
-<footer class="site-footer">
+<!-- <footer class="site-footer">
   <div class="site-footer__col-one">
     <span class=""><a href="<?php echo site_url() ?>"><?php bloginfo('name'); ?></a></span>
   </div>
@@ -9,7 +9,7 @@
     ));
     ?>
   </nav>
-</footer>
+</footer> -->
 <?php wp_footer(); ?>
 </body>
 

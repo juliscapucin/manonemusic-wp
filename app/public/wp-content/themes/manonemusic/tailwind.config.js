@@ -17,7 +17,14 @@ module.exports = {
 			"faded-30": "rgba(var(--color-secondary-rgb), 0.3)",
 			"faded-70": "rgba(var(--color-secondary-rgb), 0.7)",
 		},
-		extend: {},
+		extend: {
+			maxWidth: {
+				wide: "1920px",
+			},
+			minWidth: {
+				screen: "100vw",
+			},
+		},
 	},
 	plugins: [],
 }

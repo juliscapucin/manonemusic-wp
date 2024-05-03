@@ -3,11 +3,17 @@
 function manonemusic_block_styles()
 {
    register_block_style(
-      'core/columns',
+      'core/group',
       array(
-         'name'         => 'default',
-         'label'        => 'Default',
-         'isDefault'    => true,
+         'name'         => 'group-full',
+         'label'        => 'Group Full',
+      ),
+   );
+   register_block_style(
+      'core/group',
+      array(
+         'name'         => 'group-section',
+         'label'        => 'Group Section',
       ),
    );
    register_block_style(
@@ -15,19 +21,14 @@ function manonemusic_block_styles()
       array(
          'name'         => 'logo-huge',
          'label'        => 'Logo Huge',
-         'inline_style' => '.is-style-logo-huge { font-size: 120px; }',
+         'inline_style' => '.is-style-logo-huge { 
+            display: block;
+            width: 100%;
+            font-size: 10.4vw;
+            text-align: center; 
+         }',
       ),
    );
-   register_block_style('core/image', array(
-      'name'         => 'hand-drawn',
-      'label'        => __('Hand Drawn', 'themeslug'),
-      'inline_style' => '.wp-block-image.is-style-hand-drawn img {
-			border: 2px solid currentColor;
-			overflow: hidden;
-			box-shadow: 0 4px  10px 0 rgba( 0, 0, 0, 0.3 );
-			border-radius: 255px 15px 225px 15px/15px 225px 15px 255px !important;
-		}'
-   ));
    register_block_style('core/button', array(
       'name'         => 'button-manonemusic',
       'label'        => __('Theme Button', 'themeslug'),
