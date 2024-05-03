@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "projects-block/projects-block",
+	"version": "0.1.0",
+	"title": "Projects Block",
+	"category": "design",
+	"icon": "project",
+	"description": "Block for Projects Page",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["full", "wide"]
+	},
+	"attributes": {
+		"paragraph": {
+			"type": "string",
+			"default": "Projects that I have worked on."
+		},
+		"align": { "type": "string", "default": "full" }
+	},
+	"textdomain": "projects-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

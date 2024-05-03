@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "manonemucic/about-block",
+	"version": "0.1.0",
+	"title": "About Block",
+	"category": "design",
+	"icon": "about",
+	"description": "Block for About Page",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["full", "wide"]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "About"
+		},
+		"paragraph": {
+			"type": "string",
+			"default": "Man One Music and lead composer Matt Rudge specialise in original music and sound for film, television, games, apps, commercial and web projects. Working closely with producers, directors and agencies worldwide, we pride ourselves in delivering high quality compositions to fit any time frame and budget."
+		},
+		"align": { "type": "string", "default": "full" }
+	},
+	"textdomain": "about-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

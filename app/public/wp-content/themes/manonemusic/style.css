@@ -4,6 +4,140 @@ Author: Juli Scapucin
 Version: 2024
 */
 
+@import url("https://use.typekit.net/cbg5juo.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("./assets/fonts.css");
+
+@layer base {
+	:root {
+		--font-primary: "PPSupplyMono", monospace;
+		--font-secondary: "ff-real-text-pro", sans-serif;
+		--color-primary: 30 30 30;
+		--color-primary-rgb: 30, 30, 30;
+		--color-secondary: 40 209 194;
+		--color-secondary-rgb: 40, 209, 194;
+		--color-focus: 154, 152, 152;
+		--margin-mobile: 1rem;
+		--margin-desktop: 2rem;
+		--padding-mobile: 1rem;
+		--padding-desktop: 2rem;
+		--container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
+		--container-width-desktop: calc(100vw - var(--padding-desktop) * 2);
+	}
+	:root[data-theme="dark"] {
+		--color-primary: 30 30 30;
+		--color-secondary: 40 209 194;
+		--color-secondary-rgb: 40, 209, 194;
+		--color-focus: 154, 152, 152;
+	}
+	:root[data-theme="light"] {
+		--color-primary: 249 246 238;
+		--color-secondary: 18 12 15;
+		--color-secondary-rgb: 18, 12, 15;
+		--color-focus: 154, 152, 152;
+	}
+
+	body {
+		@apply font-secondary bg-primary min-h-svh relative overflow-x-scroll;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-secondary font-primary uppercase;
+	}
+
+	h1 {
+		@apply text-8xl;
+	}
+
+	cite {
+		@apply text-secondary font-secondary not-italic;
+	}
+
+	li,
+	p {
+		@apply text-secondary font-secondary;
+	}
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	-webkit-font-smoothing: antialiased;
+	transition: background-color 0.2s linear;
+}
+
+/* CUSTOM CORE BLOCK STYLES */
+
+/* // NavLinks // */
+#menu-header-menu a {
+	@apply font-primary;
+}
+
+.wp-element-button {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}
+
+/* // Link // */
+.wp-block-read-more {
+	@apply uppercase text-secondary font-primary rounded-none;
+}
+
+.is-style-outline .wp-element-button {
+	@apply text-secondary font-primary rounded-none;
+}
+
+/* // Containers // */
+.container,
+.is-root-container,
+.generic-content {
+	@apply min-h-svh w-[--container-width-desktop] max-w-wide m-auto relative;
+}
+
+.is-style-group-full {
+	@apply relative w-[--container-width-desktop] max-w-wide;
+}
+
+.is-style-group-section {
+	@apply w-[--container-width-desktop] max-w-wide p-8;
+}
+
+/* class applied in the editor */
+.is-style-home-heading {
+	@apply absolute top-0 w-[--container-width-desktop] max-w-wide;
+}
+
+.is-style-logo-huge {
+	@apply block w-full text-center;
+	font-size: clamp(2rem, 12vw, 15.3rem);
+}
+
+.is-style-columns-full {
+	@apply relative min-h-svh w-[--container-width-desktop] max-w-wide flex;
+}
+
+.is-style-columns-full p {
+	@apply w-1/2;
+}
+
+.is-style-column-full {
+	@apply min-h-full flex-1 relative flex flex-col justify-between bg-faded-5;
+}
+
+.is-style-button-manonemusic a,
+.is-style-button-manonemusic > * {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}

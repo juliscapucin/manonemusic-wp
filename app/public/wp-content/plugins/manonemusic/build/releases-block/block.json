@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "manonemusic/releases-block",
+  "version": "0.1.0",
+  "title": "Releases Block",
+  "category": "design",
+  "icon": "releases",
+  "description": "Block for Releases Page",
+  "example": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Releases"
+    },
+    "paragraph": {
+      "type": "string",
+      "default": "IXA is Matt’s latest electronic music production project, pushing his unique electronic music around the world. His sound delves deep into a musical past rich in soulful, electronic influences with haunting vocal samples, deep, emotional synths and unrelenting beats featuring heavily in both IXA productions and DJ sets. With performances alongside luminaries such as Pete Tong, Skream, Booka Shade, Sasha and festival appearances at ULTRA, Sonar, ALTN8 and Clockenflap the IXA musical adventure continues. New music out now on Purple Sun Records check out IXA music on Beatport and streaming everywhere."
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "supports": {
+    "align": [
+      "full"
+    ]
+  },
+  "textdomain": "releases-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

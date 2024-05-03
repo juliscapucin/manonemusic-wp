@@ -1,19 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "customheading/customheading",
+	"name": "manonemusic/custom-heading",
 	"version": "0.1.0",
 	"title": "Custom Heading",
 	"category": "text",
-	"icon": "smiley",
+	"icon": "heading",
 	"description": "Custom heading",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"textdomain": "customheading",
+	"attributes": {
+		 "text": { "type": "string" },
+		 "tag": { "type": "string", "default": "h1" }
+	},
+	"textdomain": "custom-heading",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
-	"viewScript": "file:./view.js"
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
 }

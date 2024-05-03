@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "manonemusic/project-card",
+  "version": "0.1.0",
+  "title": "Project Card",
+  "category": "design",
+  "icon": "dashicons-images-alt",
+  "description": "Cards for Projects page",
+  "example": {},
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "linkObject": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "opensInNewTab": false
+      }
+    }
+  },
+  "textdomain": "project-card",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
