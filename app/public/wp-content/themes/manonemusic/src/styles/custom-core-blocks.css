@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.is-style-button-manonemusic a,
+.is-style-button-manonemusic > * {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}
+
+p {
+	@apply text-secondary font-secondary;
+	/* color: white; */
+}
+
+.wp-element-button {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}

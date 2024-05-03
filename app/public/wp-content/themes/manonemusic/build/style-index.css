@@ -479,9 +479,38 @@ video {
 }
 
 body{
+  position: relative;
+  min-height: 100svh;
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
   padding: 2rem;
+  font-family: var(--font-secondary);
+}
+
+h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6{
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-secondary) / var(--tw-text-opacity));
+}
+
+cite{
+  font-family: var(--font-secondary);
+  font-style: normal;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-secondary) / var(--tw-text-opacity));
+}
+
+li,
+	p{
+  font-family: var(--font-secondary);
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-secondary) / var(--tw-text-opacity));
 }
 
 *, ::before, ::after{
@@ -965,7 +994,6 @@ body{
 
 html,
 body {
-  font-weight: 200;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.2s linear;
 }
@@ -983,10 +1011,10 @@ body {
   color: rgb(var(--color-primary) / var(--tw-text-opacity));
 }
 
-p{
-  font-family: var(--font-secondary);
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-secondary) / var(--tw-text-opacity));
+/* // NavLinks // */
+
+#menu-header-menu a{
+  font-family: var(--font-primary);
 }
 
 .wp-element-button{
@@ -997,6 +1025,44 @@ p{
   text-transform: uppercase;
   --tw-text-opacity: 1;
   color: rgb(var(--color-primary) / var(--tw-text-opacity));
+}
+
+/* // Link // */
+
+.wp-block-read-more{
+  border-radius: 0px;
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-secondary) / var(--tw-text-opacity));
+}
+
+.is-style-outline .wp-element-button{
+  border-radius: 0px;
+  font-family: var(--font-primary);
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-secondary) / var(--tw-text-opacity));
+}
+
+/* // Containers // */
+
+.container,
+.is-root-container,
+.generic-content{
+  position: relative;
+  min-height: 100svh;
+}
+
+/* // Columns // */
+
+.wp-block-columns{
+  min-height: 100svh;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.wp-block-column{
+  position: relative;
 }
 
 @media (min-width: 768px){

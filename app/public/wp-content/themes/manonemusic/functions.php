@@ -18,4 +18,4 @@ require_once $theme_dir . '/components/projects.php';
 require_once $theme_dir . '/functions/common.php';
 
 // Require styles
-require_once $theme_dir . '/functions/styles.php';
+require_once $theme_dir . '/functions/register-block-styles.php';

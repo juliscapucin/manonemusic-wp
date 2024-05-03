@@ -43,7 +43,25 @@ Version: 2024
 	}
 
 	body {
-		@apply bg-primary p-8;
+		@apply font-secondary bg-primary p-8 min-h-svh relative;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-secondary font-primary uppercase;
+	}
+
+	cite {
+		@apply text-secondary font-secondary not-italic;
+	}
+
+	li,
+	p {
+		@apply text-secondary font-secondary;
 	}
 }
 
@@ -55,7 +73,6 @@ Version: 2024
 
 html,
 body {
-	font-weight: 200;
 	-webkit-font-smoothing: antialiased;
 	transition: background-color 0.2s linear;
 }
@@ -66,10 +83,36 @@ body {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;
 }
 
-p {
-	@apply text-secondary font-secondary;
+/* // NavLinks // */
+#menu-header-menu a {
+	@apply font-primary;
 }
 
 .wp-element-button {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}
+
+/* // Link // */
+.wp-block-read-more {
+	@apply uppercase text-secondary font-primary rounded-none;
+}
+
+.is-style-outline .wp-element-button {
+	@apply text-secondary font-primary rounded-none;
+}
+
+/* // Containers // */
+.container,
+.is-root-container,
+.generic-content {
+	@apply min-h-svh relative;
+}
+
+/* // Columns // */
+.wp-block-columns {
+	@apply min-h-svh gap-1 justify-center;
+}
+
+.wp-block-column {
+	@apply relative;
 }

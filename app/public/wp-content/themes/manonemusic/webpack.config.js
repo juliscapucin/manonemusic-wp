@@ -18,6 +18,11 @@ module.exports = {
 				"src/assets/fonts",
 				"fonts.scss"
 			),
+			// "styles/custom-core-blocks": path.resolve(
+			// 	process.cwd(),
+			// 	"src/styles",
+			// 	"custom-core-blocks.css"
+			// ),
 		},
 	},
 }
