@@ -2,7 +2,7 @@
 module.exports = {
 	important: true,
 	mode: "jit",
-	content: ["../../../../../app/**/*.php", "../../../../../app/**/*.{js}"],
+	content: ["../../../../../app/**/*.php", "../../../../../app/**/*.{js, jsx}"],
 	theme: {
 		fontFamily: {
 			primary: ["var(--font-primary)"],

@@ -80,9 +80,20 @@ body {
 	transition: background-color 0.2s linear;
 }
 
-/* CUSTOM CORE BLOCK STYLES */
+/* ------------- */
+/* EDITOR STYLES */
+/* ------------- */
 
-/* // NavLinks // */
+/* hide title in editor */
+.editor-editor-canvas__post-title-wrapper {
+	display: none;
+}
+
+/* ------------------------ */
+/* CUSTOM CORE BLOCK STYLES */
+/* ------------------------ */
+
+/* NavLinks */
 #menu-header-menu a {
 	@apply font-primary;
 }
@@ -91,7 +102,7 @@ body {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;
 }
 
-/* // Link // */
+/* Link */
 .wp-block-read-more {
 	@apply uppercase text-secondary font-primary rounded-none;
 }
@@ -100,19 +111,19 @@ body {
 	@apply text-secondary font-primary rounded-none;
 }
 
-/* // Containers // */
+/* Containers */
 .container,
 .is-root-container,
 .generic-content {
-	@apply min-h-svh w-[--container-width-desktop] max-w-wide m-auto relative;
+	@apply min-h-svh h-svh w-[--container-width-desktop] max-w-wide relative overflow-y-clip;
 }
 
 .is-style-group-full {
-	@apply relative w-[--container-width-desktop] max-w-wide;
+	@apply relative h-full;
 }
 
 .is-style-group-section {
-	@apply w-[--container-width-desktop] max-w-wide p-8;
+	@apply relative h-full min-w-[--container-width-desktop] max-w-wide p-8;
 }
 
 /* class applied in the editor */
@@ -126,7 +137,7 @@ body {
 }
 
 .is-style-columns-full {
-	@apply relative min-h-svh w-[--container-width-desktop] max-w-wide flex;
+	@apply relative min-h-svh w-full flex;
 }
 
 .is-style-columns-full p {
