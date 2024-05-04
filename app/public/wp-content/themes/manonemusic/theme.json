@@ -2,7 +2,26 @@
    "$schema": "https://schemas.wp.org/trunk/theme.json",
    "version": 3,
    "settings": {
+      "color": {
+         "custom": false,
+         "background": false,
+         "text": false
+      },
+      "typography": {
+         "fontSizes": [],
+         "customFontSize": false,
+         "lineHeight": false,
+         "letterSpacing": false,
+         "textDecoration": false,
+         "textTransform": false,
+         "fontWeight": false
+      },
       "blocks": {
+         "core/heading": {
+            "typography": {
+               "textDecoration": false
+            }
+         },
          "core/button": {
             "color": {
                "background": false,
