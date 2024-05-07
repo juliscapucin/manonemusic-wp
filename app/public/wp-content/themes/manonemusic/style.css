@@ -151,7 +151,7 @@ body {
 }
 
 .is-style-columns-full {
-	@apply min-h-[--container-height-desktop] w-full flex;
+	@apply min-h-[--container-height-desktop] w-full;
 }
 
 .is-style-columns-full p {

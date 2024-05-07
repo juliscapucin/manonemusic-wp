@@ -1,29 +1,28 @@
 <?php
-$card_link = esc_url($attributes['linkObject']['url']);
-?>
+$card_link = $attributes['linkObject']['url']; ?>
 
-<div class="project-card">
+<a class="project-card relative block w-40 bg-red aspect-square" href="<?php echo esc_url($card_link) ?>">
 	<?php
+	// echo $content;
+
 	foreach ($block->inner_blocks as $inner_block) {
-		// Extract image and label
 		$inner_content = $inner_block->inner_content ?? [];
 		$label = $inner_block->attributes['label'] ?? '';
-
-		// Start the link element
-		echo '<a class="relative block w-80 aspect-square overflow-clip bg-red [&>img]:object-cover" href="' . $card_link . '">';
-
-		// Output the image if available
+	?>
+		<?php
+		// Check and render image (inner_content) if available
 		if (!empty($inner_content)) {
 			echo $inner_content[0];
 		}
 
-		// Output the label if available
+		// Check and render label if available
 		if (!empty($label)) {
-			echo '<span class="absolute bg-red uppercase w-auto p-2">' . esc_html($label) . '</span>';
+		?>
+			<span class="uppercase w-auto p-2"><?php echo esc_html($label) ?></span>
+		<?php
 		}
-
-		// End the link element
-		echo '</a>';
+		?>
+	<?php
 	}
 	?>
-</div>
+</a>

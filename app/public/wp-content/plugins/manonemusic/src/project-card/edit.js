@@ -5,6 +5,7 @@ import {
 	InnerBlocks,
 	BlockControls,
 	InspectorControls,
+	MediaPlaceholder,
 	__experimentalLinkControl as LinkControl,
 } from "@wordpress/block-editor";
 import {
@@ -81,6 +82,14 @@ export default function Edit({ attributes, setAttributes }) {
 				<MyPlaceholder />
 			)}
 			<div className="bg-faded-10">
+				{/* <MediaPlaceholder
+					onSelect={(image) => {
+						setAttributes({ image_url: image.url, image_id: image.id });
+					}}
+					allowedTypes={["image"]}
+					multiple={false}
+					labels={{ title: "CTA Image" }}
+				></MediaPlaceholder> */}
 				<InnerBlocks
 					template={CARD_TEMPLATE}
 					templateLock="all"
