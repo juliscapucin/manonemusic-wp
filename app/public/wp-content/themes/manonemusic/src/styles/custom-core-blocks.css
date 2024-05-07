@@ -1,20 +1,4 @@
-/* NavLinks */
-#menu-header-menu a {
-	@apply font-primary;
-}
-
-.wp-element-button {
-	@apply uppercase bg-secondary text-primary font-primary rounded-none;
-}
-
-/* Link */
-.wp-block-read-more {
-	@apply uppercase text-secondary font-primary rounded-none;
-}
-
-.is-style-outline .wp-element-button {
-	@apply text-secondary font-primary rounded-none;
-}
+@config "./tailwind.config.js";
 
 /* Containers */
 .container,
@@ -24,11 +8,11 @@
 }
 
 .is-style-group-full {
-	@apply @apply min-h-svh h-svh max-w-wide;
+	@apply min-h-svh h-svh max-w-wide;
 }
 
 .is-style-group-section {
-	@apply h-full min-w-[--container-width-desktop] p-8;
+	@apply h-full min-w-screen p-8;
 }
 
 /* class applied in the editor */

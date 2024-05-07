@@ -1,27 +1,38 @@
+@import url("https://use.typekit.net/cbg5juo.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://use.typekit.net/cbg5juo.css");
-
+/**
+ * This injects custom `@font-face` rules.
+ */
 @import "./assets/fonts.css";
 
+:root {
+	--font-primary: "PPSupplyMono", monospace;
+	--font-secondary: "ff-real-text-pro", sans-serif;
+	--color-primary: 30 30 30;
+	--color-primary-rgb: 30, 30, 30;
+	--color-secondary: 40 209 194;
+	--color-secondary-rgb: 40, 209, 194;
+	--color-focus: 154, 152, 152;
+	--header-height: 4rem;
+	--margin-mobile: 1rem;
+	--margin-desktop: 2rem;
+	--padding-mobile: 1rem;
+	--padding-desktop: 2rem;
+	--container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
+	--container-width-desktop: calc(100vw - var(--padding-desktop) * 2);
+	--container-height-mobile: calc(
+		100svh - var(--padding-mobile) - var(--header-height)
+	);
+	--container-height-desktop: calc(
+		100svh - var(--padding-desktop) - var(--header-height)
+	);
+}
+
 @layer base {
-	:root {
-		--font-primary: "PPSupplyMono", monospace;
-		--font-secondary: "ff-real-text-pro", sans-serif;
-		--color-primary: 30 30 30;
-		--color-primary-rgb: 30, 30, 30;
-		--color-secondary: 40 209 194;
-		--color-secondary-rgb: 40, 209, 194;
-		--color-focus: 154, 152, 152;
-		--margin-mobile: 1rem;
-		--margin-desktop: 2rem;
-		--padding-mobile: 1rem;
-		--padding-desktop: 2rem;
-		--container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
-		--container-width-desktop: calc(100vw - var(--padding-desktop) * 2);
-	}
 	:root[data-theme="dark"] {
 		--color-primary: 30 30 30;
 		--color-secondary: 40 209 194;
@@ -36,7 +47,15 @@
 	}
 
 	body {
-		@apply font-secondary bg-primary min-h-svh relative overflow-x-scroll;
+		@apply font-secondary bg-primary min-h-svh w-screen relative overflow-x-scroll;
+	}
+
+	header {
+		@apply fixed px-8 flex justify-between h-16 min-w-full max-w-wide;
+	}
+
+	main {
+		@apply relative min-h-svh w-full max-w-wide ml-0 mr-auto;
 	}
 
 	h1,
@@ -54,6 +73,10 @@
 
 	cite {
 		@apply text-secondary font-secondary not-italic;
+	}
+
+	a {
+		@apply font-primary text-secondary;
 	}
 
 	li,
@@ -83,6 +106,63 @@ body {
 	display: none;
 }
 
+.wp-element-button {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}
+
+/* Link */
+.wp-block-read-more {
+	@apply uppercase text-secondary font-primary rounded-none;
+}
+
+.is-style-outline .wp-element-button {
+	@apply text-secondary font-primary rounded-none;
+}
+
 /* ------------------------ */
 /* CUSTOM CORE BLOCK STYLES */
 /* ------------------------ */
+/* @import "./styles/custom-core-blocks.css"; */
+
+/* Containers admin */
+.container,
+.is-root-container,
+.generic-content {
+	@apply min-h-svh h-svh w-full max-w-wide;
+}
+
+.is-style-group-full {
+	@apply min-h-svh h-svh ml-0;
+}
+
+/* TODO: check why max-w is not being applied */
+.is-style-group-section {
+	@apply relative h-full min-w-[--container-width-desktop] w-[--container-width-desktop] max-w-wide p-8;
+}
+
+/* class applied in the editor */
+.is-style-home-heading {
+	@apply absolute top-0 w-full;
+}
+
+.is-style-logo-huge {
+	@apply block w-full text-center;
+	font-size: clamp(2rem, 12vw, 15.3rem);
+}
+
+.is-style-columns-full {
+	@apply min-h-[--container-height-desktop] w-full flex;
+}
+
+.is-style-columns-full p {
+	@apply pr-32;
+}
+
+.is-style-column-full {
+	@apply min-h-full flex-1 relative flex flex-col justify-between bg-faded-5;
+}
+
+.is-style-button-manonemusic a,
+.is-style-button-manonemusic > * {
+	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}

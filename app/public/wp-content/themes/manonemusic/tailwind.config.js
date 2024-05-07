@@ -1,10 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	mode: "jit",
-	content: [
-		"../../../../../app/**/*.php",
-		"../../../../../app/**/*.{js, jsx, css, scss}",
-	],
+	content: ["../manonemusic/**/*.php", "../manonemusic/**/*.{js}"],
 	theme: {
 		fontFamily: {
 			primary: ["var(--font-primary)"],
@@ -21,7 +18,7 @@ module.exports = {
 		},
 		extend: {
 			maxWidth: {
-				wide: "1920px",
+				wide: "1600px",
 			},
 			minWidth: {
 				screen: "100vw",
