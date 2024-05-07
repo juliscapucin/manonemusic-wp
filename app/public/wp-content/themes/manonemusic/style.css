@@ -1,16 +1,10 @@
-/* 
-Theme name: Man One Music
-Author: Juli Scapucin
-Version: 2024
-*/
-
 @import url("https://use.typekit.net/cbg5juo.css");
+
+@import url("./assets/fonts.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url("./assets/fonts.css");
 
 @layer base {
 	:root {
@@ -92,63 +86,3 @@ body {
 /* ------------------------ */
 /* CUSTOM CORE BLOCK STYLES */
 /* ------------------------ */
-
-/* NavLinks */
-#menu-header-menu a {
-	@apply font-primary;
-}
-
-.wp-element-button {
-	@apply uppercase bg-secondary text-primary font-primary rounded-none;
-}
-
-/* Link */
-.wp-block-read-more {
-	@apply uppercase text-secondary font-primary rounded-none;
-}
-
-.is-style-outline .wp-element-button {
-	@apply text-secondary font-primary rounded-none;
-}
-
-/* Containers */
-.container,
-.is-root-container,
-.generic-content {
-	@apply min-h-svh h-svh w-[--container-width-desktop] max-w-wide relative overflow-y-clip;
-}
-
-.is-style-group-full {
-	@apply relative h-full;
-}
-
-.is-style-group-section {
-	@apply relative h-full min-w-[--container-width-desktop] max-w-wide p-8;
-}
-
-/* class applied in the editor */
-.is-style-home-heading {
-	@apply absolute top-0 w-[--container-width-desktop] max-w-wide;
-}
-
-.is-style-logo-huge {
-	@apply block w-full text-center;
-	font-size: clamp(2rem, 12vw, 15.3rem);
-}
-
-.is-style-columns-full {
-	@apply relative min-h-svh w-full flex;
-}
-
-.is-style-columns-full p {
-	@apply w-1/2;
-}
-
-.is-style-column-full {
-	@apply min-h-full flex-1 relative flex flex-col justify-between bg-faded-5;
-}
-
-.is-style-button-manonemusic a,
-.is-style-button-manonemusic > * {
-	@apply uppercase bg-secondary text-primary font-primary rounded-none;
-}

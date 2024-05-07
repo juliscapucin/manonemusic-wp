@@ -16,7 +16,7 @@
          "defaultGradients": false,
          "palette": [
             {
-					"color": "#f9f9f9",
+					"color": "#CC0000",
 					"name": "Base",
 					"slug": "base"
 				},
