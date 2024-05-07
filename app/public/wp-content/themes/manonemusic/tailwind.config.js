@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	mode: "jit",
-	content: ["../../../../../app/**/*.php", "../../../../../app/**/*.{js, jsx}"],
+	content: [
+		"../../../../../app/**/*.php",
+		"../../../../../app/**/*.{js, jsx, css, scss}",
+	],
 	theme: {
 		fontFamily: {
 			primary: ["var(--font-primary)"],

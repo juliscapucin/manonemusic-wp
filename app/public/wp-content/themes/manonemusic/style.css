@@ -1,10 +1,10 @@
-@import url("https://use.typekit.net/cbg5juo.css");
-
-@import url("./assets/fonts.css");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://use.typekit.net/cbg5juo.css");
+
+@import "./assets/fonts.css";
 
 @layer base {
 	:root {

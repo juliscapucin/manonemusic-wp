@@ -21,7 +21,7 @@ module.exports = {
 			"styles/custom-core-blocks": path.resolve(
 				process.cwd(),
 				"src/styles",
-				"custom-core-blocks.scss"
+				"custom-core-blocks.css"
 			),
 		},
 	},
