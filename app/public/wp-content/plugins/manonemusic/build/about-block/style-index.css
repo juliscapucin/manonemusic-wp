@@ -16,6 +16,7 @@ Version: 2024
 @tailwind utilities;
 
 :root {
+	--font-primary: "PPSupplyMono", monospace;
 	--font-secondary: "ff-real-text-pro", sans-serif;
 	--color-primary: 30 30 30;
 	--color-secondary: 40 209 194;
@@ -24,14 +25,6 @@ Version: 2024
 }
 
 @layer base {
-	:root {
-		/* --font-primary: "PPSupplyMono", monospace; */
-		--font-secondary: "ff-real-text-pro", sans-serif;
-		--color-primary: 30 30 30;
-		--color-secondary: 40 209 194;
-		--color-secondary-rgb: 40, 209, 194;
-		--color-focus: 154, 152, 152;
-	}
 	:root[data-theme="dark"] {
 		--color-primary: 30 30 30;
 		--color-secondary: 40 209 194;
@@ -46,7 +39,7 @@ Version: 2024
 	}
 
 	body {
-		@apply bg-primary p-8 text-red;
+		@apply bg-secondary p-8 text-red;
 	}
 }
 
@@ -61,6 +54,10 @@ body {
 	font-weight: 200;
 	-webkit-font-smoothing: antialiased;
 	transition: background-color 0.2s linear;
+}
+
+.project-card {
+	@apply w-16 h-16;
 }
 
 /*!***************************************************************************************************************************************************************************************************************************************************!*\

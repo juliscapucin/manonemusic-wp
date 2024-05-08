@@ -38,7 +38,6 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const blockProps = useBlockProps();
 
-	// TODO: add code from this page: https://gutenberg.10up.com/training/inner-blocks
 	const innerBlocksProps = useInnerBlocksProps(
 		{},
 		{
@@ -93,7 +92,9 @@ export default function Edit({ attributes, setAttributes }) {
 			) : (
 				<MyPlaceholder />
 			)}
-			<div className="bg-faded-10" {...innerBlocksProps} />
+			<div className="w-64 h-64 mb-16">
+				<div {...innerBlocksProps} />
+			</div>
 			<BlockControls>
 				<ToolbarGroup>
 					<ToolbarButton onClick={buttonHandler} icon="admin-links" />

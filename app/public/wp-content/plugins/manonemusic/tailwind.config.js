@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ["../manonemusic/**/*.{js}", "../manonemusic/**/*.php"],
+	content: {
+		relative: true,
+		files: ["./../src/**/*.php"],
+	},
 	theme: {
 		fontFamily: {
 			primary: ["var(--font-primary)"],
