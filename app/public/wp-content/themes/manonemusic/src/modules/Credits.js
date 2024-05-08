@@ -14,7 +14,7 @@ class Credits {
 	}
 
 	addEvents() {
-		window.addEventListener("load", this.animate)
+		// window.addEventListener("load", this.animate)
 	}
 
 	removeEvents() {
