@@ -20,7 +20,7 @@ import {
 	PanelRow,
 } from "@wordpress/components";
 import { link } from "@wordpress/icons";
-import { useState } from "react";
+import { useState } from "@wordpress/element";
 
 const CARD_TEMPLATE = [
 	["core/image", {}],
@@ -32,10 +32,22 @@ const MyPlaceholder = () => (
 );
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps();
 	const { linkObject } = attributes;
 
 	const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false);
+
+	const blockProps = useBlockProps();
+
+	// TODO: add code from this page: https://gutenberg.10up.com/training/inner-blocks
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			template: [
+				["core/image", {}],
+				["manonemusic/card-label", { placeholder: "Enter Project Title" }],
+			],
+		},
+	);
 
 	function buttonHandler() {
 		setIsLinkPickerVisible((prev) => !prev);
@@ -81,21 +93,7 @@ export default function Edit({ attributes, setAttributes }) {
 			) : (
 				<MyPlaceholder />
 			)}
-			<div className="bg-faded-10">
-				{/* <MediaPlaceholder
-					onSelect={(image) => {
-						setAttributes({ image_url: image.url, image_id: image.id });
-					}}
-					allowedTypes={["image"]}
-					multiple={false}
-					labels={{ title: "CTA Image" }}
-				></MediaPlaceholder> */}
-				<InnerBlocks
-					template={CARD_TEMPLATE}
-					templateLock="all"
-					renderAppender={InnerBlocks.ButtonBlockAppender}
-				/>
-			</div>
+			<div className="bg-faded-10" {...innerBlocksProps} />
 			<BlockControls>
 				<ToolbarGroup>
 					<ToolbarButton onClick={buttonHandler} icon="admin-links" />

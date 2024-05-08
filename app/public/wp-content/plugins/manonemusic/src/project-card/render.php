@@ -7,11 +7,13 @@ $card_link = $attributes['linkObject']['url']; ?>
 
 	foreach ($block->inner_blocks as $inner_block) {
 		$inner_content = $inner_block->inner_content ?? [];
+		$url = $inner_block->name;
 		$label = $inner_block->attributes['label'] ?? '';
 	?>
+
 		<?php
 		// Check and render image (inner_content) if available
-		if (!empty($inner_content)) {
+		if ($inner_block->name === 'core/image' && !empty($inner_content[0])) {
 			echo $inner_content[0];
 		}
 
