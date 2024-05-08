@@ -10,7 +10,7 @@ Version: 2024
 @tailwind components;
 @tailwind utilities;
 
-@import url("./src/assets/fonts/fonts.scss");
+@import "./src/assets/fonts/fonts.scss";
 
 :root {
 	--font-secondary: "ff-real-text-pro", sans-serif;

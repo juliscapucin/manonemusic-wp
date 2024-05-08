@@ -20,7 +20,7 @@ import {
 	PanelRow,
 } from "@wordpress/components";
 import { link } from "@wordpress/icons";
-import { useState } from "@wordpress/element";
+import { useState } from "react";
 
 const CARD_TEMPLATE = [
 	["core/image", {}],
