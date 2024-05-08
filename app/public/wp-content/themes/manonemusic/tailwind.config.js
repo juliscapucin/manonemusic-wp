@@ -2,7 +2,8 @@
 module.exports = {
 	content: {
 		relative: true,
-		files: ["./../../**/*.php", "./../../**/*.js"],
+		// files: ["./../../**/*.php", "./../../**/*.js"],
+		files: ["./../../**/*.php"],
 	},
 	theme: {
 		fontFamily: {

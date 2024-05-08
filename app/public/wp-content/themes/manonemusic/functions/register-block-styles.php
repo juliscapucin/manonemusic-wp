@@ -17,6 +17,13 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
+      'core/group',
+      array(
+         'name'         => 'stack-scroll',
+         'label'        => 'Stack Scroll',
+      ),
+   );
+   register_block_style(
       'core/columns',
       array(
          'name'         => 'columns-full',
@@ -35,6 +42,13 @@ function manonemusic_block_styles()
       array(
          'name'         => 'logo-huge',
          'label'        => 'Logo Huge',
+      ),
+   );
+   register_block_style(
+      'core/image',
+      array(
+         'name'         => 'image-square',
+         'label'        => 'Image Square',
       ),
    );
    register_block_style('core/button', array(
