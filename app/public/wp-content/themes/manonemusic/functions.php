@@ -19,3 +19,6 @@ require_once $theme_dir . '/functions/common.php';
 
 // Require styles
 require_once $theme_dir . '/functions/register-block-styles.php';
+
+// Require GSAP files
+require_once $theme_dir . '/functions/gsap-enqueue.php';

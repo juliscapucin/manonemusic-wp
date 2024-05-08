@@ -17,6 +17,7 @@
     "tailwindcss": "^3.4.3"
   },
   "dependencies": {
-    "@wordpress/icons": "^9.47.0"
+    "@wordpress/icons": "^9.47.0",
+    "gsap": "^3.12.5"
   }
 }
