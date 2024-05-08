@@ -2,7 +2,50 @@
    "$schema": "https://schemas.wp.org/trunk/theme.json",
    "version": 3,
    "settings": {
+      "appearanceTools": false,
+      "color": {
+         "custom": false,
+         "customGradient": false,
+         "customDuotone": false,
+         "duotone": [],
+         "gradients": [],
+         "link": false,
+         "text": false,
+         "background": false,
+         "defaultPalette": false,
+         "defaultGradients": false,
+         "palette": [
+            {
+					"color": "#CC0000",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#ffffff",
+					"name": "Contrast",
+					"slug": "contrast"
+				}
+         ]
+      },
+      "border": {
+         "radius": false,
+         "width": false
+      },
+      "typography": {
+         "fontSizes": [],
+         "customFontSize": false,
+         "lineHeight": false,
+         "letterSpacing": false,
+         "textDecoration": false,
+         "textTransform": false,
+         "fontWeight": false
+      },
       "blocks": {
+         "core/heading": {
+            "typography": {
+               "textDecoration": false
+            }
+         },
          "core/button": {
             "color": {
                "background": false,
@@ -26,29 +69,9 @@
       }
    },
    "styles": {
-      "blocks": { 
+      "color": {
+         "background": "var(--wp--preset--color--base)",
+         "text": "var(--wp--preset--color--contrast)"
       }
-   },
-   "customTemplates": [
-		{
-			"name": "page-no-title",
-			"postTypes": ["page"],
-			"title": "Page No Title"
-		},
-		{
-			"name": "page-with-sidebar",
-			"postTypes": ["page"],
-			"title": "Page with Sidebar"
-		},
-		{
-			"name": "page-wide",
-			"postTypes": ["page"],
-			"title": "Page with Wide Image"
-		},
-		{
-			"name": "single-with-sidebar",
-			"postTypes": ["post"],
-			"title": "Single with Sidebar"
-		}
-	]
+   }
 }

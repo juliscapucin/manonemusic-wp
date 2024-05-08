@@ -5,6 +5,7 @@ import {
 	InnerBlocks,
 	BlockControls,
 	InspectorControls,
+	MediaPlaceholder,
 	__experimentalLinkControl as LinkControl,
 } from "@wordpress/block-editor";
 import {
@@ -31,10 +32,21 @@ const MyPlaceholder = () => (
 );
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps();
 	const { linkObject } = attributes;
 
 	const [isLinkPickerVisible, setIsLinkPickerVisible] = useState(false);
+
+	const blockProps = useBlockProps();
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{},
+		{
+			template: [
+				["core/image", {}],
+				["manonemusic/card-label", { placeholder: "Enter Project Title" }],
+			],
+		},
+	);
 
 	function buttonHandler() {
 		setIsLinkPickerVisible((prev) => !prev);
@@ -80,12 +92,8 @@ export default function Edit({ attributes, setAttributes }) {
 			) : (
 				<MyPlaceholder />
 			)}
-			<div className="bg-faded-10">
-				<InnerBlocks
-					template={CARD_TEMPLATE}
-					templateLock="all"
-					renderAppender={InnerBlocks.ButtonBlockAppender}
-				/>
+			<div className="w-64 h-64 mb-16">
+				<div {...innerBlocksProps} />
 			</div>
 			<BlockControls>
 				<ToolbarGroup>

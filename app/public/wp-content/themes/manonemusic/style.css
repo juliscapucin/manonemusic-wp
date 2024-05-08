@@ -1,33 +1,36 @@
-/* 
-Theme name: Man One Music
-Author: Juli Scapucin
-Version: 2024
-*/
-
 @import url("https://use.typekit.net/cbg5juo.css");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("./assets/fonts.css");
+/**
+ * This injects custom `@font-face` rules.
+ */
+@import "./assets/fonts.css";
+
+:root {
+	--font-primary: "PPSupplyMono", monospace;
+	--font-secondary: "ff-real-text-pro", sans-serif;
+	--color-primary: 30 30 30;
+	--color-primary-rgb: 30, 30, 30;
+	--color-secondary: 40 209 194;
+	--color-secondary-rgb: 40, 209, 194;
+	--color-focus: 154, 152, 152;
+	--header-height: 4rem;
+	--margin-mobile: 1rem;
+	--margin-desktop: 2rem;
+	--padding-mobile: 1rem;
+	--padding-desktop: 2rem;
+	--container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
+	--container-width-desktop: calc(100vw - var(--padding-desktop) * 2);
+	--container-height-mobile: calc(
+		100svh - var(--padding-mobile) - var(--header-height)
+	);
+	--container-height-desktop: calc(100vh - var(--padding-desktop));
+}
 
 @layer base {
-	:root {
-		--font-primary: "PPSupplyMono", monospace;
-		--font-secondary: "ff-real-text-pro", sans-serif;
-		--color-primary: 30 30 30;
-		--color-primary-rgb: 30, 30, 30;
-		--color-secondary: 40 209 194;
-		--color-secondary-rgb: 40, 209, 194;
-		--color-focus: 154, 152, 152;
-		--margin-mobile: 1rem;
-		--margin-desktop: 2rem;
-		--padding-mobile: 1rem;
-		--padding-desktop: 2rem;
-		--container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
-		--container-width-desktop: calc(100vw - var(--padding-desktop) * 2);
-	}
 	:root[data-theme="dark"] {
 		--color-primary: 30 30 30;
 		--color-secondary: 40 209 194;
@@ -42,7 +45,11 @@ Version: 2024
 	}
 
 	body {
-		@apply font-secondary bg-primary min-h-svh relative overflow-x-scroll;
+		@apply font-secondary bg-primary overflow-x-scroll;
+	}
+
+	header {
+		@apply fixed px-8 flex justify-between items-center h-16 min-w-full max-w-wide;
 	}
 
 	h1,
@@ -60,6 +67,10 @@ Version: 2024
 
 	cite {
 		@apply text-secondary font-secondary not-italic;
+	}
+
+	a {
+		@apply font-primary text-secondary;
 	}
 
 	li,
@@ -80,18 +91,20 @@ body {
 	transition: background-color 0.2s linear;
 }
 
-/* CUSTOM CORE BLOCK STYLES */
+/* ------------- */
+/* EDITOR STYLES */
+/* ------------- */
 
-/* // NavLinks // */
-#menu-header-menu a {
-	@apply font-primary;
+/* hide title in editor */
+.editor-editor-canvas__post-title-wrapper {
+	display: none;
 }
 
 .wp-element-button {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;
 }
 
-/* // Link // */
+/* Link */
 .wp-block-read-more {
 	@apply uppercase text-secondary font-primary rounded-none;
 }
@@ -100,24 +113,31 @@ body {
 	@apply text-secondary font-primary rounded-none;
 }
 
-/* // Containers // */
+/* ------------------------ */
+/* CUSTOM CORE BLOCK STYLES */
+/* ------------------------ */
+/* @import "./styles/custom-core-blocks.css"; */
+
+/* Containers admin */
 .container,
 .is-root-container,
 .generic-content {
-	@apply min-h-svh w-[--container-width-desktop] max-w-wide m-auto relative;
+	@apply min-h-[--container-height-desktop] w-full max-w-wide;
 }
 
+/* HORIZONTAL PANEL */
 .is-style-group-full {
-	@apply relative w-[--container-width-desktop] max-w-wide;
+	@apply h-[--container-height-desktop] ml-0;
 }
 
+/* TODO: check why max-w is not being applied */
 .is-style-group-section {
-	@apply w-[--container-width-desktop] max-w-wide p-8;
+	@apply relative h-[--container-height-desktop] min-w-[--container-width-desktop] w-[--container-width-desktop] max-w-wide px-8;
 }
 
 /* class applied in the editor */
 .is-style-home-heading {
-	@apply absolute top-0 w-[--container-width-desktop] max-w-wide;
+	@apply absolute top-16 w-full;
 }
 
 .is-style-logo-huge {
@@ -125,19 +145,31 @@ body {
 	font-size: clamp(2rem, 12vw, 15.3rem);
 }
 
+/* COLUMNS */
 .is-style-columns-full {
-	@apply relative min-h-svh w-[--container-width-desktop] max-w-wide flex;
+	@apply h-full w-full;
 }
 
 .is-style-columns-full p {
-	@apply w-1/2;
+	@apply pr-32;
 }
 
 .is-style-column-full {
-	@apply min-h-full flex-1 relative flex flex-col justify-between bg-faded-5;
+	@apply h-full flex-1 relative flex flex-col justify-between bg-faded-5;
 }
 
+/* STACK */
+.is-style-stack-scroll {
+	@apply h-full overflow-y-scroll pt-8 space-y-8;
+}
+
+/* BUTTON */
 .is-style-button-manonemusic a,
 .is-style-button-manonemusic > * {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;
+}
+
+/* IMAGE */
+.is-style-image-square {
+	@apply w-full aspect-square object-cover;
 }

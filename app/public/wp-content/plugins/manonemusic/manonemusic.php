@@ -41,3 +41,12 @@ function create_block_manonemusic_block_init()
 }
 
 add_action('init', 'create_block_manonemusic_block_init');
+
+function utm_user_scripts()
+{
+	$plugin_url = plugin_dir_url(__FILE__);
+
+	wp_enqueue_style('style',  $plugin_url . "style.css");
+}
+
+add_action('admin_print_styles', 'utm_user_scripts');

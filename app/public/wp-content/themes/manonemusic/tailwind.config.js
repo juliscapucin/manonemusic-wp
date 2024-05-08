@@ -1,8 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	important: true,
-	mode: "jit",
-	content: ["../../../../../app/**/*.php", "../../../../../app/**/*.{js}"],
+	content: {
+		relative: true,
+		// files: ["./../../**/*.php", "./../../**/*.js"],
+		files: ["./../../**/*.php"],
+	},
 	theme: {
 		fontFamily: {
 			primary: ["var(--font-primary)"],
@@ -19,7 +21,7 @@ module.exports = {
 		},
 		extend: {
 			maxWidth: {
-				wide: "1920px",
+				wide: "1600px",
 			},
 			minWidth: {
 				screen: "100vw",

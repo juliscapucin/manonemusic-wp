@@ -1,17 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "./tailwind.config.js";
+
+/* Containers */
+.container,
+.is-root-container,
+.generic-content {
+	@apply min-h-svh h-svh w-screen max-w-wide;
+}
+
+.is-style-group-full {
+	@apply min-h-svh h-svh max-w-wide;
+}
+
+.is-style-group-section {
+	@apply h-full min-w-screen p-8;
+}
+
+/* class applied in the editor */
+.is-style-home-heading {
+	@apply absolute top-0 w-full;
+}
+
+.is-style-logo-huge {
+	@apply block w-full text-center;
+	font-size: clamp(2rem, 12vw, 15.3rem);
+}
+
+.is-style-columns-full {
+	@apply min-h-full w-full flex;
+}
+
+.is-style-columns-full p {
+	@apply pr-32;
+}
+
+.is-style-column-full {
+	@apply min-h-full flex-1 relative flex flex-col justify-between bg-faded-5;
+}
 
 .is-style-button-manonemusic a,
 .is-style-button-manonemusic > * {
-	@apply uppercase bg-secondary text-primary font-primary rounded-none;
-}
-
-p {
-	@apply text-secondary font-secondary;
-	/* color: white; */
-}
-
-.wp-element-button {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;
 }
