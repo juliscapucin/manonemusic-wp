@@ -58,13 +58,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 class HorizontalScroll {
   constructor() {
-    ;
-    ["load", "init", "addEvents", "removeEvents", "handleScroll"].forEach(fn => this[fn] = this[fn].bind(this));
-    this.init();
+    // ;["load", "init", "addEvents", "removeEvents", "handleScroll"].forEach(
+    // 	(fn) => (this[fn] = this[fn].bind(this))
+    // )
+    document.addEventListener("DOMContentLoaded", this.init);
   }
-  async init() {
-    await this.load();
-    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+  init() {
+    // gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
     /* Main navigation */
     this.panelsSection = document.querySelector("#panels");
