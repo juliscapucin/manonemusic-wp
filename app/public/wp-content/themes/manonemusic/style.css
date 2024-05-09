@@ -45,7 +45,8 @@
 	}
 
 	body {
-		@apply font-secondary bg-primary overflow-x-scroll;
+		@apply font-secondary bg-primary;
+		/* @apply font-secondary bg-primary overflow-x-hidden; */
 	}
 
 	header {
@@ -95,7 +96,14 @@ body {
 /* EDITOR STYLES */
 /* ------------- */
 
-/* hide title in editor */
+/* Containers */
+.container,
+.is-root-container,
+.generic-content {
+	@apply min-h-[--container-height-desktop] w-full max-w-wide;
+}
+
+/* Hide title in editor */
 .editor-editor-canvas__post-title-wrapper {
 	display: none;
 }
@@ -118,21 +126,19 @@ body {
 /* ------------------------ */
 /* @import "./styles/custom-core-blocks.css"; */
 
-/* Containers admin */
-.container,
-.is-root-container,
-.generic-content {
-	@apply min-h-[--container-height-desktop] w-full max-w-wide;
+/* HORIZONTAL SCROLL */
+.is-style-horizontal-scroll {
+	@apply relative h-[--container-height-desktop];
 }
 
 /* HORIZONTAL PANEL */
 .is-style-group-full {
-	@apply h-[--container-height-desktop] ml-0;
+	@apply h-full;
 }
 
 /* TODO: check why max-w is not being applied */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-[--container-width-desktop] w-[--container-width-desktop] max-w-wide px-8;
+	@apply relative h-full min-w-[--container-width-desktop] w-[--container-width-desktop] max-w-wide px-8;
 }
 
 /* class applied in the editor */

@@ -12,6 +12,13 @@ function manonemusic_block_styles()
    register_block_style(
       'core/group',
       array(
+         'name'         => 'horizontal-scroll',
+         'label'        => 'Horizontal Scroll',
+      ),
+   );
+   register_block_style(
+      'core/group',
+      array(
          'name'         => 'group-section',
          'label'        => 'Group Section',
       ),

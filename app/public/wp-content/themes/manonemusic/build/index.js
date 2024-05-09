@@ -58,60 +58,73 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 class HorizontalScroll {
   constructor() {
-    // ;["load", "init", "addEvents", "removeEvents", "handleScroll"].forEach(
-    // 	(fn) => (this[fn] = this[fn].bind(this))
-    // )
+    this.init = this.init.bind(this);
+    this.addEvents = this.addEvents.bind(this);
+    this.handleHeaderLinks = this.handleHeaderLinks.bind(this);
     document.addEventListener("DOMContentLoaded", this.init);
+    this.panelsInnerContainer;
+    this.panelsOuterContainer;
+    this.headerLinks;
+    this.panels;
+    this.tween;
+    this.totalMovement;
   }
   init() {
-    // gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
     /* Main navigation */
-    this.panelsSection = document.querySelector("#panels");
-    this.panelsContainer = document.querySelector("#panels-container");
+    this.panelsOuterContainer = document.querySelector("#panels-outer-container");
+    this.panelsInnerContainer = document.querySelector("#panels-inner-container");
     this.headerLinks = document.querySelectorAll(".header-link");
-    this.tween;
+    this.totalMovement = this.panelsInnerContainer.scrollWidth - innerWidth;
     this.addEvents();
-    console.log("hello from HorizontalScroll");
+
     // get root url from wp_localize_script in functions/files.php
     // console.log(siteData.root_url)
   }
   addEvents() {
     this.headerLinks.forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        let targetElem = document.querySelector(e.target.getAttribute("href")),
-          y = targetElem;
-        if (targetElem && panelsContainer.isSameNode(targetElem.parentElement)) {
-          let totalScroll = tween.scrollTrigger.end - tween.scrollTrigger.start,
-            totalMovement = cont.scrollWidth - innerWidth;
-          y = Math.round(tween.scrollTrigger.start + targetElem.offsetLeft / totalMovement * totalScroll);
-        }
-        console.log("useful stuff!", y, e.target.getAttribute("href"));
-        gsap.to(window, {
-          scrollTo: {
-            y: y,
-            autoKill: false
-          },
-          duration: 1
-        });
-      });
+      anchor.addEventListener("click", this.handleHeaderLinks);
     });
-    window.addEventListener("scroll", this.handleScroll);
+    this.handleScroll();
+  }
+  handleHeaderLinks(e) {
+    e.preventDefault();
+    let targetId = e.target.closest("a").getAttribute("href");
+    let targetElem = document.querySelector(targetId);
+    let y = targetElem;
+    if (targetElem && this.panelsInnerContainer.isSameNode(targetElem.parentElement)) {
+      let totalScroll = this.tween.scrollTrigger.end - this.tween.scrollTrigger.start;
+      y = Math.round(tween.scrollTrigger.start + targetElem.offsetLeft / this.totalMovement * totalScroll);
+    }
+    console.log("useful stuff!", y, e.target.getAttribute("href"));
+    gsap.to(window, {
+      scrollTo: {
+        y: y,
+        autoKill: false
+      },
+      duration: 1
+    });
   }
   handleScroll() {
     /* Panels */
-    const cont = document.querySelector("#panels-container");
-    const panels = gsap.utils.toArray("#panels-container .panel");
-    tween = gsap.to(panels, {
-      x: () => -1 * (cont.scrollWidth - innerWidth),
+    this.panels = gsap.utils.toArray("#panels-inner-container .panel");
+    console.log(this.panelsInnerContainer.scrollWidth, this.panelsInnerContainer.offsetWidth);
+
+    // gsap.to(this.panels, {
+    // 	x: () => -1 * this.totalMovement,
+    // 	duration: 2,
+    // })
+
+    this.tween = gsap.to(this.panels, {
+      x: () => -this.totalMovement,
       ease: "none",
       scrollTrigger: {
-        trigger: "#panels-container",
+        trigger: this.panelsOuterContainer,
         pin: true,
         start: "top top",
         scrub: 1,
-        end: () => "+=" + (cont.scrollWidth - innerWidth),
+        end: () => "+=" + this.totalMovement,
         onUpdate: self => {
           // also useful!
           // console.log(self.progress, '/1')

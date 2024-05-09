@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <header>
+  <header class='z-50'>
     <span class="font-primary uppercase"><a href="<?php echo site_url() ?>">Man/One Music</a></span>
     <span class="js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
     <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
@@ -17,5 +17,7 @@
         'theme_location' => 'headerMenu',
         'container' => false,
         'menu_class' => 'flex gap-4 uppercase font-primary',
+        'link_before' => '<span class="header-link">',
+        'link_after' => '</span>'
       )) ?>
   </header>

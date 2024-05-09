@@ -463,10 +463,10 @@ video {
 }
 
 body{
-  overflow-x: scroll;
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
   font-family: var(--font-secondary);
+  /* @apply font-secondary bg-primary overflow-x-hidden; */
 }
 
 header{
@@ -692,6 +692,10 @@ li,
   position: sticky;
 }
 
+.z-50{
+  z-index: 50;
+}
+
 .float-left{
   float: left;
 }
@@ -904,7 +908,17 @@ body {
 
 /* ------------- */
 
-/* hide title in editor */
+/* Containers */
+
+.container,
+.is-root-container,
+.generic-content{
+  min-height: var(--container-height-desktop);
+  width: 100%;
+  max-width: 1600px;
+}
+
+/* Hide title in editor */
 
 .editor-editor-canvas__post-title-wrapper {
   display: none;
@@ -945,28 +959,24 @@ body {
 
 /* @import "./styles/custom-core-blocks.css"; */
 
-/* Containers admin */
+/* HORIZONTAL SCROLL */
 
-.container,
-.is-root-container,
-.generic-content{
-  min-height: var(--container-height-desktop);
-  width: 100%;
-  max-width: 1600px;
+.is-style-horizontal-scroll{
+  position: relative;
+  height: var(--container-height-desktop);
 }
 
 /* HORIZONTAL PANEL */
 
 .is-style-group-full{
-  margin-left: 0px;
-  height: var(--container-height-desktop);
+  height: 100%;
 }
 
 /* TODO: check why max-w is not being applied */
 
 .is-style-group-section{
   position: relative;
-  height: var(--container-height-desktop);
+  height: 100%;
   width: var(--container-width-desktop);
   min-width: var(--container-width-desktop);
   max-width: 1600px;
