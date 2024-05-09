@@ -463,10 +463,10 @@ video {
 }
 
 body{
+  overflow-x: clip;
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
   font-family: var(--font-secondary);
-  /* @apply font-secondary bg-primary overflow-x-hidden; */
 }
 
 header{
@@ -887,7 +887,7 @@ li,
   --container-height-mobile: calc(
 		100svh - var(--padding-mobile) - var(--header-height)
 	);
-  --container-height-desktop: calc(100vh - var(--padding-desktop));
+  --container-height-desktop: calc(100vh);
 }
 
 * {
@@ -959,27 +959,26 @@ body {
 
 /* @import "./styles/custom-core-blocks.css"; */
 
-/* HORIZONTAL SCROLL */
+/* HORIZONTAL SCROLL (outer panel) */
 
-.is-style-horizontal-scroll{
-  position: relative;
-  height: var(--container-height-desktop);
-}
+/* .is-style-horizontal-scroll {
+	@apply h-[--container-height-desktop];
+} */
 
-/* HORIZONTAL PANEL */
+/* HORIZONTAL PANEL (inner panel) */
 
 .is-style-group-full{
-  height: 100%;
+  height: var(--container-height-desktop);
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 /* TODO: check why max-w is not being applied */
 
 .is-style-group-section{
   position: relative;
-  height: 100%;
-  width: var(--container-width-desktop);
+  height: var(--container-height-desktop);
   min-width: var(--container-width-desktop);
-  max-width: 1600px;
   padding-left: 2rem;
   padding-right: 2rem;
 }

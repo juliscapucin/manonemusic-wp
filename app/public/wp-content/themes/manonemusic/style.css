@@ -27,7 +27,7 @@
 	--container-height-mobile: calc(
 		100svh - var(--padding-mobile) - var(--header-height)
 	);
-	--container-height-desktop: calc(100vh - var(--padding-desktop));
+	--container-height-desktop: calc(100vh);
 }
 
 @layer base {
@@ -45,8 +45,7 @@
 	}
 
 	body {
-		@apply font-secondary bg-primary;
-		/* @apply font-secondary bg-primary overflow-x-hidden; */
+		@apply font-secondary bg-primary overflow-x-clip;
 	}
 
 	header {
@@ -126,19 +125,19 @@ body {
 /* ------------------------ */
 /* @import "./styles/custom-core-blocks.css"; */
 
-/* HORIZONTAL SCROLL */
-.is-style-horizontal-scroll {
-	@apply relative h-[--container-height-desktop];
-}
+/* HORIZONTAL SCROLL (outer panel) */
+/* .is-style-horizontal-scroll {
+	@apply h-[--container-height-desktop];
+} */
 
-/* HORIZONTAL PANEL */
+/* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply h-full;
+	@apply h-[--container-height-desktop] w-fit;
 }
 
 /* TODO: check why max-w is not being applied */
 .is-style-group-section {
-	@apply relative h-full min-w-[--container-width-desktop] w-[--container-width-desktop] max-w-wide px-8;
+	@apply relative h-[--container-height-desktop] min-w-[--container-width-desktop] px-8;
 }
 
 /* class applied in the editor */

@@ -1,15 +1,13 @@
 class HorizontalScroll {
 	constructor() {
-		this.init = this.init.bind(this)
-		this.addEvents = this.addEvents.bind(this)
-		this.handleHeaderLinks = this.handleHeaderLinks.bind(this)
-		document.addEventListener("DOMContentLoaded", this.init)
 		this.panelsInnerContainer
 		this.panelsOuterContainer
 		this.headerLinks
 		this.panels
 		this.tween
-		this.totalMovement
+		this.totalScroll
+
+		this.load()
 	}
 
 	init() {
@@ -23,7 +21,8 @@ class HorizontalScroll {
 			"#panels-inner-container"
 		)
 		this.headerLinks = document.querySelectorAll(".header-link")
-		this.totalMovement = this.panelsInnerContainer.scrollWidth - innerWidth
+		this.totalScroll = this.panelsInnerContainer.scrollWidth - window.innerWidth
+		console.log("totalScroll", this.totalScroll)
 
 		this.addEvents()
 
@@ -31,11 +30,13 @@ class HorizontalScroll {
 		// console.log(siteData.root_url)
 	}
 
-	addEvents() {
+	async addEvents() {
+		if (!this.panelsInnerContainer || !this.panelsOuterContainer) return
+
+		await this.handleScroll()
 		this.headerLinks.forEach((anchor) => {
 			anchor.addEventListener("click", this.handleHeaderLinks)
 		})
-		this.handleScroll()
 	}
 
 	handleHeaderLinks(e) {
@@ -49,12 +50,11 @@ class HorizontalScroll {
 			targetElem &&
 			this.panelsInnerContainer.isSameNode(targetElem.parentElement)
 		) {
-			let totalScroll =
-				this.tween.scrollTrigger.end - this.tween.scrollTrigger.start
-
 			y = Math.round(
 				tween.scrollTrigger.start +
-					(targetElem.offsetLeft / this.totalMovement) * totalScroll
+					(targetElem.offsetLeft / this.panelsInnerContainer.scrollWidth -
+						innerWidth) *
+						this.totalScroll
 			)
 		}
 
@@ -73,36 +73,40 @@ class HorizontalScroll {
 		/* Panels */
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 
-		console.log(
-			this.panelsInnerContainer.scrollWidth,
-			this.panelsInnerContainer.offsetWidth
-		)
-
-		// gsap.to(this.panels, {
-		// 	x: () => -1 * this.totalMovement,
-		// 	duration: 2,
-		// })
-
 		this.tween = gsap.to(this.panels, {
-			x: () => -this.totalMovement,
+			x: -1 * (this.panelsInnerContainer.scrollWidth - innerWidth),
 			ease: "none",
 			scrollTrigger: {
 				trigger: this.panelsOuterContainer,
 				pin: true,
 				start: "top top",
 				scrub: 1,
-				end: () => "+=" + this.totalMovement,
+				end: () => this.panelsInnerContainer.scrollWidth - innerWidth,
 				onUpdate: (self) => {
 					// also useful!
 					// console.log(self.progress, '/1')
-					// console.log(window.scrollY, `/${document.body.scrollHeight - window.innerHeight}`)
+					// console.log(
+					// 	window.scrollY,
+					// 	`/${document.body.scrollHeight - window.innerHeight}`
+					// )
 				},
 			},
 		})
+
+		ScrollTrigger.refresh()
+
+		console.log("start", this.tween.scrollTrigger.start)
+		console.log("end", this.tween.scrollTrigger.end)
 	}
 
 	load() {
-		document.addEventListener("DOMContentLoaded", this.init)
+		// wait until DOM is ready
+		document.addEventListener("DOMContentLoaded", (event) => {
+			console.log("DOM loaded")
+
+			//wait until images, links, fonts, stylesheets, and js is loaded
+			window.addEventListener("load", this.init(), false)
+		})
 	}
 }
 
