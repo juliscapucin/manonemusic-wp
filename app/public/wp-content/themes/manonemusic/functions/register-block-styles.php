@@ -34,14 +34,21 @@ function manonemusic_block_styles()
       'core/column',
       array(
          'name'         => 'column-full',
-         'label'        => 'Column Full',
+         'label'        => 'Full Height',
       ),
    );
    register_block_style(
       'core/column',
       array(
          'name'         => 'column-padding',
-         'label'        => 'Column Padding',
+         'label'        => 'Padding',
+      ),
+   );
+   register_block_style(
+      'core/column',
+      array(
+         'name'         => 'column-padding-align-bottom',
+         'label'        => 'Padding Align Bottom',
       ),
    );
    register_block_style(
@@ -65,11 +72,20 @@ function manonemusic_block_styles()
          'label'        => 'Image Square',
       ),
    );
-   register_block_style('core/button', array(
-      'name'         => 'button-manonemusic',
-      'label'        => __('Theme Button', 'themeslug'),
-      'isDefault'    => true,
-   ));
+   register_block_style(
+      'core/paragraph',
+      array(
+         'name'         => 'indent-left',
+         'label'        => 'Indent Left',
+      ),
+   );
+   register_block_style(
+      'core/paragraph',
+      array(
+         'name'         => 'indent-right',
+         'label'        => 'Indent Right',
+      ),
+   );
 }
 
 add_action('init', 'manonemusic_block_styles');
