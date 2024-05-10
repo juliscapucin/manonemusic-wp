@@ -45,12 +45,18 @@
 		--color-focus: 154, 152, 152;
 	}
 
-	body {
+	/* body:not(.wp-admin),
+	body:not(.block-editor-iframe__body) {
 		@apply font-secondary bg-primary overflow-x-clip;
-	}
+	} */
 
 	header {
 		@apply fixed px-8 flex justify-between items-center h-16 min-w-full max-w-wide;
+	}
+
+	body {
+		@apply font-secondary bg-primary transition-colors duration-200;
+		-webkit-font-smoothing: antialiased;
 	}
 
 	h1,
@@ -63,7 +69,7 @@
 	}
 
 	h1 {
-		@apply text-8xl;
+		@apply text-9xl tracking-[-5px];
 	}
 
 	cite {
@@ -86,10 +92,10 @@
 	margin: 0;
 }
 
-html,
-body {
-	-webkit-font-smoothing: antialiased;
+.site-body {
+	@apply font-secondary bg-primary overflow-x-clip;
 	transition: background-color 0.2s linear;
+	-webkit-font-smoothing: antialiased;
 }
 
 /* ------------- */
@@ -128,7 +134,7 @@ body {
 
 /* HORIZONTAL SCROLL (outer panel) */
 .is-style-horizontal-scroll {
-	@apply h-screen w-screen overflow-clip;
+	@apply h-screen w-screen;
 }
 
 /* HORIZONTAL PANEL (inner panel) */
@@ -136,30 +142,30 @@ body {
 	@apply h-[--container-height-desktop] w-fit;
 }
 
-/* TODO: check why max-w is not being applied */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen px-8;
+	@apply relative h-[--container-height-desktop] min-w-screen;
 }
 
 /* class applied in the editor */
 .is-style-home-heading {
-	@apply absolute top-16 w-screen px-8;
+	@apply absolute top-16 w-full px-32;
 }
 
 .is-style-logo-huge {
-	@apply block w-screen px-8 text-center;
+	@apply block w-full text-center;
 	font-size: clamp(2rem, 12vw, 15.3rem);
 }
 
 /* COLUMNS */
 .is-style-columns-full {
-	@apply h-full w-full;
+	@apply h-full w-full max-w-wide px-32;
 }
 
 .is-style-columns-full p {
 	@apply pr-32;
 }
 
+/* COLUMN */
 .is-style-column-full {
 	@apply h-full flex-1 relative flex flex-col justify-between bg-faded-5;
 }

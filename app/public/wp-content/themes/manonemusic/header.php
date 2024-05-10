@@ -7,7 +7,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body>
+<body class='site-body'>
   <header class='z-50'>
     <span class="font-primary uppercase"><a href="#home">Man/One Music</a></span>
     <span class="js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>

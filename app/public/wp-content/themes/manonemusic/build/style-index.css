@@ -462,12 +462,10 @@ video {
   --color-focus: 154, 152, 152;
 }
 
-body{
-  overflow-x: clip;
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
-  font-family: var(--font-secondary);
-}
+/* body:not(.wp-admin),
+	body:not(.block-editor-iframe__body) {
+		@apply font-secondary bg-primary overflow-x-clip;
+	} */
 
 header{
   position: fixed;
@@ -479,6 +477,16 @@ header{
   justify-content: space-between;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+body{
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
+  font-family: var(--font-secondary);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -494,8 +502,9 @@ h1,
 }
 
 h1{
-  font-size: 6rem;
+  font-size: 8rem;
   line-height: 1;
+  letter-spacing: -5px;
 }
 
 cite{
@@ -897,10 +906,13 @@ li,
   margin: 0;
 }
 
-html,
-body {
-  -webkit-font-smoothing: antialiased;
+.site-body{
+  overflow-x: clip;
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
+  font-family: var(--font-secondary);
   transition: background-color 0.2s linear;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ------------- */
@@ -965,7 +977,6 @@ body {
 .is-style-horizontal-scroll{
   height: 100vh;
   width: 100vw;
-  overflow: clip;
 }
 
 /* HORIZONTAL PANEL (inner panel) */
@@ -976,14 +987,10 @@ body {
   width: fit-content;
 }
 
-/* TODO: check why max-w is not being applied */
-
 .is-style-group-section{
   position: relative;
   height: var(--container-height-desktop);
   min-width: 100vw;
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 /* class applied in the editor */
@@ -991,16 +998,14 @@ body {
 .is-style-home-heading{
   position: absolute;
   top: 4rem;
-  width: 100vw;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  width: 100%;
+  padding-left: 8rem;
+  padding-right: 8rem;
 }
 
 .is-style-logo-huge{
   display: block;
-  width: 100vw;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  width: 100%;
   text-align: center;
   font-size: clamp(2rem, 12vw, 15.3rem);
 }
@@ -1010,11 +1015,16 @@ body {
 .is-style-columns-full{
   height: 100%;
   width: 100%;
+  max-width: 1600px;
+  padding-left: 8rem;
+  padding-right: 8rem;
 }
 
 .is-style-columns-full p{
   padding-right: 8rem;
 }
+
+/* COLUMN */
 
 .is-style-column-full{
   position: relative;
