@@ -66,6 +66,13 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
+      'core/heading',
+      array(
+         'name'         => 'heading-section',
+         'label'        => 'Section',
+      ),
+   );
+   register_block_style(
       'core/image',
       array(
          'name'         => 'image-square',

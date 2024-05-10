@@ -69,7 +69,7 @@
 	}
 
 	h1 {
-		@apply text-9xl tracking-[-5px];
+		@apply text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px];
 	}
 
 	cite {
@@ -86,7 +86,7 @@
 	}
 
 	p {
-		@apply max-w-prose;
+		@apply max-w-prose text-bodyMedium;
 	}
 }
 
@@ -157,7 +157,7 @@
 
 .is-style-logo-huge {
 	@apply block w-full text-center;
-	font-size: clamp(2rem, 12vw, 15.3rem);
+	font-size: clamp(2rem, 11vw, 14.3rem);
 }
 
 /* COLUMNS */
@@ -171,16 +171,16 @@
 }
 
 .is-style-column-padding {
-	@apply pt-32 pb-8;
+	@apply pb-8;
 }
 
 .is-style-column-padding-align-bottom {
-	@apply pt-32 pb-8 justify-end;
+	@apply pb-8 justify-end;
 }
 
 /* STACK SCROLL */
 .is-style-stack-scroll {
-	@apply h-full overflow-y-scroll pt-8 space-y-8;
+	@apply absolute top-0 right-32 h-full overflow-y-scroll pt-8 space-y-8 z-40;
 }
 
 /* BUTTON */
@@ -194,10 +194,15 @@
 	@apply w-full aspect-square object-cover;
 }
 
+/* HEADING */
+.is-style-heading-section {
+	@apply block mt-32 pl-32;
+}
+
 /* PARAGRAPH */
 .is-style-indent-left {
-	@apply ml-40 mt-4;
+	@apply ml-32 mt-4;
 }
 .is-style-indent-right {
-	@apply mr-40 mt-4;
+	@apply mr-32 mt-4;
 }

@@ -502,9 +502,20 @@ h1,
 }
 
 h1{
-  font-size: 8rem;
-  line-height: 1;
+  font-size: 72px;
   letter-spacing: -5px;
+}
+
+@media (min-width: 768px){
+  h1{
+    font-size: 103px;
+  }
+}
+
+@media (min-width: 1024px){
+  h1{
+    font-size: 147px;
+  }
 }
 
 cite{
@@ -529,6 +540,7 @@ li,
 
 p{
   max-width: 65ch;
+  font-size: 16px;
 }
 
 *, ::before, ::after{
@@ -828,26 +840,6 @@ p{
   font-family: var(--font-primary);
 }
 
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-6xl{
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
-.text-8xl{
-  font-size: 6rem;
-  line-height: 1;
-}
-
 .uppercase{
   text-transform: uppercase;
 }
@@ -1011,7 +1003,7 @@ p{
   display: block;
   width: 100%;
   text-align: center;
-  font-size: clamp(2rem, 12vw, 15.3rem);
+  font-size: clamp(2rem, 11vw, 14.3rem);
 }
 
 /* COLUMNS */
@@ -1036,19 +1028,21 @@ p{
 }
 
 .is-style-column-padding{
-  padding-top: 8rem;
   padding-bottom: 2rem;
 }
 
 .is-style-column-padding-align-bottom{
   justify-content: flex-end;
-  padding-top: 8rem;
   padding-bottom: 2rem;
 }
 
 /* STACK SCROLL */
 
 .is-style-stack-scroll{
+  position: absolute;
+  top: 0px;
+  right: 8rem;
+  z-index: 40;
   height: 100%;
 }
 
@@ -1085,15 +1079,23 @@ p{
      object-fit: cover;
 }
 
+/* HEADING */
+
+.is-style-heading-section{
+  margin-top: 8rem;
+  display: block;
+  padding-left: 8rem;
+}
+
 /* PARAGRAPH */
 
 .is-style-indent-left{
-  margin-left: 10rem;
+  margin-left: 8rem;
   margin-top: 1rem;
 }
 
 .is-style-indent-right{
-  margin-right: 10rem;
+  margin-right: 8rem;
   margin-top: 1rem;
 }
 
