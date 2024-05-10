@@ -24,13 +24,6 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
-      'core/group',
-      array(
-         'name'         => 'stack-scroll',
-         'label'        => 'Stack Scroll',
-      ),
-   );
-   register_block_style(
       'core/columns',
       array(
          'name'         => 'columns-full',
@@ -42,6 +35,20 @@ function manonemusic_block_styles()
       array(
          'name'         => 'column-full',
          'label'        => 'Column Full',
+      ),
+   );
+   register_block_style(
+      'core/column',
+      array(
+         'name'         => 'column-padding',
+         'label'        => 'Column Padding',
+      ),
+   );
+   register_block_style(
+      'core/group',
+      array(
+         'name'         => 'stack-scroll',
+         'label'        => 'Stack Scroll',
       ),
    );
    register_block_style(

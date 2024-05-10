@@ -23,7 +23,7 @@ class HorizontalScroll {
 		this.panelsInnerContainer = document.querySelector(
 			"#panels-inner-container"
 		)
-		this.headerLinks = document.querySelectorAll(".header-link")
+		this.headerLinks = document.querySelectorAll("header a")
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 		this.hash = window.location.hash
 

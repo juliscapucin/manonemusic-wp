@@ -75,7 +75,7 @@ class HorizontalScroll {
     /* Main navigation */
     this.panelsOuterContainer = document.querySelector("#panels-outer-container");
     this.panelsInnerContainer = document.querySelector("#panels-inner-container");
-    this.headerLinks = document.querySelectorAll(".header-link");
+    this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap.utils.toArray("#panels-inner-container .panel");
     this.hash = window.location.hash;
     await this.handleScroll();

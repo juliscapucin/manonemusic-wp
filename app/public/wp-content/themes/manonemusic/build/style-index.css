@@ -1026,7 +1026,12 @@ body {
   background-color: rgba(var(--color-secondary-rgb), 0.05);
 }
 
-/* STACK */
+.is-style-column-padding{
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+}
+
+/* STACK SCROLL */
 
 .is-style-stack-scroll{
   height: 100%;

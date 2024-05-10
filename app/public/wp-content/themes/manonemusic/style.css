@@ -164,7 +164,11 @@ body {
 	@apply h-full flex-1 relative flex flex-col justify-between bg-faded-5;
 }
 
-/* STACK */
+.is-style-column-padding {
+	@apply pt-32 pb-8;
+}
+
+/* STACK SCROLL */
 .is-style-stack-scroll {
 	@apply h-full overflow-y-scroll pt-8 space-y-8;
 }

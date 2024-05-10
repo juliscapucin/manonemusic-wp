@@ -9,7 +9,7 @@
 
 <body>
   <header class='z-50'>
-    <span class="font-primary uppercase"><a href="<?php echo site_url() ?>">Man/One Music</a></span>
+    <span class="font-primary uppercase"><a href="#home">Man/One Music</a></span>
     <span class="js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
     <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
     <nav class="flex">
