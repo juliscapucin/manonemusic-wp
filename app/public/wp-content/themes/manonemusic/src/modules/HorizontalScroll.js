@@ -1,5 +1,6 @@
 class HorizontalScroll {
 	constructor() {
+		this.handleHeaderLinks = this.handleHeaderLinks.bind(this)
 		this.panelsInnerContainer
 		this.panelsOuterContainer
 		this.headerLinks
@@ -40,8 +41,10 @@ class HorizontalScroll {
 
 	handleHeaderLinks(e) {
 		e.preventDefault()
-		let targetId = e.target.closest("a").getAttribute("href")
-		let targetElem = document.querySelector(targetId)
+		let targetHref = e.target.closest("a").getAttribute("href")
+		let targetElem = document.querySelector(targetHref)
+
+		console.log(targetElem, this.panelsInnerContainer)
 
 		let y = targetElem
 
@@ -49,15 +52,15 @@ class HorizontalScroll {
 			targetElem &&
 			this.panelsInnerContainer.isSameNode(targetElem.parentElement)
 		) {
+			console.log("condition met")
 			y = Math.round(
-				tween.scrollTrigger.start +
+				this.tween.scrollTrigger.start +
 					(targetElem.offsetLeft / this.panelsInnerContainer.scrollWidth -
 						innerWidth) *
-						this.totalScroll
+						this.panelsInnerContainer.scrollWidth -
+					innerWidth
 			)
 		}
-
-		console.log("useful stuff!", y, e.target.getAttribute("href"))
 
 		gsap.to(window, {
 			scrollTo: {

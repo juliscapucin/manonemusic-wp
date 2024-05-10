@@ -58,6 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 class HorizontalScroll {
   constructor() {
+    this.handleHeaderLinks = this.handleHeaderLinks.bind(this);
     this.panelsInnerContainer;
     this.panelsOuterContainer;
     this.headerLinks;
@@ -88,13 +89,14 @@ class HorizontalScroll {
   }
   handleHeaderLinks(e) {
     e.preventDefault();
-    let targetId = e.target.closest("a").getAttribute("href");
-    let targetElem = document.querySelector(targetId);
+    let targetHref = e.target.closest("a").getAttribute("href");
+    let targetElem = document.querySelector(targetHref);
+    console.log(targetElem, this.panelsInnerContainer);
     let y = targetElem;
     if (targetElem && this.panelsInnerContainer.isSameNode(targetElem.parentElement)) {
-      y = Math.round(tween.scrollTrigger.start + (targetElem.offsetLeft / this.panelsInnerContainer.scrollWidth - innerWidth) * this.totalScroll);
+      console.log("condition met");
+      y = Math.round(this.tween.scrollTrigger.start + (targetElem.offsetLeft / this.panelsInnerContainer.scrollWidth - innerWidth) * this.panelsInnerContainer.scrollWidth - innerWidth);
     }
-    console.log("useful stuff!", y, e.target.getAttribute("href"));
     gsap.to(window, {
       scrollTo: {
         y: y,
