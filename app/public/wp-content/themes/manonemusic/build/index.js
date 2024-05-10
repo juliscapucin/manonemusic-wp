@@ -91,18 +91,18 @@ class HorizontalScroll {
     e.preventDefault();
     let targetHref = e.target.closest("a").getAttribute("href");
     let targetElem = document.querySelector(targetHref);
-    console.log(targetElem, this.panelsInnerContainer);
     let y = targetElem;
     if (targetElem && this.panelsInnerContainer.isSameNode(targetElem.parentElement)) {
-      console.log("condition met");
-      y = Math.round(this.tween.scrollTrigger.start + (targetElem.offsetLeft / this.panelsInnerContainer.scrollWidth - innerWidth) * this.panelsInnerContainer.scrollWidth - innerWidth);
+      let totalScroll = this.tween.scrollTrigger.end - this.tween.scrollTrigger.start,
+        totalMovement = this.panelsInnerContainer.scrollWidth - innerWidth;
+      y = Math.round(this.tween.scrollTrigger.start + targetElem.offsetLeft / totalMovement * totalScroll);
     }
     gsap.to(window, {
       scrollTo: {
         y: y,
         autoKill: false
       },
-      duration: 1
+      duration: 0.3
     });
   }
   handleScroll() {
