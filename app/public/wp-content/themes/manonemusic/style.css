@@ -23,11 +23,12 @@
 	--padding-mobile: 1rem;
 	--padding-desktop: 2rem;
 	--container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
-	--container-width-desktop: calc(100vw - var(--padding-desktop) * 2);
+	--container-width-desktop: 100vw;
 	--container-height-mobile: calc(
 		100svh - var(--padding-mobile) - var(--header-height)
 	);
-	--container-height-desktop: calc(100vh - var(--padding-desktop));
+	--panels-container-width-desktop: calc(100vw * 5);
+	--container-height-desktop: calc(100vh);
 }
 
 @layer base {
@@ -45,7 +46,7 @@
 	}
 
 	body {
-		@apply font-secondary bg-primary overflow-x-scroll;
+		@apply font-secondary bg-primary overflow-x-clip;
 	}
 
 	header {
@@ -95,7 +96,14 @@ body {
 /* EDITOR STYLES */
 /* ------------- */
 
-/* hide title in editor */
+/* Containers */
+.container,
+.is-root-container,
+.generic-content {
+	@apply min-h-[--container-height-desktop] w-full max-w-wide;
+}
+
+/* Hide title in editor */
 .editor-editor-canvas__post-title-wrapper {
 	display: none;
 }
@@ -118,30 +126,28 @@ body {
 /* ------------------------ */
 /* @import "./styles/custom-core-blocks.css"; */
 
-/* Containers admin */
-.container,
-.is-root-container,
-.generic-content {
-	@apply min-h-[--container-height-desktop] w-full max-w-wide;
+/* HORIZONTAL SCROLL (outer panel) */
+.is-style-horizontal-scroll {
+	@apply h-screen w-screen overflow-clip;
 }
 
-/* HORIZONTAL PANEL */
+/* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply h-[--container-height-desktop] ml-0;
+	@apply h-[--container-height-desktop] w-fit;
 }
 
 /* TODO: check why max-w is not being applied */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-[--container-width-desktop] w-[--container-width-desktop] max-w-wide px-8;
+	@apply relative h-[--container-height-desktop] min-w-screen px-8;
 }
 
 /* class applied in the editor */
 .is-style-home-heading {
-	@apply absolute top-16 w-full;
+	@apply absolute top-16 w-screen px-8;
 }
 
 .is-style-logo-huge {
-	@apply block w-full text-center;
+	@apply block w-screen px-8 text-center;
 	font-size: clamp(2rem, 12vw, 15.3rem);
 }
 

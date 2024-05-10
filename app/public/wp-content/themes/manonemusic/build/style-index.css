@@ -463,7 +463,7 @@ video {
 }
 
 body{
-  overflow-x: scroll;
+  overflow-x: clip;
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
   font-family: var(--font-secondary);
@@ -692,6 +692,10 @@ li,
   position: sticky;
 }
 
+.z-50{
+  z-index: 50;
+}
+
 .float-left{
   float: left;
 }
@@ -879,11 +883,12 @@ li,
   --padding-mobile: 1rem;
   --padding-desktop: 2rem;
   --container-width-mobile: calc(100vw - var(--padding-mobile) * 2);
-  --container-width-desktop: calc(100vw - var(--padding-desktop) * 2);
+  --container-width-desktop: 100vw;
   --container-height-mobile: calc(
 		100svh - var(--padding-mobile) - var(--header-height)
 	);
-  --container-height-desktop: calc(100vh - var(--padding-desktop));
+  --panels-container-width-desktop: calc(100vw * 5);
+  --container-height-desktop: calc(100vh);
 }
 
 * {
@@ -904,7 +909,17 @@ body {
 
 /* ------------- */
 
-/* hide title in editor */
+/* Containers */
+
+.container,
+.is-root-container,
+.generic-content{
+  min-height: var(--container-height-desktop);
+  width: 100%;
+  max-width: 1600px;
+}
+
+/* Hide title in editor */
 
 .editor-editor-canvas__post-title-wrapper {
   display: none;
@@ -945,21 +960,20 @@ body {
 
 /* @import "./styles/custom-core-blocks.css"; */
 
-/* Containers admin */
+/* HORIZONTAL SCROLL (outer panel) */
 
-.container,
-.is-root-container,
-.generic-content{
-  min-height: var(--container-height-desktop);
-  width: 100%;
-  max-width: 1600px;
+.is-style-horizontal-scroll{
+  height: 100vh;
+  width: 100vw;
+  overflow: clip;
 }
 
-/* HORIZONTAL PANEL */
+/* HORIZONTAL PANEL (inner panel) */
 
 .is-style-group-full{
-  margin-left: 0px;
   height: var(--container-height-desktop);
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 /* TODO: check why max-w is not being applied */
@@ -967,9 +981,7 @@ body {
 .is-style-group-section{
   position: relative;
   height: var(--container-height-desktop);
-  width: var(--container-width-desktop);
-  min-width: var(--container-width-desktop);
-  max-width: 1600px;
+  min-width: 100vw;
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -979,12 +991,16 @@ body {
 .is-style-home-heading{
   position: absolute;
   top: 4rem;
-  width: 100%;
+  width: 100vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .is-style-logo-huge{
   display: block;
-  width: 100%;
+  width: 100vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
   text-align: center;
   font-size: clamp(2rem, 12vw, 15.3rem);
 }

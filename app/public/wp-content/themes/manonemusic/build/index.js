@@ -14,10 +14,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 class Credits {
   constructor() {
+    ;
+    ["load", "init", "addEvents", "removeEvents", "animate"].forEach(fn => this[fn] = this[fn].bind(this));
     this.init();
   }
-  init() {
+  async init() {
+    await this.load();
     console.log("Website by https://juliscapucin.com");
+    this.elements = document.querySelectorAll("a");
+    this.addEvents();
+  }
+  addEvents() {
+    // window.addEventListener("load", this.animate)
+  }
+  removeEvents() {
+    window.removeEventListener("load", this.animate);
+  }
+  animate() {
+    gsap.to(this.elements, {
+      rotation: 180,
+      duration: 2,
+      ease: "bounce.out"
+    });
+    console.log("window loaded");
+  }
+  load() {
+    document.addEventListener("DOMContentLoaded", this.init);
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Credits);
@@ -36,18 +58,87 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 class HorizontalScroll {
   constructor() {
-    this.init();
+    this.handleHeaderLinks = this.handleHeaderLinks.bind(this);
+    this.panelsInnerContainer;
+    this.panelsOuterContainer;
+    this.headerLinks;
+    this.panels;
+    this.tween;
+    this.rafId = null;
+    this.load();
   }
   init() {
-    this.bindEvents();
+    gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+    /* Main navigation */
+    this.panelsOuterContainer = document.querySelector("#panels-outer-container");
+    this.panelsInnerContainer = document.querySelector("#panels-inner-container");
+    this.headerLinks = document.querySelectorAll(".header-link");
+    this.panels = gsap.utils.toArray("#panels-inner-container .panel");
+    this.addEvents();
+
     // get root url from wp_localize_script in functions/files.php
     // console.log(siteData.root_url)
   }
-  bindEvents() {
-    // window.addEventListener("scroll", this.handleScroll)
+  async addEvents() {
+    if (!this.panelsInnerContainer || !this.panelsOuterContainer) return;
+    await this.handleScroll();
+    this.headerLinks.forEach(anchor => {
+      anchor.addEventListener("click", this.handleHeaderLinks);
+    });
+  }
+  handleHeaderLinks(e) {
+    e.preventDefault();
+    let targetHref = e.target.closest("a").getAttribute("href");
+    let targetElem = document.querySelector(targetHref);
+    let y = targetElem;
+    if (targetElem && this.panelsInnerContainer.isSameNode(targetElem.parentElement)) {
+      let totalScroll = this.tween.scrollTrigger.end - this.tween.scrollTrigger.start,
+        totalMovement = this.panelsInnerContainer.scrollWidth - innerWidth;
+      y = Math.round(this.tween.scrollTrigger.start + targetElem.offsetLeft / totalMovement * totalScroll);
+    }
+    gsap.to(window, {
+      scrollTo: {
+        y: y,
+        autoKill: false
+      },
+      duration: 0.3
+    });
   }
   handleScroll() {
-    console.log("scrolling");
+    // gsap.to(this.panels, {
+    // 	xPercent: -100 * (this.panels.length - 1),
+    // 	duration: 3,
+    // })
+
+    this.tween = gsap.to(this.panels, {
+      xPercent: -100 * (this.panels.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: this.panelsOuterContainer,
+        pin: true,
+        start: "top top",
+        scrub: 1,
+        end: () => "+=" + this.panelsInnerContainer.scrollWidth - innerWidth,
+        onUpdate: self => {
+          // also useful!
+          // console.log(self.progress, '/1')
+          // console.log(
+          // 	window.scrollY,
+          // 	`/${document.body.scrollHeight - window.innerHeight}`
+          // )
+        }
+      }
+    });
+  }
+  load() {
+    // wait until DOM is ready
+    document.addEventListener("DOMContentLoaded", event => {
+      console.log("DOM loaded");
+
+      //wait until images, links, fonts, stylesheets, and js is loaded
+      window.addEventListener("load", this.init(), false);
+    });
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HorizontalScroll);
