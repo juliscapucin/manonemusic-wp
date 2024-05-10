@@ -5,7 +5,7 @@ class HorizontalScroll {
 		this.headerLinks
 		this.panels
 		this.tween
-		this.totalScroll
+		this.rafId = null
 
 		this.load()
 	}
@@ -21,8 +21,7 @@ class HorizontalScroll {
 			"#panels-inner-container"
 		)
 		this.headerLinks = document.querySelectorAll(".header-link")
-		this.totalScroll = this.panelsInnerContainer.scrollWidth - window.innerWidth
-		console.log("totalScroll", this.totalScroll)
+		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 
 		this.addEvents()
 
@@ -70,18 +69,20 @@ class HorizontalScroll {
 	}
 
 	handleScroll() {
-		/* Panels */
-		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
+		// gsap.to(this.panels, {
+		// 	xPercent: -100 * (this.panels.length - 1),
+		// 	duration: 3,
+		// })
 
 		this.tween = gsap.to(this.panels, {
-			x: -1 * (this.panelsInnerContainer.scrollWidth - innerWidth),
+			xPercent: -100 * (this.panels.length - 1),
 			ease: "none",
 			scrollTrigger: {
 				trigger: this.panelsOuterContainer,
 				pin: true,
 				start: "top top",
 				scrub: 1,
-				end: () => this.panelsInnerContainer.scrollWidth - innerWidth,
+				end: () => "+=" + this.panelsInnerContainer.scrollWidth - innerWidth,
 				onUpdate: (self) => {
 					// also useful!
 					// console.log(self.progress, '/1')
@@ -92,11 +93,6 @@ class HorizontalScroll {
 				},
 			},
 		})
-
-		ScrollTrigger.refresh()
-
-		console.log("start", this.tween.scrollTrigger.start)
-		console.log("end", this.tween.scrollTrigger.end)
 	}
 
 	load() {
