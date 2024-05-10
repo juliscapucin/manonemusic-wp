@@ -1,17 +1,19 @@
 class HorizontalScroll {
 	constructor() {
 		this.handleHeaderLinks = this.handleHeaderLinks.bind(this)
+		this.handleScrollTo = this.handleScrollTo.bind(this)
 		this.panelsInnerContainer
 		this.panelsOuterContainer
 		this.headerLinks
 		this.panels
 		this.tween
-		this.rafId = null
+		this.hash
+		this.scrollTarget
 
 		this.load()
 	}
 
-	init() {
+	async init() {
 		gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
 		/* Main navigation */
@@ -23,6 +25,14 @@ class HorizontalScroll {
 		)
 		this.headerLinks = document.querySelectorAll(".header-link")
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
+		this.hash = window.location.hash
+
+		await this.handleScroll()
+
+		if (this.hash) {
+			this.scrollTarget = document.querySelector(this.hash)
+			this.handleScrollTo()
+		}
 
 		this.addEvents()
 
@@ -30,10 +40,9 @@ class HorizontalScroll {
 		// console.log(siteData.root_url)
 	}
 
-	async addEvents() {
+	addEvents() {
 		if (!this.panelsInnerContainer || !this.panelsOuterContainer) return
 
-		await this.handleScroll()
 		this.headerLinks.forEach((anchor) => {
 			anchor.addEventListener("click", this.handleHeaderLinks)
 		})
@@ -41,21 +50,27 @@ class HorizontalScroll {
 
 	handleHeaderLinks(e) {
 		e.preventDefault()
-		let targetHref = e.target.closest("a").getAttribute("href")
-		let targetElem = document.querySelector(targetHref)
+		this.hash = e.target.closest("a").getAttribute("href")
+		this.scrollTarget = document.querySelector(this.hash)
 
-		let y = targetElem
+		if (this.scrollTarget) {
+			this.handleScrollTo()
+		}
+	}
+
+	handleScrollTo() {
+		let y = this.scrollTarget
 
 		if (
-			targetElem &&
-			this.panelsInnerContainer.isSameNode(targetElem.parentElement)
+			this.scrollTarget &&
+			this.panelsInnerContainer.isSameNode(this.scrollTarget.parentElement)
 		) {
 			let totalScroll =
 					this.tween.scrollTrigger.end - this.tween.scrollTrigger.start,
 				totalMovement = this.panelsInnerContainer.scrollWidth - innerWidth
 			y = Math.round(
 				this.tween.scrollTrigger.start +
-					(targetElem.offsetLeft / totalMovement) * totalScroll
+					(this.scrollTarget.offsetLeft / totalMovement) * totalScroll
 			)
 		}
 
@@ -65,6 +80,9 @@ class HorizontalScroll {
 				autoKill: false,
 			},
 			duration: 0.3,
+			onComplete: () => {
+				window.location.hash = this.hash
+			},
 		})
 	}
 
@@ -98,8 +116,6 @@ class HorizontalScroll {
 	load() {
 		// wait until DOM is ready
 		document.addEventListener("DOMContentLoaded", (event) => {
-			console.log("DOM loaded")
-
 			//wait until images, links, fonts, stylesheets, and js is loaded
 			window.addEventListener("load", this.init(), false)
 		})
