@@ -1,6 +1,13 @@
 @font-face {
 	font-family: "PPSupplyMono";
 	src: url("PPSupplyMono-Regular.otf") format("opentype");
-	font-weight: normal;
+	font-weight: medium;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "PPSupplyMono";
+	src: url("PPSupplyMono-Ultralight.otf") format("opentype");
+	font-weight: extralight;
 	font-style: normal;
 }

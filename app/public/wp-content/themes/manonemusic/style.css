@@ -45,11 +45,6 @@
 		--color-focus: 154, 152, 152;
 	}
 
-	/* body:not(.wp-admin),
-	body:not(.block-editor-iframe__body) {
-		@apply font-secondary bg-primary overflow-x-clip;
-	} */
-
 	header {
 		@apply fixed px-8 flex justify-between items-center h-16 min-w-full max-w-wide;
 	}
@@ -65,15 +60,11 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-secondary font-primary uppercase;
+		@apply text-secondary font-primary uppercase font-bold;
 	}
 
 	h1 {
 		@apply text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px];
-	}
-
-	cite {
-		@apply text-secondary font-secondary not-italic;
 	}
 
 	a {
@@ -87,6 +78,29 @@
 
 	p {
 		@apply max-w-prose text-bodyMedium;
+	}
+
+	figcaption {
+		@apply font-primary uppercase font-extralight text-secondary;
+	}
+
+	cite {
+		@apply text-secondary font-secondary not-italic;
+	}
+
+	::-webkit-scrollbar {
+		width: 4px;
+		height: 4px;
+	}
+	::-webkit-scrollbar-track {
+		background-color: rgba(var(--color-secondary-rgb), 0.5);
+		margin-block: 2px;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: rgba(var(--color-secondary-rgb), 1);
+		width: 1rem;
+		height: 1rem;
+		border: none;
 	}
 }
 
@@ -111,6 +125,10 @@
 .is-root-container,
 .generic-content {
 	@apply min-h-[--container-height-desktop] w-full max-w-wide;
+}
+
+.is-root-container h1 {
+	@apply mt-0;
 }
 
 /* Hide title in editor */
@@ -180,7 +198,7 @@
 
 /* STACK SCROLL */
 .is-style-stack-scroll {
-	@apply absolute top-0 right-32 h-full overflow-y-scroll pt-8 space-y-8 z-40;
+	@apply absolute top-0 right-32 h-full overflow-y-scroll pt-8 pr-8 space-y-4 z-40 !important;
 }
 
 /* BUTTON */

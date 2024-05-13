@@ -52,7 +52,3 @@ body {
 	-webkit-font-smoothing: antialiased;
 	transition: background-color 0.2s linear;
 }
-
-.project-card {
-	@apply w-16 h-16;
-}
