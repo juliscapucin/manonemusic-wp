@@ -67,6 +67,22 @@ class HorizontalScroll {
     this.tween;
     this.hash;
     this.scrollTarget;
+    this.panelCoordinates = [{
+      section: "home",
+      x: 0
+    }, {
+      section: "projects",
+      x: null
+    }, {
+      section: "releases",
+      x: null
+    }, {
+      section: "about",
+      x: null
+    }, {
+      section: "contact",
+      x: null
+    }];
     this.load();
   }
   async init() {
@@ -77,9 +93,12 @@ class HorizontalScroll {
     this.panelsInnerContainer = document.querySelector("#panels-inner-container");
     this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap.utils.toArray("#panels-inner-container .panel");
-    this.hash = window.location.hash;
+    this.hash = window.location.pathname;
+    this.panelCoordinates.forEach((panel, index) => {
+      panel.x = this.panels[index].offsetLeft;
+    });
     await this.handleScroll();
-    if (this.hash) {
+    if (this.hash !== "/") {
       this.scrollTarget = document.querySelector(this.hash);
       this.handleScrollTo();
     }
@@ -96,8 +115,8 @@ class HorizontalScroll {
   }
   handleHeaderLinks(e) {
     e.preventDefault();
-    this.hash = e.target.closest("a").getAttribute("href");
-    this.scrollTarget = document.querySelector(this.hash);
+    this.hash = e.target.closest("a").getAttribute("href").substring(1);
+    this.scrollTarget = this.hash === "/" ? null : document.querySelector(`#${this.hash}`);
     if (this.scrollTarget) {
       this.handleScrollTo();
     }
@@ -116,16 +135,19 @@ class HorizontalScroll {
       },
       duration: 0.3,
       onComplete: () => {
-        window.location.hash = this.hash;
+        const {
+          protocol,
+          hostname,
+          port
+        } = window.location;
+        const newUrl = `${protocol}//${hostname}${port ? ":" + port : ""}/${this.hash === "home" ? "" : this.hash}`;
+        window.history.pushState({
+          path: newUrl
+        }, "", newUrl);
       }
     });
   }
   handleScroll() {
-    // gsap.to(this.panels, {
-    // 	xPercent: -100 * (this.panels.length - 1),
-    // 	duration: 3,
-    // })
-
     this.tween = gsap.to(this.panels, {
       xPercent: -100 * (this.panels.length - 1),
       ease: "none",
@@ -137,11 +159,14 @@ class HorizontalScroll {
         end: () => "+=" + this.panelsInnerContainer.scrollWidth - innerWidth,
         onUpdate: self => {
           // also useful!
-          // console.log(self.progress, '/1')
+          // console.log(self.progress, "/1")
           // console.log(
           // 	window.scrollY,
           // 	`/${document.body.scrollHeight - window.innerHeight}`
           // )
+          if (window.scrollY === 0 && window.location.hash !== "" && window.scrollY < this.panelCoordinates[1].x) {
+            window.location.hash = "";
+          }
         }
       }
     });
