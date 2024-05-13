@@ -7,7 +7,7 @@ class HorizontalScroll {
 		this.headerLinks
 		this.panels
 		this.tween
-		this.hash
+		this.pathname
 		this.scrollTarget
 		this.panelCoordinates = [
 			{ section: "home", x: 0 },
@@ -32,16 +32,19 @@ class HorizontalScroll {
 		)
 		this.headerLinks = document.querySelectorAll("header a")
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
-		this.hash = window.location.pathname
+		this.pathname = window.location.pathname
 
 		this.panelCoordinates.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
 		})
 
+		console.log(this.panelCoordinates)
+
 		await this.handleScroll()
 
-		if (this.hash !== "/") {
-			this.scrollTarget = document.querySelector(this.hash)
+		if (this.pathname !== "/") {
+			this.scrollTarget = document.querySelector(`#${this.pathname}`)
+			console.log(this.scrollTarget)
 			this.handleScrollTo()
 		}
 
@@ -61,9 +64,9 @@ class HorizontalScroll {
 
 	handleHeaderLinks(e) {
 		e.preventDefault()
-		this.hash = e.target.closest("a").getAttribute("href").substring(1)
+		this.pathname = e.target.closest("a").getAttribute("href").substring(1)
 		this.scrollTarget =
-			this.hash === "/" ? null : document.querySelector(`#${this.hash}`)
+			this.pathname === "/" ? null : document.querySelector(`#${this.pathname}`)
 
 		if (this.scrollTarget) {
 			this.handleScrollTo()
@@ -93,21 +96,25 @@ class HorizontalScroll {
 			},
 			duration: 0.3,
 			onComplete: () => {
-				const { protocol, hostname, port } = window.location
-				const newUrl = `${protocol}//${hostname}${port ? ":" + port : ""}/${
-					this.hash === "home" ? "" : this.hash
-				}`
-				window.history.pushState({ path: newUrl }, "", newUrl)
+				this.handlePathname()
 			},
 		})
 	}
 
+	handlePathname() {
+		const { protocol, hostname, port } = window.location
+		const newUrl = `${protocol}//${hostname}${port ? ":" + port : ""}/${
+			this.pathname === "home" ? "" : this.pathname
+		}`
+		window.history.pushState({ path: newUrl }, "", newUrl)
+	}
+
 	handleScroll() {
 		this.tween = gsap.to(this.panels, {
-			xPercent: -100 * (this.panels.length - 1),
+			x: -1 * (this.panelsInnerContainer.offsetWidth - innerWidth),
 			ease: "none",
 			scrollTrigger: {
-				trigger: this.panelsOuterContainer,
+				trigger: this.panelsInnerContainer,
 				pin: true,
 				start: "top top",
 				scrub: 1,
@@ -119,15 +126,25 @@ class HorizontalScroll {
 					// 	window.scrollY,
 					// 	`/${document.body.scrollHeight - window.innerHeight}`
 					// )
-					if (
-						window.scrollY === 0 &&
-						window.location.hash !== "" &&
-						window.scrollY < this.panelCoordinates[1].x
-					) {
-						window.location.hash = ""
-					}
 				},
 			},
+		})
+
+		this.panels.forEach((panel, index) => {
+			ScrollTrigger.create({
+				trigger: panel,
+				containerAnimation: this.tween,
+				start: (self) =>
+					self.direction === 1 ? "right center" : "left center",
+				onEnter: () => {
+					this.pathname = this.panelCoordinates[index].section
+					this.handlePathname()
+				},
+				onEnterBack: () => {
+					this.pathname = this.panelCoordinates[index].section
+					this.handlePathname()
+				},
+			})
 		})
 	}
 
