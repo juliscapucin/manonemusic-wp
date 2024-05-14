@@ -14,11 +14,11 @@ class HorizontalScroll {
 		this.pathname
 		this.scrollTarget
 		this.panelCoordinates = [
-			{ section: "home", x: 0 },
-			{ section: "projects", x: null },
-			{ section: "releases", x: null },
-			{ section: "about", x: null },
-			{ section: "contact", x: null },
+			{ section: "home", x: 0, splitHeading: null },
+			{ section: "projects", x: null, splitHeading: null },
+			{ section: "releases", x: null, splitHeading: null },
+			{ section: "about", x: null, splitHeading: null },
+			{ section: "contact", x: null, splitHeading: null },
 		]
 		this.activePanel
 
@@ -39,8 +39,11 @@ class HorizontalScroll {
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 		this.pathname = window.location.pathname
 
+		const headings = document.querySelectorAll("h1")
+
 		this.panelCoordinates.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
+			panel.splitHeading = new SplitText(headings[index], { type: "chars" })
 		})
 
 		await this.handleScroll()
@@ -139,6 +142,8 @@ class HorizontalScroll {
 
 	handleActivePanel() {
 		this.panels.forEach((panel, index) => {
+			const splitHeading = this.panelCoordinates[index].splitHeading
+
 			ScrollTrigger.create({
 				trigger: panel,
 				containerAnimation: this.tween,
@@ -148,32 +153,52 @@ class HorizontalScroll {
 					this.activePanel = panel
 					this.pathname = this.panelCoordinates[index].section
 					this.handlePathname()
-					this.animateHeading()
+					this.animateHeading(splitHeading, "in")
 				},
 				onEnterBack: () => {
 					this.activePanel = panel
 					this.pathname = this.panelCoordinates[index].section
 					this.handlePathname()
-					this.animateHeading()
+					this.animateHeading(splitHeading, "in")
+				},
+				onLeave: () => {
+					this.animateHeading(splitHeading, "out")
+				},
+				onLeaveBack: () => {
+					this.animateHeading(splitHeading, "out")
 				},
 			})
 		})
 	}
 
-	animateHeading() {
-		const headingText = this.activePanel.querySelector("h1")
-		const headingTextSplit = new SplitText(headingText, { type: "chars" })
-		const headingTextChars = headingTextSplit.chars
+	animateHeading(panel, direction) {
+		const xTranslate = 2000
+		const delay = 0.2
 
-		gsap.set(headingTextChars, { opacity: 0 })
-		console.log(headingText)
-		headingText.classList.remove("opacity-0")
-		gsap.to(headingTextChars, {
-			duration: 1,
-			opacity: 1,
-			stagger: 0.1,
-			ease: "power4.out",
+		const tl = gsap.timeline()
+
+		gsap.set(panel.chars, {
+			xPercent: (index) => (direction === "in" ? xTranslate * (index + 1) : 0),
+			opacity: 0,
 		})
+
+		tl.fromTo(
+			panel.chars,
+			{
+				xPercent: (index) =>
+					direction === "in" ? xTranslate * (index + 1) : 0,
+				opacity: 1,
+			},
+			{
+				opacity: 1,
+				xPercent: (index) =>
+					direction === "in" ? 0 : xTranslate * (index + 1),
+				duration: 0.5,
+				delay: delay || 0,
+				stagger: 0.05,
+				ease: "expo.out",
+			}
+		)
 	}
 
 	load() {

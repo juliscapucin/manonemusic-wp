@@ -1009,6 +1009,7 @@ cite{
   position: relative;
   height: var(--container-height-desktop);
   min-width: 100vw;
+  overflow: clip;
 }
 
 /* class applied in the editor */
@@ -1107,7 +1108,6 @@ cite{
   margin-top: 8rem;
   display: block;
   padding-left: 8rem;
-  opacity: 0;
 }
 
 /* PARAGRAPH */

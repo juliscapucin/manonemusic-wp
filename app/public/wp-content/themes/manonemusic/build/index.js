@@ -78,19 +78,24 @@ class HorizontalScroll {
     this.scrollTarget;
     this.panelCoordinates = [{
       section: "home",
-      x: 0
+      x: 0,
+      splitHeading: null
     }, {
       section: "projects",
-      x: null
+      x: null,
+      splitHeading: null
     }, {
       section: "releases",
-      x: null
+      x: null,
+      splitHeading: null
     }, {
       section: "about",
-      x: null
+      x: null,
+      splitHeading: null
     }, {
       section: "contact",
-      x: null
+      x: null,
+      splitHeading: null
     }];
     this.activePanel;
     this.load();
@@ -104,8 +109,12 @@ class HorizontalScroll {
     this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].utils.toArray("#panels-inner-container .panel");
     this.pathname = window.location.pathname;
+    const headings = document.querySelectorAll("h1");
     this.panelCoordinates.forEach((panel, index) => {
       panel.x = this.panels[index].offsetLeft;
+      panel.splitHeading = new gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_2__.SplitText(headings[index], {
+        type: "chars"
+      });
     });
     await this.handleScroll();
     if (this.pathname !== "/") {
@@ -184,6 +193,7 @@ class HorizontalScroll {
   }
   handleActivePanel() {
     this.panels.forEach((panel, index) => {
+      const splitHeading = this.panelCoordinates[index].splitHeading;
       ScrollTrigger.create({
         trigger: panel,
         containerAnimation: this.tween,
@@ -192,33 +202,41 @@ class HorizontalScroll {
           this.activePanel = panel;
           this.pathname = this.panelCoordinates[index].section;
           this.handlePathname();
-          this.animateHeading();
+          this.animateHeading(splitHeading, "in");
         },
         onEnterBack: () => {
           this.activePanel = panel;
           this.pathname = this.panelCoordinates[index].section;
           this.handlePathname();
-          this.animateHeading();
+          this.animateHeading(splitHeading, "in");
+        },
+        onLeave: () => {
+          this.animateHeading(splitHeading, "out");
+        },
+        onLeaveBack: () => {
+          this.animateHeading(splitHeading, "out");
         }
       });
     });
   }
-  animateHeading() {
-    const headingText = this.activePanel.querySelector("h1");
-    const headingTextSplit = new gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_2__.SplitText(headingText, {
-      type: "chars"
-    });
-    const headingTextChars = headingTextSplit.chars;
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(headingTextChars, {
+  animateHeading(panel, direction) {
+    const xTranslate = 2000;
+    const delay = 0.2;
+    const tl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
+    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(panel.chars, {
+      xPercent: index => direction === "in" ? xTranslate * (index + 1) : 0,
       opacity: 0
     });
-    console.log(headingText);
-    headingText.classList.remove("opacity-0");
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(headingTextChars, {
-      duration: 1,
+    tl.fromTo(panel.chars, {
+      xPercent: index => direction === "in" ? xTranslate * (index + 1) : 0,
+      opacity: 1
+    }, {
       opacity: 1,
-      stagger: 0.1,
-      ease: "power4.out"
+      xPercent: index => direction === "in" ? 0 : xTranslate * (index + 1),
+      duration: 0.5,
+      delay: delay || 0,
+      stagger: 0.05,
+      ease: "expo.out"
     });
   }
   load() {
