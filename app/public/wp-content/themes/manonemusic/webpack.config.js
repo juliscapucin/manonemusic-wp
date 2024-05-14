@@ -18,11 +18,22 @@ module.exports = {
 				"src/assets/fonts",
 				"fonts.scss"
 			),
-			// "styles/custom-core-blocks": path.resolve(
-			// 	process.cwd(),
-			// 	"src/styles",
-			// 	"custom-core-blocks.css"
-			// ),
+			"js/gsap.min": path.resolve(process.cwd(), "src/lib", "gsap.min.js"),
+			"js/ScrollTrigger.min": path.resolve(
+				process.cwd(),
+				"src/lib",
+				"ScrollTrigger.min.js"
+			),
+			"js/ScrollToPlugin.min": path.resolve(
+				process.cwd(),
+				"src/lib",
+				"ScrollToPlugin.min.js"
+			),
+			"js/SplitText.min": path.resolve(
+				process.cwd(),
+				"src/lib",
+				"SplitText.min.js"
+			),
 		},
 	},
 }

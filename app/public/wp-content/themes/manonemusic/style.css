@@ -174,7 +174,7 @@
 }
 
 .is-style-logo-huge {
-	@apply block w-full text-center;
+	@apply block w-full;
 	font-size: clamp(2rem, 11vw, 14.3rem);
 }
 
@@ -214,7 +214,7 @@
 
 /* HEADING */
 .is-style-heading-section {
-	@apply block mt-32 pl-32;
+	@apply block mt-32 pl-32 opacity-0;
 }
 
 /* PARAGRAPH */

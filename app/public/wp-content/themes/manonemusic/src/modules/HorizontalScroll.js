@@ -1,3 +1,6 @@
+import gsap from "gsap"
+import { SplitText } from "gsap/dist/SplitText"
+
 class HorizontalScroll {
 	constructor() {
 		this.handleHeaderLinks = this.handleHeaderLinks.bind(this)
@@ -16,14 +19,13 @@ class HorizontalScroll {
 			{ section: "about", x: null },
 			{ section: "contact", x: null },
 		]
+		this.activePanel
 
 		this.load()
 	}
 
 	async init() {
-		gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
-
-		console.log("hello from HorizontalScroll.js")
+		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText)
 
 		/* Main navigation */
 		this.panelsOuterContainer = document.querySelector(
@@ -39,8 +41,6 @@ class HorizontalScroll {
 		this.panelCoordinates.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
 		})
-
-		console.log(this.panelCoordinates)
 
 		await this.handleScroll()
 
@@ -133,6 +133,10 @@ class HorizontalScroll {
 			},
 		})
 
+		this.handleActivePanel()
+	}
+
+	handleActivePanel() {
 		this.panels.forEach((panel, index) => {
 			ScrollTrigger.create({
 				trigger: panel,
@@ -140,14 +144,33 @@ class HorizontalScroll {
 				start: (self) =>
 					self.direction === 1 ? "right center" : "left center",
 				onEnter: () => {
+					this.activePanel = panel
 					this.pathname = this.panelCoordinates[index].section
 					this.handlePathname()
+					this.animateHeading()
 				},
 				onEnterBack: () => {
+					this.activePanel = panel
 					this.pathname = this.panelCoordinates[index].section
 					this.handlePathname()
+					this.animateHeading()
 				},
 			})
+		})
+	}
+
+	animateHeading() {
+		const headingText = this.activePanel.querySelector("h1")
+		const headingTextSplit = new SplitText(headingText, { type: "chars" })
+		const headingTextChars = headingTextSplit.chars
+		headingTextSplit.revert()
+		gsap.set(headingTextChars, { y: "100%" })
+		gsap.to(headingTextChars, {
+			duration: 1,
+			y: "0%",
+			opacity: 1,
+			stagger: 0.1,
+			ease: "power4.out",
 		})
 	}
 
