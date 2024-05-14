@@ -23,6 +23,8 @@ class HorizontalScroll {
 	async init() {
 		gsap.registerPlugin(ScrollToPlugin, ScrollTrigger)
 
+		console.log("hello from HorizontalScroll.js")
+
 		/* Main navigation */
 		this.panelsOuterContainer = document.querySelector(
 			"#panels-outer-container"
@@ -43,8 +45,9 @@ class HorizontalScroll {
 		await this.handleScroll()
 
 		if (this.pathname !== "/") {
-			this.scrollTarget = document.querySelector(`#${this.pathname}`)
-			console.log(this.scrollTarget)
+			this.scrollTarget = document.querySelector(
+				`#${this.pathname.replace(/^\/|\/$/g, "")}`
+			)
 			this.handleScrollTo()
 		}
 
@@ -111,7 +114,7 @@ class HorizontalScroll {
 
 	handleScroll() {
 		this.tween = gsap.to(this.panels, {
-			x: -1 * (this.panelsInnerContainer.offsetWidth - innerWidth),
+			xPercent: -100 * (this.panels.length - 1),
 			ease: "none",
 			scrollTrigger: {
 				trigger: this.panelsInnerContainer,
