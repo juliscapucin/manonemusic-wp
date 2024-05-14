@@ -14,11 +14,31 @@ class HorizontalScroll {
 		this.pathname
 		this.scrollTarget
 		this.panelCoordinates = [
-			{ section: "home", x: 0, splitHeading: null },
-			{ section: "projects", x: null, splitHeading: null },
-			{ section: "releases", x: null, splitHeading: null },
-			{ section: "about", x: null, splitHeading: null },
-			{ section: "contact", x: null, splitHeading: null },
+			{ section: "home", x: 0, splitHeading: null, backgroundColor: "dark" },
+			{
+				section: "projects",
+				x: null,
+				splitHeading: null,
+				backgroundColor: "light",
+			},
+			{
+				section: "releases",
+				x: null,
+				splitHeading: null,
+				backgroundColor: "red",
+			},
+			{
+				section: "about",
+				x: null,
+				splitHeading: null,
+				backgroundColor: "purple",
+			},
+			{
+				section: "contact",
+				x: null,
+				splitHeading: null,
+				backgroundColor: "charcoal",
+			},
 		]
 		this.activePanel
 
@@ -171,8 +191,17 @@ class HorizontalScroll {
 		})
 	}
 
+	handleBackgroundColor() {
+		const panel = this.activePanel
+		const panelColor = panel.dataset.color
+
+		if (panelColor) {
+			document.body.style.backgroundColor = panelColor
+		}
+	}
+
 	animateHeading(panel, direction) {
-		const xTranslate = 2000
+		const xTranslate = 500
 		const delay = 0.2
 
 		const tl = gsap.timeline()

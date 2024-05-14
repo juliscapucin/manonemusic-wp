@@ -34,14 +34,30 @@
 @layer base {
 	:root[data-theme="dark"] {
 		--color-primary: 30 30 30;
+		--color-primary-rgb: 30, 30, 30;
 		--color-secondary: 40 209 194;
 		--color-secondary-rgb: 40, 209, 194;
 		--color-focus: 154, 152, 152;
 	}
 	:root[data-theme="light"] {
 		--color-primary: 249 246 238;
+		--color-primary-rgb: 249, 246, 238;
 		--color-secondary: 18 12 15;
 		--color-secondary-rgb: 18, 12, 15;
+		--color-focus: 154, 152, 152;
+	}
+	:root[data-theme="red"] {
+		--color-primary: 53 30 42;
+		--color-primary-rgb: 53, 30, 42;
+		--color-secondary: 239 69 38;
+		--color-secondary-rgb: 239, 69, 38;
+		--color-focus: 154, 152, 152;
+	}
+	:root[data-theme="purple"] {
+		--color-primary: 39 47 44;
+		--color-primary-rgb: 39, 47, 44;
+		--color-secondary: 161 145 213;
+		--color-secondary-rgb: 161, 145, 213;
 		--color-focus: 154, 152, 152;
 	}
 
@@ -165,7 +181,7 @@
 }
 
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen overflow-clip;
+	@apply relative h-[--container-height-desktop] min-w-screen;
 }
 
 /* class applied in the editor */
