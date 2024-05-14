@@ -24,16 +24,6 @@ module.exports = {
 				"src/lib",
 				"ScrollTrigger.min.js"
 			),
-			"js/ScrollToPlugin.min": path.resolve(
-				process.cwd(),
-				"src/lib",
-				"ScrollToPlugin.min.js"
-			),
-			"js/SplitText.min": path.resolve(
-				process.cwd(),
-				"src/lib",
-				"SplitText.min.js"
-			),
 		},
 	},
 }

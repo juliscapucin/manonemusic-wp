@@ -1,5 +1,6 @@
 import gsap from "gsap"
 import { SplitText } from "gsap/dist/SplitText"
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
 
 class HorizontalScroll {
 	constructor() {
@@ -163,11 +164,12 @@ class HorizontalScroll {
 		const headingText = this.activePanel.querySelector("h1")
 		const headingTextSplit = new SplitText(headingText, { type: "chars" })
 		const headingTextChars = headingTextSplit.chars
-		headingTextSplit.revert()
-		gsap.set(headingTextChars, { y: "100%" })
+
+		gsap.set(headingTextChars, { opacity: 0 })
+		console.log(headingText)
+		headingText.classList.remove("opacity-0")
 		gsap.to(headingTextChars, {
 			duration: 1,
-			y: "0%",
 			opacity: 1,
 			stagger: 0.1,
 			ease: "power4.out",
