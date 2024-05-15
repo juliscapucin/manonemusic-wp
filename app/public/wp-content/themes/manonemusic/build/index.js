@@ -208,12 +208,11 @@ class HorizontalScroll {
       ScrollTrigger.create({
         trigger: panel,
         containerAnimation: this.tween,
-        markers: true,
+        // markers: true,
         start: "center right",
         end: "center left",
         onEnter: () => {
           this.activePanel = panel;
-          console.log(this.activePanel);
           this.togglePanelVisibility();
           this.pathname = this.panelCoordinates[index].section;
           this.handlePathname();
@@ -221,11 +220,15 @@ class HorizontalScroll {
         },
         onEnterBack: () => {
           this.activePanel = panel;
-          console.log(this.activePanel);
-          this.togglePanelVisibility();
           this.pathname = this.panelCoordinates[index].section;
           this.handlePathname();
           this.animateHeading(splitHeading, "in");
+        },
+        onLeave: () => {
+          this.animateHeading(splitHeading, "out");
+        },
+        onLeaveBack: () => {
+          this.animateHeading(splitHeading, "out");
         }
       });
     });
