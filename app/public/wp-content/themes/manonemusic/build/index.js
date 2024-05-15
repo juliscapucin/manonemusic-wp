@@ -80,12 +80,12 @@ class HorizontalScroll {
       section: "home",
       x: 0,
       splitHeading: null,
-      backgroundColor: "dark"
+      theme: "dark"
     }, {
       section: "projects",
       x: null,
       splitHeading: null,
-      backgroundColor: "light"
+      backgroundColor: "green"
     }, {
       section: "releases",
       x: null,
@@ -100,7 +100,7 @@ class HorizontalScroll {
       section: "contact",
       x: null,
       splitHeading: null,
-      backgroundColor: "charcoal"
+      backgroundColor: "red"
     }];
     this.activePanel;
     this.load();
@@ -114,14 +114,19 @@ class HorizontalScroll {
     this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].utils.toArray("#panels-inner-container .panel");
     this.pathname = window.location.pathname;
+    this.panels.forEach((panel, index) => {
+      panel.classList.add("transparent");
+    });
     const headings = document.querySelectorAll("h1");
     this.panelCoordinates.forEach((panel, index) => {
       panel.x = this.panels[index].offsetLeft;
       panel.splitHeading = new gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_2__.SplitText(headings[index], {
         type: "chars"
-      });
+      }); // Create SplitText instance for each h1
     });
     await this.handleScroll();
+
+    // if pathname is not root, scroll to section on load
     if (this.pathname !== "/") {
       this.scrollTarget = document.querySelector(`#${this.pathname.replace(/^\/|\/$/g, "")}`);
       this.handleScrollTo();
@@ -173,6 +178,7 @@ class HorizontalScroll {
     window.history.pushState({
       path: newUrl
     }, "", newUrl);
+    this.handleBackgroundColor();
   }
   handleScroll() {
     this.tween = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.panels, {
@@ -203,32 +209,46 @@ class HorizontalScroll {
         trigger: panel,
         containerAnimation: this.tween,
         start: self => self.direction === 1 ? "right center" : "left center",
+        // start: "left center",
         onEnter: () => {
           this.activePanel = panel;
+          this.togglePanelVisibility();
+          console.log("on enter", this.activePanel);
           this.pathname = this.panelCoordinates[index].section;
           this.handlePathname();
           this.animateHeading(splitHeading, "in");
         },
         onEnterBack: () => {
           this.activePanel = panel;
+          this.togglePanelVisibility();
+          console.log("on enter back", this.activePanel);
           this.pathname = this.panelCoordinates[index].section;
           this.handlePathname();
           this.animateHeading(splitHeading, "in");
         },
-        onLeave: () => {
-          this.animateHeading(splitHeading, "out");
-        },
-        onLeaveBack: () => {
-          this.animateHeading(splitHeading, "out");
+        // onLeave: () => {
+        // 	console.log("on leave")
+        // 	this.animateHeading(splitHeading, "out")
+        // },
+        // onLeaveBack: () => {
+        // 	console.log("on leave back")
+        // 	this.animateHeading(splitHeading, "out")
+        // },
+        onUpdate: self => {
+          // console.log(self.direction)
         }
       });
     });
   }
+  togglePanelVisibility() {
+    this.panels.forEach(panel => panel.classList.toggle("transparent", panel !== this.activePanel));
+  }
   handleBackgroundColor() {
     const panel = this.activePanel;
-    const panelColor = panel.dataset.color;
+    const panelColor = this.panelCoordinates.find(panel => panel.section === this.pathname).backgroundColor;
     if (panelColor) {
-      document.body.style.backgroundColor = panelColor;
+      console.log(panelColor);
+      document.documentElement.setAttribute("data-theme", panelColor);
     }
   }
   animateHeading(panel, direction) {

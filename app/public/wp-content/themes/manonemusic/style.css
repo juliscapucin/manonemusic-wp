@@ -12,10 +12,10 @@
 :root {
 	--font-primary: "PPSupplyMono", monospace;
 	--font-secondary: "ff-real-text-pro", sans-serif;
-	--color-primary: 30 30 30;
-	--color-primary-rgb: 30, 30, 30;
-	--color-secondary: 40 209 194;
-	--color-secondary-rgb: 40, 209, 194;
+	--color-primary: 31 32 32;
+	--color-primary-rgb: 31, 32, 32;
+	--color-secondary: 210 200 195;
+	--color-secondary-rgb: 210, 200, 195;
 	--color-focus: 154, 152, 152;
 	--header-height: 4rem;
 	--margin-mobile: 1rem;
@@ -33,17 +33,17 @@
 
 @layer base {
 	:root[data-theme="dark"] {
-		--color-primary: 30 30 30;
-		--color-primary-rgb: 30, 30, 30;
-		--color-secondary: 40 209 194;
-		--color-secondary-rgb: 40, 209, 194;
+		--color-primary: 31 32 32;
+		--color-primary-rgb: 31, 32, 32;
+		--color-secondary: 210 200 195;
+		--color-secondary-rgb: 210, 200, 195;
 		--color-focus: 154, 152, 152;
 	}
-	:root[data-theme="light"] {
-		--color-primary: 249 246 238;
-		--color-primary-rgb: 249, 246, 238;
-		--color-secondary: 18 12 15;
-		--color-secondary-rgb: 18, 12, 15;
+	:root[data-theme="green"] {
+		--color-primary: 34 50 26;
+		--color-primary-rgb: 34, 50, 26;
+		--color-secondary: 141 129 143;
+		--color-secondary-rgb: 141, 129, 143;
 		--color-focus: 154, 152, 152;
 	}
 	:root[data-theme="red"] {
@@ -56,8 +56,8 @@
 	:root[data-theme="purple"] {
 		--color-primary: 39 47 44;
 		--color-primary-rgb: 39, 47, 44;
-		--color-secondary: 161 145 213;
-		--color-secondary-rgb: 161, 145, 213;
+		--color-secondary: 141 129 143;
+		--color-secondary-rgb: 141, 129, 143;
 		--color-focus: 154, 152, 152;
 	}
 
@@ -103,21 +103,6 @@
 	cite {
 		@apply text-secondary font-secondary not-italic;
 	}
-
-	::-webkit-scrollbar {
-		width: 4px;
-		height: 4px;
-	}
-	::-webkit-scrollbar-track {
-		background-color: rgba(var(--color-secondary-rgb), 0.5);
-		margin-block: 2px;
-	}
-	::-webkit-scrollbar-thumb {
-		background-color: rgba(var(--color-secondary-rgb), 1);
-		width: 1rem;
-		height: 1rem;
-		border: none;
-	}
 }
 
 * {
@@ -126,10 +111,32 @@
 	margin: 0;
 }
 
+/* --------------- */
+/* FRONTEND STYLES */
+/* --------------- */
+
 .site-body {
 	@apply font-secondary bg-primary overflow-x-clip;
-	transition: background-color 0.2s linear;
 	-webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbars */
+.site-body::-webkit-scrollbar,
+.is-style-stack-scroll::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+.site-body::-webkit-scrollbar-track,
+.is-style-stack-scroll::-webkit-scrollbar-track {
+	background-color: rgba(var(--color-secondary-rgb), 0.5);
+	margin-block: 2px;
+}
+.site-body::-webkit-scrollbar-thumb,
+.is-style-stack-scroll::-webkit-scrollbar-thumb {
+	background-color: rgba(var(--color-secondary-rgb), 1);
+	width: 1rem;
+	height: 1rem;
+	border: none;
 }
 
 /* ------------- */
@@ -177,7 +184,7 @@
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply h-[--container-height-desktop] w-fit;
+	@apply h-[--container-height-desktop];
 }
 
 .is-style-group-section {
@@ -196,7 +203,7 @@
 
 /* COLUMNS */
 .is-style-columns-full {
-	@apply h-full w-full max-w-wide px-32;
+	@apply h-full w-full;
 }
 
 /* COLUMN */
@@ -209,7 +216,7 @@
 }
 
 .is-style-column-padding-align-bottom {
-	@apply pb-8 justify-end;
+	@apply p-8 justify-end;
 }
 
 /* STACK SCROLL */
@@ -240,3 +247,7 @@
 .is-style-indent-right {
 	@apply mr-32 mt-4;
 }
+
+/* .transparent {
+	@apply opacity-50 transition-opacity duration-500;
+} */
