@@ -174,35 +174,24 @@ class HorizontalScroll {
 			ScrollTrigger.create({
 				trigger: panel,
 				containerAnimation: this.tween,
-				start: (self) =>
-					self.direction === 1 ? "right center" : "left center",
-				// start: "left center",
+				markers: true,
+				start: "center right",
+				end: "center left",
 				onEnter: () => {
 					this.activePanel = panel
+					console.log(this.activePanel)
 					this.togglePanelVisibility()
-					console.log("on enter", this.activePanel)
 					this.pathname = this.panelCoordinates[index].section
 					this.handlePathname()
 					this.animateHeading(splitHeading, "in")
 				},
 				onEnterBack: () => {
 					this.activePanel = panel
+					console.log(this.activePanel)
 					this.togglePanelVisibility()
-					console.log("on enter back", this.activePanel)
 					this.pathname = this.panelCoordinates[index].section
 					this.handlePathname()
 					this.animateHeading(splitHeading, "in")
-				},
-				// onLeave: () => {
-				// 	console.log("on leave")
-				// 	this.animateHeading(splitHeading, "out")
-				// },
-				// onLeaveBack: () => {
-				// 	console.log("on leave back")
-				// 	this.animateHeading(splitHeading, "out")
-				// },
-				onUpdate: (self) => {
-					// console.log(self.direction)
 				},
 			})
 		})
@@ -221,7 +210,6 @@ class HorizontalScroll {
 		).backgroundColor
 
 		if (panelColor) {
-			console.log(panelColor)
 			document.documentElement.setAttribute("data-theme", panelColor)
 		}
 	}

@@ -89,7 +89,7 @@
 
 	li,
 	p {
-		@apply text-secondary font-secondary;
+		@apply text-secondary font-primary text-bodyMedium;
 	}
 
 	p {
@@ -187,8 +187,9 @@
 	@apply h-[--container-height-desktop];
 }
 
+/* Section */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen;
+	@apply relative h-[--container-height-desktop] min-w-screen mx-64 overflow-hidden;
 }
 
 /* class applied in the editor */
