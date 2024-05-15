@@ -24,6 +24,13 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
+      'core/group',
+      array(
+         'name'         => 'group-absolute',
+         'label'        => 'Absolute',
+      ),
+   );
+   register_block_style(
       'core/columns',
       array(
          'name'         => 'columns-full',

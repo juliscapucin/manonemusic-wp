@@ -191,12 +191,16 @@
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply h-[--container-height-desktop];
+	@apply h-[--container-height-desktop] w-fit;
 }
 
 /* Section */
 .is-style-group-section {
-	@apply relative min-h-[--container-height-desktop] h-[--container-height-desktop] max-h-[--container-height-desktop] min-w-screen mx-64 overflow-x-hidden;
+	@apply relative min-h-[--container-height-desktop] h-[--container-height-desktop] max-h-[--container-height-desktop] min-w-screen overflow-x-hidden;
+}
+
+.is-style-group-absolute {
+	@apply absolute top-0 left-0 w-full h-screen flex justify-center items-middle -z-10 bg-red !important;
 }
 
 /* class applied in the editor */

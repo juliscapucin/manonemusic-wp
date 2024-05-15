@@ -13,7 +13,7 @@ class HorizontalScroll {
 		this.tween
 		this.pathname
 		this.scrollTarget
-		this.panelCoordinates = [
+		this.panelUI = [
 			{ section: "home", x: 0, splitHeading: null, theme: "dark" },
 			{
 				section: "projects",
@@ -65,7 +65,7 @@ class HorizontalScroll {
 
 		const headings = document.querySelectorAll("h1")
 
-		this.panelCoordinates.forEach((panel, index) => {
+		this.panelUI.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
 			panel.splitHeading = new SplitText(headings[index], { type: "chars" }) // Create SplitText instance for each h1
 		})
@@ -97,6 +97,7 @@ class HorizontalScroll {
 	handleHeaderLinks(e) {
 		e.preventDefault()
 		this.pathname = e.target.closest("a").getAttribute("href").substring(1)
+		console.log(this.pathname)
 		this.scrollTarget =
 			this.pathname === "/" ? null : document.querySelector(`#${this.pathname}`)
 
@@ -169,7 +170,7 @@ class HorizontalScroll {
 
 	handleActivePanel() {
 		this.panels.forEach((panel, index) => {
-			const splitHeading = this.panelCoordinates[index].splitHeading
+			const splitHeading = this.panelUI[index].splitHeading
 
 			ScrollTrigger.create({
 				trigger: panel,
@@ -180,13 +181,13 @@ class HorizontalScroll {
 				onEnter: () => {
 					this.activePanel = panel
 					this.togglePanelVisibility()
-					this.pathname = this.panelCoordinates[index].section
+					this.pathname = this.panelUI[index].section
 					this.handlePathname()
 					this.animateHeading(splitHeading, "in")
 				},
 				onEnterBack: () => {
 					this.activePanel = panel
-					this.pathname = this.panelCoordinates[index].section
+					this.pathname = this.panelUI[index].section
 					this.handlePathname()
 					this.animateHeading(splitHeading, "in")
 				},
@@ -208,12 +209,9 @@ class HorizontalScroll {
 
 	handleBackgroundColor() {
 		const panel = this.activePanel
-		const panelColor = this.panelCoordinates.find(
+		const panelColor = this.panelUI.find(
 			(panel) => panel.section === this.pathname
 		).backgroundColor
-
-		console.log(panel)
-		console.log(panelColor)
 
 		if (panelColor) {
 			document.documentElement.setAttribute("data-theme", panelColor)

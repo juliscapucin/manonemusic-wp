@@ -76,7 +76,7 @@ class HorizontalScroll {
     this.tween;
     this.pathname;
     this.scrollTarget;
-    this.panelCoordinates = [{
+    this.panelUI = [{
       section: "home",
       x: 0,
       splitHeading: null,
@@ -118,7 +118,7 @@ class HorizontalScroll {
       panel.classList.add("transparent");
     });
     const headings = document.querySelectorAll("h1");
-    this.panelCoordinates.forEach((panel, index) => {
+    this.panelUI.forEach((panel, index) => {
       panel.x = this.panels[index].offsetLeft;
       panel.splitHeading = new gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_2__.SplitText(headings[index], {
         type: "chars"
@@ -145,6 +145,7 @@ class HorizontalScroll {
   handleHeaderLinks(e) {
     e.preventDefault();
     this.pathname = e.target.closest("a").getAttribute("href").substring(1);
+    console.log(this.pathname);
     this.scrollTarget = this.pathname === "/" ? null : document.querySelector(`#${this.pathname}`);
     if (this.scrollTarget) {
       this.handleScrollTo();
@@ -204,7 +205,7 @@ class HorizontalScroll {
   }
   handleActivePanel() {
     this.panels.forEach((panel, index) => {
-      const splitHeading = this.panelCoordinates[index].splitHeading;
+      const splitHeading = this.panelUI[index].splitHeading;
       ScrollTrigger.create({
         trigger: panel,
         containerAnimation: this.tween,
@@ -214,13 +215,13 @@ class HorizontalScroll {
         onEnter: () => {
           this.activePanel = panel;
           this.togglePanelVisibility();
-          this.pathname = this.panelCoordinates[index].section;
+          this.pathname = this.panelUI[index].section;
           this.handlePathname();
           this.animateHeading(splitHeading, "in");
         },
         onEnterBack: () => {
           this.activePanel = panel;
-          this.pathname = this.panelCoordinates[index].section;
+          this.pathname = this.panelUI[index].section;
           this.handlePathname();
           this.animateHeading(splitHeading, "in");
         },
@@ -238,9 +239,7 @@ class HorizontalScroll {
   }
   handleBackgroundColor() {
     const panel = this.activePanel;
-    const panelColor = this.panelCoordinates.find(panel => panel.section === this.pathname).backgroundColor;
-    console.log(panel);
-    console.log(panelColor);
+    const panelColor = this.panelUI.find(panel => panel.section === this.pathname).backgroundColor;
     if (panelColor) {
       document.documentElement.setAttribute("data-theme", panelColor);
     }

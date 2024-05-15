@@ -1039,19 +1039,32 @@ p,
 
 .is-style-group-full{
   height: var(--container-height-desktop);
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 /* Section */
 
 .is-style-group-section{
   position: relative;
-  margin-left: 16rem;
-  margin-right: 16rem;
   height: var(--container-height-desktop);
   max-height: var(--container-height-desktop);
   min-height: var(--container-height-desktop);
   min-width: 100vw;
   overflow-x: hidden;
+}
+
+.is-style-group-absolute{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -10;
+  display: flex;
+  height: 100vh;
+  min-width: 100%;
+  justify-content: center;
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
 }
 
 /* class applied in the editor */
