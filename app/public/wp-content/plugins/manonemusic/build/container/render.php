@@ -12,7 +12,8 @@
 
 ?>
 
-<div class="<?php echo $attributes["classes"]; ?>">oioi</div>
-<?php
-echo $content;
-?>
+<div class="<?php echo $attributes["classes"]; ?>">
+   <?php
+   echo $content;
+   ?>
+</div>
