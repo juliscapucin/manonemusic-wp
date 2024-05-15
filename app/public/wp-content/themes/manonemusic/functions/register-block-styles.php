@@ -24,9 +24,9 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
-      'core/group',
+      'core/image',
       array(
-         'name'         => 'group-absolute',
+         'name'         => 'image-absolute',
          'label'        => 'Absolute',
       ),
    );

@@ -199,8 +199,8 @@
 	@apply relative min-h-[--container-height-desktop] h-[--container-height-desktop] max-h-[--container-height-desktop] min-w-screen overflow-x-hidden;
 }
 
-.is-style-group-absolute {
-	@apply absolute top-0 left-0 w-full h-screen flex justify-center items-middle -z-10 bg-red !important;
+.is-style-image-absolute {
+	@apply absolute top-0 left-0 w-full h-screen flex justify-center items-center -z-10;
 }
 
 /* class applied in the editor */
@@ -248,7 +248,7 @@
 
 /* IMAGE */
 .is-style-image-square {
-	@apply w-full aspect-square object-cover;
+	@apply w-full aspect-square object-cover overflow-clip;
 }
 
 /* HEADING */
