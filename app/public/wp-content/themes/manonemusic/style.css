@@ -12,10 +12,10 @@
 :root {
 	--font-primary: "PPSupplyMono", monospace;
 	--font-secondary: "ff-real-text-pro", sans-serif;
-	--color-primary: 30 30 30;
-	--color-primary-rgb: 30, 30, 30;
-	--color-secondary: 40 209 194;
-	--color-secondary-rgb: 40, 209, 194;
+	--color-primary: 31 32 32;
+	--color-primary-rgb: 31, 32, 32;
+	--color-secondary: 210 200 195;
+	--color-secondary-rgb: 210, 200, 195;
 	--color-focus: 154, 152, 152;
 	--header-height: 4rem;
 	--margin-mobile: 1rem;
@@ -33,24 +33,41 @@
 
 @layer base {
 	:root[data-theme="dark"] {
-		--color-primary: 30 30 30;
-		--color-secondary: 40 209 194;
-		--color-secondary-rgb: 40, 209, 194;
+		--color-primary: 31 32 32;
+		--color-primary-rgb: 31, 32, 32;
+		--color-secondary: 210 200 195;
+		--color-secondary-rgb: 210, 200, 195;
 		--color-focus: 154, 152, 152;
 	}
-	:root[data-theme="light"] {
-		--color-primary: 249 246 238;
-		--color-secondary: 18 12 15;
-		--color-secondary-rgb: 18, 12, 15;
+	:root[data-theme="green"] {
+		--color-primary: 34 50 26;
+		--color-primary-rgb: 34, 50, 26;
+		--color-secondary: 141 129 143;
+		--color-secondary-rgb: 141, 129, 143;
 		--color-focus: 154, 152, 152;
 	}
-
-	body {
-		@apply font-secondary bg-primary overflow-x-clip;
+	:root[data-theme="red"] {
+		--color-primary: 53 30 42;
+		--color-primary-rgb: 53, 30, 42;
+		--color-secondary: 239 69 38;
+		--color-secondary-rgb: 239, 69, 38;
+		--color-focus: 154, 152, 152;
+	}
+	:root[data-theme="purple"] {
+		--color-primary: 141 129 143;
+		--color-primary-rgb: 141, 129, 143;
+		--color-secondary: 34 50 26;
+		--color-secondary-rgb: 34, 50, 26;
+		--color-focus: 154, 152, 152;
 	}
 
 	header {
 		@apply fixed px-8 flex justify-between items-center h-16 min-w-full max-w-wide;
+	}
+
+	body {
+		@apply font-secondary bg-primary transition-colors duration-200;
+		-webkit-font-smoothing: antialiased;
 	}
 
 	h1,
@@ -59,15 +76,11 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-secondary font-primary uppercase;
+		@apply text-secondary font-primary uppercase font-bold;
 	}
 
 	h1 {
-		@apply text-8xl;
-	}
-
-	cite {
-		@apply text-secondary font-secondary not-italic;
+		@apply text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px];
 	}
 
 	a {
@@ -76,7 +89,26 @@
 
 	li,
 	p {
-		@apply text-secondary font-secondary;
+		@apply text-secondary font-primary text-bodyMedium;
+	}
+
+	p {
+		@apply max-w-prose text-bodyMedium;
+	}
+
+	figcaption {
+		@apply font-primary uppercase font-extralight text-secondary;
+	}
+
+	cite {
+		@apply text-secondary font-secondary not-italic;
+	}
+
+	p,
+	a,
+	h1,
+	h2 {
+		@apply transition-colors duration-500;
 	}
 }
 
@@ -86,10 +118,32 @@
 	margin: 0;
 }
 
-html,
-body {
+/* --------------- */
+/* FRONTEND STYLES */
+/* --------------- */
+
+.site-body {
+	@apply font-secondary bg-primary overflow-x-clip;
 	-webkit-font-smoothing: antialiased;
-	transition: background-color 0.2s linear;
+}
+
+/* Scrollbars */
+.site-body::-webkit-scrollbar,
+.is-style-stack-scroll::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+.site-body::-webkit-scrollbar-track,
+.is-style-stack-scroll::-webkit-scrollbar-track {
+	background-color: rgba(var(--color-secondary-rgb), 0.5);
+	margin-block: 2px;
+}
+.site-body::-webkit-scrollbar-thumb,
+.is-style-stack-scroll::-webkit-scrollbar-thumb {
+	background-color: rgba(var(--color-secondary-rgb), 1);
+	width: 1rem;
+	height: 1rem;
+	border: none;
 }
 
 /* ------------- */
@@ -100,7 +154,11 @@ body {
 .container,
 .is-root-container,
 .generic-content {
-	@apply min-h-[--container-height-desktop] w-full max-w-wide;
+	@apply h-[--container-height-desktop] w-full max-w-wide;
+}
+
+.is-root-container h1 {
+	@apply mt-0;
 }
 
 /* Hide title in editor */
@@ -128,7 +186,7 @@ body {
 
 /* HORIZONTAL SCROLL (outer panel) */
 .is-style-horizontal-scroll {
-	@apply h-screen w-screen overflow-clip;
+	@apply h-screen w-screen;
 }
 
 /* HORIZONTAL PANEL (inner panel) */
@@ -136,19 +194,23 @@ body {
 	@apply h-[--container-height-desktop] w-fit;
 }
 
-/* TODO: check why max-w is not being applied */
+/* Section */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen px-8;
+	@apply relative min-h-[--container-height-desktop] h-[--container-height-desktop] max-h-[--container-height-desktop] min-w-screen overflow-x-hidden;
+}
+
+.is-style-group-absolute {
+	@apply absolute top-0 left-0 w-full h-screen flex justify-center items-middle -z-10 bg-red !important;
 }
 
 /* class applied in the editor */
 .is-style-home-heading {
-	@apply absolute top-16 w-screen px-8;
+	@apply absolute top-16 w-full px-32 z-20;
 }
 
 .is-style-logo-huge {
-	@apply block w-screen px-8 text-center;
-	font-size: clamp(2rem, 12vw, 15.3rem);
+	@apply block w-full;
+	font-size: clamp(2rem, 11vw, 14.3rem);
 }
 
 /* COLUMNS */
@@ -156,17 +218,26 @@ body {
 	@apply h-full w-full;
 }
 
-.is-style-columns-full p {
-	@apply pr-32;
+.is-style-columns-full-bottom {
+	@apply h-full w-full items-end;
 }
 
+/* COLUMN */
 .is-style-column-full {
-	@apply h-full flex-1 relative flex flex-col justify-between bg-faded-5;
+	@apply h-full flex-1 relative flex flex-col justify-between p-8;
 }
 
-/* STACK */
+.is-style-column-padding {
+	@apply pb-8;
+}
+
+.is-style-column-padding-align-bottom {
+	@apply p-8 justify-end;
+}
+
+/* STACK SCROLL */
 .is-style-stack-scroll {
-	@apply h-full overflow-y-scroll pt-8 space-y-8;
+	@apply absolute top-0 right-32 h-full overflow-y-scroll pt-8 pr-8 space-y-4 z-40 !important;
 }
 
 /* BUTTON */
@@ -179,3 +250,20 @@ body {
 .is-style-image-square {
 	@apply w-full aspect-square object-cover;
 }
+
+/* HEADING */
+.is-style-heading-section {
+	@apply absolute block mt-32 pl-32;
+}
+
+/* PARAGRAPH */
+.is-style-indent-left {
+	@apply ml-32 mt-4;
+}
+.is-style-indent-right {
+	@apply mr-32 mt-4;
+}
+
+/* .transparent {
+	@apply opacity-50 transition-opacity duration-500;
+} */

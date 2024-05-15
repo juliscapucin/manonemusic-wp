@@ -22,11 +22,6 @@ import {
 import { link } from "@wordpress/icons";
 import { useState } from "react";
 
-const CARD_TEMPLATE = [
-	["core/image", {}],
-	["manonemusic/card-label", { placeholder: "Enter Project Title" }],
-];
-
 const MyPlaceholder = () => (
 	<Placeholder icon={link} className="opacity-30 h-12" label="Add card link" />
 );
@@ -41,10 +36,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const innerBlocksProps = useInnerBlocksProps(
 		{},
 		{
-			template: [
-				["core/image", {}],
-				["manonemusic/card-label", { placeholder: "Enter Project Title" }],
-			],
+			template: [["core/image", {}]],
 		},
 	);
 

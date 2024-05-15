@@ -26,22 +26,50 @@ function manonemusic_block_styles()
    register_block_style(
       'core/group',
       array(
-         'name'         => 'stack-scroll',
-         'label'        => 'Stack Scroll',
+         'name'         => 'group-absolute',
+         'label'        => 'Absolute',
       ),
    );
    register_block_style(
       'core/columns',
       array(
          'name'         => 'columns-full',
-         'label'        => 'Columns Full',
+         'label'        => 'Full',
+      ),
+   );
+   register_block_style(
+      'core/columns',
+      array(
+         'name'         => 'columns-full-bottom',
+         'label'        => 'Full Bottom',
       ),
    );
    register_block_style(
       'core/column',
       array(
          'name'         => 'column-full',
-         'label'        => 'Column Full',
+         'label'        => 'Full Height',
+      ),
+   );
+   register_block_style(
+      'core/column',
+      array(
+         'name'         => 'column-padding',
+         'label'        => 'Padding',
+      ),
+   );
+   register_block_style(
+      'core/column',
+      array(
+         'name'         => 'column-padding-align-bottom',
+         'label'        => 'Padding Align Bottom',
+      ),
+   );
+   register_block_style(
+      'core/group',
+      array(
+         'name'         => 'stack-scroll',
+         'label'        => 'Stack Scroll',
       ),
    );
    register_block_style(
@@ -52,17 +80,33 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
+      'core/heading',
+      array(
+         'name'         => 'heading-section',
+         'label'        => 'Section',
+      ),
+   );
+   register_block_style(
       'core/image',
       array(
          'name'         => 'image-square',
          'label'        => 'Image Square',
       ),
    );
-   register_block_style('core/button', array(
-      'name'         => 'button-manonemusic',
-      'label'        => __('Theme Button', 'themeslug'),
-      'isDefault'    => true,
-   ));
+   register_block_style(
+      'core/paragraph',
+      array(
+         'name'         => 'indent-left',
+         'label'        => 'Indent Left',
+      ),
+   );
+   register_block_style(
+      'core/paragraph',
+      array(
+         'name'         => 'indent-right',
+         'label'        => 'Indent Right',
+      ),
+   );
 }
 
 add_action('init', 'manonemusic_block_styles');

@@ -26,9 +26,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const CARD_TEMPLATE = [["core/image", {}], ["manonemusic/card-label", {
-  placeholder: "Enter Project Title"
-}]];
 const MyPlaceholder = () => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Placeholder, {
   icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_4__["default"],
   className: "opacity-30 h-12",
@@ -44,9 +41,7 @@ function Edit({
   const [isLinkPickerVisible, setIsLinkPickerVisible] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)({}, {
-    template: [["core/image", {}], ["manonemusic/card-label", {
-      placeholder: "Enter Project Title"
-    }]]
+    template: [["core/image", {}]]
   });
   function buttonHandler() {
     setIsLinkPickerVisible(prev => !prev);
