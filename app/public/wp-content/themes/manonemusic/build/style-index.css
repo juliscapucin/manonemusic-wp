@@ -473,10 +473,10 @@ video {
 }
 
 :root[data-theme="purple"] {
-  --color-primary: 39 47 44;
-  --color-primary-rgb: 39, 47, 44;
-  --color-secondary: 141 129 143;
-  --color-secondary-rgb: 141, 129, 143;
+  --color-primary: 141 129 143;
+  --color-primary-rgb: 141, 129, 143;
+  --color-secondary: 34 50 26;
+  --color-secondary-rgb: 34, 50, 26;
   --color-focus: 154, 152, 152;
 }
 
@@ -564,6 +564,15 @@ cite{
   font-style: normal;
   --tw-text-opacity: 1;
   color: rgb(var(--color-secondary) / var(--tw-text-opacity));
+}
+
+p,
+	a,
+	h1,
+	h2{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
 }
 
 *, ::before, ::after{
@@ -969,7 +978,7 @@ cite{
 .container,
 .is-root-container,
 .generic-content{
-  min-height: var(--container-height-desktop);
+  height: var(--container-height-desktop);
   width: 100%;
   max-width: 1600px;
 }
@@ -1039,8 +1048,10 @@ cite{
   margin-left: 16rem;
   margin-right: 16rem;
   height: var(--container-height-desktop);
+  max-height: var(--container-height-desktop);
+  min-height: var(--container-height-desktop);
   min-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* class applied in the editor */
@@ -1048,6 +1059,7 @@ cite{
 .is-style-home-heading{
   position: absolute;
   top: 4rem;
+  z-index: 20;
   width: 100%;
   padding-left: 8rem;
   padding-right: 8rem;
@@ -1066,6 +1078,12 @@ cite{
   width: 100%;
 }
 
+.is-style-columns-full-bottom{
+  height: 100%;
+  width: 100%;
+  align-items: flex-end;
+}
+
 /* COLUMN */
 
 .is-style-column-full{
@@ -1075,6 +1093,7 @@ cite{
   flex: 1 1 0%;
   flex-direction: column;
   justify-content: space-between;
+  padding: 2rem;
 }
 
 .is-style-column-padding{
@@ -1133,6 +1152,7 @@ cite{
 /* HEADING */
 
 .is-style-heading-section{
+  position: absolute;
   margin-top: 8rem;
   display: block;
   padding-left: 8rem;

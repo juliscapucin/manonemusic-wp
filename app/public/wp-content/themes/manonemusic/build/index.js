@@ -95,12 +95,12 @@ class HorizontalScroll {
       section: "about",
       x: null,
       splitHeading: null,
-      backgroundColor: "purple"
+      backgroundColor: "dark"
     }, {
       section: "contact",
       x: null,
       splitHeading: null,
-      backgroundColor: "red"
+      backgroundColor: "green"
     }];
     this.activePanel;
     this.load();
@@ -114,7 +114,7 @@ class HorizontalScroll {
     this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].utils.toArray("#panels-inner-container .panel");
     this.pathname = window.location.pathname;
-    this.panels.forEach((panel, index) => {
+    this.panels.forEach(panel => {
       panel.classList.add("transparent");
     });
     const headings = document.querySelectorAll("h1");
@@ -239,6 +239,8 @@ class HorizontalScroll {
   handleBackgroundColor() {
     const panel = this.activePanel;
     const panelColor = this.panelCoordinates.find(panel => panel.section === this.pathname).backgroundColor;
+    console.log(panel);
+    console.log(panelColor);
     if (panelColor) {
       document.documentElement.setAttribute("data-theme", panelColor);
     }

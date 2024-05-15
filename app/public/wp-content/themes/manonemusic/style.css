@@ -54,10 +54,10 @@
 		--color-focus: 154, 152, 152;
 	}
 	:root[data-theme="purple"] {
-		--color-primary: 39 47 44;
-		--color-primary-rgb: 39, 47, 44;
-		--color-secondary: 141 129 143;
-		--color-secondary-rgb: 141, 129, 143;
+		--color-primary: 141 129 143;
+		--color-primary-rgb: 141, 129, 143;
+		--color-secondary: 34 50 26;
+		--color-secondary-rgb: 34, 50, 26;
 		--color-focus: 154, 152, 152;
 	}
 
@@ -103,6 +103,13 @@
 	cite {
 		@apply text-secondary font-secondary not-italic;
 	}
+
+	p,
+	a,
+	h1,
+	h2 {
+		@apply transition-colors duration-500;
+	}
 }
 
 * {
@@ -147,7 +154,7 @@
 .container,
 .is-root-container,
 .generic-content {
-	@apply min-h-[--container-height-desktop] w-full max-w-wide;
+	@apply h-[--container-height-desktop] w-full max-w-wide;
 }
 
 .is-root-container h1 {
@@ -189,12 +196,12 @@
 
 /* Section */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen mx-64 overflow-hidden;
+	@apply relative min-h-[--container-height-desktop] h-[--container-height-desktop] max-h-[--container-height-desktop] min-w-screen mx-64 overflow-x-hidden;
 }
 
 /* class applied in the editor */
 .is-style-home-heading {
-	@apply absolute top-16 w-full px-32;
+	@apply absolute top-16 w-full px-32 z-20;
 }
 
 .is-style-logo-huge {
@@ -207,9 +214,13 @@
 	@apply h-full w-full;
 }
 
+.is-style-columns-full-bottom {
+	@apply h-full w-full items-end;
+}
+
 /* COLUMN */
 .is-style-column-full {
-	@apply h-full flex-1 relative flex flex-col justify-between;
+	@apply h-full flex-1 relative flex flex-col justify-between p-8;
 }
 
 .is-style-column-padding {
@@ -238,7 +249,7 @@
 
 /* HEADING */
 .is-style-heading-section {
-	@apply block mt-32 pl-32;
+	@apply absolute block mt-32 pl-32;
 }
 
 /* PARAGRAPH */

@@ -31,13 +31,13 @@ class HorizontalScroll {
 				section: "about",
 				x: null,
 				splitHeading: null,
-				backgroundColor: "purple",
+				backgroundColor: "dark",
 			},
 			{
 				section: "contact",
 				x: null,
 				splitHeading: null,
-				backgroundColor: "red",
+				backgroundColor: "green",
 			},
 		]
 		this.activePanel
@@ -59,7 +59,7 @@ class HorizontalScroll {
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 		this.pathname = window.location.pathname
 
-		this.panels.forEach((panel, index) => {
+		this.panels.forEach((panel) => {
 			panel.classList.add("transparent")
 		})
 
@@ -211,6 +211,9 @@ class HorizontalScroll {
 		const panelColor = this.panelCoordinates.find(
 			(panel) => panel.section === this.pathname
 		).backgroundColor
+
+		console.log(panel)
+		console.log(panelColor)
 
 		if (panelColor) {
 			document.documentElement.setAttribute("data-theme", panelColor)

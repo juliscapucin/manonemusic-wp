@@ -27,7 +27,14 @@ function manonemusic_block_styles()
       'core/columns',
       array(
          'name'         => 'columns-full',
-         'label'        => 'Columns Full',
+         'label'        => 'Full',
+      ),
+   );
+   register_block_style(
+      'core/columns',
+      array(
+         'name'         => 'columns-full-bottom',
+         'label'        => 'Full Bottom',
       ),
    );
    register_block_style(
