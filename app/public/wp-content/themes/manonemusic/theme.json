@@ -5,26 +5,32 @@
       "appearanceTools": false,
       "color": {
          "custom": false,
-         "customGradient": false,
-         "customDuotone": false,
-         "duotone": [],
          "gradients": [],
+         "defaultGradients": false,
+         "customGradient": false,
+         "duotone": [],
+         "defaultDuotone": false,
+         "customDuotone": false,
          "link": false,
          "text": false,
          "background": false,
          "defaultPalette": false,
-         "defaultGradients": false,
          "palette": [
             {
-					"color": "#CC0000",
-					"name": "Base",
-					"slug": "base"
+					"color": "rgba(0,0,0,1)",
+					"name": "Primary",
+					"slug": "primary"
 				},
 				{
-					"color": "#ffffff",
-					"name": "Contrast",
-					"slug": "contrast"
-				}
+					"color": "rgba(255,255,255,1)",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+            { 
+               "slug": "red",
+               "name": "Red",
+               "color": "#ff0000"
+            }
          ]
       },
       "border": {
@@ -70,8 +76,8 @@
    },
    "styles": {
       "color": {
-         "background": "var(--wp--preset--color--base)",
-         "text": "var(--wp--preset--color--contrast)"
+         "background": "var(--wp--preset--color--primary)",
+         "text": "var(--wp--preset--color--secondary)"
       }
    }
 }
