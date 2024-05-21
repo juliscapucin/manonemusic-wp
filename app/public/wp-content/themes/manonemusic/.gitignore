@@ -5,6 +5,8 @@
 
 
 .log
+*.log
+/logs
 
 # local env files
 .npmrc
