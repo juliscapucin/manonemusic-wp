@@ -739,12 +739,12 @@ body{
   height: 1.5rem;
 }
 
-.h-screen{
-  height: 100vh;
-}
-
 .h-full{
   height: 100%;
+}
+
+.h-screen{
+  height: 100vh;
 }
 
 .min-h-svh{
@@ -759,12 +759,12 @@ body{
   width: 16rem;
 }
 
-.w-screen{
-  width: 100vw;
-}
-
 .w-full{
   width: 100%;
+}
+
+.w-screen{
+  width: 100vw;
 }
 
 .min-w-screen{
@@ -818,20 +818,16 @@ body{
   flex-wrap: wrap;
 }
 
-.items-center{
-  align-items: center;
-}
-
-.justify-center{
-  justify-content: center;
-}
-
 .gap-4{
   gap: 1rem;
 }
 
 .gap-8{
   gap: 2rem;
+}
+
+.overflow-clip{
+  overflow: clip;
 }
 
 .truncate{
@@ -846,11 +842,6 @@ body{
 
 .border{
   border-width: 1px;
-}
-
-.bg-red{
-  --tw-bg-opacity: 1;
-  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
 }
 
 .object-cover{
@@ -987,10 +978,6 @@ body {
   transition: background-color 0.2s linear;
 }
 
-.groupfigure .group-\[figure\]\:w-64{
-  width: 16rem;
-}
-
 @media (min-width: 768px){
   .md\:mt-4{
     margin-top: 1rem;
@@ -1008,18 +995,15 @@ body {
   }
 }
 
-.\[\&\>figure\]\:w-64>figure{
-  width: 16rem;
-}
-
 .\[\&\>img\]\:h-full>img{
   height: 100%;
 }
 
-.\[\&\>img\]\:h-64>img{
-  height: 16rem;
+.\[\&\>img\]\:w-full>img{
+  width: 100%;
 }
 
-.\[\&\\\>\\figure\]\:w-64\>\figure{
-  width: 16rem;
+.\[\&\>img\]\:object-cover>img{
+  -o-object-fit: cover;
+     object-fit: cover;
 }
