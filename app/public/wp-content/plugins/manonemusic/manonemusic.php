@@ -2,13 +2,12 @@
 
 /**
  * Plugin Name:       Manonemusic
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       A plugin to register gutenberg blocks for Manonemusic.
  * Requires at least: 6.1
- * Requires PHP:      7.0
+ * Requires PHP:      7.2
  * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Author:            Juli Scapucin
+ * Author URI:        https://juliscapucin.com
  * Text Domain:       manonemusic
  *
  * @package CreateBlock
@@ -50,3 +49,57 @@ function utm_user_scripts()
 }
 
 add_action('admin_print_styles', 'utm_user_scripts');
+
+
+
+// Custom Post Types
+function register_custom_post_type($type, $args)
+{
+	$default_args = array(
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
+		'has_archive' => true,
+		'public' => true,
+		'show_in_rest' => true,
+		'query_var' => true,
+		'capability_type' => 'post',
+		'taxonomies' => array('category', 'post_tag'),
+		'labels' => array(
+			'name' => ucfirst($type) . 's',
+			'add_new_item' => 'Add New ' . ucfirst($type),
+			'edit_item' => 'Edit ' . ucfirst($type),
+			'all_items' => 'All ' . ucfirst($type) . 's',
+			'singular_name' => ucfirst($type)
+		),
+		'menu_icon' => 'dashicons-admin-post'
+	);
+
+	$args = array_merge($default_args, $args);
+	register_post_type($type, $args);
+}
+
+function postTypes()
+{
+	register_custom_post_type('release', array(
+		'rewrite' => array('slug' => 'releases'),
+		'menu_icon' => 'dashicons-album'
+	));
+
+	register_custom_post_type('project', array(
+		'rewrite' => array('slug' => 'projects'),
+		'menu_icon' => 'dashicons-portfolio',
+		'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments')
+	));
+}
+
+add_action('init', 'postTypes');
+
+// Activate Plugin
+function manonemusic_activate()
+{
+	if (version_compare(get_bloginfo('version'), '5.9', '<')) {
+		wp_die('You must update WordPress to use this plugin');
+	}
+	flush_rewrite_rules(); // Refresh permalinks
+}
+
+register_activation_hook(__FILE__, 'manonemusic_activate');

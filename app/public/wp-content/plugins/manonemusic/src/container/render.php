@@ -24,7 +24,7 @@ libxml_clear_errors();
 $outerDivs = $dom->getElementsByTagName('div');
 foreach ($outerDivs as $outerDiv) {
    $existingClass = $outerDiv->getAttribute('class');
-   $outerDiv->setAttribute('class', $existingClass . ' ' . $attributes['classes']);
+   $outerDiv->setAttribute('class', $existingClass . ' ' . esc_attr($attributes['classes']));
 }
 
 // Add classes to <figure> with id 'image-figure'

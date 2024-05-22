@@ -2,17 +2,9 @@ import "./editor.scss";
 import {
 	useBlockProps,
 	useInnerBlocksProps,
-	InnerBlocks,
-	BlockControls,
 	InspectorControls,
-	MediaPlaceholder,
 } from "@wordpress/block-editor";
 import {
-	Popover,
-	Button,
-	ToggleControl,
-	Placeholder,
-	Panel,
 	PanelBody,
 	PanelRow,
 	TextControl,
