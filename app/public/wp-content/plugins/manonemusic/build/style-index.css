@@ -994,3 +994,16 @@ body {
     padding-right: 8rem;
   }
 }
+
+.\[\&\>img\]\:h-full>img{
+  height: 100%;
+}
+
+.\[\&\>img\]\:w-full>img{
+  width: 100%;
+}
+
+.\[\&\>img\]\:object-cover>img{
+  -o-object-fit: cover;
+     object-fit: cover;
+}

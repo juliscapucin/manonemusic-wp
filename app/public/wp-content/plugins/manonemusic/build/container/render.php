@@ -10,42 +10,34 @@
  * // print_r($block);
  */
 
-?>
+$classes = esc_attr($attributes['classes']);
+$content = '';
 
-<?php
 
-// Initialize DOMDocument and load HTML content
-$dom = new DOMDocument();
-libxml_use_internal_errors(true); // Suppress warnings for malformed HTML
-$dom->loadHTML($content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-libxml_clear_errors();
+foreach ($block->inner_blocks as $inner_block) {
+   $blockName = $inner_block->name;
 
-// Add the $attributes['classes'] to the element with id 'outer-div'
-$outerDivs = $dom->getElementsByTagName('div');
-foreach ($outerDivs as $outerDiv) {
-   $existingClass = $outerDiv->getAttribute('class');
-   $outerDiv->setAttribute('class', $existingClass . ' ' . esc_attr($attributes['classes']));
-}
 
-// Add classes to <figure> with id 'image-figure'
-$imageFigures = $dom->getElementsByTagName('figure');
-foreach ($imageFigures as $imageFigure) {
-   $imageFigure->setAttribute('class', 'relative w-64 aspect-square overflow-clip');
-}
+   // Case: image
+   if ($blockName === 'core/image') {
+      $imageAttributes = $inner_block->attributes;
+      $imageId = $imageAttributes['id'];
+      $imageAlt = $imageAttributes['alt'];
+      $imageClasses = $imageAttributes['className'];
 
-// Add classes to <img> tags
-$images = $dom->getElementsByTagName('img');
-if ($images->length > 0) {
-   foreach ($images as $image) {
-      $existingClass = $image->getAttribute('class');
-      $image->setAttribute('class', $existingClass . ' w-full h-full object-cover');
+      $image = wp_get_attachment_image($imageId, 'full', false, array(
+         'alt' => $imageAlt,
+         'class' => $imageClasses
+      ));
+
+      $content .= <<<HTML
+      <div class="{$classes}">
+         <figure class="relative w-64 aspect-square">
+            {$image}
+         </figure>
+      </div>
+      HTML;
    }
-} else {
-   echo "No <img> tags found.";
 }
 
-// Save the modified HTML content
-$content = $dom->saveHTML();
-?>
-
-<?php echo $content; ?>
+echo $content;

@@ -56,7 +56,7 @@ add_action('admin_print_styles', 'utm_user_scripts');
 function register_custom_post_type($type, $args)
 {
 	$default_args = array(
-		'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'custom-fields'),
 		'has_archive' => true,
 		'public' => true,
 		'show_in_rest' => true,
