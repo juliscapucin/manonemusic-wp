@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "manonemusic/cards-stack",
+	"version": "0.1.0",
+	"title": "Cards Stack",
+	"category": "design",
+	"icon": "dashicons-images-alt2",
+	"description": "General use cards stack",
+	"example": {},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	},
+	"attributes": {
+		"classes": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "cards-stack",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
