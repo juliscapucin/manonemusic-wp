@@ -4,18 +4,13 @@ import {
 	useInnerBlocksProps,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import {
-	PanelBody,
-	PanelRow,
-	TextControl,
-	QueryControls,
-} from "@wordpress/components";
+import { PanelBody, SelectControl } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import { RawHTML } from "@wordpress/element";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
-	const { count } = attributes;
+	const { section } = attributes;
 
 	// blockProps.className = "manonemusic-cards-stack";
 
@@ -35,15 +30,18 @@ export default function Edit({ attributes, setAttributes }) {
 		});
 	});
 
-	console.log(posts);
-
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title="Settings">
-					<QueryControls
-						numberOfItems={count}
-						onNumberOfItemsChange={(count) => setAttributes({ count })}
+					<SelectControl
+						label="Select Control"
+						value={tag}
+						options={[
+							{ value: "projects", label: "projects" },
+							{ value: "releases", label: "releases" },
+						]}
+						onChange={(newSection) => setAttributes({ section: newSection })}
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -53,7 +51,10 @@ export default function Edit({ attributes, setAttributes }) {
 					posts.length > 0 &&
 					posts.map((post) => {
 						return (
-							<div className="relative w-full aspect-square">
+							<a
+								href={post.link}
+								className="block relative w-full aspect-square"
+							>
 								<img
 									className="w-full h-full object-cover"
 									src={post._embedded["wp:featuredmedia"][0].source_url}
@@ -61,7 +62,7 @@ export default function Edit({ attributes, setAttributes }) {
 								<p className="">
 									<RawHTML>{post.title.rendered}</RawHTML>
 								</p>
-							</div>
+							</a>
 						);
 					})}
 			</div>

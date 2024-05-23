@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Renders the projects block on the frontend.
+ * Renders the projects / releases block on the frontend.
  *
  * @param array $attributes The block attributes.
  * @param string $content The block content.
@@ -9,3 +9,15 @@
  * 
  * // print_r($block);
  */
+
+
+$args = array(
+   'post_type' => 'release',
+   'posts_per_page' => -1,
+   'orderby' => 'date',
+   'order' => 'DESC'
+);
+
+$query = new WP_Query($args);
+
+print_r($attributes['section']);

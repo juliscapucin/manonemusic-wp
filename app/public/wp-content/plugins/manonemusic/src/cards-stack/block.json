@@ -20,9 +20,9 @@
 			"type": "string",
 			"default": ""
 		},
-		"count": {
-			"type": "number",
-			"default": -1
+		"section": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "cards-stack",
