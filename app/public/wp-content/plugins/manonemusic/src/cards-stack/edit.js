@@ -12,15 +12,6 @@ export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
 	const { section } = attributes;
 
-	// blockProps.className = "manonemusic-cards-stack";
-
-	const innerBlocksProps = useInnerBlocksProps(
-		{},
-		{
-			template: [["manonemusic/project-card", {}]],
-		},
-	);
-
 	const posts = useSelect((select) => {
 		const { getEntityRecords } = select("core");
 		return getEntityRecords("postType", "release", {
@@ -35,11 +26,11 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<PanelBody title="Settings">
 					<SelectControl
-						label="Select Control"
-						value={tag}
+						label="Select parent page / section"
+						value={section}
 						options={[
-							{ value: "projects", label: "projects" },
-							{ value: "releases", label: "releases" },
+							{ value: "project", label: "projects" },
+							{ value: "release", label: "releases" },
 						]}
 						onChange={(newSection) => setAttributes({ section: newSection })}
 					/>

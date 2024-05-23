@@ -37,12 +37,6 @@ function Edit({
   const {
     section
   } = attributes;
-
-  // blockProps.className = "manonemusic-cards-stack";
-
-  const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)({}, {
-    template: [["manonemusic/project-card", {}]]
-  });
   const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
     const {
       getEntityRecords
@@ -56,13 +50,13 @@ function Edit({
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: "Settings"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
-    label: "Select Control",
-    value: tag,
+    label: "Select parent page / section",
+    value: section,
     options: [{
-      value: "projects",
+      value: "project",
       label: "projects"
     }, {
-      value: "releases",
+      value: "release",
       label: "releases"
     }],
     onChange: newSection => setAttributes({

@@ -11,13 +11,39 @@
  */
 
 
+
 $args = array(
-   'post_type' => 'release',
+   'post_type' => $attributes['section'],
    'posts_per_page' => -1,
    'orderby' => 'date',
    'order' => 'DESC'
 );
 
 $query = new WP_Query($args);
+$content = '';
 
-print_r($attributes['section']);
+if ($query->have_posts()) {
+   echo 'have posts';
+   while ($query->have_posts()) {
+      $query->the_post();
+
+      $permalink = get_the_permalink();
+      $title = get_the_title();
+      $thumbnail_url = get_the_post_thumbnail_url();
+
+      $content .= <<<HTML
+      <a href="{$permalink}" class="block relative w-full aspect-square">
+         <img class="w-full h-full object-cover" src='{$thumbnail_url}' />
+         <p class="">{$title}</p>
+      </a>
+      HTML;
+   }
+   wp_reset_postdata();
+};
+?>
+<div class="absolute top-0 right-8 w-64 h-full overflow-y-scroll space-y-8 z-10">
+   <?php
+   echo $content;
+   ?>
+</div>
+<?php
