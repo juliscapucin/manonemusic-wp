@@ -135,6 +135,7 @@ class HorizontalScroll {
 	}
 
 	handlePathname() {
+		console.log(this.pathname)
 		const { protocol, hostname, port } = window.location
 		const newUrl = `${protocol}//${hostname}${port ? ":" + port : ""}/${
 			this.pathname === "home" ? "" : this.pathname

@@ -19,6 +19,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__);
+
+
 
 
 
@@ -29,27 +35,40 @@ function Edit({
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
   const {
-    classes
+    count
   } = attributes;
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)({}, {
     template: [["manonemusic/project-card", {}]]
   });
-  function setClasses(classes) {
-    setAttributes({
-      classes
+  const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
+    const {
+      getEntityRecords
+    } = select("core");
+    return getEntityRecords("postType", "release", {
+      per_page: -1,
+      _embed: true,
+      order: "desc"
     });
-  }
+  });
+  console.log(posts);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: "Classes"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-    label: "Tailwind classes",
-    help: "add classes to the container element",
-    value: classes,
-    onChange: setClasses
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    title: "Settings"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.QueryControls, {
+    numberOfItems: count,
+    onNumberOfItemsChange: count => setAttributes({
+      count
+    })
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...innerBlocksProps
+  }, posts && posts.length > 0 && posts.map(post => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "relative w-full aspect-square"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      className: "w-full h-full object-cover",
+      src: post._embedded["wp:featuredmedia"][0].source_url
+    }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: ""
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_5__.RawHTML, null, post.title.rendered)));
   })));
 }
 
@@ -112,7 +131,7 @@ function Save({
   const blockPropsSave = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
   const innerBlocksPropsSave = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps.save(blockPropsSave);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...innerBlocksPropsSave
+    ...blockPropsSave
   });
 }
 
@@ -182,13 +201,33 @@ module.exports = window["wp"]["components"];
 
 /***/ }),
 
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["element"];
+
+/***/ }),
+
 /***/ "./src/cards-stack/block.json":
 /*!************************************!*\
   !*** ./src/cards-stack/block.json ***!
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-stack","version":"0.1.0","title":"Cards Stack","category":"design","icon":"dashicons-images-alt2","description":"General use cards stack","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"classes":{"type":"string","default":""}},"textdomain":"cards-stack","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-stack","version":"0.1.0","title":"Cards Stack","category":"design","icon":"dashicons-images-alt2","description":"General use cards stack","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"classes":{"type":"string","default":""},"count":{"type":"number","default":-1}},"textdomain":"cards-stack","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

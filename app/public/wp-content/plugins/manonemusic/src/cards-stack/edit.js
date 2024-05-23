@@ -4,11 +4,18 @@ import {
 	useInnerBlocksProps,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import { PanelBody, PanelRow, TextControl } from "@wordpress/components";
+import {
+	PanelBody,
+	PanelRow,
+	TextControl,
+	QueryControls,
+} from "@wordpress/components";
+import { useSelect } from "@wordpress/data";
+import { RawHTML } from "@wordpress/element";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
-	const { classes } = attributes;
+	const { count } = attributes;
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{},
@@ -17,26 +24,43 @@ export default function Edit({ attributes, setAttributes }) {
 		},
 	);
 
-	function setClasses(classes) {
-		setAttributes({ classes });
-	}
+	const posts = useSelect((select) => {
+		const { getEntityRecords } = select("core");
+		return getEntityRecords("postType", "release", {
+			per_page: -1,
+			_embed: true,
+			order: "desc",
+		});
+	});
+
+	console.log(posts);
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Classes">
-					<PanelRow>
-						<TextControl
-							label="Tailwind classes"
-							help="add classes to the container element"
-							value={classes}
-							onChange={setClasses}
-						/>
-					</PanelRow>
+				<PanelBody title="Settings">
+					<QueryControls
+						numberOfItems={count}
+						onNumberOfItemsChange={(count) => setAttributes({ count })}
+					/>
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
-				<div {...innerBlocksProps} />
+				{posts &&
+					posts.length > 0 &&
+					posts.map((post) => {
+						return (
+							<div className="relative w-full aspect-square">
+								<img
+									className="w-full h-full object-cover"
+									src={post._embedded["wp:featuredmedia"][0].source_url}
+								/>
+								<p className="">
+									<RawHTML>{post.title.rendered}</RawHTML>
+								</p>
+							</div>
+						);
+					})}
 			</div>
 		</>
 	);

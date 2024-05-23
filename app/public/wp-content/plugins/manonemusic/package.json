@@ -14,7 +14,7 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "concurrently --kill-others \"wp-scripts start\" \"npm run starttailwind\""
+		"start": "wp-scripts start"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^27.7.0",

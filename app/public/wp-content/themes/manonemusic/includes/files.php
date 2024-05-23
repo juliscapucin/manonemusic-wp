@@ -13,4 +13,4 @@ function files()
    ));
 }
 
-add_action('wp_enqueue_scripts', 'files', 5);
+add_action('wp_enqueue_scripts', 'files', 1);

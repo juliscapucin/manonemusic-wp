@@ -3,7 +3,12 @@ module.exports = {
 	content: {
 		relative: true,
 		// files: ["./../../**/*.php", "./../../**/*.js"],
-		files: ["./../../../**/*.{php, js, html}"],
+		files: [
+			"./../../**/*.php",
+			"./src/**/*.js",
+			"./templates/*.html",
+			"./template_parts/*.php",
+		],
 	},
 	theme: {
 		fontFamily: {

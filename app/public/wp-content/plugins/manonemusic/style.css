@@ -52,3 +52,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	transition: background-color 0.2s linear;
 }
+
+.wp-block-manonemusic-cards-stack {
+	@apply absolute top-0 right-8 w-64 space-y-8 bg-red z-10 !important;
+}

@@ -170,6 +170,7 @@ class HorizontalScroll {
     });
   }
   handlePathname() {
+    console.log(this.pathname);
     const {
       protocol,
       hostname,

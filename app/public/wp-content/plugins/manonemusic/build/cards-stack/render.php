@@ -9,35 +9,3 @@
  * 
  * // print_r($block);
  */
-
-$classes = esc_attr($attributes['classes']);
-$content = '';
-
-
-foreach ($block->inner_blocks as $inner_block) {
-   $blockName = $inner_block->name;
-
-
-   // Case: image
-   if ($blockName === 'core/image') {
-      $imageAttributes = $inner_block->attributes;
-      $imageId = $imageAttributes['id'];
-      $imageAlt = $imageAttributes['alt'];
-      $imageClasses = $imageAttributes['className'];
-
-      $image = wp_get_attachment_image($imageId, 'full', false, array(
-         'alt' => $imageAlt,
-         'class' => $imageClasses
-      ));
-
-      $content .= <<<HTML
-      <div class="{$classes}">
-         <figure class="relative w-64 aspect-square">
-            {$image}
-         </figure>
-      </div>
-      HTML;
-   }
-}
-
-echo $content;

@@ -45,11 +45,10 @@ function utm_user_scripts()
 {
 	$plugin_url = plugin_dir_url(__FILE__);
 
-	wp_enqueue_style('style',  $plugin_url . "style.css");
+	wp_enqueue_style('style',  $plugin_url . "build/style-index.css", [], null);
 }
 
-add_action('admin_print_styles', 'utm_user_scripts');
-
+add_action('admin_print_styles', 'utm_user_scripts', 1);
 
 
 // Custom Post Types
@@ -87,7 +86,6 @@ function postTypes()
 	register_custom_post_type('project', array(
 		'rewrite' => array('slug' => 'projects'),
 		'menu_icon' => 'dashicons-portfolio',
-		'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments')
 	));
 }
 
