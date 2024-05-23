@@ -34,10 +34,6 @@ Version: 2024
 		--color-secondary-rgb: 18, 12, 15;
 		--color-focus: 154, 152, 152;
 	}
-
-	body {
-		@apply bg-secondary p-8 text-red;
-	}
 }
 
 * {
@@ -54,5 +50,5 @@ body {
 }
 
 .wp-block-manonemusic-cards-stack {
-	@apply absolute top-0 right-8 w-64 space-y-8 bg-red z-10 !important;
+	@apply absolute top-0 right-8 w-64 h-full overflow-y-scroll space-y-8 z-10 !important;
 }

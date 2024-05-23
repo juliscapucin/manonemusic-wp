@@ -17,6 +17,8 @@ export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
 	const { count } = attributes;
 
+	// blockProps.className = "manonemusic-cards-stack";
+
 	const innerBlocksProps = useInnerBlocksProps(
 		{},
 		{
@@ -45,6 +47,7 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</PanelBody>
 			</InspectorControls>
+			{/* BUG – Tailwind classes for root container don't work here. Added them in style.css */}
 			<div {...blockProps}>
 				{posts &&
 					posts.length > 0 &&

@@ -37,6 +37,9 @@ function Edit({
   const {
     count
   } = attributes;
+
+  // blockProps.className = "manonemusic-cards-stack";
+
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useInnerBlocksProps)({}, {
     template: [["manonemusic/project-card", {}]]
   });

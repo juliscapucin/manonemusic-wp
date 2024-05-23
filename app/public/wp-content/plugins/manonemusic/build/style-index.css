@@ -468,14 +468,6 @@ video {
   --color-focus: 154, 152, 152;
 }
 
-body{
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
-  padding: 2rem;
-  --tw-text-opacity: 1;
-  color: rgb(204 0 0 / var(--tw-text-opacity));
-}
-
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -743,6 +735,7 @@ body {
   top: 0px !important;
   right: 2rem !important;
   z-index: 10 !important;
+  height: 100% !important;
   width: 16rem !important;
 }
 
@@ -753,8 +746,7 @@ body {
 }
 
 .wp-block-manonemusic-cards-stack{
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(204 0 0 / var(--tw-bg-opacity)) !important;
+  overflow-y: scroll !important;
 }
 
 @media (min-width: 768px){

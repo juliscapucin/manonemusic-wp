@@ -45,6 +45,7 @@ function utm_user_scripts()
 {
 	$plugin_url = plugin_dir_url(__FILE__);
 
+	// adds Tailwind / css variables to admin
 	wp_enqueue_style('style',  $plugin_url . "build/style-index.css", [], null);
 }
 
