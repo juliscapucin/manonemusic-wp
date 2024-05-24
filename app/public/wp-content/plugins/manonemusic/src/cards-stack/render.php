@@ -23,7 +23,6 @@ $query = new WP_Query($args);
 $content = '';
 
 if ($query->have_posts()) {
-   echo 'have posts';
    while ($query->have_posts()) {
       $query->the_post();
 
@@ -41,7 +40,7 @@ if ($query->have_posts()) {
    wp_reset_postdata();
 };
 ?>
-<div class="absolute top-0 right-8 w-64 h-full overflow-y-scroll space-y-8 z-10">
+<div class="absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40">
    <?php
    echo $content;
    ?>

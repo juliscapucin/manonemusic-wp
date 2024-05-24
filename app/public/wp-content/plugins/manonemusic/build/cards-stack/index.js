@@ -347,7 +347,6 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"cards-stack/index": 0,
-/******/ 			"about-block/style-index": 0,
 /******/ 			"cards-stack/style-index": 0
 /******/ 		};
 /******/ 		
@@ -398,7 +397,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["about-block/style-index","cards-stack/style-index"], () => (__webpack_require__("./src/cards-stack/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["cards-stack/style-index"], () => (__webpack_require__("./src/cards-stack/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
