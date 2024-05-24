@@ -175,9 +175,9 @@ Text Domain: manonemusic
 }
 
 /* Hide title in editor */
-/* .editor-editor-canvas__post-title-wrapper {
+.editor-editor-canvas__post-title-wrapper {
 	display: none;
-} */
+}
 
 .wp-element-button {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;

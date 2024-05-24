@@ -102,6 +102,11 @@
 			"name": "single-release",
 			"postTypes": ["release"],
 			"title": "Release Page"
+		},
+      {
+			"name": "single-project",
+			"postTypes": ["project"],
+			"title": "Project Page"
 		}
 	]
 }
