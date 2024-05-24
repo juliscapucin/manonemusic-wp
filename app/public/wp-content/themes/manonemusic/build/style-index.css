@@ -766,28 +766,20 @@ p,
   position: sticky;
 }
 
-.right-8{
-  right: 2rem;
+.right-32{
+  right: 8rem;
 }
 
 .top-0{
   top: 0px;
 }
 
-.right-32{
-  right: 8rem;
+.z-40{
+  z-index: 40;
 }
 
 .z-50{
   z-index: 50;
-}
-
-.z-10{
-  z-index: 10;
-}
-
-.z-40{
-  z-index: 40;
 }
 
 .float-left{
@@ -839,12 +831,12 @@ p,
   height: 100%;
 }
 
-.h-screen{
-  height: 100vh;
-}
-
 .h-full{
   height: 100%;
+}
+
+.h-screen{
+  height: 100vh;
 }
 
 .min-h-svh{
@@ -859,16 +851,16 @@ p,
   width: 16rem;
 }
 
-.w-screen{
-  width: 100vw;
+.w-96{
+  width: 24rem;
 }
 
 .w-full{
   width: 100%;
 }
 
-.w-96{
-  width: 24rem;
+.w-screen{
+  width: 100vw;
 }
 
 .min-w-screen{
@@ -913,18 +905,6 @@ p,
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
-.space-y-16 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(4rem * var(--tw-space-y-reverse));
-}
-
 .overflow-y-scroll{
   overflow-y: scroll;
 }
@@ -937,11 +917,6 @@ p,
 
 .border{
   border-width: 1px;
-}
-
-.bg-red{
-  --tw-bg-opacity: 1;
-  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
 }
 
 .object-cover{
@@ -958,9 +933,8 @@ p,
   padding-right: 2rem;
 }
 
-.py-16{
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+.pb-8{
+  padding-bottom: 2rem;
 }
 
 .pr-16{
@@ -971,16 +945,8 @@ p,
   padding-right: 2rem;
 }
 
-.pt-8{
-  padding-top: 2rem;
-}
-
 .pt-16{
   padding-top: 4rem;
-}
-
-.pb-8{
-  padding-bottom: 2rem;
 }
 
 .font-primary{
@@ -1107,9 +1073,9 @@ p,
 
 /* Hide title in editor */
 
-.editor-editor-canvas__post-title-wrapper {
-  display: none;
-}
+/* .editor-editor-canvas__post-title-wrapper {
+	display: none;
+} */
 
 .wp-element-button{
   border-radius: 0px;
@@ -1156,9 +1122,11 @@ p,
 /* HORIZONTAL PANEL (inner panel) */
 
 .is-style-group-full{
+  display: flex;
   height: var(--container-height-desktop);
   width: -moz-fit-content;
   width: fit-content;
+  flex-wrap: nowrap;
 }
 
 /* Section */

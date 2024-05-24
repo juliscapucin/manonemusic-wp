@@ -175,9 +175,9 @@ Text Domain: manonemusic
 }
 
 /* Hide title in editor */
-.editor-editor-canvas__post-title-wrapper {
+/* .editor-editor-canvas__post-title-wrapper {
 	display: none;
-}
+} */
 
 .wp-element-button {
 	@apply uppercase bg-secondary text-primary font-primary rounded-none;
@@ -204,7 +204,7 @@ Text Domain: manonemusic
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply h-[--container-height-desktop] w-fit;
+	@apply h-[--container-height-desktop] w-fit flex flex-nowrap;
 }
 
 /* Section */

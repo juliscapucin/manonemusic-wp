@@ -97,7 +97,6 @@ class HorizontalScroll {
 	handleHeaderLinks(e) {
 		e.preventDefault()
 		this.pathname = e.target.closest("a").getAttribute("href").substring(1)
-		console.log(this.pathname)
 		this.scrollTarget =
 			this.pathname === "/" ? null : document.querySelector(`#${this.pathname}`)
 
@@ -108,6 +107,8 @@ class HorizontalScroll {
 
 	handleScrollTo() {
 		let y = this.scrollTarget
+		console.log(y)
+		console.log(window)
 
 		if (
 			this.scrollTarget &&

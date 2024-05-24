@@ -79,5 +79,29 @@
          "background": "var(--wp--preset--color--primary)",
          "text": "var(--wp--preset--color--secondary)"
       }
-   }
+   },
+   "templateParts": [
+		{
+			"area": "header",
+			"name": "header",
+			"title": "Header"
+		},
+		{
+			"area": "footer",
+			"name": "footer",
+			"title": "Footer"
+		},
+		{
+			"area": "uncategorized",
+			"name": "release",
+			"title": "Release"
+		}
+	],
+	"customTemplates": [
+		{
+			"name": "single-release",
+			"postTypes": ["release"],
+			"title": "Release Page"
+		}
+	]
 }

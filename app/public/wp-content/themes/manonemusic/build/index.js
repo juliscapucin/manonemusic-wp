@@ -145,7 +145,6 @@ class HorizontalScroll {
   handleHeaderLinks(e) {
     e.preventDefault();
     this.pathname = e.target.closest("a").getAttribute("href").substring(1);
-    console.log(this.pathname);
     this.scrollTarget = this.pathname === "/" ? null : document.querySelector(`#${this.pathname}`);
     if (this.scrollTarget) {
       this.handleScrollTo();
@@ -153,6 +152,8 @@ class HorizontalScroll {
   }
   handleScrollTo() {
     let y = this.scrollTarget;
+    console.log(y);
+    console.log(window);
     if (this.scrollTarget && this.panelsInnerContainer.isSameNode(this.scrollTarget.parentElement)) {
       let totalScroll = this.tween.scrollTrigger.end - this.tween.scrollTrigger.start,
         totalMovement = this.panelsInnerContainer.scrollWidth - innerWidth;
