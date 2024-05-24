@@ -41,15 +41,15 @@ function create_block_manonemusic_block_init()
 
 add_action('init', 'create_block_manonemusic_block_init');
 
-function utm_user_scripts()
-{
-	$plugin_url = plugin_dir_url(__FILE__);
+// function utm_user_scripts()
+// {
+// 	$plugin_url = plugin_dir_url(__FILE__);
 
-	// adds Tailwind / css variables to admin
-	wp_enqueue_style('style',  $plugin_url . "build/style-index.css", [], null);
-}
+// 	// adds Tailwind / css variables to admin
+// 	wp_enqueue_style('style',  $plugin_url . "build/style-index.css", [], null);
+// }
 
-add_action('admin_print_styles', 'utm_user_scripts', 1);
+// add_action('admin_print_styles', 'utm_user_scripts', 1);
 
 
 // Custom Post Types
