@@ -93,7 +93,8 @@ function Edit({
     length: count
   }).map((item, index) => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "mb-4"
+      className: "mb-4",
+      key: `edit-tracklist-${index}`
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
       tagName: "h3",
       value: item,
@@ -185,14 +186,11 @@ function Save({
   const blockPropsSave = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockPropsSave
-  }, Array.from({
-    length: count
-  }).map((item, index) => {
-    const track = tracklist[index] || {};
+  }, tracklist.map((track, index) => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "mb-4",
-      key: index
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, track.title || ""), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, track.url || ""));
+      key: `save-tracklist-${index}`
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, null));
   }));
 }
 

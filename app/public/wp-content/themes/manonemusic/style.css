@@ -280,3 +280,19 @@ Text Domain: manonemusic
 /* .transparent {
 	@apply opacity-50 transition-opacity duration-500;
 } */
+
+.manonemusic-player-wrapper {
+	@apply relative overflow-clip h-16;
+}
+
+#manonemusic-player {
+	@apply -translate-x-28;
+}
+
+.manonemusic-player-overlay {
+	@apply absolute top-0 left-0 w-full h-full bg-primary z-50 pointer-events-none opacity-90;
+}
+
+.playButton {
+	@apply bg-red w-16 h-16;
+}

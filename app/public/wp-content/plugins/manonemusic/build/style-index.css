@@ -638,8 +638,16 @@ video {
   margin-bottom: 1rem;
 }
 
+.mt-8{
+  margin-top: 2rem;
+}
+
 .block{
   display: block;
+}
+
+.flex{
+  display: flex;
 }
 
 .aspect-square{
@@ -680,9 +688,17 @@ video {
   overflow-y: scroll;
 }
 
+.bg-faded-70{
+  background-color: rgba(var(--color-secondary-rgb), 0.7);
+}
+
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.p-8{
+  padding: 2rem;
 }
 
 .pb-8{

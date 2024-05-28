@@ -1232,6 +1232,37 @@ p,
 	@apply opacity-50 transition-opacity duration-500;
 } */
 
+.manonemusic-player-wrapper{
+  position: relative;
+  height: 4rem;
+  overflow: clip;
+}
+
+#manonemusic-player{
+  --tw-translate-x: -7rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.manonemusic-player-overlay{
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 50;
+  height: 100%;
+  width: 100%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
+  opacity: 0.9;
+}
+
+.playButton{
+  height: 4rem;
+  width: 4rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
+}
+
 @media (min-width: 1280px){
   .xl\:px-32{
     padding-left: 8rem;

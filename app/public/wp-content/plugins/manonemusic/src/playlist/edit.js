@@ -47,7 +47,7 @@ export default function Edit({ attributes, setAttributes }) {
 			<div {...blockProps}>
 				{Array.from({ length: count }).map((item, index) => {
 					return (
-						<div className="mb-4">
+						<div className="mb-4" key={`edit-tracklist-${index}`}>
 							<RichText
 								tagName="h3"
 								value={item}

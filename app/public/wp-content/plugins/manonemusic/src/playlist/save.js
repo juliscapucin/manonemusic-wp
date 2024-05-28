@@ -1,4 +1,8 @@
-import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
+import {
+	useBlockProps,
+	useInnerBlocksProps,
+	RichText,
+} from "@wordpress/block-editor";
 
 export default function Save({ attributes }) {
 	const { count, tracklist } = attributes;
@@ -6,12 +10,11 @@ export default function Save({ attributes }) {
 
 	return (
 		<div {...blockPropsSave}>
-			{Array.from({ length: count }).map((item, index) => {
-				const track = tracklist[index] || {};
+			{tracklist.map((track, index) => {
 				return (
-					<div className="mb-4" key={index}>
-						<h3>{track.title || ""}</h3>
-						<p>{track.url || ""}</p>
+					<div className="mb-4" key={`save-tracklist-${index}`}>
+						<RichText.Content />
+						<RichText.Content />
 					</div>
 				);
 			})}
