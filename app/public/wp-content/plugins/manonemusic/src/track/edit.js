@@ -68,6 +68,11 @@ export default function Edit({ attributes, setAttributes }) {
 				);
 			})}
 			<Button
+				onClick={() => {
+					setAttributes({
+						tracklist: tracklist.concat({ title: "", url: "" }),
+					});
+				}}
 				variant="primary"
 				icon={"plus-alt"}
 				style={{

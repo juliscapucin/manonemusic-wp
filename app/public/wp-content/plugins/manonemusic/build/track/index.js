@@ -82,6 +82,14 @@ function Edit({
       variant: "link"
     }, "Remove Track"))));
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    onClick: () => {
+      setAttributes({
+        tracklist: tracklist.concat({
+          title: "",
+          url: ""
+        })
+      });
+    },
     variant: "primary",
     icon: "plus-alt",
     style: {
