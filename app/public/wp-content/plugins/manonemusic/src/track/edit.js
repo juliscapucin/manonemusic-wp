@@ -1,4 +1,3 @@
-import "./editor.scss";
 import { useBlockProps } from "@wordpress/block-editor";
 import {
 	TextControl,
@@ -7,7 +6,15 @@ import {
 	FlexBlock,
 	FlexItem,
 } from "@wordpress/components";
-import { Fragment } from "@wordpress/element";
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+import "./style.css";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
@@ -25,6 +32,12 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ tracklist: newTracklist });
 	};
 
+	const removeTrack = (index) => {
+		const newTracklist = [...tracklist];
+		newTracklist.splice(index, 1);
+		setAttributes({ tracklist: newTracklist });
+	};
+
 	return (
 		<div
 			{...blockProps}
@@ -34,7 +47,10 @@ export default function Edit({ attributes, setAttributes }) {
 		>
 			{tracklist.map((track, index) => {
 				return (
-					<Fragment key={`trackInput-${index}`}>
+					<div
+						style={index > 0 ? { marginTop: "1rem" } : {}}
+						key={`trackInput-${index}`}
+					>
 						<Flex>
 							<FlexBlock>
 								<TextControl
@@ -61,10 +77,16 @@ export default function Edit({ attributes, setAttributes }) {
 							</FlexBlock>
 
 							<FlexItem>
-								<Button variant="link">Remove Track</Button>
+								<Button
+									onClick={() => removeTrack(index)}
+									variant="link"
+									style={{ color: "var(--color-secondary)" }}
+								>
+									Remove Track
+								</Button>
 							</FlexItem>
 						</Flex>
-					</Fragment>
+					</div>
 				);
 			})}
 			<Button
@@ -76,7 +98,7 @@ export default function Edit({ attributes, setAttributes }) {
 				variant="primary"
 				icon={"plus-alt"}
 				style={{
-					margin: "1rem auto 0 auto",
+					margin: "1.5rem auto 0 auto",
 					display: "flex",
 					padding: "0 5rem",
 				}}

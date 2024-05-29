@@ -1,4 +1,3 @@
-import "./editor.scss";
 import {
 	useBlockProps,
 	useInnerBlocksProps,
@@ -7,6 +6,15 @@ import {
 import { PanelBody, SelectControl } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import { RawHTML } from "@wordpress/element";
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+import "./style.css";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
@@ -37,7 +45,10 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 			{/* BUG – Tailwind classes for root container don't work here. Added them in style.css */}
-			<div {...blockProps}>
+			<div
+				{...blockProps}
+				className="absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40"
+			>
 				{posts &&
 					posts.length > 0 &&
 					posts.map((post) => {

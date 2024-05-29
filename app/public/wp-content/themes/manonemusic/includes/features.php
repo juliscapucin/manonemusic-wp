@@ -6,7 +6,6 @@ function features()
    add_theme_support('disable-layout-styles'); // Disables wp native styles
    add_theme_support('editor-styles');
    add_editor_style(array('build/style-index.css'));
-   // add_editor_style(array('build/style-index.css', 'build/styles/custom-core-blocks.css'));
    register_nav_menu('headerMenu', 'Header Menu');
    register_nav_menu('footerMenu', 'Footer Menu');
    add_image_size('imgThumbnail', 260, 260, true);

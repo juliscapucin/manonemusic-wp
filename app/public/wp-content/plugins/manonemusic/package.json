@@ -6,8 +6,8 @@
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
-		"starttailwind": "npx tailwindcss -i ./style.css -o ./build/style-index.css --watch",
-		"buildtailwind": "npx tailwindcss -i ./style.css -o ./build/style-index.css",
+		"starttailwind": "npx tailwindcss -i ./src/style.css -o ./build/style-index.css --watch",
+		"buildtailwind": "npx tailwindcss -i ./src/style.css -o ./build/style-index.css",
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
