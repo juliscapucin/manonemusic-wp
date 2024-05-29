@@ -55,6 +55,7 @@ export default function Edit({ attributes, setAttributes }) {
 							<FlexBlock>
 								<TextControl
 									label="Track title:"
+									autoFocus={track.title == undefined}
 									value={track.title}
 									onChange={(newTitle) => updateTrackTitle(index, newTitle)}
 									style={{
@@ -92,7 +93,7 @@ export default function Edit({ attributes, setAttributes }) {
 			<Button
 				onClick={() => {
 					setAttributes({
-						tracklist: tracklist.concat({ title: "", url: "" }),
+						tracklist: tracklist.concat({ title: undefined, url: "" }),
 					});
 				}}
 				variant="primary"

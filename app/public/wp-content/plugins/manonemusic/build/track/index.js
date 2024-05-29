@@ -79,6 +79,7 @@ function Edit({
       key: `trackInput-${index}`
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
       label: "Track title:",
+      autoFocus: track.title == undefined,
       value: track.title,
       onChange: newTitle => updateTrackTitle(index, newTitle),
       style: {
@@ -104,7 +105,7 @@ function Edit({
     onClick: () => {
       setAttributes({
         tracklist: tracklist.concat({
-          title: "",
+          title: undefined,
           url: ""
         })
       });

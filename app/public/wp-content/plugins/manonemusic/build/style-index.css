@@ -680,11 +680,6 @@ video {
   overflow-y: scroll;
 }
 
-.bg-red{
-  --tw-bg-opacity: 1;
-  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
-}
-
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;

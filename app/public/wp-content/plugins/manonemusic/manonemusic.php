@@ -46,11 +46,11 @@ function utm_user_scripts()
 	$plugin_url = plugin_dir_url(__FILE__);
 
 	// adds fonts / Tailwind / css variables to admin
-	wp_enqueue_style('style',  $plugin_url . "build/assets/fonts.css", [], null);
+	// wp_enqueue_style('style',  $plugin_url . "build/assets/fonts.css", [], null);
 	wp_enqueue_style('style',  $plugin_url . "build/style-index.css", [], null);
 }
 
-add_action('enqueue_block_assets', 'utm_user_scripts', 1);
+// add_action('enqueue_block_assets', 'utm_user_scripts', 1);
 
 
 // Custom Post Types
