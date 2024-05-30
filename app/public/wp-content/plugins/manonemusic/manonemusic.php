@@ -53,6 +53,7 @@ function utm_user_scripts()
 // add_action('enqueue_block_assets', 'utm_user_scripts', 1);
 
 
+
 // Custom Post Types
 function register_custom_post_type($type, $args)
 {
@@ -82,7 +83,7 @@ function postTypes()
 {
 	register_custom_post_type('release', array(
 		'rewrite' => array('slug' => 'releases'),
-		'menu_icon' => 'dashicons-album'
+		'menu_icon' => 'dashicons-album',
 	));
 
 	register_custom_post_type('project', array(

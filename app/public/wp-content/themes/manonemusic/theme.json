@@ -95,7 +95,17 @@
 			"area": "uncategorized",
 			"name": "release",
 			"title": "Release"
-		}
+		},
+      {
+         "area": "uncategorized",
+         "name": "project",
+         "title": "Project"
+      },
+      {
+         "area": "uncategorized",
+         "name": "track",
+         "title": "Track"
+      }
 	],
 	"customTemplates": [
 		{

@@ -6,8 +6,6 @@ function files()
    wp_register_style('fonts', get_theme_file_uri('/build/assets/fonts.css'), [], null);
    wp_enqueue_style('fonts');
    wp_enqueue_style('styles', get_theme_file_uri('/build/style-index.css'), [], null);
-   // wp_register_style('core-styles', get_theme_file_uri('/build/styles/custom-core-blocks.css'), [],  filemtime(get_theme_file_path('/build/styles/custom-core-blocks.css')));
-   // wp_enqueue_style('core-styles');
    wp_localize_script('main-js', 'siteData', array(
       'root_url' => get_site_url()
    ));

@@ -20,4 +20,5 @@
         'link_before' => '<span class="header-link">',
         'link_after' => '</span>'
       )) ?>
+    </nav>
   </header>

@@ -18,7 +18,7 @@ require_once $theme_dir . '/components/projects.php';
 // Require common functions
 require_once $theme_dir . '/includes/common.php';
 
-// Require styles
+// Require custom core block styles
 require_once $theme_dir . '/includes/register-block-styles.php';
 
 // Require GSAP files
