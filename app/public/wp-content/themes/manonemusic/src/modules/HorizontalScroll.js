@@ -48,6 +48,8 @@ class HorizontalScroll {
 	async init() {
 		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText)
 
+		console.log("HorizontalScroll")
+
 		/* Main navigation */
 		this.panelsOuterContainer = document.querySelector(
 			"#panels-outer-container"

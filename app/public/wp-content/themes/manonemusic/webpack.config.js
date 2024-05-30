@@ -13,6 +13,7 @@ module.exports = {
 	...{
 		entry: {
 			index: path.resolve(process.cwd(), "src", "index.js"),
+			homepage: path.resolve(process.cwd(), "src", "js/homepage.js"),
 			"assets/fonts": path.resolve(
 				process.cwd(),
 				"src/assets/fonts",
