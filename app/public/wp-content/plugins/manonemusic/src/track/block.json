@@ -10,6 +10,7 @@
 	"example": {},
 	"supports": {
 		"html": false,
+		"interactivity": true,
 		"spacing": {
 			"padding": true,
 			"margin": true
@@ -21,11 +22,13 @@
 			"default": [
 				{
 					"title": "Track 1",
-					"url": "url"
+					"url": "url",
+					"id": "857650483"
 				},
 				{
 					"title": "Track 2",
-					"url": "url"
+					"url": "url",
+					"id": "857650483"
 				}
 			]
 		}

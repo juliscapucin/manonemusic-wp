@@ -16,6 +16,7 @@
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start"
 	},
+	"dependencies": {"@wordpress/interactivity": "^5.7.0"},
 	"devDependencies": {
 		"@wordpress/scripts": "^27.7.0",
 		"concurrently": "^8.2.2",

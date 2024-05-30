@@ -742,6 +742,10 @@ p,
   border-width: 0;
 }
 
+.pointer-events-none{
+  pointer-events: none;
+}
+
 .visible{
   visibility: visible;
 }
@@ -774,6 +778,10 @@ p,
   top: 0px;
 }
 
+.left-0{
+  left: 0px;
+}
+
 .z-40{
   z-index: 40;
 }
@@ -784,6 +792,10 @@ p,
 
 .float-left{
   float: left;
+}
+
+.mt-4{
+  margin-top: 1rem;
 }
 
 .block{
@@ -823,6 +835,10 @@ p,
   height: 100%;
 }
 
+.h-16{
+  height: 4rem;
+}
+
 .h-full{
   height: 100%;
 }
@@ -845,6 +861,16 @@ p,
 
 .max-w-wide{
   max-width: 1600px;
+}
+
+.-translate-x-32{
+  --tw-translate-x: -8rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-x-28{
+  --tw-translate-x: -7rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .transform{
@@ -877,6 +903,10 @@ p,
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
 
+.overflow-clip{
+  overflow: clip;
+}
+
 .overflow-y-scroll{
   overflow-y: scroll;
 }
@@ -889,6 +919,11 @@ p,
 
 .border{
   border-width: 1px;
+}
+
+.bg-primary{
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
 }
 
 .object-cover{
@@ -931,6 +966,18 @@ p,
 
 .underline{
   text-decoration-line: underline;
+}
+
+.opacity-90{
+  opacity: 0.9;
+}
+
+.opacity-100{
+  opacity: 1;
+}
+
+.opacity-20{
+  opacity: 0.2;
 }
 
 .filter{
@@ -1232,29 +1279,9 @@ p,
 	@apply opacity-50 transition-opacity duration-500;
 } */
 
-.manonemusic-player-wrapper{
-  position: relative;
-  height: 4rem;
-  overflow: clip;
-}
-
-#manonemusic-player{
-  --tw-translate-x: -7rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.manonemusic-player-overlay{
-  pointer-events: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 50;
-  height: 100%;
-  width: 100%;
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
-  opacity: 0.9;
-}
+/* .manonemusic-player-overlay {
+	@apply absolute top-0 left-0 w-full h-full bg-primary z-50 pointer-events-none opacity-90;
+} */
 
 .playButton{
   height: 4rem;

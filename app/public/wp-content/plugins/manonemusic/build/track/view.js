@@ -26,7 +26,7 @@ var __webpack_exports__ = {};
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from container block)");
+console.log("Hello World! (from track)");
 /* eslint-enable no-console */
 /******/ })()
 ;

@@ -17,7 +17,7 @@ import {
 import "./style.css";
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({ className: "p-4" });
 	const { tracklist } = attributes;
 
 	const updateTrackTitle = (index, newTitle) => {
@@ -39,12 +39,7 @@ export default function Edit({ attributes, setAttributes }) {
 	};
 
 	return (
-		<div
-			{...blockProps}
-			style={{
-				padding: "2rem",
-			}}
-		>
+		<div {...blockProps}>
 			{tracklist.map((track, index) => {
 				return (
 					<div

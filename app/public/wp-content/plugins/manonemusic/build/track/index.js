@@ -35,7 +35,9 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+    className: "p-4"
+  });
   const {
     tracklist
   } = attributes;
@@ -67,10 +69,7 @@ function Edit({
     });
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...blockProps,
-    style: {
-      padding: "2rem"
-    }
+    ...blockProps
   }, tracklist.map((track, index) => {
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       style: index > 0 ? {
@@ -246,7 +245,7 @@ module.exports = window["wp"]["components"];
   \******************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/track","version":"0.1.0","title":"Track","category":"widgets","icon":"smiley","description":"Track block for Manone Music","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"tracklist":{"type":"array","default":[{"title":"Track 1","url":"url"},{"title":"Track 2","url":"url"}]}},"textdomain":"track","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/track","version":"0.1.0","title":"Track","category":"widgets","icon":"smiley","description":"Track block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{"tracklist":{"type":"array","default":[{"title":"Track 1","url":"url","id":"857650483"},{"title":"Track 2","url":"url","id":"857650483"}]}},"textdomain":"track","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
