@@ -41,41 +41,69 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   const {
-    section
+    section,
+    variant,
+    classes
   } = attributes;
+  const homeVariantClasses = "absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40";
+  const detailPageVariantClasses = "w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8";
+  const blockProps = variant === "home" ? (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+    className: homeVariantClasses
+  }) : (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
+    className: detailPageVariantClasses
+  });
   const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_3__.useSelect)(select => {
     const {
       getEntityRecords
     } = select("core");
-    return getEntityRecords("postType", "release", {
+    return getEntityRecords("postType", section, {
       per_page: -1,
       _embed: true,
       order: "desc"
     });
-  });
+  }, [section]);
+  const handleVariantChange = newVariant => {
+    const newClasses = `${newVariant === "home" ? homeVariantClasses : detailPageVariantClasses}`;
+    setAttributes({
+      variant: newVariant,
+      classes: newClasses
+    });
+  };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: "Settings"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-    label: "Select parent page / section",
+    label: "Select section",
     value: section,
     options: [{
       value: "project",
-      label: "projects"
+      label: "Projects"
     }, {
       value: "release",
-      label: "releases"
+      label: "Releases"
     }],
     onChange: newSection => setAttributes({
       section: newSection
     })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    label: "Select variant",
+    value: variant,
+    options: [{
+      value: "home",
+      label: "Home"
+    }, {
+      value: "detail-page",
+      label: "Detail Page"
+    }],
+    onChange: handleVariantChange
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps,
-    className: "absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40"
+    style: {
+      position: `${variant === "home" ? "absolute" : "relative"}`,
+      backgroundColor: "var(--color-primary)"
+    }
   }, posts && posts.length > 0 && posts.map(post => {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      href: post.link,
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "block relative w-full aspect-square"
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       className: "w-full h-full object-cover",
@@ -237,7 +265,7 @@ module.exports = window["wp"]["element"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-stack","version":"0.1.0","title":"Cards Stack","category":"design","icon":"dashicons-images-alt2","description":"General use cards stack","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"classes":{"type":"string","default":""},"section":{"type":"string","default":""}},"textdomain":"cards-stack","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-stack","version":"0.1.0","title":"Cards Stack","category":"design","icon":"dashicons-images-alt2","description":"General use cards stack","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"section":{"type":"string","default":"releases"},"variant":{"type":"string","default":"home"},"classes":{"type":"string","default":""}},"textdomain":"cards-stack","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

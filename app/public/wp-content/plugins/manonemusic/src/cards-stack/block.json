@@ -16,11 +16,15 @@
 		}
 	},
 	"attributes": {
-		"classes": {
-			"type": "string",
-			"default": ""
-		},
 		"section": {
+			"type": "string",
+			"default": "releases"
+		},
+		"variant": {
+			"type": "string",
+			"default": "home"
+		},
+		"classes": {
 			"type": "string",
 			"default": ""
 		}

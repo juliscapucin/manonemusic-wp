@@ -40,7 +40,7 @@ foreach ($attributes['tracklist'] as $track) {
       // echo 'Track ID: ' . $track_id;
       $iframe = '<iframe id="manonemusic-player" class="-translate-x-28 w-64" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $trackID . '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>';
 ?>
-      <div class="relative overflow-clip h-16 mt-4">
+      <div class="relative overflow-clip h-16 mt-8">
          <?php echo $iframe ?>
          <div class="absolute top-0 left-0 w-full h-full bg-primary pointer-events-none opacity-20 z-50"><?php esc_html_e($title) ?></div>
       </div>

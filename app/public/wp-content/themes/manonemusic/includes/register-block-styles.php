@@ -94,10 +94,24 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
+      'core/post-title',
+      array(
+         'name'         => 'post-title-mb',
+         'label'        => 'Margin Bottom',
+      ),
+   );
+   register_block_style(
       'core/image',
       array(
          'name'         => 'image-square',
          'label'        => 'Image Square',
+      ),
+   );
+   register_block_style(
+      'core/post-featured-image',
+      array(
+         'name'         => 'featured-image-square-mr',
+         'label'        => 'Square Margin Right',
       ),
    );
    register_block_style(

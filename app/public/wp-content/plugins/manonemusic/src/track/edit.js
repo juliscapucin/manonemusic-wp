@@ -17,7 +17,7 @@ import {
 import "./style.css";
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps({ className: "p-4" });
+	const blockProps = useBlockProps({ className: "p-4 mt-8" });
 	const { tracklist } = attributes;
 
 	const updateTrackTitle = (index, newTitle) => {

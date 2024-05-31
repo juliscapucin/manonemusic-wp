@@ -17,45 +17,74 @@ import { RawHTML } from "@wordpress/element";
 import "./style.css";
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps();
-	const { section } = attributes;
+	const { section, variant, classes } = attributes;
+	const homeVariantClasses =
+		"absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40";
+	const detailPageVariantClasses =
+		"w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8";
+	const blockProps =
+		variant === "home"
+			? useBlockProps({ className: homeVariantClasses })
+			: useBlockProps({ className: detailPageVariantClasses });
 
-	const posts = useSelect((select) => {
-		const { getEntityRecords } = select("core");
-		return getEntityRecords("postType", "release", {
-			per_page: -1,
-			_embed: true,
-			order: "desc",
+	const posts = useSelect(
+		(select) => {
+			const { getEntityRecords } = select("core");
+			return getEntityRecords("postType", section, {
+				per_page: -1,
+				_embed: true,
+				order: "desc",
+			});
+		},
+		[section],
+	);
+
+	const handleVariantChange = (newVariant) => {
+		const newClasses = `${
+			newVariant === "home" ? homeVariantClasses : detailPageVariantClasses
+		}`;
+		setAttributes({
+			variant: newVariant,
+			classes: newClasses,
 		});
-	});
+	};
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title="Settings">
 					<SelectControl
-						label="Select parent page / section"
+						label="Select section"
 						value={section}
 						options={[
-							{ value: "project", label: "projects" },
-							{ value: "release", label: "releases" },
+							{ value: "project", label: "Projects" },
+							{ value: "release", label: "Releases" },
 						]}
 						onChange={(newSection) => setAttributes({ section: newSection })}
+					/>
+					<SelectControl
+						label="Select variant"
+						value={variant}
+						options={[
+							{ value: "home", label: "Home" },
+							{ value: "detail-page", label: "Detail Page" },
+						]}
+						onChange={handleVariantChange}
 					/>
 				</PanelBody>
 			</InspectorControls>
 			<div
 				{...blockProps}
-				className="absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40"
+				style={{
+					position: `${variant === "home" ? "absolute" : "relative"}`,
+					backgroundColor: "var(--color-primary)",
+				}}
 			>
 				{posts &&
 					posts.length > 0 &&
 					posts.map((post) => {
 						return (
-							<a
-								href={post.link}
-								className="block relative w-full aspect-square"
-							>
+							<div className="block relative w-full aspect-square">
 								<img
 									className="w-full h-full object-cover"
 									src={post._embedded["wp:featuredmedia"][0].source_url}
@@ -63,7 +92,7 @@ export default function Edit({ attributes, setAttributes }) {
 								<p className="">
 									<RawHTML>{post.title.rendered}</RawHTML>
 								</p>
-							</a>
+							</div>
 						);
 					})}
 			</div>

@@ -21,6 +21,7 @@ $args = array(
 
 $query = new WP_Query($args);
 $content = '';
+$renderClasses = $attributes['classes'];
 
 if ($query->have_posts()) {
    while ($query->have_posts()) {
@@ -33,14 +34,15 @@ if ($query->have_posts()) {
       $content .= <<<HTML
       <a href="{$permalink}" class="block relative w-full aspect-square">
          <img class="w-full h-full object-cover" src='{$thumbnail_url}' />
-         <p class="">{$title}</p>
+         <p>{$title}</p>
       </a>
       HTML;
    }
    wp_reset_postdata();
 };
+
 ?>
-<div class="absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40">
+<div class="<?php echo esc_attr($renderClasses); ?>">
    <?php
    echo $content;
    ?>

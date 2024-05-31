@@ -208,7 +208,7 @@ Text Domain: manonemusic
 
 /* PAGE CONTAINER */
 .is-style-group-page-container {
-	@apply w-screen h-[--container-height-desktop] max-w-wide pt-16 px-8 xl:px-32;
+	@apply w-screen max-h-[--container-height-desktop] max-w-wide pt-16 px-8 xl:px-32;
 }
 
 /* Section */
@@ -216,8 +216,13 @@ Text Domain: manonemusic
 	@apply relative min-h-[--container-height-desktop] h-[--container-height-desktop] max-h-[--container-height-desktop] min-w-screen overflow-x-hidden;
 }
 
+/* IMAGE */
 .is-style-image-absolute {
 	@apply absolute top-0 left-0 w-full h-screen flex justify-center items-center -z-10;
+}
+
+.is-style-featured-image-square-mr {
+	@apply mr-8;
 }
 
 /* class applied in the editor */
@@ -228,6 +233,10 @@ Text Domain: manonemusic
 .is-style-logo-huge {
 	@apply block w-full;
 	font-size: clamp(2rem, 11vw, 14.3rem);
+}
+
+.is-style-post-title-mb {
+	@apply mb-8;
 }
 
 /* COLUMNS */
