@@ -40,6 +40,9 @@ Text Domain: manonemusic
 	--container-height-mobile: calc(
 		100svh - var(--padding-mobile) - var(--header-height)
 	);
+	--container-height-desktop: calc(
+		100svh - var(--padding-mobile) - var(--header-height)
+	);
 	--panels-container-width-desktop: calc(100vw * 5);
 	--container-height-desktop: calc(100vh);
 }
@@ -74,10 +77,6 @@ Text Domain: manonemusic
 		--color-focus: 154, 152, 152;
 	}
 
-	header {
-		@apply fixed px-8 flex justify-between items-center h-16 min-w-full max-w-wide;
-	}
-
 	body {
 		@apply font-secondary bg-primary transition-colors duration-200;
 		-webkit-font-smoothing: antialiased;
@@ -93,7 +92,7 @@ Text Domain: manonemusic
 	}
 
 	h1 {
-		@apply text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px];
+		@apply text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none;
 	}
 
 	a {
@@ -167,11 +166,11 @@ Text Domain: manonemusic
 .container,
 .is-root-container,
 .generic-content {
-	@apply h-[--container-height-desktop] w-full max-w-wide;
+	@apply h-[--container-height-desktop] w-full max-w-wide pt-20;
 }
 
 .is-root-container h1 {
-	@apply mt-0;
+	@apply mt-0 block;
 }
 
 /* Hide title in editor */
@@ -205,6 +204,11 @@ Text Domain: manonemusic
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
 	@apply h-[--container-height-desktop] w-fit flex flex-nowrap;
+}
+
+/* PAGE CONTAINER */
+.is-style-group-page-container {
+	@apply w-screen h-[--container-height-desktop] max-w-wide pt-16 px-8 xl:px-32;
 }
 
 /* Section */
@@ -280,11 +284,3 @@ Text Domain: manonemusic
 /* .transparent {
 	@apply opacity-50 transition-opacity duration-500;
 } */
-
-/* .manonemusic-player-overlay {
-	@apply absolute top-0 left-0 w-full h-full bg-primary z-50 pointer-events-none opacity-90;
-} */
-
-.playButton {
-	@apply bg-red w-16 h-16;
-}

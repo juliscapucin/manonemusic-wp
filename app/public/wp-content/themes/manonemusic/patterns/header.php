@@ -8,7 +8,7 @@
  */
 ?>
 
-<div class="z-50 max-w-wide px-8 xl:px-32">
+<header class="fixed flex justify-between items-center h-16 min-w-full max-w-wide px-8 xl:px-32 z-50">
    <span class="font-primary uppercase"><a href="/home">Man/One Music</a></span>
    <nav class="flex">
       <?php wp_nav_menu(array(
@@ -19,4 +19,4 @@
          'link_after' => '</span>'
       )) ?>
    </nav>
-</div>
+</header>

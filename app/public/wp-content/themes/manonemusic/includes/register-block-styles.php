@@ -24,6 +24,13 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
+      'core/group',
+      array(
+         'name'         => 'group-page-container',
+         'label'        => 'Page Container',
+      ),
+   );
+   register_block_style(
       'core/image',
       array(
          'name'         => 'image-absolute',
