@@ -923,9 +923,18 @@ p,
      object-fit: cover;
 }
 
+.p-8{
+  padding: 2rem;
+}
+
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.px-32{
+  padding-left: 8rem;
+  padding-right: 8rem;
 }
 
 .pb-8{
@@ -938,6 +947,10 @@ p,
 
 .pt-16{
   padding-top: 4rem;
+}
+
+.pt-8{
+  padding-top: 2rem;
 }
 
 .font-primary{
@@ -1297,6 +1310,10 @@ p,
 } */
 
 @media (min-width: 1280px){
+  .xl\:p-32{
+    padding: 8rem;
+  }
+
   .xl\:px-32{
     padding-left: 8rem;
     padding-right: 8rem;

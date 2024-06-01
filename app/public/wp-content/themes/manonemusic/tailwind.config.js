@@ -7,7 +7,8 @@ module.exports = {
 			"./../../**/*.php",
 			"./src/**/*.js",
 			"./templates/*.html",
-			"./template_parts/*.php",
+			"./parts/*.html",
+			"./patterns/*.php",
 		],
 	},
 	theme: {
