@@ -186,9 +186,13 @@ Text Domain: manonemusic
 	@apply mt-0 block;
 }
 
-/* Hide title in editor */
+/* Style title in editor */
 .editor-editor-canvas__post-title-wrapper {
-	display: none;
+	@apply absolute ml-8;
+}
+
+.editor-editor-canvas__post-title-wrapper h1 {
+	@apply text-bodyLarge tracking-normal;
 }
 
 .wp-element-button {
