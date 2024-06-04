@@ -135,7 +135,7 @@ Text Domain: manonemusic
 /* --------------- */
 
 .site-body {
-	@apply font-secondary bg-primary overflow-clip;
+	@apply font-secondary bg-primary;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -179,12 +179,16 @@ Text Domain: manonemusic
 .container,
 .is-root-container,
 .generic-content {
-	@apply h-[--container-height-desktop] w-full max-w-wide pt-20;
+	@apply relative h-[--container-height-desktop] w-full max-w-wide pt-0 !important;
 }
 
 .is-root-container h1 {
 	@apply mt-0 block;
 }
+
+/* .block-editor-iframe__body {
+	overflow-y: hidden;
+} */
 
 /* Style title in editor */
 .editor-editor-canvas__post-title-wrapper {
@@ -211,11 +215,10 @@ Text Domain: manonemusic
 /* ------------------------ */
 /* CUSTOM CORE BLOCK STYLES */
 /* ------------------------ */
-/* @import "./styles/custom-core-blocks.css"; */
 
 /* HORIZONTAL SCROLL (outer panel) */
 .is-style-horizontal-scroll {
-	@apply relative h-[--container-height-desktop] w-screen m-0 overflow-x-clip;
+	@apply relative h-[--container-height-desktop] w-screen m-0;
 }
 
 /* HORIZONTAL PANEL (inner panel) */
@@ -230,7 +233,7 @@ Text Domain: manonemusic
 
 /* Section */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] w-screen overflow-clip;
+	@apply relative h-[--container-height-desktop] w-screen p-8 xl:px-32 overflow-clip;
 }
 
 /* IMAGE */
@@ -244,7 +247,7 @@ Text Domain: manonemusic
 
 /* class applied in the editor */
 .is-style-home-heading {
-	@apply absolute top-16 w-full px-32 z-20;
+	@apply absolute top-16 w-full px-32 z-20 !important;
 }
 
 .is-style-logo-huge {
@@ -258,24 +261,16 @@ Text Domain: manonemusic
 
 /* COLUMNS */
 .is-style-columns-full {
-	@apply h-full w-full;
+	@apply h-[--container-height-desktop] w-full;
 }
 
 .is-style-columns-full-bottom {
-	@apply h-full w-full items-end;
+	@apply h-[--container-height-desktop] w-full items-end;
 }
 
 /* COLUMN */
 .is-style-column-full {
-	@apply h-full flex-1 relative flex flex-col justify-between p-8;
-}
-
-.is-style-column-padding {
-	@apply pb-8;
-}
-
-.is-style-column-padding-align-bottom {
-	@apply p-8;
+	@apply h-full flex-1 relative flex flex-col justify-between;
 }
 
 /* STACK SCROLL */
@@ -296,7 +291,7 @@ Text Domain: manonemusic
 
 /* HEADING */
 .is-style-heading-section {
-	@apply absolute block mt-32 pl-32;
+	@apply block mt-32 pl-32;
 }
 
 /* PARAGRAPH */

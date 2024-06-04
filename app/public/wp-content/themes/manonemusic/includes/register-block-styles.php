@@ -59,20 +59,6 @@ function manonemusic_block_styles()
       ),
    );
    register_block_style(
-      'core/column',
-      array(
-         'name'         => 'column-padding',
-         'label'        => 'Padding',
-      ),
-   );
-   register_block_style(
-      'core/column',
-      array(
-         'name'         => 'column-padding-align-bottom',
-         'label'        => 'Padding Align Bottom',
-      ),
-   );
-   register_block_style(
       'core/group',
       array(
          'name'         => 'stack-scroll',
