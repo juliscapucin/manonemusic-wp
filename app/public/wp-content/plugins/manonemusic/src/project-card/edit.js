@@ -92,7 +92,7 @@ export default function Edit({ attributes, setAttributes }) {
 			) : (
 				<MyPlaceholder />
 			)}
-			<div className="w-64 h-64 mb-16">
+			<div className="w-full aspect-square mb-16">
 				<div {...innerBlocksProps} />
 			</div>
 			<BlockControls>

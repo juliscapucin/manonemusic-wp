@@ -82,7 +82,7 @@ function Edit({
       width: "100%"
     }
   }, "Close Link Picker")) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(MyPlaceholder, null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "w-64 h-64 mb-16"
+    className: "w-full aspect-square mb-16"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...innerBlocksProps
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarGroup, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToolbarButton, {

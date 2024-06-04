@@ -47,29 +47,8 @@ function manonemusic_block_styles()
    register_block_style(
       'core/columns',
       array(
-         'name'         => 'columns-full',
-         'label'        => 'Full',
-      ),
-   );
-   register_block_style(
-      'core/columns',
-      array(
-         'name'         => 'columns-full-bottom',
-         'label'        => 'Full Bottom',
-      ),
-   );
-   register_block_style(
-      'core/column',
-      array(
-         'name'         => 'column-full',
-         'label'        => 'Full Height',
-      ),
-   );
-   register_block_style(
-      'core/group',
-      array(
-         'name'         => 'stack-scroll',
-         'label'        => 'Stack Scroll',
+         'name'         => 'max-width',
+         'label'        => 'Max Width',
       ),
    );
    register_block_style(

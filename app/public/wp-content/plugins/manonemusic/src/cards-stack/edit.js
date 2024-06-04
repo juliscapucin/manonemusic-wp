@@ -19,9 +19,9 @@ import "./style.css";
 export default function Edit({ attributes, setAttributes }) {
 	const { section, variant, classes } = attributes;
 	const homeVariantClasses =
-		"absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40";
+		"absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-40 z-40";
 	const detailPageVariantClasses =
-		"w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8";
+		"w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-40";
 	const blockProps =
 		variant === "home"
 			? useBlockProps({ className: homeVariantClasses })

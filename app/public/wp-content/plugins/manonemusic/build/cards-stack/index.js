@@ -46,8 +46,8 @@ function Edit({
     variant,
     classes
   } = attributes;
-  const homeVariantClasses = "absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8 z-40";
-  const detailPageVariantClasses = "w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8";
+  const homeVariantClasses = "absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-40 z-40";
+  const detailPageVariantClasses = "w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-40";
   const blockProps = variant === "home" ? (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: homeVariantClasses
   }) : (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
