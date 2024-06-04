@@ -236,6 +236,10 @@ Text Domain: manonemusic
 	@apply relative h-[--container-height-desktop] w-screen p-8 xl:px-32 overflow-clip;
 }
 
+.is-style-max-width {
+	@apply max-w-wide;
+}
+
 /* IMAGE */
 .is-style-image-absolute {
 	@apply absolute top-0 left-0 w-full h-screen flex justify-center items-center -z-10;

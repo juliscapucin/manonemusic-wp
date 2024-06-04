@@ -1185,6 +1185,10 @@ p,
   }
 }
 
+.is-style-max-width{
+  max-width: 1600px;
+}
+
 /* IMAGE */
 
 .is-style-image-absolute{

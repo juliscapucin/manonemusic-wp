@@ -26,6 +26,13 @@ function manonemusic_block_styles()
    register_block_style(
       'core/group',
       array(
+         'name'         => 'max-width',
+         'label'        => 'Max Width',
+      ),
+   );
+   register_block_style(
+      'core/group',
+      array(
          'name'         => 'group-page-container',
          'label'        => 'Page Container',
       ),
