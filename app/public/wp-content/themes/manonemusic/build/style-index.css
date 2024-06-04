@@ -811,6 +811,10 @@ p,
   display: grid;
 }
 
+.contents{
+  display: contents;
+}
+
 .hidden{
   display: none;
 }
@@ -964,6 +968,16 @@ p,
   opacity: 0.2;
 }
 
+.shadow{
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline{
+  outline-style: solid;
+}
+
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1022,9 +1036,19 @@ p,
   -webkit-font-smoothing: antialiased;
 }
 
+/* ------------------------------------- */
+
+/* Remove WP styles that break the layout */
+
 .wp-site-blocks{
   overflow-x: clip;
 }
+
+.wp-block-post-content{
+  margin: 0px;
+}
+
+/* ------------------------------------- */
 
 /* Scrollbars */
 
@@ -1134,9 +1158,11 @@ p,
 /* PAGE CONTAINER */
 
 .is-style-group-page-container{
+  margin: 0px;
   max-height: var(--container-height-desktop);
   width: 100vw;
   max-width: 1600px;
+  overflow-y: clip;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 4rem;

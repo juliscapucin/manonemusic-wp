@@ -139,9 +139,18 @@ Text Domain: manonemusic
 	-webkit-font-smoothing: antialiased;
 }
 
+/* ------------------------------------- */
+/* Remove WP styles that break the layout */
+
 .wp-site-blocks {
 	@apply overflow-x-clip;
 }
+
+.wp-block-post-content {
+	@apply m-0;
+}
+
+/* ------------------------------------- */
 
 /* Scrollbars */
 .site-body::-webkit-scrollbar,
@@ -212,7 +221,7 @@ Text Domain: manonemusic
 
 /* PAGE CONTAINER */
 .is-style-group-page-container {
-	@apply w-screen max-h-[--container-height-desktop] max-w-wide pt-16 px-8 xl:px-32;
+	@apply w-screen max-h-[--container-height-desktop] max-w-wide pt-16 px-8 xl:px-32 m-0 overflow-y-clip;
 }
 
 /* Section */
