@@ -42,7 +42,7 @@ if ($query->have_posts()) {
 };
 
 ?>
-<div class="<?php echo esc_attr($renderClasses); ?>">
+<div class="w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-16">
    <?php
    echo $content;
    ?>

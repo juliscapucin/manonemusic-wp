@@ -128,17 +128,7 @@
 			"area": "header",
 			"name": "header",
 			"title": "Header"
-		},
-      {
-         "area": "content",
-         "name": "release-content",
-         "title": "Release Content"
-      },
-      {
-         "area": "content",
-         "name": "project-content",
-         "title": "Project Content"
-      }
+		}
 	],
 	"customTemplates": [
 		{
