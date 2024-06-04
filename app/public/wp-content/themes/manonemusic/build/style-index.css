@@ -844,10 +844,6 @@ p,
   width: 100%;
 }
 
-.min-w-full{
-  min-width: 100%;
-}
-
 .max-w-none{
   max-width: none;
 }
@@ -923,18 +919,9 @@ p,
      object-fit: cover;
 }
 
-.p-8{
-  padding: 2rem;
-}
-
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
-}
-
-.px-32{
-  padding-left: 8rem;
-  padding-right: 8rem;
 }
 
 .pb-8{
@@ -1028,11 +1015,15 @@ p,
 /* --------------- */
 
 .site-body{
-  overflow-x: clip;
+  overflow: clip;
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
   font-family: var(--font-secondary);
   -webkit-font-smoothing: antialiased;
+}
+
+.wp-site-blocks{
+  overflow-x: clip;
 }
 
 /* Scrollbars */
@@ -1123,8 +1114,11 @@ p,
 /* HORIZONTAL SCROLL (outer panel) */
 
 .is-style-horizontal-scroll{
-  height: 100vh;
+  position: relative;
+  margin: 0px;
+  height: var(--container-height-desktop);
   width: 100vw;
+  overflow-x: clip;
 }
 
 /* HORIZONTAL PANEL (inner panel) */
@@ -1160,10 +1154,8 @@ p,
 .is-style-group-section{
   position: relative;
   height: var(--container-height-desktop);
-  max-height: var(--container-height-desktop);
-  min-height: var(--container-height-desktop);
-  min-width: 100vw;
-  overflow-x: hidden;
+  width: 100vw;
+  overflow: clip;
 }
 
 /* IMAGE */
@@ -1235,7 +1227,6 @@ p,
 }
 
 .is-style-column-padding-align-bottom{
-  justify-content: flex-end;
   padding: 2rem;
 }
 
@@ -1310,10 +1301,6 @@ p,
 } */
 
 @media (min-width: 1280px){
-  .xl\:p-32{
-    padding: 8rem;
-  }
-
   .xl\:px-32{
     padding-left: 8rem;
     padding-right: 8rem;

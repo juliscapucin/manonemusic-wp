@@ -128,7 +128,12 @@
 			"area": "header",
 			"name": "header",
 			"title": "Header"
-		}
+		},
+      {
+         "area": "release",
+         "name": "release",
+         "title": "Release"
+      }
 	],
 	"customTemplates": [
 		{

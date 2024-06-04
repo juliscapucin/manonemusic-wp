@@ -135,8 +135,12 @@ Text Domain: manonemusic
 /* --------------- */
 
 .site-body {
-	@apply font-secondary bg-primary overflow-x-clip;
+	@apply font-secondary bg-primary overflow-clip;
 	-webkit-font-smoothing: antialiased;
+}
+
+.wp-site-blocks {
+	@apply overflow-x-clip;
 }
 
 /* Scrollbars */
@@ -198,7 +202,7 @@ Text Domain: manonemusic
 
 /* HORIZONTAL SCROLL (outer panel) */
 .is-style-horizontal-scroll {
-	@apply h-screen w-screen;
+	@apply relative h-[--container-height-desktop] w-screen m-0 overflow-x-clip;
 }
 
 /* HORIZONTAL PANEL (inner panel) */
@@ -213,7 +217,7 @@ Text Domain: manonemusic
 
 /* Section */
 .is-style-group-section {
-	@apply relative min-h-[--container-height-desktop] h-[--container-height-desktop] max-h-[--container-height-desktop] min-w-screen overflow-x-hidden;
+	@apply relative h-[--container-height-desktop] w-screen overflow-clip;
 }
 
 /* IMAGE */
@@ -258,7 +262,7 @@ Text Domain: manonemusic
 }
 
 .is-style-column-padding-align-bottom {
-	@apply p-8 justify-end;
+	@apply p-8;
 }
 
 /* STACK SCROLL */
