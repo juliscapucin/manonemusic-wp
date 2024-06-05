@@ -69,9 +69,9 @@ print_r(get_post_meta($postID, 'tracklist', true));
 
             <div class="w-full flex justify-between items-center">
                <span class="progress w-20">00:00:00</span>
-               <div class="progress-bar h-1 flex-1 bg-faded-10 rounded-[1px]">
+               <button class="progress-bar h-1 flex-1 bg-faded-10 rounded-[1px]">
                   <div class="progress-bar-fill h-1 bg-secondary rounded-[1px]"></div>
-               </div>
+               </button>
                <span class="duration ml-4">00:00:00</span>
             </div>
          </div>
