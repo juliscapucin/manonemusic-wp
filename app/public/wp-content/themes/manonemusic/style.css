@@ -229,11 +229,11 @@ Text Domain: manonemusic
 
 /* SECTION */
 .is-style-group-section {
-	@apply relative min-h-screen h-screen w-screen px-8 xl:px-32 overflow-clip;
+	@apply relative min-h-screen h-screen w-screen px-8 xl:px-32;
 }
 
 .is-style-max-width {
-	@apply w-full h-full max-w-wide mx-auto;
+	@apply w-full h-full max-w-wide mx-auto overflow-clip;
 }
 
 /* IMAGE */

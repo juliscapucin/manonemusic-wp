@@ -22,6 +22,7 @@ module.exports = {
 			secondary: "rgb(var(--color-secondary) / <alpha-value>)",
 			"faded-5": "rgba(var(--color-secondary-rgb), 0.05)",
 			"faded-10": "rgba(var(--color-secondary-rgb), 0.1)",
+			"faded-20": "rgba(var(--color-secondary-rgb), 0.2)",
 			"faded-30": "rgba(var(--color-secondary-rgb), 0.3)",
 			"faded-70": "rgba(var(--color-secondary-rgb), 0.7)",
 		},
