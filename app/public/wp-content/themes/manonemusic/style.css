@@ -250,8 +250,8 @@ Text Domain: manonemusic
 }
 
 .is-style-logo-huge {
-	@apply block w-full mt-16;
-	font-size: clamp(2rem, 11vw, 14.3rem);
+	@apply block w-full mt-16 md:-ml-2 lg:-ml-4;
+	font-size: clamp(3rem, 11vw, 13rem);
 }
 
 .is-style-post-title-mb {

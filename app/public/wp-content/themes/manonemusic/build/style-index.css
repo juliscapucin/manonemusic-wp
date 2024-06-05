@@ -861,20 +861,16 @@ p,
   height: 100vh;
 }
 
+.w-40{
+  width: 10rem;
+}
+
 .w-64{
   width: 16rem;
 }
 
 .w-full{
   width: 100%;
-}
-
-.w-32{
-  width: 8rem;
-}
-
-.w-40{
-  width: 10rem;
 }
 
 .max-w-none{
@@ -1296,7 +1292,22 @@ p,
   margin-top: 4rem;
   display: block;
   width: 100%;
-  font-size: clamp(2rem, 11vw, 14.3rem);
+}
+
+@media (min-width: 768px){
+  .is-style-logo-huge{
+    margin-left: -0.5rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .is-style-logo-huge{
+    margin-left: -1rem;
+  }
+}
+
+.is-style-logo-huge {
+  font-size: clamp(3rem, 11vw, 13rem);
 }
 
 .is-style-post-title-mb{
