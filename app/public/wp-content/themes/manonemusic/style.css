@@ -91,10 +91,6 @@ Text Domain: manonemusic
 		@apply text-secondary font-primary uppercase font-bold;
 	}
 
-	h1 {
-		@apply text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none;
-	}
-
 	a {
 		@apply font-primary text-secondary;
 	}
@@ -254,10 +250,6 @@ Text Domain: manonemusic
 	font-size: clamp(3rem, 11vw, 13rem);
 }
 
-.is-style-post-title-mb {
-	@apply mb-8;
-}
-
 /* BUTTON */
 .is-style-button-manonemusic a,
 .is-style-button-manonemusic > * {
@@ -270,8 +262,11 @@ Text Domain: manonemusic
 }
 
 /* HEADING */
-.is-style-heading-section {
-	@apply block pt-32;
+.is-style-heading-display {
+	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-32 mb-8;
+}
+.is-style-heading-headline {
+	@apply block text-headlineSmall md:text-headlineMedium lg:text-headlineLarge tracking-[-2px] leading-none mt-16 mb-8;
 }
 
 /* PARAGRAPH */

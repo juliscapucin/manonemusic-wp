@@ -61,15 +61,29 @@ function manonemusic_block_styles()
    register_block_style(
       'core/heading',
       array(
-         'name'         => 'heading-section',
-         'label'        => 'Section',
+         'name'         => 'heading-display',
+         'label'        => 'Display',
+      ),
+   );
+   register_block_style(
+      'core/heading',
+      array(
+         'name'         => 'heading-headline',
+         'label'        => 'Headline',
       ),
    );
    register_block_style(
       'core/post-title',
       array(
-         'name'         => 'post-title-mb',
-         'label'        => 'Margin Bottom',
+         'name'         => 'heading-headline',
+         'label'        => 'Headline',
+      ),
+   );
+   register_block_style(
+      'core/heading',
+      array(
+         'name'         => 'heading-title',
+         'label'        => 'Title',
       ),
    );
    register_block_style(
