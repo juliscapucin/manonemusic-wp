@@ -762,20 +762,12 @@ p,
   margin-right: auto;
 }
 
-.-mt-\[1px\]{
-  margin-top: -1px;
-}
-
 .mb-4{
   margin-bottom: 1rem;
 }
 
 .ml-4{
   margin-left: 1rem;
-}
-
-.mt-8{
-  margin-top: 2rem;
 }
 
 .mt-16{
@@ -966,8 +958,7 @@ p,
   border-width: 1px;
 }
 
-.border-y{
-  border-top-width: 1px;
+.border-b{
   border-bottom-width: 1px;
 }
 
@@ -975,21 +966,8 @@ p,
   border-top-width: 1px;
 }
 
-.border-b{
-  border-bottom-width: 1px;
-}
-
 .border-faded-20{
   border-color: rgba(var(--color-secondary-rgb), 0.2);
-}
-
-.border-faded-10{
-  border-color: rgba(var(--color-secondary-rgb), 0.1);
-}
-
-.border-secondary{
-  --tw-border-opacity: 1;
-  border-color: rgb(var(--color-secondary) / var(--tw-border-opacity));
 }
 
 .bg-faded-10{
@@ -1006,8 +984,9 @@ p,
      object-fit: cover;
 }
 
-.p-4{
-  padding: 1rem;
+.px-1{
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .px-8{
@@ -1018,11 +997,6 @@ p,
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.px-1{
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
 }
 
 .pb-8{
@@ -1165,20 +1139,20 @@ p,
 
 /* Scrollbars */
 
-.site-body::-webkit-scrollbar,
-.is-style-stack-scroll::-webkit-scrollbar {
+body::-webkit-scrollbar,
+.cards-stack::-webkit-scrollbar {
   width: 4px;
   height: 4px;
 }
 
-.site-body::-webkit-scrollbar-track,
-.is-style-stack-scroll::-webkit-scrollbar-track {
-  background-color: rgba(var(--color-secondary-rgb), 0.5);
-  margin-block: 2px;
+body::-webkit-scrollbar-track,
+.cards-stack::-webkit-scrollbar-track {
+  background-color: rgba(var(--color-secondary-rgb), 0.1);
+  margin-block: 1px;
 }
 
-.site-body::-webkit-scrollbar-thumb,
-.is-style-stack-scroll::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb,
+.cards-stack::-webkit-scrollbar-thumb {
   background-color: rgba(var(--color-secondary-rgb), 1);
   width: 1rem;
   height: 1rem;
