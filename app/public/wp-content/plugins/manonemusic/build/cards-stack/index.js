@@ -47,7 +47,7 @@ function Edit({
     classes
   } = attributes;
   const homeVariantClasses = "absolute top-0 right-32 w-96 h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-16 z-40";
-  const detailPageVariantClasses = "fixded w-full h-screen overflow-y-scroll pt-16 pr-8 pb-8 space-y-16";
+  const detailPageVariantClasses = "fixed w-40 h-full top-0 right-40 overflow-y-scroll pt-16 pr-8 pb-8 space-y-16";
   const blockProps = variant === "home" ? (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: homeVariantClasses
   }) : (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
@@ -99,7 +99,6 @@ function Edit({
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps,
     style: {
-      position: `${variant === "home" ? "absolute" : "relative"}`,
       backgroundColor: "var(--color-primary)"
     }
   }, posts && posts.length > 0 && posts.map(post => {
@@ -265,7 +264,7 @@ module.exports = window["wp"]["element"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-stack","version":"0.1.0","title":"Cards Stack","category":"design","icon":"dashicons-images-alt2","description":"General use cards stack","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"section":{"type":"string","default":"releases"},"variant":{"type":"string","default":"home"},"classes":{"type":"string","default":""}},"textdomain":"cards-stack","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-stack","version":"0.1.0","title":"Cards Stack","category":"design","icon":"dashicons-images-alt2","description":"General use cards stack","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"section":{"type":"string","default":"releases"},"variant":{"type":"string","default":"detail"},"classes":{"type":"string","default":""}},"textdomain":"cards-stack","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

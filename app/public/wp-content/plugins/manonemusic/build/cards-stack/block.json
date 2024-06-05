@@ -22,7 +22,7 @@
     },
     "variant": {
       "type": "string",
-      "default": "home"
+      "default": "detail"
     },
     "classes": {
       "type": "string",
