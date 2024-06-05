@@ -816,6 +816,10 @@ p,
   margin-left: 1rem;
 }
 
+.mb-4{
+  margin-bottom: 1rem;
+}
+
 .block{
   display: block;
 }
@@ -1089,6 +1093,10 @@ p,
 
 .p-4{
   padding: 1rem;
+}
+
+.p-2{
+  padding: 0.5rem;
 }
 
 .px-8{

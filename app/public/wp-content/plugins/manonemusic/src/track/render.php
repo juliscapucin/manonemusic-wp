@@ -33,15 +33,30 @@ foreach ($attributes['tracklist'] as $track) {
       preg_match('/tracks\/(\d+)/', $track_url, $track_match);
       $trackID = $track_match[1];
       // echo 'Track ID: ' . $track_id;
-      $iframe = '<iframe class="sc-widget hidden -translate-y-1" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $trackID . '&color=%23EF4526&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=false&buying=false"></iframe>';
+      $iframe = '<iframe class="sc-widget hidden scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $trackID . '&color=%23EF4526&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=false&buying=false"></iframe>';
 ?>
-      <span class="block mt-8"><?php esc_html_e($title) ?></span>
-      <div class="relative w-full max-w-[500px] bg-faded-10 p-4 rounded-sm">
+      <div class="relative w-full max-w-[500px] bg-faded-10 p-4 rounded-sm mt-8">
          <?php echo $iframe ?>
-         <div class="absolute top-0 left-0 w-full h-full bg-primary pointer-events-none opacity-20 z-50"></div>
-         <!-- <div class="absolute bg-secondary w-12 top-2 left-2 aspect-square rounded-full pointer-events-none z-50"></div> -->
-         <button class="play-button">PLAY</button>
-         <button class="pause-button hidden">PAUSE</button>
+
+         <div class="flex gap-4 w-full items-center mb-4">
+            <button class="play-button">
+               <div class='w-16 h-16 flex items-center justify-center'>
+                  <svg width='59' height='68' viewBox='0 0 59 68' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                     <path d='M0.918335 1.06399L57.3203 33.6277L0.918332 66.1914L0.918335 1.06399Z' stroke='currentColor' stroke-opacity='0.3' />
+                  </svg>
+               </div>
+            </button>
+            <button class="pause-button hidden">
+               <div class='w-16 h-16 flex justify-center items-center'>
+                  <svg width='44' height='62' viewBox='0 0 44 62' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                     <rect x='1.28516' y='0.67041' width='16.0508' height='60.4668' stroke='currentColor' />
+                     <rect x='27.2695' y='0.67041' width='16.0508' height='60.4668' stroke='currentColor' />
+                  </svg>
+               </div>
+            </button>
+            <span><?php esc_html_e($title) ?></span>
+         </div>
+
          <div class="w-full flex justify-between items-center">
             <span class="progress w-20">00:00:00</span>
             <div class="progress-bar h-1 flex-1 bg-faded-10 rounded-[1px]">
