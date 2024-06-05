@@ -368,16 +368,30 @@ function formatMilliseconds(milliseconds) {
 }
 document.addEventListener("DOMContentLoaded", () => {
   const widgets = document.querySelectorAll(".sc-widget");
+  const widgetInstances = [];
   widgets.forEach(element => {
     const widget = _soundcloud_api__WEBPACK_IMPORTED_MODULE_0__["default"].Widget(element);
+    widgetInstances.push(widget);
     const parentElement = element.parentElement;
     const durationElement = parentElement.querySelector(".duration");
     const progressElement = parentElement.querySelector(".progress");
     const progressBar = parentElement.querySelector(".progress-bar");
+    const progressBarWidth = progressBar.offsetWidth;
     const progressBarFill = parentElement.querySelector(".progress-bar-fill");
     const playButton = parentElement.querySelector(".play-button");
     const pauseButton = parentElement.querySelector(".pause-button");
     playButton.addEventListener("click", () => {
+      // Pause all other widgets
+      widgets.forEach(w => {
+        if (w !== widget) {
+          const wPlay = w.parentElement.querySelector(".play-button");
+          const wPause = w.parentElement.querySelector(".pause-button");
+          if (wPlay.classList.contains("hidden")) {
+            wPlay.classList.toggle("hidden");
+            wPause.classList.toggle("hidden");
+          }
+        }
+      });
       widget.play();
       playButton.classList.toggle("hidden");
       pauseButton.classList.toggle("hidden");
@@ -388,7 +402,6 @@ document.addEventListener("DOMContentLoaded", () => {
       playButton.classList.toggle("hidden");
     });
     progressBar.addEventListener("click", e => {
-      const progressBarWidth = progressBar.offsetWidth;
       const clickPosition = e.offsetX;
       const clickRatio = clickPosition / progressBarWidth;
       widget.getDuration(duration => {
