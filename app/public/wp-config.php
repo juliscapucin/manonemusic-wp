@@ -92,6 +92,8 @@ if (!defined('WP_DEBUG')) {
 	define('WP_DEBUG', true); //TODO: Change to false before deployment
 }
 
+define('WP_DISABLE_FATAL_ERROR_HANDLER', true); //TODO: Delete before deployment
+
 define('WP_ENVIRONMENT_TYPE', 'local');
 /* That's all, stop editing! Happy publishing. */
 

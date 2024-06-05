@@ -3,7 +3,13 @@ module.exports = {
 	content: {
 		relative: true,
 		// files: ["./../../**/*.php", "./../../**/*.js"],
-		files: ["./../../**/*.php"],
+		files: [
+			"./../../**/*.php",
+			"./src/**/*.js",
+			"./templates/*.html",
+			"./parts/*.html",
+			"./patterns/*.php",
+		],
 	},
 	theme: {
 		fontFamily: {
@@ -16,6 +22,7 @@ module.exports = {
 			secondary: "rgb(var(--color-secondary) / <alpha-value>)",
 			"faded-5": "rgba(var(--color-secondary-rgb), 0.05)",
 			"faded-10": "rgba(var(--color-secondary-rgb), 0.1)",
+			"faded-20": "rgba(var(--color-secondary-rgb), 0.2)",
 			"faded-30": "rgba(var(--color-secondary-rgb), 0.3)",
 			"faded-70": "rgba(var(--color-secondary-rgb), 0.7)",
 		},
@@ -23,9 +30,9 @@ module.exports = {
 			displayLarge: "147px",
 			displayMedium: "103px",
 			displaySmall: "72px",
-			headlineLarge: "51px",
-			headlineMedium: "40px",
-			headlineSmall: "32px",
+			headlineLarge: "81px",
+			headlineMedium: "72px",
+			headlineSmall: "64px",
 			titleLarge: "22px",
 			titleMedium: "20px",
 			titleSmall: "18px",

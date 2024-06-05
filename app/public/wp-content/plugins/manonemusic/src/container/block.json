@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "manonemusic/container",
+	"version": "0.1.0",
+	"title": "Container",
+	"category": "design",
+	"icon": "dashicons-images-alt",
+	"description": "General use container",
+	"example": {},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	},
+	"attributes": {
+		"tag": {
+			"type": "string",
+			"default": "div"
+		},
+		"classes": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "container",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./style.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

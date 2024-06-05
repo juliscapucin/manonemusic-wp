@@ -3,7 +3,7 @@ $card_link = $attributes['linkObject']['url'];
 // print_r($block);
 ?>
 
-<a class="project-card block w-64" href="<?php echo esc_url($card_link); ?>">
+<a class="project-card" href="<?php echo esc_url($card_link); ?>">
 	<?php
 
 	foreach ($block->inner_blocks as $inner_block) {

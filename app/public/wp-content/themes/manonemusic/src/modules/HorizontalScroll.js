@@ -48,6 +48,8 @@ class HorizontalScroll {
 	async init() {
 		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText)
 
+		console.log("HorizontalScroll")
+
 		/* Main navigation */
 		this.panelsOuterContainer = document.querySelector(
 			"#panels-outer-container"
@@ -97,7 +99,6 @@ class HorizontalScroll {
 	handleHeaderLinks(e) {
 		e.preventDefault()
 		this.pathname = e.target.closest("a").getAttribute("href").substring(1)
-		console.log(this.pathname)
 		this.scrollTarget =
 			this.pathname === "/" ? null : document.querySelector(`#${this.pathname}`)
 
@@ -108,6 +109,8 @@ class HorizontalScroll {
 
 	handleScrollTo() {
 		let y = this.scrollTarget
+		console.log(y)
+		console.log(window)
 
 		if (
 			this.scrollTarget &&
@@ -135,6 +138,7 @@ class HorizontalScroll {
 	}
 
 	handlePathname() {
+		console.log(this.pathname)
 		const { protocol, hostname, port } = window.location
 		const newUrl = `${protocol}//${hostname}${port ? ":" + port : ""}/${
 			this.pathname === "home" ? "" : this.pathname

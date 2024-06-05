@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "manonemusic/track",
+	"version": "0.1.0",
+	"title": "Track",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Track block for Manone Music",
+	"example": {},
+	"supports": {
+		"html": false,
+		"interactivity": true,
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	},
+	"attributes": {
+		"tracklist": {
+			"type": "array",
+			"default": [
+				{
+					"title": "Track 1",
+					"url": "url",
+					"id": "857650483"
+				},
+				{
+					"title": "Track 2",
+					"url": "url",
+					"id": "857650483"
+				}
+			]
+		}
+	},
+	"textdomain": "track",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

@@ -2,29 +2,73 @@
    "$schema": "https://schemas.wp.org/trunk/theme.json",
    "version": 3,
    "settings": {
-      "appearanceTools": false,
+      "appearanceTools": true,
+      "spacing": {
+			"spacingScale": {
+				"steps": 0
+			},
+			"spacingSizes": [
+				{
+					"name": "1",
+					"size": "1rem",
+					"slug": "10"
+				},
+				{
+					"name": "2",
+					"size": "min(1.5rem, 2vw)",
+					"slug": "20"
+				},
+				{
+					"name": "3",
+					"size": "min(2.5rem, 3vw)",
+					"slug": "30"
+				},
+				{
+					"name": "4",
+					"size": "min(4rem, 5vw)",
+					"slug": "40"
+				},
+				{
+					"name": "5",
+					"size": "min(6.5rem, 8vw)",
+					"slug": "50"
+				},
+				{
+					"name": "6",
+					"size": "min(10.5rem, 13vw)",
+					"slug": "60"
+				}
+			],
+			"units": ["%", "px", "em", "rem", "vh", "vw"]
+		},
       "color": {
          "custom": false,
-         "customGradient": false,
-         "customDuotone": false,
-         "duotone": [],
          "gradients": [],
+         "defaultGradients": false,
+         "customGradient": false,
+         "duotone": [],
+         "defaultDuotone": false,
+         "customDuotone": false,
          "link": false,
          "text": false,
          "background": false,
          "defaultPalette": false,
-         "defaultGradients": false,
          "palette": [
             {
-					"color": "#CC0000",
-					"name": "Base",
-					"slug": "base"
+					"color": "rgba(0,0,0,1)",
+					"name": "Primary",
+					"slug": "primary"
 				},
 				{
-					"color": "#ffffff",
-					"name": "Contrast",
-					"slug": "contrast"
-				}
+					"color": "rgba(255,255,255,1)",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+            { 
+               "slug": "red",
+               "name": "Red",
+               "color": "#ff0000"
+            }
          ]
       },
       "border": {
@@ -70,8 +114,32 @@
    },
    "styles": {
       "color": {
-         "background": "var(--wp--preset--color--base)",
-         "text": "var(--wp--preset--color--contrast)"
+         "background": "var(--wp--preset--color--primary)",
+         "text": "var(--wp--preset--color--secondary)"
       }
-   }
+   },
+   "templateParts": [
+		{
+			"area": "footer",
+			"name": "footer",
+			"title": "Footer"
+		},
+      {
+			"area": "header",
+			"name": "header",
+			"title": "Header"
+		}
+	],
+	"customTemplates": [
+		{
+			"name": "single-release",
+			"postTypes": ["release"],
+			"title": "Release Page"
+		},
+      {
+			"name": "single-project",
+			"postTypes": ["project"],
+			"title": "Project Page"
+		}
+	]
 }
