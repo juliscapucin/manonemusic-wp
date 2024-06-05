@@ -638,6 +638,10 @@ video {
   top: 0px;
 }
 
+.right-0{
+  right: 0px;
+}
+
 .z-40{
   z-index: 40;
 }
