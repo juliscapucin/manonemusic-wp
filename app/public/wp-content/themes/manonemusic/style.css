@@ -228,7 +228,7 @@ Text Domain: manonemusic
 
 /* PAGE CONTAINER */
 .is-style-group-page-container {
-	@apply w-screen max-h-[--container-height-desktop] max-w-wide pt-16 px-8 xl:px-32 m-0 overflow-y-clip;
+	@apply w-screen max-h-[--container-height-desktop] max-w-wide pt-16 px-8 my-0 mx-auto overflow-y-clip;
 }
 
 /* SECTION */

@@ -42,7 +42,7 @@ if ($query->have_posts()) {
 };
 
 ?>
-<div class="w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-16">
+<div class="fixed w-40 h-screen overflow-y-scroll pt-16 pr-8 pb-8 space-y-16">
    <?php
    echo $content;
    ?>

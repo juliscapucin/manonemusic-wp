@@ -767,20 +767,12 @@ p,
   left: 0px;
 }
 
-.right-32{
-  right: 8rem;
-}
-
 .top-0{
   top: 0px;
 }
 
 .isolate{
   isolation: isolate;
-}
-
-.z-40{
-  z-index: 40;
 }
 
 .z-50{
@@ -865,16 +857,24 @@ p,
   height: 100%;
 }
 
+.h-screen{
+  height: 100vh;
+}
+
 .w-64{
   width: 16rem;
 }
 
-.w-96{
-  width: 24rem;
-}
-
 .w-full{
   width: 100%;
+}
+
+.w-32{
+  width: 8rem;
+}
+
+.w-40{
+  width: 10rem;
 }
 
 .max-w-none{
@@ -931,22 +931,16 @@ p,
   gap: 2rem;
 }
 
-.space-y-8 > :not([hidden]) ~ :not([hidden]){
+.space-y-16 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
-  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+  margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(4rem * var(--tw-space-y-reverse));
 }
 
 .space-y-40 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(10rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(10rem * var(--tw-space-y-reverse));
-}
-
-.space-y-16 > :not([hidden]) ~ :not([hidden]){
-  --tw-space-y-reverse: 0;
-  margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(4rem * var(--tw-space-y-reverse));
 }
 
 .overflow-clip{
@@ -1239,7 +1233,10 @@ p,
 /* PAGE CONTAINER */
 
 .is-style-group-page-container{
-  margin: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
   max-height: var(--container-height-desktop);
   width: 100vw;
   max-width: 1600px;
@@ -1247,13 +1244,6 @@ p,
   padding-left: 2rem;
   padding-right: 2rem;
   padding-top: 4rem;
-}
-
-@media (min-width: 1280px){
-  .is-style-group-page-container{
-    padding-left: 8rem;
-    padding-right: 8rem;
-  }
 }
 
 /* SECTION */
