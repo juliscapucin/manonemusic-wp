@@ -16,6 +16,18 @@ class HorizontalScroll {
 		this.panelUI = [
 			{ section: "home", x: 0, splitHeading: null, theme: "dark" },
 			{
+				section: "films",
+				x: null,
+				splitHeading: null,
+				backgroundColor: "red",
+			},
+			{
+				section: "Commercials",
+				x: null,
+				splitHeading: null,
+				backgroundColor: "dark",
+			},
+			{
 				section: "projects",
 				x: null,
 				splitHeading: null,
@@ -48,8 +60,6 @@ class HorizontalScroll {
 	async init() {
 		gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText)
 
-		console.log("HorizontalScroll")
-
 		/* Main navigation */
 		this.panelsOuterContainer = document.querySelector(
 			"#panels-outer-container"
@@ -60,10 +70,6 @@ class HorizontalScroll {
 		this.headerLinks = document.querySelectorAll("header a")
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 		this.pathname = window.location.pathname
-
-		this.panels.forEach((panel) => {
-			panel.classList.add("transparent")
-		})
 
 		const headings = document.querySelectorAll("h1")
 

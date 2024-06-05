@@ -37,6 +37,16 @@ class HorizontalScroll {
       splitHeading: null,
       theme: "dark"
     }, {
+      section: "films",
+      x: null,
+      splitHeading: null,
+      backgroundColor: "red"
+    }, {
+      section: "Commercials",
+      x: null,
+      splitHeading: null,
+      backgroundColor: "dark"
+    }, {
       section: "projects",
       x: null,
       splitHeading: null,
@@ -62,7 +72,6 @@ class HorizontalScroll {
   }
   async init() {
     gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(ScrollTrigger, gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_1__.ScrollToPlugin, gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_2__.SplitText);
-    console.log("HorizontalScroll");
 
     /* Main navigation */
     this.panelsOuterContainer = document.querySelector("#panels-outer-container");
@@ -70,9 +79,6 @@ class HorizontalScroll {
     this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].utils.toArray("#panels-inner-container .panel");
     this.pathname = window.location.pathname;
-    this.panels.forEach(panel => {
-      panel.classList.add("transparent");
-    });
     const headings = document.querySelectorAll("h1");
     this.panelUI.forEach((panel, index) => {
       panel.x = this.panels[index].offsetLeft;
