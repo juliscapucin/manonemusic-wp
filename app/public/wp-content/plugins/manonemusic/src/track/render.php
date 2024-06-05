@@ -25,7 +25,7 @@ foreach ($attributes['tracklist'] as $track) {
    $iframe_html = '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/857650483&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>';
 
    // Extract the src attribute value
-   preg_match('/src="([^"]+)"/', $iframe_html, $match);
+   preg_match('/src="([^"]+)"/', $url, $match);
    $src_url = $match[1];
 
    // Parse the URL to get the query parameters
@@ -38,11 +38,13 @@ foreach ($attributes['tracklist'] as $track) {
       preg_match('/tracks\/(\d+)/', $track_url, $track_match);
       $trackID = $track_match[1];
       // echo 'Track ID: ' . $track_id;
-      $iframe = '<iframe id="manonemusic-player" class="-translate-x-28 w-64" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $trackID . '&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>';
+      $iframe = '<iframe class="sc-widget -translate-y-1" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/' . $trackID . '&color=%23EF4526&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=false&buying=false"></iframe>';
 ?>
-      <div class="relative overflow-clip h-16 mt-8">
+      <span class="block mt-8"><?php esc_html_e($title) ?></span>
+      <div class="relative overflow-clip h-28">
          <?php echo $iframe ?>
-         <div class="absolute top-0 left-0 w-full h-full bg-primary pointer-events-none opacity-20 z-50"><?php esc_html_e($title) ?></div>
+         <div class="absolute top-0 left-0 w-full h-full bg-primary pointer-events-none opacity-20 z-50"></div>
+         <!-- <div class="absolute bg-secondary w-12 top-2 left-2 aspect-square rounded-full pointer-events-none z-50"></div> -->
       </div>
    <?php
    } else {

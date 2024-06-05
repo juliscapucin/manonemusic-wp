@@ -23,3 +23,30 @@
 /* eslint-disable no-console */
 console.log("Hello World! (from track)");
 /* eslint-enable no-console */
+
+import SC from "./soundcloud-api";
+
+document.addEventListener("DOMContentLoaded", () => {
+	const widgetIframe = document.querySelectorAll(".sc-widget");
+
+	widgetIframe.forEach((element) => {
+		const widget = SC.Widget(element);
+
+		widget.bind(SC.Widget.Events.READY, () => {
+			widget.bind(SC.Widget.Events.PLAY, () => {
+				// Get information about currently playing sound
+				widget.getCurrentSound((currentSound) => {
+					console.log(`Sound ${currentSound.title} began to play`);
+				});
+			});
+
+			// Get current level of volume
+			widget.getVolume((volume) => {
+				console.log(`Current volume value is ${volume}`);
+			});
+
+			// Set new volume level
+			widget.setVolume(50);
+		});
+	});
+});
