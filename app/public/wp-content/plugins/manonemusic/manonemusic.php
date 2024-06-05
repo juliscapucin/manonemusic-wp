@@ -88,7 +88,17 @@ function postTypes()
 
 	register_custom_post_type('project', array(
 		'rewrite' => array('slug' => 'projects'),
-		'menu_icon' => 'dashicons-portfolio',
+		'menu_icon' => 'dashicons-tickets-alt',
+	));
+
+	register_custom_post_type('film', array(
+		'rewrite' => array('slug' => 'films'),
+		'menu_icon' => 'dashicons-editor-video',
+	));
+
+	register_custom_post_type('commercial', array(
+		'rewrite' => array('slug' => 'commercials'),
+		'menu_icon' => 'dashicons-store',
 	));
 }
 

@@ -76,6 +76,12 @@ function Edit({
     label: "Select section",
     value: section,
     options: [{
+      value: "film",
+      label: "Films"
+    }, {
+      value: "commercial",
+      label: "Commercials"
+    }, {
       value: "project",
       label: "Projects"
     }, {

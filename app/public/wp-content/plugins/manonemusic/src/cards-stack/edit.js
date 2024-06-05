@@ -57,6 +57,8 @@ export default function Edit({ attributes, setAttributes }) {
 						label="Select section"
 						value={section}
 						options={[
+							{ value: "film", label: "Films" },
+							{ value: "commercial", label: "Commercials" },
 							{ value: "project", label: "Projects" },
 							{ value: "release", label: "Releases" },
 						]}
