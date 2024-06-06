@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "manonemusic/commercial-cards",
+  "version": "0.1.0",
+  "title": "Commercial Cards",
+  "category": "design",
+  "icon": "store",
+  "description": "Cards for commercial section",
+  "example": {},
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "textdomain": "commercial-cards",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

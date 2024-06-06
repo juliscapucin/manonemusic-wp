@@ -21,12 +21,12 @@
       "type": "array",
       "default": [
         {
-          "title": "Track 1",
+          "name": "Track 1",
           "url": "url",
           "id": "857650483"
         },
         {
-          "title": "Track 2",
+          "name": "Track 2",
           "url": "url",
           "id": "857650483"
         }

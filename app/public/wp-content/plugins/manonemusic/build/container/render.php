@@ -32,7 +32,7 @@ foreach ($block->inner_blocks as $inner_block) {
 
       $content .= <<<HTML
       <div class="{$classes}">
-         <figure class="relative w-64 aspect-square">
+         <figure class="relative w-96 aspect-square">
             {$image}
          </figure>
       </div>

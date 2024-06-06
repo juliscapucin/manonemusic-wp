@@ -81,9 +81,8 @@
    <!-- /wp:group -->
    
    <!-- wp:group {"tagName":"section","metadata":{"name":"Commercials"},"className":"is-style-group-section panel","layout":{"type":"constrained"}} -->
-   <section id="commercials" class="wp-block-group is-style-group-section panel"><!-- wp:columns {"className":"is-style-max-width"} -->
-   <div class="wp-block-columns is-style-max-width"><!-- wp:column {"width":"85%"} -->
-   <div class="wp-block-column" style="flex-basis:85%"><!-- wp:heading {"className":"is-style-heading-display home-heading"} -->
+   <section id="commercials" class="wp-block-group is-style-group-section panel"><!-- wp:group {"className":"is-style-max-width","layout":{"type":"constrained"}} -->
+   <div class="wp-block-group is-style-max-width"><!-- wp:heading {"className":"is-style-heading-display home-heading"} -->
    <h2 class="wp-block-heading is-style-heading-display home-heading">Commercials</h2>
    <!-- /wp:heading -->
    
@@ -97,15 +96,12 @@
    <!-- wp:column {"className":"is-style-column-full"} -->
    <div class="wp-block-column is-style-column-full"></div>
    <!-- /wp:column --></div>
-   <!-- /wp:columns --></div>
-   <!-- /wp:column -->
+   <!-- /wp:columns -->
    
-   <!-- wp:column {"width":"15%"} -->
-   <div class="wp-block-column" style="flex-basis:15%"><!-- wp:manonemusic/cards-stack {"section":"commercial","variant":"detail-page","classes":"w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-40"} -->
-   <div class="wp-block-manonemusic-cards-stack"></div>
-   <!-- /wp:manonemusic/cards-stack --></div>
-   <!-- /wp:column --></div>
-   <!-- /wp:columns --></section>
+   <!-- wp:manonemusic/commercial-cards -->
+   <div class="wp-block-manonemusic-commercial-cards"></div>
+   <!-- /wp:manonemusic/commercial-cards --></div>
+   <!-- /wp:group --></section>
    <!-- /wp:group -->
    
    <!-- wp:group {"tagName":"section","metadata":{"name":"Projects"},"className":"is-style-group-section panel","layout":{"type":"constrained"}} -->
@@ -172,7 +168,7 @@
    
    <!-- wp:group {"tagName":"section","metadata":{"name":"About"},"className":"is-style-group-section panel","layout":{"type":"constrained"}} -->
    <section id="about" class="wp-block-group is-style-group-section panel"><!-- wp:group {"className":"is-style-max-width","layout":{"type":"constrained"}} -->
-   <div class="wp-block-group is-style-max-width"><!-- wp:manonemusic/container {"classes":"absolute w-full h-full flex justify-center items-center"} -->
+   <div class="wp-block-group is-style-max-width"><!-- wp:manonemusic/container {"classes":"absolute -top-[--header-height] w-screen h-[--container-height-desktop] max-w-wide mx-auto flex justify-center items-center -z-10"} -->
    <div class="wp-block-manonemusic-container"><!-- wp:image {"id":165,"sizeSlug":"large","linkDestination":"none","className":"w-full h-full object-cover"} -->
    <figure class="wp-block-image size-large w-full h-full object-cover"><img src="http://manone-music.local/wp-content/uploads/2024/04/about-1024x770.webp" alt="" class="wp-image-165"/></figure>
    <!-- /wp:image --></div>

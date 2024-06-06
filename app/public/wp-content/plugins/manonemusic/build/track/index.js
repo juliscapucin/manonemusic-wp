@@ -44,11 +44,11 @@ function Edit({
   const {
     tracklist
   } = attributes;
-  const updateTrackTitle = (index, newTitle) => {
+  const updateTrackName = (index, newName) => {
     const newTracklist = [...tracklist];
     newTracklist[index] = {
       ...newTracklist[index],
-      title: newTitle
+      name: newName
     };
     setAttributes({
       tracklist: newTracklist
@@ -80,10 +80,10 @@ function Edit({
       } : {},
       key: `trackInput-${index}`
     }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-      label: "Track title:",
-      autoFocus: track.title == undefined,
-      value: track.title,
-      onChange: newTitle => updateTrackTitle(index, newTitle),
+      label: "Track name:",
+      autoFocus: track.name == undefined,
+      value: track.name,
+      onChange: newName => updateTrackName(index, newName),
       style: {
         color: "var(--color-secondary)",
         backgroundColor: "var(--color-primary)"
@@ -248,7 +248,7 @@ module.exports = window["wp"]["components"];
   \******************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/track","version":"0.1.0","title":"Track","category":"widgets","icon":"smiley","description":"Track block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{"tracklist":{"type":"array","default":[{"title":"Track 1","url":"url","id":"857650483"},{"title":"Track 2","url":"url","id":"857650483"}]}},"textdomain":"track","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/track","version":"0.1.0","title":"Track","category":"widgets","icon":"smiley","description":"Track block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{"tracklist":{"type":"array","default":[{"name":"Track 1","url":"url","id":"857650483"},{"name":"Track 2","url":"url","id":"857650483"}]}},"textdomain":"track","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

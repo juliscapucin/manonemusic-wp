@@ -23,9 +23,9 @@ export default function Edit({ attributes, setAttributes }) {
 	});
 	const { tracklist } = attributes;
 
-	const updateTrackTitle = (index, newTitle) => {
+	const updateTrackName = (index, newName) => {
 		const newTracklist = [...tracklist];
-		newTracklist[index] = { ...newTracklist[index], title: newTitle };
+		newTracklist[index] = { ...newTracklist[index], name: newName };
 		setAttributes({ tracklist: newTracklist });
 	};
 
@@ -52,10 +52,10 @@ export default function Edit({ attributes, setAttributes }) {
 						<Flex>
 							<FlexBlock>
 								<TextControl
-									label="Track title:"
-									autoFocus={track.title == undefined}
-									value={track.title}
-									onChange={(newTitle) => updateTrackTitle(index, newTitle)}
+									label="Track name:"
+									autoFocus={track.name == undefined}
+									value={track.name}
+									onChange={(newName) => updateTrackName(index, newName)}
 									style={{
 										color: "var(--color-secondary)",
 										backgroundColor: "var(--color-primary)",

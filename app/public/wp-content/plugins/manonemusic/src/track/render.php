@@ -21,7 +21,7 @@ print_r(get_post_meta($postID, 'tracklist', true));
    $trackCount = count($tracklist);
 
    foreach ($tracklist as $index => $track) {
-      $title = $track['title'];
+      $name = $track['name'];
       $url = $track['url'];
 
       // Extract the src attribute value
@@ -64,7 +64,7 @@ print_r(get_post_meta($postID, 'tracklist', true));
                      </svg>
                   </div>
                </button>
-               <span><?php esc_html_e($title) ?></span>
+               <span><?php esc_html_e($name) ?></span>
             </div>
 
             <div class="w-full flex justify-between items-center">

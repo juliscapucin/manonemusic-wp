@@ -638,6 +638,10 @@ video {
   z-index: 40;
 }
 
+.-z-10{
+  z-index: -10;
+}
+
 .mb-16{
   margin-bottom: 4rem;
 }
@@ -700,6 +704,10 @@ video {
 
 .aspect-\[6\/8\.5\]{
   aspect-ratio: 6/8.5;
+}
+
+.aspect-video{
+  aspect-ratio: 16 / 9;
 }
 
 .h-1{
