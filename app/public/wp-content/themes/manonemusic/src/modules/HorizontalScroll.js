@@ -22,7 +22,7 @@ class HorizontalScroll {
 				backgroundColor: "red",
 			},
 			{
-				section: "Commercials",
+				section: "commercials",
 				x: null,
 				splitHeading: null,
 				backgroundColor: "dark",
@@ -71,11 +71,11 @@ class HorizontalScroll {
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 		this.pathname = window.location.pathname
 
-		const headings = document.querySelectorAll("h1")
+		const headings = document.querySelectorAll(".home-heading")
 
 		this.panelUI.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
-			panel.splitHeading = new SplitText(headings[index], { type: "chars" }) // Create SplitText instance for each h1
+			panel.splitHeading = new SplitText(headings[index], { type: "chars" }) // Create SplitText instance for each heading
 		})
 
 		await this.handleScroll()
@@ -105,6 +105,7 @@ class HorizontalScroll {
 	handleHeaderLinks(e) {
 		e.preventDefault()
 		this.pathname = e.target.closest("a").getAttribute("href").substring(1)
+
 		this.scrollTarget =
 			this.pathname === "/" ? null : document.querySelector(`#${this.pathname}`)
 
@@ -146,12 +147,18 @@ class HorizontalScroll {
 	}
 
 	handlePathname() {
-		console.log(this.pathname)
 		const { protocol, hostname, port } = window.location
 		const newUrl = `${protocol}//${hostname}${port ? ":" + port : ""}/${
 			this.pathname === "home" ? "" : this.pathname
 		}`
 		window.history.pushState({ path: newUrl }, "", newUrl)
+
+		this.headerLinks.forEach((anchor) => {
+			anchor.classList.remove("active")
+			if (anchor.getAttribute("href") === `/${this.pathname}`) {
+				anchor.classList.add("active")
+			}
+		})
 
 		this.handleBackgroundColor()
 	}

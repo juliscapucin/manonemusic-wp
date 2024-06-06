@@ -42,7 +42,7 @@ class HorizontalScroll {
       splitHeading: null,
       backgroundColor: "red"
     }, {
-      section: "Commercials",
+      section: "commercials",
       x: null,
       splitHeading: null,
       backgroundColor: "dark"
@@ -79,12 +79,12 @@ class HorizontalScroll {
     this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].utils.toArray("#panels-inner-container .panel");
     this.pathname = window.location.pathname;
-    const headings = document.querySelectorAll("h1");
+    const headings = document.querySelectorAll(".home-heading");
     this.panelUI.forEach((panel, index) => {
       panel.x = this.panels[index].offsetLeft;
       panel.splitHeading = new gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_2__.SplitText(headings[index], {
         type: "chars"
-      }); // Create SplitText instance for each h1
+      }); // Create SplitText instance for each heading
     });
     await this.handleScroll();
 
@@ -135,7 +135,6 @@ class HorizontalScroll {
     });
   }
   handlePathname() {
-    console.log(this.pathname);
     const {
       protocol,
       hostname,
@@ -145,6 +144,12 @@ class HorizontalScroll {
     window.history.pushState({
       path: newUrl
     }, "", newUrl);
+    this.headerLinks.forEach(anchor => {
+      anchor.classList.remove("active");
+      if (anchor.getAttribute("href") === `/${this.pathname}`) {
+        anchor.classList.add("active");
+      }
+    });
     this.handleBackgroundColor();
   }
   handleScroll() {
