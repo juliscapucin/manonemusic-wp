@@ -110,12 +110,14 @@ class HorizontalScroll {
     this.scrollTarget = this.pathname === "/" ? null : document.querySelector(`#${this.pathname}`);
     if (this.scrollTarget) {
       this.handleScrollTo();
+      this.headerLinks.forEach(anchor => {
+        anchor.classList.remove("active");
+      });
+      e.target.closest("a").classList.add("active");
     }
   }
   handleScrollTo() {
     let y = this.scrollTarget;
-    console.log(y);
-    console.log(window);
     if (this.scrollTarget && this.panelsInnerContainer.isSameNode(this.scrollTarget.parentElement)) {
       let totalScroll = this.tween.scrollTrigger.end - this.tween.scrollTrigger.start,
         totalMovement = this.panelsInnerContainer.scrollWidth - innerWidth;

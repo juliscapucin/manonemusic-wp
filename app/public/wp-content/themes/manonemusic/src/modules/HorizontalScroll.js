@@ -110,13 +110,15 @@ class HorizontalScroll {
 
 		if (this.scrollTarget) {
 			this.handleScrollTo()
+			this.headerLinks.forEach((anchor) => {
+				anchor.classList.remove("active")
+			})
+			e.target.closest("a").classList.add("active")
 		}
 	}
 
 	handleScrollTo() {
 		let y = this.scrollTarget
-		console.log(y)
-		console.log(window)
 
 		if (
 			this.scrollTarget &&

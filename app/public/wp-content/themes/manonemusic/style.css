@@ -92,7 +92,15 @@ Text Domain: manonemusic
 	}
 
 	a {
-		@apply font-primary text-secondary;
+		@apply font-primary text-secondary transition-all duration-500;
+	}
+
+	header a {
+		@apply relative overflow-x-clip before:content-[''] before:block before:w-full before:h-[1px] before:bg-secondary before:absolute before:bottom-0 before:-translate-x-full before:transition-all before:duration-500;
+	}
+
+	header a.active {
+		@apply before:translate-x-0;
 	}
 
 	li,
