@@ -184,7 +184,7 @@ body::-webkit-scrollbar-thumb,
 .container,
 .is-root-container,
 .generic-content {
-	@apply relative h-[--container-height-desktop] w-full max-w-wide pt-0 !important;
+	@apply relative w-full max-w-wide pt-0 !important;
 }
 
 .is-root-container h1 {
@@ -233,7 +233,7 @@ body::-webkit-scrollbar-thumb,
 
 /* PAGE CONTAINER */
 .is-style-group-page-container {
-	@apply w-screen max-h-[--container-height-desktop] max-w-wide pt-16 px-8 my-0 mx-auto overflow-y-clip;
+	@apply w-screen min-h-[--container-height-desktop] max-w-wide pt-16 px-8 my-0 mx-auto;
 }
 
 /* SECTION */
