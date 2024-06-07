@@ -10,14 +10,12 @@
  * // print_r($block);
  */
 
-$postID = get_the_ID();
-// print_r($attributes);
-print_r(get_post_meta($postID, 'tracklist', true));
-
+// print_r($block);
 ?>
-<div class="mt-16">
+
+<div class="mt-16 pr-16">
    <?php
-   $tracklist = $attributes['tracklist'];
+   $tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
    $trackCount = count($tracklist);
 
    foreach ($tracklist as $index => $track) {

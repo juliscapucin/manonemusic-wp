@@ -9,7 +9,7 @@ $stylesheet_dir = get_stylesheet_directory();
 require_once $theme_dir . '/includes/files.php';
 require_once $theme_dir . '/includes/features.php';
 require_once $theme_dir . '/includes/custom-queries.php';
-require_once $theme_dir . '/includes/repeatable-custom-types.php';
+require_once $theme_dir . '/includes/repeatable-custom-fields.php';
 
 // Require components
 require_once $theme_dir . '/components/releases.php';

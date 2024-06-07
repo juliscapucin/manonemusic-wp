@@ -130,4 +130,3 @@ function hhs_repeatable_meta_box_save($post_id)
    elseif (empty($new) && $old)
       delete_post_meta($post_id, 'repeatable_fields', $old);
 }
-?>

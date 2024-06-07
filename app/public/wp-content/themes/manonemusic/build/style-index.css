@@ -822,6 +822,14 @@ p,
   margin-top: 0.5rem;
 }
 
+.mr-8{
+  margin-right: 2rem;
+}
+
+.mr-32{
+  margin-right: 8rem;
+}
+
 .block{
   display: block;
 }
@@ -1093,6 +1101,10 @@ p,
   padding-top: 2rem;
 }
 
+.pr-16{
+  padding-right: 4rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -1111,6 +1123,10 @@ p,
 
 .text-titleLarge{
   font-size: 22px;
+}
+
+.text-headlineLarge{
+  font-size: 81px;
 }
 
 .uppercase{

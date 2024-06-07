@@ -1,4 +1,5 @@
 import { useBlockProps } from "@wordpress/block-editor";
+import { useSelect } from "@wordpress/data";
 import {
 	TextControl,
 	Button,
@@ -15,6 +16,7 @@ import {
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./style.css";
+import { post } from "@wordpress/icons";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({
@@ -40,6 +42,21 @@ export default function Edit({ attributes, setAttributes }) {
 		newTracklist.splice(index, 1);
 		setAttributes({ tracklist: newTracklist });
 	};
+
+	const posts = useSelect((select) => {
+		const { getEntityRecords } = select("core");
+		return getEntityRecords("postType", "release", {
+			per_page: -1,
+			_embed: true,
+			order: "desc",
+		});
+	}, []);
+
+	if (!posts) {
+		return <div>Loading...</div>;
+	} else {
+		console.log(posts);
+	}
 
 	return (
 		<div {...blockProps}>
