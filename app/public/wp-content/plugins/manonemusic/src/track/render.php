@@ -15,7 +15,9 @@
 
 <div class="mt-16 pr-16">
    <?php
-   $tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
+   // $tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
+   // $tracklist = get_field('repeatable_fields');
+   $tracklist = $attributes['tracklist'];
    $trackCount = count($tracklist);
 
    foreach ($tracklist as $index => $track) {

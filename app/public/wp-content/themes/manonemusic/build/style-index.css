@@ -1065,6 +1065,15 @@ p,
   background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
 }
 
+.bg-red{
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-faded-30{
+  background-color: rgba(var(--color-secondary-rgb), 0.3);
+}
+
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;

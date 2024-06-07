@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "manonemusic/content-release",
+  "version": "0.1.0",
+  "title": "Content Release",
+  "category": "design",
+  "icon": "smiley",
+  "description": "Content Release block",
+  "example": {},
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {},
+  "textdomain": "content-release",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./style.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
