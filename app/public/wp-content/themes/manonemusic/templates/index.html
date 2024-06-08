@@ -17,9 +17,9 @@
    <!-- /wp:column -->
    
    <!-- wp:column {"className":"is-style-column-full"} -->
-   <div class="wp-block-column is-style-column-full"><!-- wp:paragraph {"className":"text-titleLarge"} -->
-   <p class="text-titleLarge">2017–24</p>
-   <!-- /wp:paragraph --></div>
+   <div class="wp-block-column is-style-column-full"><!-- wp:heading {"className":"text-titleLarge"} -->
+   <h2 class="wp-block-heading text-titleLarge">2017–24</h2>
+   <!-- /wp:heading --></div>
    <!-- /wp:column -->
    
    <!-- wp:column {"className":"is-style-column-full"} -->
@@ -34,8 +34,8 @@
    
    <!-- wp:columns {"verticalAlignment":"bottom","style":{"spacing":{"margin":{"top":"0vh","bottom":"0px"}}}} -->
    <div class="wp-block-columns are-vertically-aligned-bottom" style="margin-top:0vh;margin-bottom:0px"><!-- wp:column {"verticalAlignment":"bottom"} -->
-   <div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"style":{"layout":{"selfStretch":"fit","flexSize":null}},"className":"text-bodyLarge"} -->
-   <p class="text-bodyLarge">Tailored sound design and audio identities that capture the spirit of your brand and resonate with your audience.</p>
+   <div class="wp-block-column is-vertically-aligned-bottom"><!-- wp:paragraph {"style":{"layout":{"selfStretch":"fit","flexSize":null}},"className":"text-bodyMedium"} -->
+   <p class="text-bodyMedium">Tailored sound design and audio identities that capture the spirit of your brand and resonate with your audience.</p>
    <!-- /wp:paragraph --></div>
    <!-- /wp:column -->
    
@@ -44,10 +44,10 @@
    <!-- /wp:column -->
    
    <!-- wp:column {"verticalAlignment":"bottom","className":"is-style-column-padding-align-bottom"} -->
-   <div class="wp-block-column is-vertically-aligned-bottom is-style-column-padding-align-bottom"><!-- wp:post-date {"format":"m / Y","className":"text-bodyLarge font-primary text-secondary"} /-->
+   <div class="wp-block-column is-vertically-aligned-bottom is-style-column-padding-align-bottom"><!-- wp:post-date {"format":"m / Y","className":"text-bodyMedium font-primary text-secondary"} /-->
    
-   <!-- wp:paragraph {"className":"text-bodyLarge"} -->
-   <p class="text-bodyLarge">Location: Amsterdam</p>
+   <!-- wp:paragraph {"className":"text-bodyMedium"} -->
+   <p class="text-bodyMedium">Location: Amsterdam</p>
    <!-- /wp:paragraph --></div>
    <!-- /wp:column --></div>
    <!-- /wp:columns --></div>
@@ -168,7 +168,7 @@
    
    <!-- wp:group {"tagName":"section","metadata":{"name":"About"},"className":"is-style-group-section panel","layout":{"type":"constrained"}} -->
    <section id="about" class="wp-block-group is-style-group-section panel"><!-- wp:group {"className":"is-style-max-width","layout":{"type":"constrained"}} -->
-   <div class="wp-block-group is-style-max-width"><!-- wp:manonemusic/container {"classes":"absolute -top-[--header-height] w-screen h-[--container-height-desktop] max-w-wide mx-auto flex justify-center items-center -z-10"} -->
+   <div class="wp-block-group is-style-max-width"><!-- wp:manonemusic/container {"classes":"absolute -top-[\u002d\u002dheader-height] w-screen h-[\u002d\u002dcontainer-height-desktop] max-w-wide mx-auto flex justify-center items-center -z-10"} -->
    <div class="wp-block-manonemusic-container"><!-- wp:image {"id":165,"sizeSlug":"large","linkDestination":"none","className":"w-full h-full object-cover"} -->
    <figure class="wp-block-image size-large w-full h-full object-cover"><img src="http://manone-music.local/wp-content/uploads/2024/04/about-1024x770.webp" alt="" class="wp-image-165"/></figure>
    <!-- /wp:image --></div>
@@ -212,19 +212,9 @@
    <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
    <!-- /wp:spacer -->
    
-   <!-- wp:columns {"verticalAlignment":"bottom","style":{"spacing":{"margin":{"top":"0vh","bottom":"0px"}}},"className":"is-style-default"} -->
-   <div class="wp-block-columns are-vertically-aligned-bottom is-style-default" style="margin-top:0vh;margin-bottom:0px"><!-- wp:column {"verticalAlignment":"bottom","className":"is-style-column-padding-align-bottom"} -->
-   <div class="wp-block-column is-vertically-aligned-bottom is-style-column-padding-align-bottom"></div>
-   <!-- /wp:column -->
-   
-   <!-- wp:column {"verticalAlignment":"bottom","className":"is-style-column-padding-align-bottom"} -->
-   <div class="wp-block-column is-vertically-aligned-bottom is-style-column-padding-align-bottom"><!-- wp:read-more {"content":"For bookings and inquiries \u003cbr\u003edrop me an email","className":"text-titleLarge text-center"} /-->
-   
-   <!-- wp:spacer {"height":"4rem"} -->
-   <div style="height:4rem" aria-hidden="true" class="wp-block-spacer"></div>
-   <!-- /wp:spacer -->
-   
-   <!-- wp:paragraph {"className":"block mb-8"} -->
+   <!-- wp:columns {"verticalAlignment":null,"style":{"spacing":{"margin":{"top":"0vh","bottom":"0px"}}},"className":"is-style-default"} -->
+   <div class="wp-block-columns is-style-default" style="margin-top:0vh;margin-bottom:0px"><!-- wp:column {"verticalAlignment":"bottom","className":"is-style-column-padding-align-bottom"} -->
+   <div class="wp-block-column is-vertically-aligned-bottom is-style-column-padding-align-bottom"><!-- wp:paragraph {"className":"block mb-8"} -->
    <p class="block mb-8">Barely active socials:</p>
    <!-- /wp:paragraph -->
    
@@ -232,18 +222,22 @@
    
    <!-- wp:read-more {"content":"facebook"} /-->
    
-   <!-- wp:read-more {"content":"instagram"} /-->
+   <!-- wp:read-more {"content":"instagram"} /--></div>
+   <!-- /wp:column -->
    
-   <!-- wp:spacer {"height":"4rem"} -->
-   <div style="height:4rem" aria-hidden="true" class="wp-block-spacer"></div>
+   <!-- wp:column {"className":"is-style-column-padding-align-bottom"} -->
+   <div class="wp-block-column is-style-column-padding-align-bottom"><!-- wp:read-more {"content":"For bookings and inquiries \u003cbr\u003edrop me an email","className":"text-titleLarge text-center"} /-->
+   
+   <!-- wp:spacer {"height":"25vh"} -->
+   <div style="height:25vh" aria-hidden="true" class="wp-block-spacer"></div>
    <!-- /wp:spacer --></div>
    <!-- /wp:column -->
    
    <!-- wp:column {"verticalAlignment":"bottom","className":"is-style-column-padding-align-bottom"} -->
-   <div class="wp-block-column is-vertically-aligned-bottom is-style-column-padding-align-bottom"><!-- wp:post-date {"format":"© Y \\M\\A\\N/\\O\\N\\E \\M\\U\\S\\I\\C"} /-->
+   <div class="wp-block-column is-vertically-aligned-bottom is-style-column-padding-align-bottom"><!-- wp:post-date {"textAlign":"right","format":"© Y \\M\\A\\N/\\O\\N\\E \\M\\U\\S\\I\\C"} /-->
    
-   <!-- wp:paragraph -->
-   <p>Website by JuliScapucin</p>
+   <!-- wp:paragraph {"align":"right"} -->
+   <p class="has-text-align-right">Website by JuliScapucin</p>
    <!-- /wp:paragraph --></div>
    <!-- /wp:column --></div>
    <!-- /wp:columns --></div>
