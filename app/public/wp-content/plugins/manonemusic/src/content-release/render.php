@@ -9,23 +9,35 @@
  * 
  */
 
-// $card_link = $attributes['linkObject']['url'];
 // print_r($block);
 ?>
 
-<div class="w-full h-16 bg-faded-30">
+<div class="w-full h-full max-w-wide mx-auto mt-32">
 	<?php
+	// echo $content;
 
-	foreach ($block->inner_blocks as $inner_block) {
-		$inner_content = $inner_block->inner_content ?? [];
-	?>
+	$innerBlocks = $block->parsed_block['innerBlocks'];
 
-	<?php
-		if ($inner_block->name === 'core/paragraph') {
-			// print_r($inner_block);
-			// print_r($image_attributes);
-			echo $inner_block->inner_content[0];
+	foreach ($innerBlocks as $innerBlock) {
+		if ($innerBlock['blockName'] === 'manonemusic/track') {
+			$tracklist = wp_json_encode($innerBlock['attrs']['tracklist']);
+
+			// print_r($tracklist);
+			echo '<!-- wp:manonemusic/track {"tracklist":' . $tracklist . '} /-->';
 		}
 	}
+
 	?>
+	<h2>Hello</h2>
 </div>
+
+<?php
+$tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
+
+if ($tracklist) {
+	$jsonTracks = wp_json_encode($tracklist);
+
+	echo '<!-- wp:manonemusic/track {"tracklist": ' . $jsonTracks . '} /-->';
+}
+
+?>

@@ -28,26 +28,49 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 
-const MY_TEMPLATE = [["core/columns", {}, [["core/column", {}, [["core/post-featured-image"]]], ["core/column", {}, [["core/post-title", {
-  placeholder: "Post Title"
+
+// const MY_TEMPLATE = [
+// 	[
+// 		"core/columns",
+// 		{ className: "mt-32" },
+// 		[
+// 			["core/column", {}, [["core/post-featured-image", { width: "400px" }]]],
+// 			["core/spacer", { height: "60px" }],
+// 			[
+// 				"core/column",
+// 				{},
+// 				[
+// 					[
+// 						"core/post-title",
+// 						{
+// 							placeholder: "Post Title",
+// 							className: "text-headlineLarge leading-none",
+// 						},
+// 					],
+// 					["core/spacer", { height: "60px" }],
+// 					["core/post-excerpt", { placeholder: "Released on May 2021" }],
+// 					["core/spacer", { height: "60px" }],
+// 					["manonemusic/track", {}],
+// 				],
+// 			],
+// 		],
+// 	],
+// ];
+
+const MY_TEMPLATE = [["core/post-title", {
+  placeholder: "Post Title",
+  className: "text-headlineLarge leading-none"
+}], ["core/post-featured-image", {
+  width: "400px"
 }], ["core/post-excerpt", {
   placeholder: "Released on May 2021"
-}], ["manonemusic/track", {}]]]]]];
-const DEFAULT_BLOCK = {
-  name: "core/paragraph",
-  attributes: {
-    content: "Lorem ipsum..."
-  }
-};
+}], ["manonemusic/track", {}]];
 function Edit() {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "relative w-full h-64 overflow-clip"
-  });
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
     template: MY_TEMPLATE,
-    templateLock: "all",
     directInsert: true
   }));
 }
@@ -113,8 +136,10 @@ function Save() {
   const blockPropsSave = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
   const innerBlocksPropsSave = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps.save(blockPropsSave);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...blockPropsSave
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...innerBlocksPropsSave
-  });
+  }));
 }
 
 /***/ }),

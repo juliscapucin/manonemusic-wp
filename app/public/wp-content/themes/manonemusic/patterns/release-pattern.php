@@ -13,8 +13,8 @@
       <div class="wp-block-column" style="padding-right:var(--wp--preset--spacing--30);flex-basis:85%"><!-- wp:group {"layout":{"type":"constrained"}} -->
          <div class="wp-block-group"><!-- wp:post-title {"level":1,"className":"is-style-post-title-mb text-headlineLarge"} /-->
 
-            <!-- wp:columns {"verticalAlignment":"top","className":"is-style-columns-full"} -->
-            <div class="wp-block-columns are-vertically-aligned-top is-style-columns-full">
+            <!-- wp:columns {"verticalAlignment":"top","className":"mt-8"} -->
+            <div class="wp-block-columns are-vertically-aligned-top mt-8">
                <!-- wp:column {"verticalAlignment":"top","width":"33.34%"} -->
                <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:33.34%">
                   <!-- wp:post-featured-image {"aspectRatio":"1","className":"is-style-featured-image-square-mr"} /-->
@@ -23,11 +23,7 @@
 
                <!-- wp:column {"verticalAlignment":"top","width":"66.66%"} -->
                <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:66.66%">
-                  <!-- wp:post-excerpt /-->
-
-                  <!-- wp:paragraph -->
-                  <p>Matt Rudge is the Founder and Executive Producer at MAN/ONE MUSIC. He has over ten years of experience producing brand stories, crafting customer journeys, and implementing impactful sound design infrastructures for agencies to scale their audio output.</p>
-                  <!-- /wp:paragraph -->
+                  <!-- wp:post-content /-->
 
                   <?php
                   $tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);

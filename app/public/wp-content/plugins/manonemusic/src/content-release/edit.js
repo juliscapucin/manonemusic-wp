@@ -15,42 +15,53 @@ import {
  */
 import "./style.css";
 
+// const MY_TEMPLATE = [
+// 	[
+// 		"core/columns",
+// 		{ className: "mt-32" },
+// 		[
+// 			["core/column", {}, [["core/post-featured-image", { width: "400px" }]]],
+// 			["core/spacer", { height: "60px" }],
+// 			[
+// 				"core/column",
+// 				{},
+// 				[
+// 					[
+// 						"core/post-title",
+// 						{
+// 							placeholder: "Post Title",
+// 							className: "text-headlineLarge leading-none",
+// 						},
+// 					],
+// 					["core/spacer", { height: "60px" }],
+// 					["core/post-excerpt", { placeholder: "Released on May 2021" }],
+// 					["core/spacer", { height: "60px" }],
+// 					["manonemusic/track", {}],
+// 				],
+// 			],
+// 		],
+// 	],
+// ];
+
 const MY_TEMPLATE = [
 	[
-		"core/columns",
-		{},
-		[
-			["core/column", {}, [["core/post-featured-image"]]],
-			[
-				"core/column",
-				{},
-				[
-					["core/post-title", { placeholder: "Post Title" }],
-					["core/post-excerpt", { placeholder: "Released on May 2021" }],
-					["manonemusic/track", {}],
-				],
-			],
-		],
+		"core/post-title",
+		{
+			placeholder: "Post Title",
+			className: "text-headlineLarge leading-none",
+		},
 	],
+	["core/post-featured-image", { width: "400px" }],
+	["core/post-excerpt", { placeholder: "Released on May 2021" }],
+	["manonemusic/track", {}],
 ];
 
-const DEFAULT_BLOCK = {
-	name: "core/paragraph",
-	attributes: { content: "Lorem ipsum..." },
-};
-
 export default function Edit() {
-	const blockProps = useBlockProps({
-		className: "relative w-full h-64 overflow-clip",
-	});
+	const blockProps = useBlockProps();
 
 	return (
 		<div {...blockProps}>
-			<InnerBlocks
-				template={MY_TEMPLATE}
-				templateLock="all"
-				directInsert={true}
-			/>
+			<InnerBlocks template={MY_TEMPLATE} directInsert={true} />
 		</div>
 	);
 }
