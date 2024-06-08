@@ -838,6 +838,10 @@ p,
   margin-top: 2rem;
 }
 
+.mr-16{
+  margin-right: 4rem;
+}
+
 .block{
   display: block;
 }
