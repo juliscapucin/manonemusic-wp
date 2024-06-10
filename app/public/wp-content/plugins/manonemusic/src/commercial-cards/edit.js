@@ -34,7 +34,7 @@ export default function Edit() {
 				posts.length > 0 &&
 				posts.map((post) => {
 					return (
-						<div className="relative flex-1 w-64 aspect-video mr-16">
+						<div className="relative flex-1 w-40 max-w-40 aspect-video mr-16">
 							<img
 								className="w-full h-full object-cover"
 								src={post._embedded["wp:featuredmedia"][0].source_url}
