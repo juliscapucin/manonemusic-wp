@@ -370,6 +370,5 @@ SC.Widget = (function (e) {
 		};
 	},
 ]);
-//# sourceMappingURL=http://ent/web-sourcemaps/api.js-27d0ec1de3c5.map
 
 export default SC;

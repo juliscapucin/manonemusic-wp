@@ -4,8 +4,10 @@
   "description": "Manone Music",
   "main": "index.js",
   "scripts": {
-    "starttailwind": "npx tailwindcss -i ./style.css -o ./build/style-index.css --watch",
+    "build": "wp-scripts build",
+    "buildtailwind": "npx tailwindcss -i ./style.css -o ./build/style-index.css",
     "start": "wp-scripts start",
+    "starttailwind": "npx tailwindcss -i ./style.css -o ./build/style-index.css --watch",
     "dev": "wp-scripts start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
