@@ -24,6 +24,17 @@
                <!-- wp:column {"verticalAlignment":"top","width":"66.66%"} -->
                <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:66.66%">
 
+                  <?php
+                  // Get the blocks for the current post
+                  $post_blocks = parse_blocks(get_post()->post_content);
+
+                  // Loop through the blocks to find and render the custom block
+                  foreach ($post_blocks as $block) {
+                     if ($block['blockName'] === 'manonemusic/project-info') {
+                        echo render_block($block);
+                     }
+                  }
+                  ?>
                </div>
 
                <!-- /wp:column -->
