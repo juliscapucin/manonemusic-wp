@@ -1,1 +1,17 @@
-@font-face{font-family:PPSupplyMono;font-style:normal;font-weight:medium;src:url(../fonts/PPSupplyMono-Regular.2375c08f.otf) format("opentype")}@font-face{font-family:PPSupplyMono;font-style:normal;font-weight:extralight;src:url(../fonts/PPSupplyMono-Ultralight.064813a8.otf) format("opentype")}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/assets/fonts/fonts.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "PPSupplyMono";
+  src: url(../fonts/PPSupplyMono-Regular.2375c08f.otf) format("opentype");
+  font-weight: medium;
+  font-style: normal;
+}
+@font-face {
+  font-family: "PPSupplyMono";
+  src: url(../fonts/PPSupplyMono-Ultralight.064813a8.otf) format("opentype");
+  font-weight: extralight;
+  font-style: normal;
+}
+
+/*# sourceMappingURL=fonts.css.map*/

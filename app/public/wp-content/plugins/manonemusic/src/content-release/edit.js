@@ -52,7 +52,7 @@ const MY_TEMPLATE = [
 		},
 	],
 	["core/post-featured-image", { width: "400px" }],
-	["core/post-excerpt", { placeholder: "Released on May 2021" }],
+	["manonemusic/project-info", {}],
 	["manonemusic/track", {}],
 ];
 

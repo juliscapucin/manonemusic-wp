@@ -5,7 +5,12 @@
  * Slug: manonemusic/commercial-pattern
  * Categories: Post
  */
+
+// Get the blocks for the current post
+$post_blocks = parse_blocks(get_post()->post_content);
 ?>
+
+
 
 <!-- wp:group {"tagName":"main","className":"is-style-group-page-container","layout":{"type":"constrained"}} -->
 <main class="wp-block-group is-style-group-page-container"><!-- wp:columns -->
@@ -24,8 +29,6 @@
                <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:66.66%">
 
                   <?php
-                  // Get the blocks for the current post
-                  $post_blocks = parse_blocks(get_post()->post_content);
 
                   // Loop through the blocks to find and render the custom block
                   foreach ($post_blocks as $block) {
@@ -44,14 +47,11 @@
 
          <?php
 
-         $video = get_post_meta(get_the_ID(), 'video_links', true);
-
-         if ($video) {
-            echo '<!-- wp:embed {"url":"' . $video[0]['url'] . '","type":"video","providerNameSlug":"vimeo","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
-<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio my-16"><div class="wp-block-embed__wrapper">
-https://vimeo.com/98997745
-</div></figure>
-<!-- /wp:embed -->';
+         // Loop through the blocks to find and render the custom block
+         foreach ($post_blocks as $block) {
+            if ($block['blockName'] === 'core/embed') {
+               echo render_block($block);
+            }
          }
          ?>
 
