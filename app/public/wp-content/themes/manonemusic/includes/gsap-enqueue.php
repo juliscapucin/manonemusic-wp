@@ -10,8 +10,9 @@ function theme_gsap_script()
 
    // The core GSAP library
    wp_enqueue_script('gsap-js', get_template_directory_uri() . '/build/js/gsap.min.js', array(), false, true);
-   // Your animation code file - with gsap.js passed as a dependency
    wp_enqueue_script('scrolltrigger', get_template_directory_uri() . '/build/js/ScrollTrigger.min.js', array('gsap-js'), false, true);
+   wp_enqueue_script('scrollto', get_template_directory_uri() . '/build/js/ScrollToPlugin.min.js', array('gsap-js'), false, true);
+   // Your animation code file - with gsap.js passed as a dependency
    wp_enqueue_script('gsap-js2', get_template_directory_uri() . '/build/index.js', array('gsap-js'), false, true);
 }
 
