@@ -13,7 +13,7 @@
 
 
 
-<div class="w-full space-y-4">
+<div class="w-full space-y-4 mb-16">
 	<?php
 	echo '<p>' . $attributes['releaseDate'] . '</p>';
 	echo '<p>' . $attributes['projectDescription'] . '</p>';

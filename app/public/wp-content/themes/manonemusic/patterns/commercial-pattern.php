@@ -17,7 +17,6 @@
             <div class="wp-block-columns are-vertically-aligned-top">
                <!-- wp:column {"verticalAlignment":"top","width":"33.34%"} -->
                <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:33.34%">
-                  <!-- wp:post-featured-image {"aspectRatio":"4:3","className":"is-style-featured-image-square-mr"} /-->
                </div>
                <!-- /wp:column -->
 
