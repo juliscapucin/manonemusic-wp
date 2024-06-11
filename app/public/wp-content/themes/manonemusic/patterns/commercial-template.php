@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Title: Commercial Pattern
- * Slug: manonemusic/commercial-pattern
+ * Title: Commercial Template
+ * Slug: manonemusic/commercial-template
  * Categories: Post
  */
 

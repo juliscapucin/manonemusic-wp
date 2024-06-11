@@ -134,4 +134,4 @@ $custom_meta_box_config = array(
    ),
 );
 
-initialize_custom_meta_box($custom_meta_box_config);
+// initialize_custom_meta_box($custom_meta_box_config);
