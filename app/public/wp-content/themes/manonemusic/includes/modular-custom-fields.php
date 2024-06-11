@@ -2,10 +2,10 @@
 
 function initialize_custom_meta_box($config)
 {
-   add_action('admin_init', function () use ($config) {
+   add_action('add_meta_boxes', function () use ($config) {
       add_meta_box(
-         'repeatable-fields',
-         'Repeatable Fields',
+         $config['meta_key'],
+         $config['fields_name'],
          function () use ($config) {
             display_custom_meta_box($config);
          },
@@ -107,31 +107,29 @@ function save_custom_meta_box($post_id, $config)
    $meta_key = $config['meta_key'];
    $fields = $config['fields'];
 
-   $old = get_post_meta($post_id, $meta_key, true);
    $new = array();
 
    foreach ($fields as $field_key => $field_label) {
       if (isset($_POST[$field_key])) {
-         $new[$field_key] = array_map(function ($value) {
-            return stripslashes(strip_tags($value));
-         }, $_POST[$field_key]);
+         foreach ($_POST[$field_key] as $value) {
+            $new[] = array($field_key => sanitize_text_field($value));
+         }
       }
    }
 
-   $new = array_map(null, ...array_values($new));
-
-   if (!empty($new) && $new != $old) {
+   if (!empty($new)) {
       update_post_meta($post_id, $meta_key, $new);
-   } elseif (empty($new) && $old) {
+   } else {
       delete_post_meta($post_id, $meta_key);
    }
 }
 
+// Example configuration
 $custom_meta_box_config = array(
    'post_type' => 'commercial',
    'meta_key' => 'video_links',
+   'fields_name' => 'Video Links',
    'fields' => array(
-      'name' => 'Name',
       'url' => 'URL',
    ),
 );
