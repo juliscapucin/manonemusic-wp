@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Title: Release Pattern
- * Slug: manonemusic/release-pattern
+ * Title: Release Template
+ * Slug: manonemusic/release-template
  * Categories: Post
  */
 ?>
@@ -23,10 +23,16 @@
 
                <!-- wp:column {"verticalAlignment":"top","width":"66.66%"} -->
                <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:66.66%">
-                  <!-- wp:post-content /-->
 
                   <?php
+                  $post_blocks = parse_blocks(get_post()->post_content);
                   $tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
+
+                  foreach ($post_blocks as $block) {
+                     if ($block['blockName'] === 'manonemusic/project-info') {
+                        echo render_block($block);
+                     }
+                  }
 
                   if ($tracklist) {
                      $jsonTracks = wp_json_encode($tracklist);
@@ -47,7 +53,8 @@
       <!-- /wp:column -->
 
       <!-- wp:column {"width":"15%"} -->
-      <div class="wp-block-column" style="flex-basis:15%"><!-- wp:manonemusic/cards-stack {"section":"release","variant":"detail-page","classes":"w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8"} -->
+      <div class="wp-block-column" style="flex-basis:15%">
+         <!-- wp:manonemusic/cards-stack {"section":"release","variant":"detail-page","classes":"w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8"} -->
          <div class="wp-block-manonemusic-cards-stack"></div>
          <!-- /wp:manonemusic/cards-stack -->
       </div>

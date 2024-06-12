@@ -951,6 +951,10 @@ p,
   width: 100vw;
 }
 
+.w-48{
+  width: 12rem;
+}
+
 .max-w-40{
   max-width: 10rem;
 }
@@ -961,6 +965,10 @@ p,
 
 .max-w-wide{
   max-width: 1600px;
+}
+
+.max-w-48{
+  max-width: 12rem;
 }
 
 .flex-1{
@@ -1034,6 +1042,10 @@ p,
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
+.overflow-clip{
+  overflow: clip;
 }
 
 .overflow-y-scroll{
