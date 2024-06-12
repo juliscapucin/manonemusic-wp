@@ -14,7 +14,7 @@
   "attributes": {
     "releaseDate": {
       "type": "string",
-      "default": "Released on July 2022"
+      "default": ""
     },
     "projectDescription": {
       "type": "string",

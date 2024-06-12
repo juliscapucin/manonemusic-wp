@@ -17,7 +17,7 @@ require_once $theme_dir . '/components/releases.php';
 require_once $theme_dir . '/components/projects.php';
 
 // Require common functions
-require_once $theme_dir . '/includes/common.php';
+// require_once $theme_dir . '/includes/common.php';
 
 // Require custom core block styles
 require_once $theme_dir . '/includes/register-block-styles.php';

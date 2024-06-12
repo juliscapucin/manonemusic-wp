@@ -34,22 +34,24 @@ $post_blocks = parse_blocks(get_post()->post_content);
 
          </div>
          <!-- /wp:group -->
+         <div class="mt-16">
+            <?php
 
-         <?php
-
-         // Loop through the blocks to find and render the custom block
-         foreach ($post_blocks as $block) {
-            if ($block['blockName'] === 'core/embed') {
-               echo render_block($block);
+            // Loop through the blocks to find and render the custom block
+            foreach ($post_blocks as $block) {
+               if ($block['blockName'] === 'core/embed') {
+                  echo render_block($block);
+               }
             }
-         }
-         ?>
+            ?>
+         </div>
 
       </div>
       <!-- /wp:column -->
 
       <!-- wp:column {"width":"15%"} -->
       <div class="wp-block-column" style="flex-basis:15%">
+
          <!-- wp:manonemusic/cards-stack {"section":"commercial","variant":"detail-page","classes":"fixed w-40 h-full top-0 right-40 overflow-y-scroll pt-16 pr-8 pb-8 space-y-16"} -->
          <div class="wp-block-manonemusic-cards-stack"></div>
          <!-- /wp:manonemusic/cards-stack -->

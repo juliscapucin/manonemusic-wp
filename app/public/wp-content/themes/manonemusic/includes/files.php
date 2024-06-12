@@ -12,18 +12,19 @@ function files()
 
    wp_enqueue_script('homepage-js', get_theme_file_uri('/build/homepage.js'), ['jquery'], '1.0', true);
    // Localize script if needed
-   wp_localize_script('homepage-js', 'siteData', array(
-      'root_url' => get_site_url()
-   ));
 
-   // if (is_front_page()) {
-   //    wp_enqueue_script('homepage-js', get_theme_file_uri('/build/homepage.js'), ['jquery'], '1.0', true);
+   // wp_localize_script('homepage-js', 'siteData', array(
+   //    'root_url' => get_site_url()
+   // ));
 
-   //    // Localize script if needed
-   //    wp_localize_script('homepage-js', 'siteData', array(
-   //       'root_url' => get_site_url()
-   //    ));
-   // }
+   if (is_front_page()) {
+      wp_enqueue_script('homepage-js', get_theme_file_uri('/build/homepage.js'), ['jquery'], '1.0', true);
+
+      // Localize script if needed
+      wp_localize_script('homepage-js', 'siteData', array(
+         'root_url' => get_site_url()
+      ));
+   }
 }
 
 add_action('wp_enqueue_scripts', 'files', 1);

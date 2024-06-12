@@ -78,7 +78,7 @@ Text Domain: manonemusic
 	}
 
 	body {
-		@apply font-secondary bg-primary transition-colors duration-200;
+		@apply font-secondary bg-primary transition-colors duration-200 !important;
 		-webkit-font-smoothing: antialiased;
 	}
 
