@@ -60,7 +60,9 @@ function Edit({
     return getEntityRecords("postType", section, {
       per_page: -1,
       _embed: true,
-      order: "desc"
+      meta_key: "release_date",
+      orderby: "meta_value",
+      order: "asc"
     });
   }, [section]);
   const handleVariantChange = newVariant => {
@@ -270,7 +272,7 @@ module.exports = window["wp"]["element"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-stack","version":"0.1.0","title":"Cards Stack","category":"design","icon":"dashicons-images-alt2","description":"General use cards stack","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"section":{"type":"string","default":"releases"},"variant":{"type":"string","default":"detail"},"classes":{"type":"string","default":""}},"textdomain":"cards-stack","editorScript":"file:./index.js","editorStyle":"file:./index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-stack","version":"0.1.0","title":"Cards Stack","category":"design","icon":"dashicons-images-alt2","description":"General use cards stack","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"section":{"type":"string","default":"releases"},"variant":{"type":"string","default":"detail"},"classes":{"type":"string","default":""}},"textdomain":"cards-stack","editorScript":"file:./index.js","editorStyle":"file:./../style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

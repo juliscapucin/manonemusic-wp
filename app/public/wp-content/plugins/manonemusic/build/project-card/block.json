@@ -26,7 +26,7 @@
   },
   "textdomain": "project-card",
   "editorScript": "file:./index.js",
-  "editorStyle": "file:./style.css",
+  "editorStyle": "file:./../style-index.css",
   "render": "file:./render.php",
   "viewScript": "file:./view.js"
 }

@@ -9,8 +9,8 @@ export default function Save({ attributes }) {
 
 	return (
 		<div {...blockProps}>
-			<RichText.Content tagName="div" value={releaseDate} />
-			<RichText.Content tagName="div" value={projectDescription} />
+			<RichText.Content tagName="p" value={releaseDate} />
+			<RichText.Content tagName="p" value={projectDescription} />
 			<RichText.Content tagName="a" href={url} value={label} />
 		</div>
 	);

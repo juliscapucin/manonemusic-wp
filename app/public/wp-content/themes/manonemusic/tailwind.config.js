@@ -5,7 +5,6 @@ module.exports = {
 		// files: ["./../../**/*.php", "./../../**/*.js"],
 		files: [
 			"./../../**/*.php",
-			"./../../**/*.js",
 			"./src/**/*.js",
 			"./templates/*.html",
 			"./parts/*.html",

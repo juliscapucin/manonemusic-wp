@@ -24,6 +24,8 @@ export default function Edit() {
 		return getEntityRecords("postType", "commercial", {
 			per_page: -1,
 			_embed: true,
+			meta_key: "release_date",
+			orderby: "meta_value",
 			order: "desc",
 		});
 	}, []);
@@ -33,6 +35,7 @@ export default function Edit() {
 			{posts &&
 				posts.length > 0 &&
 				posts.map((post) => {
+					console.log(post);
 					return (
 						<div className="relative flex-1 w-40 max-w-40 aspect-video mr-16">
 							<img

@@ -49,7 +49,8 @@ $post_blocks = parse_blocks(get_post()->post_content);
       <!-- /wp:column -->
 
       <!-- wp:column {"width":"15%"} -->
-      <div class="wp-block-column" style="flex-basis:15%"><!-- wp:manonemusic/cards-stack {"section":"commercial","variant":"detail-page","classes":"w-full h-full overflow-y-scroll pt-16 pr-8 pb-8 space-y-8"} -->
+      <div class="wp-block-column" style="flex-basis:15%">
+         <!-- wp:manonemusic/cards-stack {"section":"commercial","variant":"detail-page","classes":"fixed w-40 h-full top-0 right-40 overflow-y-scroll pt-16 pr-8 pb-8 space-y-16"} -->
          <div class="wp-block-manonemusic-cards-stack"></div>
          <!-- /wp:manonemusic/cards-stack -->
       </div>

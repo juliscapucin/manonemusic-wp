@@ -9,9 +9,8 @@
 
 <!-- wp:manonemusic/project-info -->
 <div class="wp-block-manonemusic-project-info w-full flex gap-16 mt-16">
-   <div class="release-date">Released on July 2022</div>
-   <div class="project-description"></div>
-   <div class="project-url"></div>
+   <div>Released on July 2022</div>
+   <div></div><a href=""></a>
 </div>
 <!-- /wp:manonemusic/project-info -->
 

@@ -33,7 +33,7 @@ function Edit({
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "w-full space-y-4 mt-8"
+    className: "w-full mt-8 px-4"
   });
   const {
     releaseDate,
@@ -99,7 +99,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/project-info/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/project-info/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/project-info/block.json");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../style.css */ "./src/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./src/project-info/style.css");
 
 
 
@@ -158,10 +158,10 @@ function Save({
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "div",
+    tagName: "p",
     value: releaseDate
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "div",
+    tagName: "p",
     value: projectDescription
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "a",
@@ -169,6 +169,18 @@ function Save({
     value: label
   }));
 }
+
+/***/ }),
+
+/***/ "./src/project-info/style.css":
+/*!************************************!*\
+  !*** ./src/project-info/style.css ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -220,7 +232,7 @@ module.exports = window["wp"]["blocks"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/project-info","version":"0.1.0","title":"Project Info","category":"text","icon":"smiley","description":"Project Info","example":{},"supports":{"html":false},"attributes":{"releaseDate":{"type":"string","default":"Released on July 2022"},"projectDescription":{"type":"string","default":""},"url":{"type":"string","default":""},"label":{"type":"string","default":""}},"textdomain":"project-info","editorScript":"file:./index.js","editorStyle":"file:./style-index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/project-info","version":"0.1.0","title":"Project Info","category":"text","icon":"smiley","description":"Project Info","example":{},"supports":{"html":false},"attributes":{"releaseDate":{"type":"string","default":"Released on July 2022"},"projectDescription":{"type":"string","default":""},"url":{"type":"string","default":""},"label":{"type":"string","default":""}},"textdomain":"project-info","editorScript":"file:./index.js","editorStyle":"file:./../style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
@@ -335,7 +347,8 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"project-info/index": 0,
-/******/ 			"link/style-index": 0
+/******/ 			"link/style-index": 0,
+/******/ 			"project-info/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -385,7 +398,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["link/style-index"], () => (__webpack_require__("./src/project-info/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["link/style-index","project-info/style-index"], () => (__webpack_require__("./src/project-info/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

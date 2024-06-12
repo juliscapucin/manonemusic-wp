@@ -10,7 +10,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import "./../style.css";
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps({ className: "w-full space-y-4 mt-8" });
+	const blockProps = useBlockProps({ className: "w-full mt-8 px-4" });
 	const { releaseDate, projectDescription, url, label } = attributes;
 
 	return (
