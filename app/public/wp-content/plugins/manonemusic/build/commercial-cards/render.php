@@ -15,7 +15,8 @@
 $args = array(
    'post_type' => 'commercial',
    'posts_per_page' => -1,
-   'orderby' => 'date',
+   'meta_key' => 'release_date',
+   'orderby' => 'meta_value',
    'order' => 'DESC'
 );
 
