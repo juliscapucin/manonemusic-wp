@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/project-info/edit.js":
-/*!**********************************!*\
-  !*** ./src/project-info/edit.js ***!
-  \**********************************/
+/***/ "./src/link/edit.js":
+/*!**************************!*\
+  !*** ./src/link/edit.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -16,7 +16,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../style.css */ "./src/style.css");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../style.css */ "./src/style.css");
+
 
 
 
@@ -32,71 +35,43 @@ function Edit({
   attributes,
   setAttributes
 }) {
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "w-full space-y-4 mt-8"
-  });
   const {
-    releaseDate,
-    projectDescription,
     url,
-    label
+    label,
+    openInNewTab
   } = attributes;
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
-    value: releaseDate,
-    onChange: content => setAttributes({
-      releaseDate: content
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
-    value: projectDescription,
-    onChange: content => setAttributes({
-      projectDescription: content
-    }),
-    placeholder: "Enter project description. Leave empty if you don't want to display it."
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-8"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "text-labelMedium"
-  }, "Add Project URL:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex gap-4"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex gap-4 h-12"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Link label:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "border border-secondary block p-8"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: "Link Text / Label",
     value: label,
     onChange: value => setAttributes({
       label: value
-    }),
-    placeholder: "Enter link label. Leave empty if you don't want to display it."
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex gap-4 h-12"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Link URL:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "border border-secondary block p-8"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
-    value: url,
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.URLInputButton, {
+    label: "Link URL",
+    url: url,
     onChange: value => setAttributes({
       url: value
-    }),
-    placeholder: "Enter link url. Leave empty if you don't want to display it."
-  }))))));
+    })
+  }));
 }
 
 /***/ }),
 
-/***/ "./src/project-info/index.js":
-/*!***********************************!*\
-  !*** ./src/project-info/index.js ***!
-  \***********************************/
+/***/ "./src/link/index.js":
+/*!***************************!*\
+  !*** ./src/link/index.js ***!
+  \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/project-info/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/project-info/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/project-info/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/link/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/link/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/link/block.json");
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../style.css */ "./src/style.css");
 
 
@@ -124,10 +99,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/project-info/save.js":
-/*!**********************************!*\
-  !*** ./src/project-info/save.js ***!
-  \**********************************/
+/***/ "./src/link/save.js":
+/*!**************************!*\
+  !*** ./src/link/save.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -144,28 +119,18 @@ function Save({
   attributes
 }) {
   const {
-    releaseDate,
-    projectDescription,
     url,
     label,
     openInNewTab
   } = attributes;
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-    className: "w-full flex gap-16 mt-16"
-  });
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "div",
-    value: releaseDate
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "div",
-    value: projectDescription
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "a",
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: url,
-    value: label
-  }));
+    target: openInNewTab ? "_blank" : undefined,
+    rel: "noopener noreferrer"
+  }, label));
 }
 
 /***/ }),
@@ -212,13 +177,23 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
-/***/ "./src/project-info/block.json":
-/*!*************************************!*\
-  !*** ./src/project-info/block.json ***!
-  \*************************************/
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/project-info","version":"0.1.0","title":"Project Info","category":"text","icon":"smiley","description":"Project Info","example":{},"supports":{"html":false},"attributes":{"releaseDate":{"type":"string","default":"Released on July 2022"},"projectDescription":{"type":"string","default":""},"url":{"type":"string","default":""},"label":{"type":"string","default":""}},"textdomain":"project-info","editorScript":"file:./index.js","editorStyle":"file:./style-index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "./src/link/block.json":
+/*!*****************************!*\
+  !*** ./src/link/block.json ***!
+  \*****************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/link","version":"0.1.0","title":"Link","category":"text","icon":"smiley","description":"Custom Link – opens in a new tab","example":{},"supports":{"html":false},"attributes":{"url":{"type":"string","source":"attribute","selector":"a","attribute":"href"},"label":{"type":"string","source":"html","selector":"a"},"openInNewTab":{"type":"boolean","default":true}},"textdomain":"link","editorScript":"file:./index.js","editorStyle":"file:./style-index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
@@ -332,7 +307,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"project-info/index": 0,
+/******/ 			"link/index": 0,
 /******/ 			"link/style-index": 0
 /******/ 		};
 /******/ 		
@@ -383,7 +358,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["link/style-index"], () => (__webpack_require__("./src/project-info/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["link/style-index"], () => (__webpack_require__("./src/link/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

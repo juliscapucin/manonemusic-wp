@@ -17,11 +17,7 @@
 	<?php
 	echo '<p>' . $attributes['releaseDate'] . '</p>';
 	echo '<p>' . $attributes['projectDescription'] . '</p>';
-	if (isset($attributes['projectUrl']) && !empty($attributes['projectUrl'])) {
-		$projectUrl = esc_url($attributes['projectUrl']);
-		echo '<a href="' . $projectUrl . '">View project</a>';
-	}
-
+	echo '<a href="' . $attributes['url'] . '" target="_blank" rel="noopener noreferrer">' . $attributes['label'] . '</a>';
 	?>
 </div>
 <?php

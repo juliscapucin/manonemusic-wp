@@ -53,5 +53,9 @@ body {
 	transition: background-color 0.2s linear;
 }
 
+input {
+	background-color: var(--color-primary);
+}
+
 
 /*# sourceMappingURL=style-index.css.map*/

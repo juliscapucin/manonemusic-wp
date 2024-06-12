@@ -1,35 +1,34 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "manonemusic/project-info",
+  "name": "manonemusic/link",
   "version": "0.1.0",
-  "title": "Project Info",
+  "title": "Link",
   "category": "text",
   "icon": "smiley",
-  "description": "Project Info",
+  "description": "Custom Link – opens in a new tab",
   "example": {},
   "supports": {
     "html": false
   },
   "attributes": {
-    "releaseDate": {
-      "type": "string",
-      "default": "Released on July 2022"
-    },
-    "projectDescription": {
-      "type": "string",
-      "default": ""
-    },
     "url": {
       "type": "string",
-      "default": ""
+      "source": "attribute",
+      "selector": "a",
+      "attribute": "href"
     },
     "label": {
       "type": "string",
-      "default": ""
+      "source": "html",
+      "selector": "a"
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": true
     }
   },
-  "textdomain": "project-info",
+  "textdomain": "link",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./style-index.css",
   "style": "file:./style-index.css",

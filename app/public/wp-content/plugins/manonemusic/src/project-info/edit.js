@@ -11,7 +11,7 @@ import "./../style.css";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({ className: "w-full space-y-4 mt-8" });
-	const { releaseDate, projectUrl, projectDescription } = attributes;
+	const { releaseDate, projectDescription, url, label } = attributes;
 
 	return (
 		<div {...blockProps}>
@@ -24,11 +24,31 @@ export default function Edit({ attributes, setAttributes }) {
 				onChange={(content) => setAttributes({ projectDescription: content })}
 				placeholder="Enter project description. Leave empty if you don't want to display it."
 			/>
-			<RichText
-				value={projectUrl}
-				onChange={(content) => setAttributes({ projectUrl: content })}
-				placeholder="Enter project url. Leave empty if you don't want to display it."
-			/>
+			<div className="mt-8">
+				<span className="text-labelMedium">Add Project URL:</span>
+				<div className="flex gap-4">
+					<div className="flex gap-4 h-12">
+						<span>Link label:</span>
+						<div className="border border-secondary block p-8">
+							<RichText
+								value={label}
+								onChange={(value) => setAttributes({ label: value })}
+								placeholder="Enter link label. Leave empty if you don't want to display it."
+							/>
+						</div>
+					</div>
+					<div className="flex gap-4 h-12">
+						<span>Link URL:</span>
+						<div className="border border-secondary block p-8">
+							<RichText
+								value={url}
+								onChange={(value) => setAttributes({ url: value })}
+								placeholder="Enter link url. Leave empty if you don't want to display it."
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }
