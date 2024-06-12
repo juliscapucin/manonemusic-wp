@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../style.css */ "./src/style.css");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/project-info/style.css");
 
 
 
@@ -33,7 +33,7 @@ function Edit({
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "w-full mt-8 px-4"
+    className: "w-full mt-8 mb-8"
   });
   const {
     releaseDate,
@@ -49,13 +49,14 @@ function Edit({
       releaseDate: content
     })
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+    className: "mt-8",
     value: projectDescription,
     onChange: content => setAttributes({
       projectDescription: content
     }),
     placeholder: "Enter project description. Leave empty if you don't want to display it."
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "my-16"
+    className: "mt-8"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "text-labelLarge font-semibold"
   }, "Add project link:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -149,25 +150,14 @@ function Save({
     releaseDate,
     projectDescription,
     url,
-    label,
-    openInNewTab
+    label
   } = attributes;
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
     className: "w-full flex gap-16 mt-16"
   });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "p",
-    value: releaseDate
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "p",
-    value: projectDescription
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "a",
-    href: url,
-    value: label
-  }));
+  });
 }
 
 /***/ }),
@@ -176,18 +166,6 @@ function Save({
 /*!************************************!*\
   !*** ./src/project-info/style.css ***!
   \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/style.css":
-/*!***********************!*\
-  !*** ./src/style.css ***!
-  \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);

@@ -7,10 +7,10 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-import "./../style.css";
+import "./style.css";
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps({ className: "w-full mt-8 px-4" });
+	const blockProps = useBlockProps({ className: "w-full mt-8 mb-8" });
 	const { releaseDate, projectDescription, url, label } = attributes;
 
 	return (
@@ -20,11 +20,12 @@ export default function Edit({ attributes, setAttributes }) {
 				onChange={(content) => setAttributes({ releaseDate: content })}
 			/>
 			<RichText
+				className="mt-8"
 				value={projectDescription}
 				onChange={(content) => setAttributes({ projectDescription: content })}
 				placeholder="Enter project description. Leave empty if you don't want to display it."
 			/>
-			<div className="my-16">
+			<div className="mt-8">
 				<span className="text-labelLarge font-semibold">Add project link:</span>
 
 				<div className="mt-2">

@@ -810,6 +810,11 @@ p,
   margin-right: auto;
 }
 
+.my-16{
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .mb-16{
   margin-bottom: 4rem;
 }
