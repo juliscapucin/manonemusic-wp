@@ -55,15 +55,15 @@ function Edit({
     }),
     placeholder: "Enter project description. Leave empty if you don't want to display it."
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "mt-8"
+    className: "my-16"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "text-labelMedium"
-  }, "Add Project URL:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex gap-4"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex gap-4 h-12"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Link label:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "border border-secondary block p-8"
+    className: "text-labelLarge font-semibold"
+  }, "Add project link:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "mt-2"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "text-labelLarge font-semibold"
+  }, "Link text:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "border border-secondary p-2"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     value: label,
     onChange: value => setAttributes({
@@ -71,16 +71,18 @@ function Edit({
     }),
     placeholder: "Enter link label. Leave empty if you don't want to display it."
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex gap-4 h-12"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "Link URL:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "border border-secondary block p-8"
+    className: "mt-2"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "text-labelLarge font-semibold"
+  }, "Link URL:"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "border border-secondary p-2"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     value: url,
     onChange: value => setAttributes({
       url: value
     }),
     placeholder: "Enter link url. Leave empty if you don't want to display it."
-  }))))));
+  })))));
 }
 
 /***/ }),

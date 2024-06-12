@@ -13,11 +13,11 @@
 
 
 
-<div class="w-full space-y-2 mb-16">
+<div class="w-full space-y-2 ml-2 mb-16">
 	<?php
 	echo '<p>' . $attributes['releaseDate'] . '</p>';
 	echo '<p>' . $attributes['projectDescription'] . '</p>';
-	echo '<a href="' . $attributes['url'] . '" target="_blank" rel="noopener noreferrer">' . $attributes['label'] . '</a>';
+	echo '<p><a href="' . $attributes['url'] . '" target="_blank" rel="noopener noreferrer">' . $attributes['label'] . '</a></p>';
 	?>
 </div>
 <?php
