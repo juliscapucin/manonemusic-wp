@@ -1,5 +1,5 @@
 import { useEffect, useState } from "@wordpress/element";
-import { useBlockProps, RichText } from "@wordpress/block-editor";
+import { useBlockProps, RichText, PlainText } from "@wordpress/block-editor";
 import apiFetch from "@wordpress/api-fetch";
 
 /**
@@ -32,7 +32,7 @@ function formatDate(dateString) {
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({
-		className: "w-full my-16 flex flex-col",
+		className: "w-full mt-8 flex flex-col font-primary",
 	});
 	const { releaseDate, projectDescription, url, label } = attributes;
 	const [postMeta, setPostMeta] = useState(null);
@@ -67,18 +67,19 @@ export default function Edit({ attributes, setAttributes }) {
 			<span>Released {releaseDate}</span>
 			<RichText
 				tagName="div"
-				className="project-description"
+				className="mt-2"
 				value={projectDescription}
 				onChange={(content) => setAttributes({ projectDescription: content })}
 				placeholder="Enter project description. Leave empty if you don't want to display it."
 			/>
-			<div className="">
+			<div className="mt-8">
 				<span className="text-labelLarge font-semibold">Add project link:</span>
 				<div className="mt-2">
 					<span className="text-labelLarge font-semibold">Link text:</span>
 					<div className="border border-secondary p-2">
-						<RichText
+						<PlainText
 							tagName="div"
+							className="bg-primary"
 							value={label}
 							onChange={(value) => setAttributes({ label: value })}
 							placeholder="Enter link label. Leave empty if you don't want to display it."
@@ -88,8 +89,9 @@ export default function Edit({ attributes, setAttributes }) {
 				<div className="mt-2">
 					<span className="text-labelLarge font-semibold">Link URL:</span>
 					<div className="border border-secondary p-2">
-						<RichText
+						<PlainText
 							tagName="div"
+							className="bg-primary"
 							value={url}
 							onChange={(value) => setAttributes({ url: value })}
 							placeholder="Enter link url. Leave empty if you don't want to display it."
