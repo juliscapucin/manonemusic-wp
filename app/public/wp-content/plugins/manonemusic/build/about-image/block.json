@@ -16,9 +16,12 @@
     }
   },
   "attributes": {
-    "classes": {
-      "type": "string",
-      "default": ""
+    "imgId": {
+      "type": "number",
+      "default": 165
+    },
+    "imgUrl": {
+      "type": "string"
     }
   },
   "textdomain": "about-image",

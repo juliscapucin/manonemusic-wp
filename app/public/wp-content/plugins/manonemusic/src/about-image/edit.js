@@ -1,3 +1,4 @@
+import { useEffect, useState } from "@wordpress/element";
 import apiFetch from "@wordpress/api-fetch";
 import {
 	useBlockProps,
@@ -23,26 +24,31 @@ import {
 import "./style.css";
 
 export default function Edit({ attributes, setAttributes }) {
-	const blockProps = useBlockProps();
-	const { tag, classes } = attributes;
-
-	const absoluteClasses =
-		"absolute -top-[--header-height] w-screen h-[--container-height-desktop] max-w-wide mx-auto flex justify-center items-center -z-10";
-
-	const innerBlocksProps = useInnerBlocksProps(
-		{},
-		{
-			template: [["core/image", {}]],
-		},
-	);
-
-	function setClasses(classes) {
-		setAttributes({ classes });
-	}
+	const blockProps = useBlockProps({
+		className: "absolute top-0 w-64",
+	});
+	const { imgId, imgUrl, imgAlt } = attributes;
+	const [url, setUrl] = useState(imgUrl);
 
 	function onFileSelect(media) {
-		console.log(media);
+		setAttributes({ imgId: media.id });
 	}
+
+	useEffect(() => {
+		console.log(imgId);
+		async function fetchImage() {
+			const response = await apiFetch({
+				path: `/wp/v2/media/${imgId}`,
+				method: "GET",
+			});
+			setAttributes({
+				imgURL: response.media_details.sizes.full.source_url,
+				imgAlt: response.alt_text,
+			});
+			setUrl(response.media_details.sizes.full.source_url);
+		}
+		fetchImage();
+	}, [imgId]);
 
 	return (
 		<>
@@ -51,10 +57,8 @@ export default function Edit({ attributes, setAttributes }) {
 					<PanelRow>
 						<MediaUploadCheck>
 							<MediaUpload
-								onSelect={(media) => {
-									onFileSelect(media);
-								}}
-								value={1}
+								onSelect={onFileSelect}
+								value={imgId}
 								render={({ open }) => (
 									<Button className="bg-primary text-secondary" onClick={open}>
 										Select Image
@@ -66,8 +70,8 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
-				<div className="w-64 h-64 overflow-clip mb-16">
-					<div {...innerBlocksProps} />
+				<div className="relative w-64 h-64 overflow-clip mb-16">
+					<img src={url} className="w-full h-full object-cover" alt={imgAlt} />
 				</div>
 			</div>
 		</>
