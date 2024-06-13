@@ -10,10 +10,19 @@
  * // print_r($block);
  */
 
+if (!isset($attributes['imgUrl']) || empty($attributes['imgUrl'])) {
+   $siteUrl = get_site_url();
+   $attributes['imgUrl'] = $siteUrl . '/wp-content/uploads/2024/06/about.webp';
+}
+
+if (!isset($attributes['imgAlt']) || empty($attributes['imgAlt'])) {
+   $attributes['imgAlt'] = 'Placeholder image';
+}
+
 ?>
 
 <div class="absolute -top-[--header-height] w-screen h-[--container-height-desktop] max-w-wide mx-auto flex justify-center items-center -z-10">
    <div class="w-96 aspect-square relative overflow-clip">
-      <img src="<?php echo esc_url($attributes['imgUrl']); ?>" alt="<?php echo esc_attr($attributes['imageAlt']); ?>" class="w-full h-full object-cover" />
+      <img src="<?php echo esc_url($attributes['imgUrl']); ?>" alt="<?php echo esc_attr($attributes['imgAlt']); ?>" class="w-full h-full object-cover" />
    </div>
 </div>

@@ -773,6 +773,10 @@ p,
   position: sticky;
 }
 
+.-top-\[--header-height\]{
+  top: calc(var(--header-height) * -1);
+}
+
 .right-40{
   right: 10rem;
 }
@@ -787,14 +791,6 @@ p,
 
 .top-16{
   top: 4rem;
-}
-
-.left-0{
-  left: 0px;
-}
-
-.-top-\[--header-height\]{
-  top: calc(var(--header-height) * -1);
 }
 
 .isolate{
@@ -933,10 +929,6 @@ p,
 
 .h-full{
   height: 100%;
-}
-
-.h-96{
-  height: 24rem;
 }
 
 .w-16{

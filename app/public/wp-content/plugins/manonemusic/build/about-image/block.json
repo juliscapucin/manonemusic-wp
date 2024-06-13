@@ -18,9 +18,12 @@
   "attributes": {
     "imgId": {
       "type": "number",
-      "default": 165
+      "default": 15
     },
     "imgUrl": {
+      "type": "string"
+    },
+    "imgAlt": {
       "type": "string"
     }
   },

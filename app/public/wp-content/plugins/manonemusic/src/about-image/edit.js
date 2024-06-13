@@ -35,7 +35,6 @@ export default function Edit({ attributes, setAttributes }) {
 	}
 
 	useEffect(() => {
-		console.log(imgId);
 		async function fetchImage() {
 			const response = await apiFetch({
 				path: `/wp/v2/media/${imgId}`,
@@ -46,6 +45,7 @@ export default function Edit({ attributes, setAttributes }) {
 				imgAlt: response.alt_text,
 			});
 			setUrl(response.media_details.sizes.full.source_url);
+			console.log(imgId, imgAlt);
 		}
 		fetchImage();
 	}, [imgId]);
