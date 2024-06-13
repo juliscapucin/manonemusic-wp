@@ -951,6 +951,14 @@ p,
   width: 100vw;
 }
 
+.w-48{
+  width: 12rem;
+}
+
+.w-64{
+  width: 16rem;
+}
+
 .max-w-40{
   max-width: 10rem;
 }
@@ -961,6 +969,10 @@ p,
 
 .max-w-wide{
   max-width: 1600px;
+}
+
+.max-w-48{
+  max-width: 12rem;
 }
 
 .flex-1{
@@ -1000,8 +1012,8 @@ p,
   justify-content: space-between;
 }
 
-.gap-32{
-  gap: 8rem;
+.gap-16{
+  gap: 4rem;
 }
 
 .gap-4{
@@ -1010,6 +1022,10 @@ p,
 
 .gap-8{
   gap: 2rem;
+}
+
+.gap-32{
+  gap: 8rem;
 }
 
 .space-y-16 > :not([hidden]) ~ :not([hidden]){
@@ -1090,6 +1106,11 @@ p,
 .bg-secondary{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
+}
+
+.object-contain{
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .object-cover{

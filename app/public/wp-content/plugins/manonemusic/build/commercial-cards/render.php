@@ -34,7 +34,7 @@ if ($query->have_posts()) {
       $content .= <<<HTML
       <a href="{$permalink}" class="flex-1 relative w-40 max-w-40">
          <div href="{$permalink}" class="w-full aspect-video overflow-clip">
-            <img class="w-full h-full object-cover" src='{$thumbnail_url}' />
+            <img class="w-full object-contain" src='{$thumbnail_url}' />
          </div>
          <p class="text-labelSmall md:text-labelMedium lg:text-labelLarge mt-2">{$title}</p>
       </a>

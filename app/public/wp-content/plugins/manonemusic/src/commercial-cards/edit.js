@@ -21,13 +21,20 @@ export default function Edit() {
 
 	const posts = useSelect((select) => {
 		const { getEntityRecords } = select("core");
-		return getEntityRecords("postType", "commercial", {
+		const posts = getEntityRecords("postType", "commercial", {
 			per_page: -1,
 			_embed: true,
-			meta_key: "release_date",
-			orderby: "meta_value",
 			order: "desc",
 		});
+
+		return posts
+			? posts
+					.map((post) => ({
+						...post,
+						release_date: post.acf?.release_date || "",
+					}))
+					.sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+			: [];
 	}, []);
 
 	return (
@@ -35,13 +42,14 @@ export default function Edit() {
 			{posts &&
 				posts.length > 0 &&
 				posts.map((post) => {
-					console.log(post);
 					return (
-						<div className="relative flex-1 w-40 max-w-40 aspect-video mr-16">
-							<img
-								className="w-full h-full object-cover"
-								src={post._embedded["wp:featuredmedia"][0].source_url}
-							/>
+						<div className="relative flex-1 w-40 max-w-40 mr-16">
+							<div className="aspect-video overflow-clip">
+								<img
+									className="w-full h-full object-cover"
+									src={post._embedded["wp:featuredmedia"][0].source_url}
+								/>
+							</div>
 							<p className="">
 								<RawHTML>{post.title.rendered}</RawHTML>
 							</p>

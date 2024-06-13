@@ -46,16 +46,16 @@ $post_blocks = parse_blocks(get_post()->post_content);
          </div>
          <!-- /wp:columns -->
 
-         <div class="mt-16">
-            <?php
 
-            // Loop through the blocks to find and render the custom block
-            foreach ($post_blocks as $block) {
-               if ($block['blockName'] === 'core/embed') {
-                  echo render_block($block);
-               }
+         <?php
+
+         // Loop through the blocks to find and render the custom block
+         foreach ($post_blocks as $block) {
+            if ($block['blockName'] === 'core/embed') {
+               echo render_block($block);
             }
-            ?></div>
+         }
+         ?>
 
       </div>
       <!-- /wp:column -->

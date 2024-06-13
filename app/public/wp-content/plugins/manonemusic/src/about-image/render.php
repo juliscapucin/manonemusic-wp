@@ -25,6 +25,12 @@ foreach ($block->inner_blocks as $inner_block) {
       $imageAlt = $imageAttributes['alt'];
       $imageClasses = $imageAttributes['className'];
 
+
+      // Debugging: Print the entire attributes array
+      // echo '<pre>';
+      // print_r($imageAttributes);
+      // echo '</pre>';
+
       $image = wp_get_attachment_image($imageId, 'full', false, array(
          'alt' => $imageAlt,
          'class' => $imageClasses

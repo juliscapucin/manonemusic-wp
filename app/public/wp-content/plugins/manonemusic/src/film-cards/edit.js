@@ -17,7 +17,7 @@ import { RawHTML } from "@wordpress/element";
 import "./style.css";
 
 export default function Edit() {
-	const blockProps = useBlockProps({ className: "w-full flex gap-16 mt-16" });
+	const blockProps = useBlockProps({ className: "w-full flex gap-32 mt-8" });
 
 	const posts = useSelect((select) => {
 		const { getEntityRecords } = select("core");
@@ -34,11 +34,13 @@ export default function Edit() {
 				posts.length > 0 &&
 				posts.map((post) => {
 					return (
-						<div className="relative w-40 max-w-40 mr-16 inline-block">
-							<img
-								className="w-full h-full object-cover"
-								src={post._embedded["wp:featuredmedia"][0].source_url}
-							/>
+						<div className="relative w-40 max-w-40 inline-block">
+							<div className="aspect-[6/8.5] overflow-clip">
+								<img
+									className="w-full h-full object-cover"
+									src={post._embedded["wp:featuredmedia"][0].source_url}
+								/>
+							</div>
 							<p className="">
 								<RawHTML>{post.title.rendered}</RawHTML>
 							</p>

@@ -1,12 +1,15 @@
+import apiFetch from "@wordpress/api-fetch";
 import {
 	useBlockProps,
 	useInnerBlocksProps,
 	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
 	PanelRow,
-	TextControl,
+	Button,
 	SelectControl,
 } from "@wordpress/components";
 
@@ -23,6 +26,9 @@ export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps();
 	const { tag, classes } = attributes;
 
+	const absoluteClasses =
+		"absolute -top-[--header-height] w-screen h-[--container-height-desktop] max-w-wide mx-auto flex justify-center items-center -z-10";
+
 	const innerBlocksProps = useInnerBlocksProps(
 		{},
 		{
@@ -34,38 +40,33 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ classes });
 	}
 
-	function setTag(tag) {
-		setAttributes({ tag });
+	function onFileSelect(media) {
+		console.log(media);
 	}
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Classes">
+				<PanelBody title="Image">
 					<PanelRow>
-						<TextControl
-							label="Tailwind classes"
-							help="add classes to the container element"
-							value={classes}
-							onChange={setClasses}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<SelectControl
-							label="Select Control"
-							value={tag}
-							options={[
-								{ value: "div", label: "<div>" },
-								{ value: "main", label: "<main>" },
-								{ value: "section", label: "<section>" },
-							]}
-							onChange={setTag}
-						/>
+						<MediaUploadCheck>
+							<MediaUpload
+								onSelect={(media) => {
+									onFileSelect(media);
+								}}
+								value={1}
+								render={({ open }) => (
+									<Button className="bg-primary text-secondary" onClick={open}>
+										Select Image
+									</Button>
+								)}
+							/>
+						</MediaUploadCheck>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 			<div {...blockProps}>
-				<div className="w-64 h-64 mb-16">
+				<div className="w-64 h-64 overflow-clip mb-16">
 					<div {...innerBlocksProps} />
 				</div>
 			</div>

@@ -1,12 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "manonemusic/container",
+	"name": "manonemusic/about-image",
 	"version": "0.1.0",
-	"title": "Container",
+	"title": "About Image",
 	"category": "design",
-	"icon": "dashicons-images-alt",
-	"description": "General use container",
+	"icon": "smiley",
+	"description": "About image block",
 	"example": {},
 	"supports": {
 		"html": false,
@@ -16,16 +16,12 @@
 		}
 	},
 	"attributes": {
-		"tag": {
-			"type": "string",
-			"default": "div"
-		},
 		"classes": {
 			"type": "string",
 			"default": ""
 		}
 	},
-	"textdomain": "container",
+	"textdomain": "about-image",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./style.css",
 	"render": "file:./render.php",

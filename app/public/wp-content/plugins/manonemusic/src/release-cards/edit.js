@@ -30,10 +30,12 @@ export default function Edit() {
 				posts.map((post) => {
 					return (
 						<div className="relative w-40 max-w-40 mr-16 inline-block">
-							<img
-								className="w-full h-full object-cover"
-								src={post._embedded["wp:featuredmedia"][0].source_url}
-							/>
+							<div className="aspect-square overflow-clip">
+								<img
+									className="w-full h-full object-cover"
+									src={post._embedded["wp:featuredmedia"][0].source_url}
+								/>
+							</div>
 							<p className="">
 								<RawHTML>{post.title.rendered}</RawHTML>
 							</p>
