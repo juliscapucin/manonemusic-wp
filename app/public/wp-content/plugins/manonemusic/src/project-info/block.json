@@ -1,6 +1,4 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
 	"name": "manonemusic/project-info",
 	"version": "0.1.0",
 	"title": "Project Info",
@@ -8,14 +6,15 @@
 	"icon": "smiley",
 	"description": "Project Info",
 	"example": {},
+	"acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php",
+        "usePostMeta": "true"
+    },
 	"supports": {
 		"html": false
 	},
 	"attributes": {
-		"releaseDate": {
-			"type": "string",
-			"default": ""		
-		},
 		"projectDescription": {
 			"type": "string",
 			"default": ""
