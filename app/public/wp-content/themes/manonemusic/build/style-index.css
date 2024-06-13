@@ -1273,7 +1273,7 @@ p,
 
 /* Remove WP styles that break the layout */
 
-.wp-site-blocks{
+.home .wp-site-blocks{
   overflow-x: clip;
 }
 

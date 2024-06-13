@@ -147,7 +147,7 @@ Text Domain: manonemusic
 /* ------------------------------------- */
 /* Remove WP styles that break the layout */
 
-.wp-site-blocks {
+.home .wp-site-blocks {
 	@apply overflow-x-clip;
 }
 
