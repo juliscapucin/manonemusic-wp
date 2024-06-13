@@ -228,7 +228,7 @@ body::-webkit-scrollbar-thumb,
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply h-[--container-height-desktop] w-fit flex flex-nowrap;
+	@apply h-[--container-height-desktop] w-fit md:flex md:flex-nowrap;
 }
 
 /* PAGE CONTAINER */

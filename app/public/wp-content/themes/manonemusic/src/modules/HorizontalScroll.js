@@ -79,7 +79,7 @@ class HorizontalScroll {
 			panel.splitHeading = new SplitText(headings[index], { type: "chars" }) // Create SplitText instance for each heading
 		})
 
-		await this.handleScroll()
+		await this.addScrollHandler()
 
 		// if pathname is not root, scroll to section on load
 		if (this.pathname !== "/") {
@@ -90,9 +90,6 @@ class HorizontalScroll {
 		}
 
 		this.addEvents()
-
-		// get root url from wp_localize_script in functions/files.php
-		// console.log(siteData.root_url)
 	}
 
 	addEvents() {
@@ -164,7 +161,7 @@ class HorizontalScroll {
 		this.handleBackgroundColor()
 	}
 
-	handleScroll() {
+	addScrollHandler() {
 		this.tween = gsap.to(this.panels, {
 			xPercent: -100 * (this.panels.length - 1),
 			ease: "none",
@@ -269,11 +266,34 @@ class HorizontalScroll {
 	}
 
 	load() {
+		// Check if the screen has a horizontal aspect ratio
+		const checkAspectRatio = () => {
+			if (window.innerWidth > window.innerHeight) {
+				this.init()
+			} else {
+				this.cleanup()
+			}
+		}
+
 		// wait until DOM is ready
 		document.addEventListener("DOMContentLoaded", (event) => {
-			//wait until images, links, fonts, stylesheets, and js is loaded
-			window.addEventListener("load", this.init(), false)
+			// wait until images, links, fonts, stylesheets, and js are loaded
+			window.addEventListener("load", checkAspectRatio, false)
+			window.addEventListener("resize", checkAspectRatio, false)
 		})
+	}
+
+	cleanup() {
+		// Remove event listeners or any other cleanup logic if needed
+		if (this.headerLinks) {
+			this.headerLinks.forEach((anchor) => {
+				anchor.removeEventListener("click", this.handleHeaderLinks)
+			})
+		}
+		if (this.tween) {
+			this.tween.kill()
+		}
+		ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 	}
 }
 

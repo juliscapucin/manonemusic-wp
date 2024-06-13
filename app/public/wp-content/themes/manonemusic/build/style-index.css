@@ -1392,11 +1392,16 @@ body::-webkit-scrollbar-thumb,
 /* HORIZONTAL PANEL (inner panel) */
 
 .is-style-group-full{
-  display: flex;
   height: var(--container-height-desktop);
   width: -moz-fit-content;
   width: fit-content;
-  flex-wrap: nowrap;
+}
+
+@media (min-width: 768px){
+  .is-style-group-full{
+    display: flex;
+    flex-wrap: nowrap;
+  }
 }
 
 /* PAGE CONTAINER */
