@@ -790,6 +790,10 @@ cite{
   top: 4rem;
 }
 
+.bottom-0{
+  bottom: 0px;
+}
+
 .isolate{
   isolation: isolate;
 }
@@ -1156,6 +1160,10 @@ cite{
 
 .pt-8{
   padding-top: 2rem;
+}
+
+.pb-16{
+  padding-bottom: 4rem;
 }
 
 .font-primary{

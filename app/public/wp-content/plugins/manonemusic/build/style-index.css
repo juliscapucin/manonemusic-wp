@@ -654,6 +654,10 @@ video {
   left: 0px;
 }
 
+.bottom-0{
+  bottom: 0px;
+}
+
 .z-40{
   z-index: 40;
 }
@@ -1001,6 +1005,10 @@ video {
 
 .pl-8{
   padding-left: 2rem;
+}
+
+.pb-16{
+  padding-bottom: 4rem;
 }
 
 .font-primary{
