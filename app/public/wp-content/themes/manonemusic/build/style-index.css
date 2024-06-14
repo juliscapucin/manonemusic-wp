@@ -462,8 +462,8 @@ video {
 }
 
 :root[data-theme="dark"] {
-  --color-primary: 31 32 32;
-  --color-primary-rgb: 31, 32, 32;
+  --color-primary: 3 30 27;
+  --color-primary-rgb: 3, 30, 27;
   --color-secondary: 210 200 195;
   --color-secondary-rgb: 210, 200, 195;
   --color-focus: 154, 152, 152;
@@ -496,7 +496,7 @@ video {
 body{
   --tw-bg-opacity: 1 !important;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity)) !important;
-  font-family: var(--font-secondary) !important;
+  font-family: var(--font-primary) !important;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition-duration: 200ms !important;
@@ -576,7 +576,7 @@ figcaption,
 }
 
 cite{
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   font-style: normal;
   --tw-text-opacity: 1;
   color: rgb(var(--color-secondary) / var(--tw-text-opacity));
@@ -840,6 +840,10 @@ p,
 
 .mt-2{
   margin-top: 0.5rem;
+}
+
+.mt-32{
+  margin-top: 8rem;
 }
 
 .mt-8{
@@ -1232,8 +1236,8 @@ p,
 :root {
   --font-primary: "PPSupplyMono", monospace;
   --font-secondary: "ff-real-text-pro", sans-serif;
-  --color-primary: 31 32 32;
-  --color-primary-rgb: 31, 32, 32;
+  --color-primary: 3 30 27;
+  --color-primary-rgb: 3, 30, 27;
   --color-secondary: 210 200 195;
   --color-secondary-rgb: 210, 200, 195;
   --color-focus: 154, 152, 152;
@@ -1269,7 +1273,16 @@ p,
 .site-body{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
+}
+
+@media (min-width: 768px){
+  .site-body{
+    margin-top: 0px;
+  }
+}
+
+.site-body {
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1509,7 +1522,6 @@ body::-webkit-scrollbar-thumb,
 
 @media (min-width: 1024px){
   .is-style-logo-huge{
-    margin-top: 4rem;
     margin-left: -0.5rem;
   }
 }
@@ -1573,7 +1585,7 @@ body::-webkit-scrollbar-thumb,
   margin-top: 1rem;
 }
 
-@media (min-width: 768px){
+@media (min-width: 1024px){
   .is-style-indent-left{
     margin-left: 8rem;
   }
@@ -1584,9 +1596,19 @@ body::-webkit-scrollbar-thumb,
   margin-top: 1rem;
 }
 
-@media (min-width: 768px){
+@media (min-width: 1024px){
   .is-style-indent-right{
     margin-right: 8rem;
+  }
+}
+
+@media (min-width: 768px){
+  .md\:absolute{
+    position: absolute;
+  }
+
+  .md\:mt-0{
+    margin-top: 0px;
   }
 
   .md\:text-labelMedium{

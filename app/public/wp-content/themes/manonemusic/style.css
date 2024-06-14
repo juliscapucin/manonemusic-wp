@@ -25,8 +25,8 @@ Text Domain: manonemusic
 :root {
 	--font-primary: "PPSupplyMono", monospace;
 	--font-secondary: "ff-real-text-pro", sans-serif;
-	--color-primary: 31 32 32;
-	--color-primary-rgb: 31, 32, 32;
+	--color-primary: 3 30 27;
+	--color-primary-rgb: 3, 30, 27;
 	--color-secondary: 210 200 195;
 	--color-secondary-rgb: 210, 200, 195;
 	--color-focus: 154, 152, 152;
@@ -49,8 +49,8 @@ Text Domain: manonemusic
 
 @layer base {
 	:root[data-theme="dark"] {
-		--color-primary: 31 32 32;
-		--color-primary-rgb: 31, 32, 32;
+		--color-primary: 3 30 27;
+		--color-primary-rgb: 3, 30, 27;
 		--color-secondary: 210 200 195;
 		--color-secondary-rgb: 210, 200, 195;
 		--color-focus: 154, 152, 152;
@@ -78,7 +78,7 @@ Text Domain: manonemusic
 	}
 
 	body {
-		@apply font-secondary bg-primary transition-colors duration-200 !important;
+		@apply font-primary bg-primary transition-colors duration-200 !important;
 		-webkit-font-smoothing: antialiased;
 	}
 
@@ -118,7 +118,7 @@ Text Domain: manonemusic
 	}
 
 	cite {
-		@apply text-secondary font-secondary not-italic;
+		@apply text-secondary font-primary not-italic;
 	}
 
 	p,
@@ -140,7 +140,7 @@ Text Domain: manonemusic
 /* --------------- */
 
 .site-body {
-	@apply font-secondary bg-primary;
+	@apply font-primary bg-primary md:mt-0;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -268,7 +268,7 @@ body::-webkit-scrollbar-thumb,
 /* HEADING */
 
 .is-style-logo-huge {
-	@apply block w-full mt-32 lg:mt-16 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
+	@apply block w-full mt-32 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
 	font-size: clamp(4.5rem, 11vw, 13rem);
 }
 
@@ -282,8 +282,8 @@ body::-webkit-scrollbar-thumb,
 
 /* PARAGRAPH */
 .is-style-indent-left {
-	@apply ml-16 md:ml-32 mt-4;
+	@apply ml-16 lg:ml-32 mt-4;
 }
 .is-style-indent-right {
-	@apply mr-16 md:mr-32 mt-4;
+	@apply mr-16 lg:mr-32 mt-4;
 }

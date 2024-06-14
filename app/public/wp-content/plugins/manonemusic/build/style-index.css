@@ -1078,6 +1078,10 @@ body {
 }
 
 @media (min-width: 768px){
+  .md\:absolute{
+    position: absolute;
+  }
+
   .md\:text-labelMedium{
     font-size: 12px;
   }

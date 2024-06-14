@@ -182,7 +182,7 @@ class HorizontalScroll {
 			}
 		})
 
-		this.handleBackgroundColor()
+		// this.handleBackgroundColor()
 	}
 
 	handleActivePanel() {

@@ -172,7 +172,8 @@ class HorizontalScroll {
         anchor.classList.add("active");
       }
     });
-    this.handleBackgroundColor();
+
+    // this.handleBackgroundColor()
   }
   handleActivePanel() {
     this.panels.forEach((panel, index) => {
