@@ -1403,8 +1403,13 @@ body::-webkit-scrollbar-thumb,
 .is-style-horizontal-scroll{
   position: relative;
   margin: 0px;
-  height: var(--container-height-desktop);
   width: 100vw;
+}
+
+@media (min-width: 1024px){
+  .is-style-horizontal-scroll{
+    height: var(--container-height-desktop);
+  }
 }
 
 /* HORIZONTAL PANEL (inner panel) */
@@ -1414,7 +1419,7 @@ body::-webkit-scrollbar-thumb,
   width: fit-content;
 }
 
-@media (min-width: 768px){
+@media (min-width: 1024px){
   .is-style-group-full{
     display: flex;
     height: var(--container-height-desktop);
@@ -1442,11 +1447,16 @@ body::-webkit-scrollbar-thumb,
 
 .is-style-group-section{
   position: relative;
-  height: 100vh;
   min-height: 100vh;
   width: 100vw;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+@media (min-width: 1024px){
+  .is-style-group-section{
+    height: 100vh;
+  }
 }
 
 @media (min-width: 1280px){
@@ -1621,6 +1631,14 @@ body::-webkit-scrollbar-thumb,
 
   .md\:mt-0{
     margin-top: 0px;
+  }
+
+  .md\:h-\[--container-height-desktop\]{
+    height: var(--container-height-desktop);
+  }
+
+  .md\:w-96{
+    width: 24rem;
   }
 
   .md\:flex-row{

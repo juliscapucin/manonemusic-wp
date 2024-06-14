@@ -216,12 +216,12 @@ body::-webkit-scrollbar-thumb,
 
 /* HORIZONTAL SCROLL (outer panel) */
 .is-style-horizontal-scroll {
-	@apply relative h-[--container-height-desktop] w-screen m-0;
+	@apply relative lg:h-[--container-height-desktop] w-screen m-0;
 }
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply md:h-[--container-height-desktop] w-fit md:flex md:flex-nowrap;
+	@apply lg:h-[--container-height-desktop] w-fit lg:flex lg:flex-nowrap;
 }
 
 /* PAGE CONTAINER */
@@ -231,7 +231,7 @@ body::-webkit-scrollbar-thumb,
 
 /* SECTION */
 .is-style-group-section {
-	@apply relative min-h-screen h-screen w-screen px-8 xl:px-32;
+	@apply relative min-h-screen lg:h-screen w-screen px-8 xl:px-32;
 }
 
 .is-style-max-width {

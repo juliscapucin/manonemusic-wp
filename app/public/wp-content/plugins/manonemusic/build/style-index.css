@@ -1082,6 +1082,14 @@ body {
     position: absolute;
   }
 
+  .md\:h-\[--container-height-desktop\]{
+    height: var(--container-height-desktop);
+  }
+
+  .md\:w-96{
+    width: 24rem;
+  }
+
   .md\:text-labelMedium{
     font-size: 12px;
   }

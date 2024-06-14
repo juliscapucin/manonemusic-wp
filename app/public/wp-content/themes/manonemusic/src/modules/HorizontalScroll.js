@@ -278,7 +278,7 @@ class HorizontalScroll {
 	load() {
 		// Check if the screen has a horizontal aspect ratio
 		const checkWindowWidth = () => {
-			if (window.innerWidth > 768) {
+			if (window.innerWidth > 1024) {
 				this.init()
 			} else {
 				this.cleanup()
