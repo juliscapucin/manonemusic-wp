@@ -228,7 +228,7 @@ body::-webkit-scrollbar-thumb,
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply h-[--container-height-desktop] w-fit md:flex md:flex-nowrap;
+	@apply md:h-[--container-height-desktop] w-fit md:flex md:flex-nowrap;
 }
 
 /* PAGE CONTAINER */
@@ -254,11 +254,6 @@ body::-webkit-scrollbar-thumb,
 	@apply mr-8;
 }
 
-.is-style-logo-huge {
-	@apply block w-full mt-16 md:-ml-2 lg:-ml-4;
-	font-size: clamp(3rem, 11vw, 13rem);
-}
-
 /* BUTTON */
 .is-style-button-manonemusic a,
 .is-style-button-manonemusic > * {
@@ -271,17 +266,24 @@ body::-webkit-scrollbar-thumb,
 }
 
 /* HEADING */
+
+.is-style-logo-huge {
+	@apply block w-full mt-32 lg:mt-16 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
+	font-size: clamp(4.5rem, 11vw, 13rem);
+}
+
 .is-style-heading-display {
 	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-32 mb-8;
 }
+
 .is-style-heading-headline {
 	@apply block text-headlineSmall md:text-headlineMedium lg:text-headlineLarge tracking-[-2px] leading-none mt-16 mb-8;
 }
 
 /* PARAGRAPH */
 .is-style-indent-left {
-	@apply ml-32 mt-4;
+	@apply ml-16 md:ml-32 mt-4;
 }
 .is-style-indent-right {
-	@apply mr-32 mt-4;
+	@apply mr-16 md:mr-32 mt-4;
 }

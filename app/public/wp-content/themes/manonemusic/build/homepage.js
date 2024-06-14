@@ -104,6 +104,28 @@ class HorizontalScroll {
       anchor.addEventListener("click", this.handleHeaderLinks);
     });
   }
+  addScrollHandler() {
+    this.tween = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.panels, {
+      xPercent: -100 * (this.panels.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: this.panelsInnerContainer,
+        pin: true,
+        start: "top top",
+        scrub: 1,
+        end: () => "+=" + this.panelsInnerContainer.scrollWidth - innerWidth,
+        onUpdate: self => {
+          // also useful!
+          // console.log(self.progress, "/1")
+          // console.log(
+          // 	window.scrollY,
+          // 	`/${document.body.scrollHeight - window.innerHeight}`
+          // )
+        }
+      }
+    });
+    this.handleActivePanel();
+  }
   handleHeaderLinks(e) {
     e.preventDefault();
     this.pathname = e.target.closest("a").getAttribute("href").substring(1);
@@ -151,28 +173,6 @@ class HorizontalScroll {
       }
     });
     this.handleBackgroundColor();
-  }
-  addScrollHandler() {
-    this.tween = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.panels, {
-      xPercent: -100 * (this.panels.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: this.panelsInnerContainer,
-        pin: true,
-        start: "top top",
-        scrub: 1,
-        end: () => "+=" + this.panelsInnerContainer.scrollWidth - innerWidth,
-        onUpdate: self => {
-          // also useful!
-          // console.log(self.progress, "/1")
-          // console.log(
-          // 	window.scrollY,
-          // 	`/${document.body.scrollHeight - window.innerHeight}`
-          // )
-        }
-      }
-    });
-    this.handleActivePanel();
   }
   handleActivePanel() {
     this.panels.forEach((panel, index) => {
@@ -235,10 +235,19 @@ class HorizontalScroll {
       ease: "expo.out"
     });
   }
+  debounce(func, wait) {
+    let timeout;
+    return function () {
+      const context = this,
+        args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+  }
   load() {
     // Check if the screen has a horizontal aspect ratio
-    const checkAspectRatio = () => {
-      if (window.innerWidth > window.innerHeight) {
+    const checkWindowWidth = () => {
+      if (window.innerWidth > 768) {
         this.init();
       } else {
         this.cleanup();
@@ -248,8 +257,8 @@ class HorizontalScroll {
     // wait until DOM is ready
     document.addEventListener("DOMContentLoaded", event => {
       // wait until images, links, fonts, stylesheets, and js are loaded
-      window.addEventListener("load", checkAspectRatio, false);
-      window.addEventListener("resize", checkAspectRatio, false);
+      window.addEventListener("load", checkWindowWidth, false);
+      window.addEventListener("resize", this.debounce(() => window.location.reload(), 500), false);
     });
   }
   cleanup() {

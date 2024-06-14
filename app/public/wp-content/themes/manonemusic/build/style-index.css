@@ -1392,7 +1392,6 @@ body::-webkit-scrollbar-thumb,
 /* HORIZONTAL PANEL (inner panel) */
 
 .is-style-group-full{
-  height: var(--container-height-desktop);
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -1400,6 +1399,7 @@ body::-webkit-scrollbar-thumb,
 @media (min-width: 768px){
   .is-style-group-full{
     display: flex;
+    height: var(--container-height-desktop);
     flex-wrap: nowrap;
   }
 }
@@ -1466,28 +1466,6 @@ body::-webkit-scrollbar-thumb,
   margin-right: 2rem;
 }
 
-.is-style-logo-huge{
-  margin-top: 4rem;
-  display: block;
-  width: 100%;
-}
-
-@media (min-width: 768px){
-  .is-style-logo-huge{
-    margin-left: -0.5rem;
-  }
-}
-
-@media (min-width: 1024px){
-  .is-style-logo-huge{
-    margin-left: -1rem;
-  }
-}
-
-.is-style-logo-huge {
-  font-size: clamp(3rem, 11vw, 13rem);
-}
-
 /* BUTTON */
 
 .is-style-button-manonemusic a,
@@ -1512,6 +1490,39 @@ body::-webkit-scrollbar-thumb,
 }
 
 /* HEADING */
+
+.is-style-logo-huge{
+  margin-top: 8rem;
+  margin-bottom: 1rem;
+  display: block;
+  width: 100%;
+  line-height: 0.85;
+}
+
+@media (min-width: 768px){
+  .is-style-logo-huge{
+    margin-left: -0.5rem;
+    margin-bottom: 0px;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px){
+  .is-style-logo-huge{
+    margin-top: 4rem;
+    margin-left: -0.5rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .is-style-logo-huge{
+    margin-left: -0.75rem;
+  }
+}
+
+.is-style-logo-huge {
+  font-size: clamp(4.5rem, 11vw, 13rem);
+}
 
 .is-style-heading-display{
   margin-top: 8rem;
@@ -1558,16 +1569,26 @@ body::-webkit-scrollbar-thumb,
 /* PARAGRAPH */
 
 .is-style-indent-left{
-  margin-left: 8rem;
-  margin-top: 1rem;
-}
-
-.is-style-indent-right{
-  margin-right: 8rem;
+  margin-left: 4rem;
   margin-top: 1rem;
 }
 
 @media (min-width: 768px){
+  .is-style-indent-left{
+    margin-left: 8rem;
+  }
+}
+
+.is-style-indent-right{
+  margin-right: 4rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px){
+  .is-style-indent-right{
+    margin-right: 8rem;
+  }
+
   .md\:text-labelMedium{
     font-size: 12px;
   }
