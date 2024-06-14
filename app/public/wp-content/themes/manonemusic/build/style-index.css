@@ -556,14 +556,20 @@ header a.active::before{
 li,
 	p{
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 14px;
   --tw-text-opacity: 1;
   color: rgb(var(--color-secondary) / var(--tw-text-opacity));
 }
 
+@media (min-width: 1024px){
+  li,
+	p{
+    font-size: 16px;
+  }
+}
+
 p{
   max-width: 65ch;
-  font-size: 16px;
 }
 
 figcaption,
@@ -580,15 +586,6 @@ cite{
   font-style: normal;
   --tw-text-opacity: 1;
   color: rgb(var(--color-secondary) / var(--tw-text-opacity));
-}
-
-p,
-	a,
-	h1,
-	h2{
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 500ms;
 }
 
 *, ::before, ::after{
@@ -992,8 +989,16 @@ p,
        columns: 2;
 }
 
+.flex-col{
+  flex-direction: column;
+}
+
 .flex-wrap{
   flex-wrap: wrap;
+}
+
+.items-end{
+  align-items: flex-end;
 }
 
 .items-center{
@@ -1512,8 +1517,15 @@ body::-webkit-scrollbar-thumb,
   line-height: 0.85;
 }
 
+@media (min-width: 640px){
+  .is-style-logo-huge{
+    margin-top: 16rem;
+  }
+}
+
 @media (min-width: 768px){
   .is-style-logo-huge{
+    margin-top: 8rem;
     margin-left: -0.5rem;
     margin-bottom: 0px;
     line-height: 1;
@@ -1611,12 +1623,24 @@ body::-webkit-scrollbar-thumb,
     margin-top: 0px;
   }
 
+  .md\:flex-row{
+    flex-direction: row;
+  }
+
+  .md\:gap-4{
+    gap: 1rem;
+  }
+
   .md\:text-labelMedium{
     font-size: 12px;
   }
 }
 
 @media (min-width: 1024px){
+  .lg\:gap-8{
+    gap: 2rem;
+  }
+
   .lg\:text-labelLarge{
     font-size: 14px;
   }

@@ -105,11 +105,11 @@ Text Domain: manonemusic
 
 	li,
 	p {
-		@apply text-secondary font-primary text-bodyMedium;
+		@apply text-secondary font-primary text-bodySmall lg:text-bodyMedium;
 	}
 
 	p {
-		@apply max-w-prose text-bodyMedium;
+		@apply max-w-prose;
 	}
 
 	figcaption,
@@ -119,13 +119,6 @@ Text Domain: manonemusic
 
 	cite {
 		@apply text-secondary font-primary not-italic;
-	}
-
-	p,
-	a,
-	h1,
-	h2 {
-		@apply transition-colors duration-500;
 	}
 }
 
@@ -268,7 +261,7 @@ body::-webkit-scrollbar-thumb,
 /* HEADING */
 
 .is-style-logo-huge {
-	@apply block w-full mt-32 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
+	@apply block w-full mt-32 sm:mt-64 md:mt-32 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
 	font-size: clamp(4.5rem, 11vw, 13rem);
 }
 
