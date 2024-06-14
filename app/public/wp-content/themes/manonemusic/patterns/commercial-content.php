@@ -7,8 +7,6 @@
  */
 ?>
 
-<!-- wp:manonemusic/project-info -->
-<div class="wp-block-manonemusic-project-info w-full flex gap-16 mt-16"></div>
-<!-- /wp:manonemusic/project-info -->
+<!-- wp:manonemusic/project-info /-->
 
 <!-- wp:embed {"providerNameSlug":"vimeo","responsive":true} /-->

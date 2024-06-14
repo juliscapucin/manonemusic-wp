@@ -151,18 +151,21 @@ Text Domain: manonemusic
 /* ------------------------------------- */
 
 /* Scrollbars */
-body::-webkit-scrollbar,
-.cards-stack::-webkit-scrollbar {
+.home::-webkit-scrollbar,
+.cards-stack::-webkit-scrollbar,
+.cards-home::-webkit-scrollbar {
 	width: 4px;
-	height: 20px;
+	height: 4px;
 }
-body::-webkit-scrollbar-track,
-.cards-stack::-webkit-scrollbar-track {
+.home::-webkit-scrollbar-track,
+.cards-stack::-webkit-scrollbar-track,
+.cards-home::-webkit-scrollbar-track {
 	background-color: rgba(var(--color-secondary-rgb), 0.1);
 	margin-block: 1px;
 }
-body::-webkit-scrollbar-thumb,
-.cards-stack::-webkit-scrollbar-thumb {
+.home::-webkit-scrollbar-thumb,
+.cards-stack::-webkit-scrollbar-thumb,
+.cards-home::-webkit-scrollbar-thumb {
 	background-color: rgba(var(--color-secondary-rgb), 1);
 	width: 1rem;
 	height: 1rem;
@@ -230,12 +233,14 @@ body::-webkit-scrollbar-thumb,
 }
 
 /* SECTION */
+/* panel */
 .is-style-group-section {
-	@apply relative min-h-screen lg:h-screen w-screen px-8 xl:px-32;
+	@apply relative h-[--container-height-desktop] min-w-screen px-8;
 }
 
+/* inner panel */
 .is-style-max-width {
-	@apply w-full h-full max-w-wide mx-auto overflow-clip;
+	@apply w-full h-full max-w-wide mr-96;
 }
 
 /* IMAGE */

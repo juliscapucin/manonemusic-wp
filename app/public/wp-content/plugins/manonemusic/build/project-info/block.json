@@ -8,11 +8,6 @@
   "icon": "smiley",
   "description": "Project Info",
   "example": {},
-  "acf": {
-    "mode": "preview",
-    "renderTemplate": "render.php",
-    "usePostMeta": "true"
-  },
   "supports": {
     "html": false
   },

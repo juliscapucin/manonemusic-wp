@@ -10,10 +10,10 @@
  * // print_r($block);
  */
 
-
-
+$section = $attributes['section'];
+$aspectRatio = $attributes['aspectRatio'];
 $args = array(
-   'post_type' => 'release',
+   'post_type' => $section,
    'posts_per_page' => -1,
    'meta_key' => 'release_date',
    'orderby' => 'meta_value',
@@ -32,11 +32,11 @@ if ($query->have_posts()) {
       $thumbnail_url = get_the_post_thumbnail_url();
 
       $content .= <<<HTML
-      <a href="{$permalink}" class="flex-1 relative w-40 max-w-40">
-         <div href="{$permalink}" class="w-full aspect-square overflow-clip">
+      <a href="{$permalink}" class="relative w-40 min-w-40 max-w-40">
+         <div href="{$permalink}" class="w-full overflow-clip rounded-sm' . $aspectRatio . '">
             <img class="w-full h-full object-cover" src='{$thumbnail_url}' />
          </div>
-         <p class="text-labelSmall md:text-labelMedium lg:text-labelLarge mt-2">{$title}</p>
+         <p class="text-labelMedium lg:text-labelLarge mt-2">{$title}</p>
       </a>
       HTML;
    }
@@ -44,7 +44,7 @@ if ($query->have_posts()) {
 };
 
 ?>
-<div class="flex w-full gap-32 mt-16">
+<div class="cards-home flex w-full gap-24 lg:gap-32 mt-16 pb-8 overflow-x-scroll lg:overflow-x-visible">
    <?php
    echo $content;
    ?>
