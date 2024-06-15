@@ -44,7 +44,7 @@ if ($query->have_posts()) {
 };
 
 ?>
-<div class="cards-home flex w-full gap-24 lg:gap-32 mt-16 pb-8 overflow-x-scroll lg:overflow-visible bg-red">
+<div class="cards-home flex w-full gap-24 lg:gap-32 mt-16 pb-8 overflow-x-scroll lg:overflow-visible">
    <?php
    echo $content;
    ?>

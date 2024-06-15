@@ -27,8 +27,8 @@ Text Domain: manonemusic
 	--font-secondary: "ff-real-text-pro", sans-serif;
 	--color-primary: 3 30 27;
 	--color-primary-rgb: 3, 30, 27;
-	--color-secondary: 210 200 195;
-	--color-secondary-rgb: 210, 200, 195;
+	--color-secondary: 182 209 194;
+	--color-secondary-rgb: 182, 209, 194;
 	--color-focus: 154, 152, 152;
 	--header-height: 8rem;
 	--margin-mobile: 1rem;
@@ -51,8 +51,8 @@ Text Domain: manonemusic
 	:root[data-theme="dark"] {
 		--color-primary: 3 30 27;
 		--color-primary-rgb: 3, 30, 27;
-		--color-secondary: 210 200 195;
-		--color-secondary-rgb: 210, 200, 195;
+		--color-secondary: 182 209 194;
+		--color-secondary-rgb: 182, 209, 194;
 		--color-focus: 154, 152, 152;
 	}
 	:root[data-theme="green"] {
@@ -230,7 +230,7 @@ Text Domain: manonemusic
 /* HOME SECTIONS */
 /* panel */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8;
+	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8 lg:pr-96 lg:last:pr-0;
 }
 
 /* inner panel */

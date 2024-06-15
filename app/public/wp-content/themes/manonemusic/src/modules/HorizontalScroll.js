@@ -76,6 +76,7 @@ class HorizontalScroll {
 
 		this.panelUI.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
+			console.log(panel.x)
 			panel.splitHeading = new SplitText(headings[index], { type: "chars" }) // Create SplitText instance for each heading
 		})
 
@@ -101,8 +102,15 @@ class HorizontalScroll {
 	}
 
 	addScrollHandler() {
+		// Calculate the total width of all panels
+		let totalWidth = 0
+		this.panels.forEach((panel) => {
+			totalWidth += panel.offsetWidth
+		})
+
 		this.tween = gsap.to(this.panels, {
-			xPercent: -100 * (this.panels.length - 1),
+			// xPercent: -100 * (this.panels.length - 1),
+			x: -totalWidth + window.innerWidth, // Adjust for the viewport width
 			ease: "none",
 			scrollTrigger: {
 				trigger: this.panelsInnerContainer,

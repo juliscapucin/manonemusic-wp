@@ -464,8 +464,8 @@ video {
 :root[data-theme="dark"] {
   --color-primary: 3 30 27;
   --color-primary-rgb: 3, 30, 27;
-  --color-secondary: 210 200 195;
-  --color-secondary-rgb: 210, 200, 195;
+  --color-secondary: 182 209 194;
+  --color-secondary-rgb: 182, 209, 194;
   --color-focus: 154, 152, 152;
 }
 
@@ -839,6 +839,10 @@ cite{
   margin-left: 1rem;
 }
 
+.mr-96{
+  margin-right: 24rem;
+}
+
 .mt-16{
   margin-top: 4rem;
 }
@@ -1106,11 +1110,6 @@ cite{
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
 }
 
-.bg-red{
-  --tw-bg-opacity: 1;
-  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
-}
-
 .bg-secondary{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-secondary) / var(--tw-bg-opacity));
@@ -1254,8 +1253,8 @@ cite{
   --font-secondary: "ff-real-text-pro", sans-serif;
   --color-primary: 3 30 27;
   --color-primary-rgb: 3, 30, 27;
-  --color-secondary: 210 200 195;
-  --color-secondary-rgb: 210, 200, 195;
+  --color-secondary: 182 209 194;
+  --color-secondary-rgb: 182, 209, 194;
   --color-focus: 154, 152, 152;
   --header-height: 8rem;
   --margin-mobile: 1rem;
@@ -1453,6 +1452,16 @@ cite{
   min-width: 100vw;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+@media (min-width: 1024px){
+  .is-style-group-section{
+    padding-right: 24rem;
+  }
+
+  .is-style-group-section:last-child{
+    padding-right: 0px;
+  }
 }
 
 /* inner panel */

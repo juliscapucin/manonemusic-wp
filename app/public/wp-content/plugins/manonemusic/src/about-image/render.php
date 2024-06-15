@@ -21,7 +21,7 @@ if (!isset($attributes['imgAlt']) || empty($attributes['imgAlt'])) {
 
 ?>
 
-<div class="md:absolute -top-[--header-height] left-0 right-0 md:h-[--container-height-desktop] flex justify-center items-center -z-10 bg-red">
+<div class="md:absolute -top-[--header-height] left-0 right-0 md:h-[--container-height-desktop] flex justify-center items-center -z-10">
    <div class="w-full md:w-96 aspect-square relative overflow-clip rounded-sm">
       <img src="<?php echo esc_url($attributes['imgUrl']); ?>" alt="<?php echo esc_attr($attributes['imgAlt']); ?>" class="w-full h-full object-cover" />
    </div>
