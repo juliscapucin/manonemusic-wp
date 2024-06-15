@@ -17,7 +17,8 @@
 	},
 	"attributes": {
 		"aspectRatio": {
-			"type": "string"
+			"type": "string",
+			"default": "aspect-square"
 		},
 		"section":{
 			"type": "string",

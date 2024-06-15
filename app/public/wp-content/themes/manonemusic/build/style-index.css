@@ -778,6 +778,14 @@ cite{
   bottom: 0px;
 }
 
+.left-0{
+  left: 0px;
+}
+
+.right-0{
+  right: 0px;
+}
+
 .right-40{
   right: 10rem;
 }
@@ -948,10 +956,6 @@ cite{
   width: 100%;
 }
 
-.w-screen{
-  width: 100vw;
-}
-
 .min-w-40{
   min-width: 10rem;
 }
@@ -1100,6 +1104,11 @@ cite{
 .bg-primary{
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
+}
+
+.bg-red{
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-secondary{
@@ -1266,7 +1275,7 @@ cite{
 }
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   padding: 0;
   margin: 0;
 }
@@ -1432,29 +1441,15 @@ cite{
   }
 }
 
-/* PAGE CONTAINER */
-
-.is-style-group-page-container{
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: var(--container-height-desktop);
-  width: 100vw;
-  max-width: 1600px;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-/* SECTION */
+/* HOME SECTIONS */
 
 /* panel */
 
 .is-style-group-section{
   position: relative;
   height: var(--container-height-desktop);
+  width: -moz-fit-content;
+  width: fit-content;
   min-width: 100vw;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -1463,10 +1458,26 @@ cite{
 /* inner panel */
 
 .is-style-max-width{
-  margin-right: 24rem;
-  height: 100%;
+  position: relative;
+  width: 100vw;
+  max-width: 1600px;
+  overflow: clip;
+}
+
+/* PAGE CONTAINER */
+
+.is-style-group-page-container{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: var(--container-height-desktop);
   width: 100%;
   max-width: 1600px;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 /* IMAGE */
@@ -1657,8 +1668,8 @@ cite{
     gap: 2rem;
   }
 
-  .lg\:overflow-x-visible{
-    overflow-x: visible;
+  .lg\:overflow-visible{
+    overflow: visible;
   }
 
   .lg\:text-labelLarge{

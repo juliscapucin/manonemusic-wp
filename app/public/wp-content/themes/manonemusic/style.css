@@ -123,7 +123,7 @@ Text Domain: manonemusic
 }
 
 * {
-	box-sizing: border-box;
+	/* box-sizing: border-box; */
 	padding: 0;
 	margin: 0;
 }
@@ -227,20 +227,20 @@ Text Domain: manonemusic
 	@apply lg:h-[--container-height-desktop] w-fit lg:flex lg:flex-nowrap;
 }
 
-/* PAGE CONTAINER */
-.is-style-group-page-container {
-	@apply w-screen min-h-[--container-height-desktop] max-w-wide py-16 px-8 my-0 mx-auto;
-}
-
-/* SECTION */
+/* HOME SECTIONS */
 /* panel */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen px-8;
+	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8;
 }
 
 /* inner panel */
 .is-style-max-width {
-	@apply w-full h-full max-w-wide mr-96;
+	@apply relative w-screen max-w-wide overflow-clip;
+}
+
+/* PAGE CONTAINER */
+.is-style-group-page-container {
+	@apply w-full min-h-[--container-height-desktop] max-w-wide py-16 px-8 my-0 mx-auto;
 }
 
 /* IMAGE */

@@ -747,6 +747,10 @@ video {
   margin-left: 4rem;
 }
 
+.mr-96{
+  margin-right: 24rem;
+}
+
 .block{
   display: block;
 }
@@ -1130,6 +1134,10 @@ body {
 @media (min-width: 1024px){
   .lg\:gap-32{
     gap: 8rem;
+  }
+
+  .lg\:overflow-visible{
+    overflow: visible;
   }
 
   .lg\:overflow-x-visible{

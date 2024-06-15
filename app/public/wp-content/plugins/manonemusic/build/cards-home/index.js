@@ -241,7 +241,7 @@ module.exports = window["wp"]["element"];
   \***********************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-home","version":"0.1.0","title":"Cards Home","category":"design","icon":"editor-video","description":"Cards for home sections","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"aspectRatio":{"type":"string"},"section":{"type":"string","default":"release"}},"textdomain":"cards-home","editorScript":"file:./index.js","editorStyle":"file:./style-index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/cards-home","version":"0.1.0","title":"Cards Home","category":"design","icon":"editor-video","description":"Cards for home sections","example":{},"supports":{"html":false,"spacing":{"padding":true,"margin":true}},"attributes":{"aspectRatio":{"type":"string","default":"aspect-square"},"section":{"type":"string","default":"release"}},"textdomain":"cards-home","editorScript":"file:./index.js","editorStyle":"file:./style-index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 
