@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "manonemusic/metadata-example",
+	"version": "0.1.0",
+	"title": "Metadata Example",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Metadata Example block for Manone Music",
+	"example": {},
+	"attributes": {},
+	"textdomain": "metadata-example",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

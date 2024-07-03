@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Function for post duplication. Dups appear as drafts. User is redirected to the edit screen
  */
@@ -45,7 +46,7 @@ function rd_duplicate_post_as_draft()
          'post_author'    => $new_post_author,
          'post_content'   => $post->post_content,
          'post_excerpt'   => $post->post_excerpt,
-         'post_name'      => $post->post_name,
+         'post_name'      => '', // Leave empty to generate a new slug
          'post_parent'    => $post->post_parent,
          'post_password'  => $post->post_password,
          'post_status'    => 'draft',
@@ -61,7 +62,7 @@ function rd_duplicate_post_as_draft()
       $new_post_id = wp_insert_post($args);
 
       /*
-     * get all current post terms ad set them to the new post draft
+     * get all current post terms and set them to the new post draft
      */
       $taxonomies = get_object_taxonomies($post->post_type); // returns array of taxonomy names for post type, ex array("category", "post_tag");
       foreach ($taxonomies as $taxonomy) {
@@ -84,7 +85,6 @@ function rd_duplicate_post_as_draft()
          $sql_query .= implode(" UNION ALL ", $sql_query_sel);
          $wpdb->query($sql_query);
       }
-
 
       /*
      * finally, redirect to the edit post screen for the new draft

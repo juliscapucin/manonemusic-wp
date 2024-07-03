@@ -40,7 +40,7 @@ if ($query->have_posts()) {
 };
 
 ?>
-<div class="cards-stack fixed top-16 bottom-0 right-8 w-40 overflow-y-scroll pr-8 pb-8 space-y-16">
+<div class="cards-stack fixed top-16 bottom-0 right-8 w-40 overflow-y-scroll overscroll-contain pr-8 pb-8 space-y-16">
    <?php
    echo $content;
    ?>

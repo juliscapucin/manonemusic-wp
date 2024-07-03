@@ -8,6 +8,22 @@
 
 // Get the blocks for the current post
 $post_blocks = parse_blocks(get_post()->post_content);
+$project_info_block = '';
+$embed_block = '';
+$metadata_example_block = '';
+
+// Loop through the blocks to find the custom blocks and store them
+foreach ($post_blocks as $block) {
+   if ($block['blockName'] === 'manonemusic/project-info') {
+      $project_info_block = render_block($block);
+   }
+   if ($block['blockName'] === 'core/embed') {
+      $embed_block = render_block($block);
+   }
+   if ($block['blockName'] === 'manonemusic/metadata-example') {
+      $metadata_example_block = render_block($block);
+   }
+}
 ?>
 
 
@@ -24,20 +40,15 @@ $post_blocks = parse_blocks(get_post()->post_content);
          <div class="wp-block-columns are-vertically-aligned-top mt-8">
             <!-- wp:column {"verticalAlignment":"top","width":"33.34%"} -->
             <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:33.34%">
-               <!-- wp:post-featured-image {"aspectRatio":"3:4","className":"is-style-featured-image-square-mr"} /-->
+               <!-- wp:post-featured-image {"aspectRatio":"3:4","className":"is-style-featured-image-square-mr mb-16"} /-->
             </div>
             <!-- /wp:column -->
 
             <!-- wp:column {"verticalAlignment":"top","width":"66.66%"} -->
             <div class="wp-block-column is-vertically-aligned-top" style="flex-basis:66.66%">
-               <?php
 
-               // Loop through the blocks to find and render the custom block
-               foreach ($post_blocks as $block) {
-                  if ($block['blockName'] === 'manonemusic/project-info') {
-                     echo render_block($block);
-                  }
-               }
+               <?php
+               echo $project_info_block;
                ?>
 
             </div>
@@ -48,13 +59,8 @@ $post_blocks = parse_blocks(get_post()->post_content);
 
 
          <?php
-
-         // Loop through the blocks to find and render the custom block
-         foreach ($post_blocks as $block) {
-            if ($block['blockName'] === 'core/embed') {
-               echo render_block($block);
-            }
-         }
+         echo $embed_block;
+         echo $metadata_example_block;
          ?>
 
       </div>

@@ -14,40 +14,30 @@
 // print_r($attributes);
 // echo '</pre>';
 
-function format_date($dateString)
-{
-	// Ensure the input date string is 8 characters long
-	if (strlen($dateString) !== 8) {
-		throw new Exception("Invalid date string");
-	}
-
-	// Extract the year, month, and day from the string
-	$year = substr($dateString, 0, 4);
-	$month = substr($dateString, 4, 2);
-
-	// Create a DateTime object using the extracted values
-	$date = DateTime::createFromFormat('Y-m', "$year-$month");
-
-	// Format the date to "Month Year"
-	return $date->format('F Y');
-}
-
 // Get the current post ID
 $post_id = get_the_ID();
 
 // Retrieve the ACF 'release_date' field
 $release_date = get_field('release_date', $post_id);
 
-$post_meta = get_post_meta($post_id, 'release_date', true);
-$formattedDate = format_date($post_meta);
+// Function to format the release date
+function format_release_date($date_string)
+{
+	$date = DateTime::createFromFormat('d/m/Y', $date_string);
+	if ($date) {
+		return $date->format('F Y');
+	}
+	return $date_string; // return the original string if parsing fails
+}
 
 ?>
 
 <div class="w-full space-y-2 ml-2 mb-16">
 	<?php
 
-	if (isset($formattedDate) && !empty($formattedDate)) {
-		echo '<p>Released ' . esc_html($formattedDate) . '</p>';
+	if (isset($release_date) && !empty($release_date)) {
+		$formatted_date = format_release_date($release_date);
+		echo '<p>Released ' . esc_html($formatted_date) . '</p>';
 	}
 
 	if (isset($attributes['projectDescription']) && !empty($attributes['projectDescription'])) {
