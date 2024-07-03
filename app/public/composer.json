@@ -1,0 +1,19 @@
+{
+    "name": "juliscapucin/manonemusic",
+    "description": "Man One Music website",
+    "require-dev": {
+        "php": "8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Juliscapucin\\Manonemusic\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "juliscapucin",
+            "email": "jscapucin@gmail.com"
+        }
+    ],
+    "require": {}
+}
