@@ -131,15 +131,10 @@
 		}
 	],
 	"customTemplates": [
-		{
-			"name": "single-release",
-			"postTypes": ["release"],
-			"title": "Release Page"
-		},
       {
-			"name": "single-project",
-			"postTypes": ["project"],
-			"title": "Project Page"
-		}
+         "name": "template-test",
+         "postTypes": ["release"],
+         "title": "Template Test"
+      }
 	]
 }

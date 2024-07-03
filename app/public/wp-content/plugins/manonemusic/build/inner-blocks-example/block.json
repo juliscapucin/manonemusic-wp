@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "manonemusic/inner-blocks-example",
+  "version": "0.1.0",
+  "title": "Inner Blocks Example",
+  "category": "design",
+  "icon": "smiley",
+  "description": "Inner Blocks Example block",
+  "example": {},
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "imgID": {
+      "type": "number"
+    },
+    "imgURL": {
+      "type": "string"
+    }
+  },
+  "textdomain": "inner-blocks-example",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./style.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

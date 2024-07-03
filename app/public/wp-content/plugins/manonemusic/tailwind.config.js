@@ -2,7 +2,6 @@
 module.exports = {
 	content: {
 		relative: true,
-		// files: ["./../../**/*.php", "./../../**/*.js"],
 		files: [
 			"./src/**/*.php",
 			"./src/**/*.js",

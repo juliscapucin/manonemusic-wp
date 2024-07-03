@@ -16,9 +16,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ "./src/track/style.css");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ "./src/track/style.css");
+
 
 
 
@@ -30,6 +33,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
+
 
 function Edit({
   attributes,
@@ -44,11 +48,11 @@ function Edit({
   const {
     tracklist
   } = attributes;
-  const updateTrackTitle = (index, newTitle) => {
+  const updateTrackName = (index, newName) => {
     const newTracklist = [...tracklist];
     newTracklist[index] = {
       ...newTracklist[index],
-      title: newTitle
+      name: newName
     };
     setAttributes({
       tracklist: newTracklist
@@ -71,6 +75,21 @@ function Edit({
       tracklist: newTracklist
     });
   };
+  const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
+    const {
+      getEntityRecords
+    } = select("core");
+    return getEntityRecords("postType", "release", {
+      per_page: -1,
+      _embed: true,
+      order: "desc"
+    });
+  }, []);
+  if (!posts) {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "Loading...");
+  } else {
+    console.log(posts);
+  }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, tracklist.map((track, index) => {
@@ -79,16 +98,16 @@ function Edit({
         marginTop: "1rem"
       } : {},
       key: `trackInput-${index}`
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Flex, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-      label: "Track title:",
-      autoFocus: track.title == undefined,
-      value: track.title,
-      onChange: newTitle => updateTrackTitle(index, newTitle),
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Flex, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.FlexBlock, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+      label: "Track name:",
+      autoFocus: track.name == undefined,
+      value: track.name,
+      onChange: newName => updateTrackName(index, newName),
       style: {
         color: "var(--color-secondary)",
         backgroundColor: "var(--color-primary)"
       }
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexBlock, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.FlexBlock, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
       label: "Track link:",
       value: track.url,
       onChange: newURL => updateTrackURL(index, newURL),
@@ -96,14 +115,14 @@ function Edit({
         color: "var(--color-secondary)",
         backgroundColor: "var(--color-primary)"
       }
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.FlexItem, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.FlexItem, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
       onClick: () => removeTrack(index),
       variant: "link",
       style: {
         color: "var(--color-secondary)"
       }
     }, "Remove Track"))));
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
     onClick: () => {
       setAttributes({
         tracklist: tracklist.concat({
@@ -242,13 +261,23 @@ module.exports = window["wp"]["components"];
 
 /***/ }),
 
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
 /***/ "./src/track/block.json":
 /*!******************************!*\
   !*** ./src/track/block.json ***!
   \******************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/track","version":"0.1.0","title":"Track","category":"widgets","icon":"smiley","description":"Track block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{"tracklist":{"type":"array","default":[{"title":"Track 1","url":"url","id":"857650483"},{"title":"Track 2","url":"url","id":"857650483"}]}},"textdomain":"track","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"manonemusic/track","version":"0.1.0","title":"Track","category":"widgets","icon":"smiley","description":"Track block for Manone Music","example":{},"supports":{"html":false,"interactivity":true,"spacing":{"padding":true,"margin":true}},"attributes":{"tracklist":{"type":"array","default":[{"name":"Track 1","url":"url","id":"857650483"},{"name":"Track 2","url":"url","id":"857650483"}]}},"textdomain":"track","editorScript":"file:./index.js","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ })
 

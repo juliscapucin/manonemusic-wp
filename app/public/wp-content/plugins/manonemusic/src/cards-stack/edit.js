@@ -33,7 +33,9 @@ export default function Edit({ attributes, setAttributes }) {
 			return getEntityRecords("postType", section, {
 				per_page: -1,
 				_embed: true,
-				order: "desc",
+				meta_key: "release_date",
+				orderby: "meta_value",
+				order: "asc",
 			});
 		},
 		[section],
@@ -57,6 +59,8 @@ export default function Edit({ attributes, setAttributes }) {
 						label="Select section"
 						value={section}
 						options={[
+							{ value: "film", label: "Films" },
+							{ value: "commercial", label: "Commercials" },
 							{ value: "project", label: "Projects" },
 							{ value: "release", label: "Releases" },
 						]}

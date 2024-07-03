@@ -25,12 +25,12 @@ Text Domain: manonemusic
 :root {
 	--font-primary: "PPSupplyMono", monospace;
 	--font-secondary: "ff-real-text-pro", sans-serif;
-	--color-primary: 31 32 32;
-	--color-primary-rgb: 31, 32, 32;
-	--color-secondary: 210 200 195;
-	--color-secondary-rgb: 210, 200, 195;
+	--color-primary: 3 30 27;
+	--color-primary-rgb: 3, 30, 27;
+	--color-secondary: 182 209 194;
+	--color-secondary-rgb: 182, 209, 194;
 	--color-focus: 154, 152, 152;
-	--header-height: 4rem;
+	--header-height: 8rem;
 	--margin-mobile: 1rem;
 	--margin-desktop: 2rem;
 	--padding-mobile: 1rem;
@@ -49,10 +49,10 @@ Text Domain: manonemusic
 
 @layer base {
 	:root[data-theme="dark"] {
-		--color-primary: 31 32 32;
-		--color-primary-rgb: 31, 32, 32;
-		--color-secondary: 210 200 195;
-		--color-secondary-rgb: 210, 200, 195;
+		--color-primary: 3 30 27;
+		--color-primary-rgb: 3, 30, 27;
+		--color-secondary: 182 209 194;
+		--color-secondary-rgb: 182, 209, 194;
 		--color-focus: 154, 152, 152;
 	}
 	:root[data-theme="green"] {
@@ -78,7 +78,7 @@ Text Domain: manonemusic
 	}
 
 	body {
-		@apply font-secondary bg-primary transition-colors duration-200;
+		@apply font-primary bg-primary transition-colors duration-200 !important;
 		-webkit-font-smoothing: antialiased;
 	}
 
@@ -92,36 +92,38 @@ Text Domain: manonemusic
 	}
 
 	a {
-		@apply font-primary text-secondary;
+		@apply font-primary text-secondary transition-all duration-200;
+	}
+
+	header a {
+		@apply relative overflow-x-clip before:content-[''] before:block before:w-full before:h-[1px] before:bg-secondary before:absolute before:bottom-0 before:-translate-x-full before:transition-all before:duration-200;
+	}
+
+	header a.active {
+		@apply before:translate-x-0;
 	}
 
 	li,
 	p {
-		@apply text-secondary font-primary text-bodyMedium;
+		@apply text-secondary font-primary text-bodySmall lg:text-bodyMedium;
 	}
 
 	p {
-		@apply max-w-prose text-bodyMedium;
+		@apply max-w-prose;
 	}
 
-	figcaption {
+	figcaption,
+	time {
 		@apply font-primary uppercase font-extralight text-secondary;
 	}
 
 	cite {
-		@apply text-secondary font-secondary not-italic;
-	}
-
-	p,
-	a,
-	h1,
-	h2 {
-		@apply transition-colors duration-500;
+		@apply text-secondary font-primary not-italic;
 	}
 }
 
 * {
-	box-sizing: border-box;
+	/* box-sizing: border-box; */
 	padding: 0;
 	margin: 0;
 }
@@ -131,14 +133,14 @@ Text Domain: manonemusic
 /* --------------- */
 
 .site-body {
-	@apply font-secondary bg-primary;
+	@apply font-primary bg-primary md:mt-0;
 	-webkit-font-smoothing: antialiased;
 }
 
 /* ------------------------------------- */
 /* Remove WP styles that break the layout */
 
-.wp-site-blocks {
+.home .wp-site-blocks {
 	@apply overflow-x-clip;
 }
 
@@ -149,18 +151,21 @@ Text Domain: manonemusic
 /* ------------------------------------- */
 
 /* Scrollbars */
-body::-webkit-scrollbar,
-.cards-stack::-webkit-scrollbar {
+.home::-webkit-scrollbar,
+.cards-stack::-webkit-scrollbar,
+.cards-home::-webkit-scrollbar {
 	width: 4px;
 	height: 4px;
 }
-body::-webkit-scrollbar-track,
-.cards-stack::-webkit-scrollbar-track {
+.home::-webkit-scrollbar-track,
+.cards-stack::-webkit-scrollbar-track,
+.cards-home::-webkit-scrollbar-track {
 	background-color: rgba(var(--color-secondary-rgb), 0.1);
 	margin-block: 1px;
 }
-body::-webkit-scrollbar-thumb,
-.cards-stack::-webkit-scrollbar-thumb {
+.home::-webkit-scrollbar-thumb,
+.cards-stack::-webkit-scrollbar-thumb,
+.cards-home::-webkit-scrollbar-thumb {
 	background-color: rgba(var(--color-secondary-rgb), 1);
 	width: 1rem;
 	height: 1rem;
@@ -175,7 +180,7 @@ body::-webkit-scrollbar-thumb,
 .container,
 .is-root-container,
 .generic-content {
-	@apply relative h-[--container-height-desktop] w-full max-w-wide pt-0 !important;
+	@apply relative w-full max-w-wide pt-0 !important;
 }
 
 .is-root-container h1 {
@@ -214,26 +219,28 @@ body::-webkit-scrollbar-thumb,
 
 /* HORIZONTAL SCROLL (outer panel) */
 .is-style-horizontal-scroll {
-	@apply relative h-[--container-height-desktop] w-screen m-0;
+	@apply relative lg:h-[--container-height-desktop] w-screen m-0;
 }
 
 /* HORIZONTAL PANEL (inner panel) */
 .is-style-group-full {
-	@apply h-[--container-height-desktop] w-fit flex flex-nowrap;
+	@apply lg:h-[--container-height-desktop] w-fit lg:flex lg:flex-nowrap;
+}
+
+/* HOME SECTIONS */
+/* panel */
+.is-style-group-section {
+	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8 md:px-16 lg:pr-96 lg:last:pr-0;
+}
+
+/* inner panel */
+.is-style-max-width {
+	@apply relative w-screen max-w-wide overflow-clip;
 }
 
 /* PAGE CONTAINER */
 .is-style-group-page-container {
-	@apply w-screen max-h-[--container-height-desktop] max-w-wide pt-16 px-8 my-0 mx-auto overflow-y-clip;
-}
-
-/* SECTION */
-.is-style-group-section {
-	@apply relative min-h-screen h-screen w-screen px-8 xl:px-32;
-}
-
-.is-style-max-width {
-	@apply w-full h-full max-w-wide mx-auto overflow-clip;
+	@apply w-full min-h-[--container-height-desktop] max-w-wide py-16 px-8 my-0 mx-auto;
 }
 
 /* IMAGE */
@@ -243,11 +250,6 @@ body::-webkit-scrollbar-thumb,
 
 .is-style-featured-image-square-mr {
 	@apply mr-8;
-}
-
-.is-style-logo-huge {
-	@apply block w-full mt-16 md:-ml-2 lg:-ml-4;
-	font-size: clamp(3rem, 11vw, 13rem);
 }
 
 /* BUTTON */
@@ -262,21 +264,31 @@ body::-webkit-scrollbar-thumb,
 }
 
 /* HEADING */
+
+.is-style-logo-huge {
+	@apply block w-full mt-32 sm:mt-64 md:mt-32 md:-ml-2 lg:-ml-2 xl:-ml-3 mb-4 md:mb-0 leading-tighter md:leading-none;
+	font-size: clamp(4.5rem, 11vw, 13rem);
+}
+
 .is-style-heading-display {
 	@apply block text-displaySmall md:text-displayMedium lg:text-displayLarge tracking-[-5px] leading-none mt-32 mb-8;
 }
+
 .is-style-heading-headline {
 	@apply block text-headlineSmall md:text-headlineMedium lg:text-headlineLarge tracking-[-2px] leading-none mt-16 mb-8;
 }
 
 /* PARAGRAPH */
 .is-style-indent-left {
-	@apply ml-32 mt-4;
+	@apply ml-16 lg:ml-32 mt-4;
 }
 .is-style-indent-right {
-	@apply mr-32 mt-4;
+	@apply mr-16 lg:mr-32 mt-4;
 }
 
-/* .transparent {
-	@apply opacity-50 transition-opacity duration-500;
-} */
+/* ----------------- */
+
+.sticky-heading {
+	position: fixed;
+	left: 0;
+}

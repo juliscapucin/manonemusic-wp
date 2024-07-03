@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "manonemusic/about-image",
+  "version": "0.1.0",
+  "title": "About Image",
+  "category": "design",
+  "icon": "smiley",
+  "description": "About image block",
+  "example": {},
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "imgId": {
+      "type": "number",
+      "default": 15
+    },
+    "imgUrl": {
+      "type": "string"
+    },
+    "imgAlt": {
+      "type": "string"
+    }
+  },
+  "textdomain": "about-image",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./style.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

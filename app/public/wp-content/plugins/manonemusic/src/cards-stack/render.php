@@ -7,15 +7,13 @@
  * @param string $content The block content.
  * @param WP_Block $block The block object.
  * 
- * // print_r($block);
  */
-
-
 
 $args = array(
    'post_type' => $attributes['section'],
    'posts_per_page' => -1,
-   'orderby' => 'date',
+   'meta_key' => 'release_date',
+   'orderby' => 'meta_value',
    'order' => 'DESC'
 );
 
@@ -42,7 +40,7 @@ if ($query->have_posts()) {
 };
 
 ?>
-<div class="cards-stack fixed top-0 w-40 h-screen overflow-y-scroll pt-16 pr-8 pb-8 space-y-16">
+<div class="cards-stack fixed top-16 bottom-0 right-8 w-40 overflow-y-scroll overscroll-contain pr-8 pb-8 space-y-16">
    <?php
    echo $content;
    ?>

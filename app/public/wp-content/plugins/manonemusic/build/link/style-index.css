@@ -1,0 +1,57 @@
+/*!*******************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/style.css ***!
+  \*******************************************************************************************************************************************************************/
+@import url(https://use.typekit.net/cbg5juo.css);
+/*!***********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/style.css (1) ***!
+  \***********************************************************************************************************************************************************************/
+/* 
+Theme name: Man One Music
+Author: Juli Scapucin
+Version: 2024
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--font-primary: "PPSupplyMono", monospace;
+	--font-secondary: "ff-real-text-pro", sans-serif;
+	--color-primary: 30 30 30;
+	--color-primary-rgb: 30, 30, 30;
+	--color-secondary: 40 209 194;
+	--color-secondary-rgb: 40, 209, 194;
+	--color-focus: 154, 152, 152;
+}
+
+@layer base {
+	:root[data-theme="dark"] {
+		--color-primary: 30 30 30;
+		--color-secondary: 40 209 194;
+		--color-secondary-rgb: 40, 209, 194;
+		--color-focus: 154, 152, 152;
+	}
+	:root[data-theme="light"] {
+		--color-primary: 249 246 238;
+		--color-secondary: 18 12 15;
+		--color-secondary-rgb: 18, 12, 15;
+		--color-focus: 154, 152, 152;
+	}
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	font-weight: 200;
+	-webkit-font-smoothing: antialiased;
+	transition: background-color 0.2s linear;
+}
+
+
+/*# sourceMappingURL=style-index.css.map*/

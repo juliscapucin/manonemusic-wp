@@ -1,4 +1,5 @@
 import { useBlockProps } from "@wordpress/block-editor";
+import { useSelect } from "@wordpress/data";
 import {
 	TextControl,
 	Button,
@@ -15,6 +16,7 @@ import {
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./style.css";
+import { post } from "@wordpress/icons";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({
@@ -23,9 +25,9 @@ export default function Edit({ attributes, setAttributes }) {
 	});
 	const { tracklist } = attributes;
 
-	const updateTrackTitle = (index, newTitle) => {
+	const updateTrackName = (index, newName) => {
 		const newTracklist = [...tracklist];
-		newTracklist[index] = { ...newTracklist[index], title: newTitle };
+		newTracklist[index] = { ...newTracklist[index], name: newName };
 		setAttributes({ tracklist: newTracklist });
 	};
 
@@ -41,6 +43,21 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ tracklist: newTracklist });
 	};
 
+	const posts = useSelect((select) => {
+		const { getEntityRecords } = select("core");
+		return getEntityRecords("postType", "release", {
+			per_page: -1,
+			_embed: true,
+			order: "desc",
+		});
+	}, []);
+
+	if (!posts) {
+		return <div>Loading...</div>;
+	} else {
+		console.log(posts);
+	}
+
 	return (
 		<div {...blockProps}>
 			{tracklist.map((track, index) => {
@@ -52,10 +69,10 @@ export default function Edit({ attributes, setAttributes }) {
 						<Flex>
 							<FlexBlock>
 								<TextControl
-									label="Track title:"
-									autoFocus={track.title == undefined}
-									value={track.title}
-									onChange={(newTitle) => updateTrackTitle(index, newTitle)}
+									label="Track name:"
+									autoFocus={track.name == undefined}
+									value={track.name}
+									onChange={(newName) => updateTrackName(index, newName)}
 									style={{
 										color: "var(--color-secondary)",
 										backgroundColor: "var(--color-primary)",

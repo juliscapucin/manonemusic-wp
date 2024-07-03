@@ -50,6 +50,9 @@ module.exports = {
 			minWidth: {
 				screen: "100vw",
 			},
+			lineHeight: {
+				tighter: "0.85",
+			},
 		},
 	},
 	plugins: [],

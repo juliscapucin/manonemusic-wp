@@ -10,18 +10,18 @@
  * // print_r($block);
  */
 
-$postID = get_the_ID();
-// print_r($attributes);
-print_r(get_post_meta($postID, 'tracklist', true));
-
+// print_r($block);
 ?>
-<div class="mt-16">
+
+<div class="mt-16 pr-16">
    <?php
+   // $tracklist = get_post_meta(get_the_ID(), 'repeatable_fields', true);
+   // $tracklist = get_field('repeatable_fields');
    $tracklist = $attributes['tracklist'];
    $trackCount = count($tracklist);
 
    foreach ($tracklist as $index => $track) {
-      $title = $track['title'];
+      $name = $track['name'];
       $url = $track['url'];
 
       // Extract the src attribute value
@@ -64,14 +64,14 @@ print_r(get_post_meta($postID, 'tracklist', true));
                      </svg>
                   </div>
                </button>
-               <span><?php esc_html_e($title) ?></span>
+               <span><?php esc_html_e($name) ?></span>
             </div>
 
             <div class="w-full flex justify-between items-center">
                <span class="progress w-20">00:00:00</span>
-               <div class="progress-bar h-1 flex-1 bg-faded-10 rounded-[1px]">
+               <button class="progress-bar h-1 flex-1 bg-faded-10 rounded-[1px]">
                   <div class="progress-bar-fill h-1 bg-secondary rounded-[1px]"></div>
-               </div>
+               </button>
                <span class="duration ml-4">00:00:00</span>
             </div>
          </div>

@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name:       Manonemusic
- * Description:       A plugin to register gutenberg blocks for Manonemusic.
+ * Description:       A plugin to register Gutenberg blocks for Manonemusic.
  * Requires at least: 6.1
  * Requires PHP:      7.2
  * Version:           0.1.0
@@ -79,6 +79,7 @@ function register_custom_post_type($type, $args)
 	register_post_type($type, $args);
 }
 
+
 function postTypes()
 {
 	register_custom_post_type('release', array(
@@ -88,11 +89,34 @@ function postTypes()
 
 	register_custom_post_type('project', array(
 		'rewrite' => array('slug' => 'projects'),
-		'menu_icon' => 'dashicons-portfolio',
+		'menu_icon' => 'dashicons-tickets-alt',
+	));
+
+	register_custom_post_type('film', array(
+		'rewrite' => array('slug' => 'films'),
+		'menu_icon' => 'dashicons-editor-video',
+	));
+
+	register_custom_post_type('commercial', array(
+		'rewrite' => array('slug' => 'commercials'),
+		'menu_icon' => 'dashicons-store',
 	));
 }
 
 add_action('init', 'postTypes');
+
+// Testing metadata
+function register_film_meta()
+{
+	register_post_meta('film', 'clip', array(
+		'show_in_rest' => true,
+		'single' => true,
+		'type' => 'string',
+	));
+}
+
+add_action('init', 'register_film_meta');
+
 
 // Activate Plugin
 function manonemusic_activate()
