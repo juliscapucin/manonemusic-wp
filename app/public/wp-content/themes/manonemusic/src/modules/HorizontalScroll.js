@@ -111,15 +111,15 @@ class HorizontalScroll {
 		})
 
 		this.tween = gsap.to(this.panels, {
-			// xPercent: -100 * (this.panels.length - 1),
 			x: -totalWidth + window.innerWidth, // Adjust for the viewport width
 			ease: "none",
 			scrollTrigger: {
 				trigger: this.panelsInnerContainer,
 				pin: true,
 				start: "top top",
-				scrub: 1,
-				end: () => "+=" + this.panelsInnerContainer.scrollWidth - innerWidth,
+				scrub: 0.8,
+				// markers: true,
+				end: () => "+=" + this.panelsInnerContainer.scrollWidth, // The bigger the end value, the slower the scroll
 				onUpdate: (self) => {
 					// also useful!
 					// console.log(self.progress, "/1")
@@ -199,15 +199,19 @@ class HorizontalScroll {
 		this.panels.forEach((panel, index) => {
 			const splitHeading = this.panelUI[index].splitHeading
 
+			gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText)
+
+			gsap.set(splitHeading.chars, { xPercent: 0, opacity: 0 })
+
+			// SPLIT TEXT ANIMATION
 			ScrollTrigger.create({
 				trigger: panel,
 				containerAnimation: this.tween,
 				// markers: true,
-				start: "center right",
-				end: "center left",
+				start: () => `center-=${window.innerWidth * 0.2} right`,
+				end: "right left",
 				onEnter: () => {
 					this.activePanel = panel
-					this.togglePanelVisibility()
 					this.pathname = this.panelUI[index].section
 					this.handlePathname()
 					this.animateHeading(splitHeading, "in")
@@ -225,13 +229,31 @@ class HorizontalScroll {
 					this.animateHeading(splitHeading, "out")
 				},
 			})
-		})
-	}
 
-	togglePanelVisibility() {
-		this.panels.forEach((panel) =>
-			panel.classList.toggle("transparent", panel !== this.activePanel)
-		)
+			// PIN TITLE ANIMATION
+			const heading = panel.querySelector(".home-heading")
+			const cardStack = panel.querySelector(".cards-home")
+
+			if (!cardStack) return
+
+			const cardStackWidth = cardStack.offsetWidth
+
+			if (cardStackWidth < window.innerWidth) return
+
+			gsap.to(heading, {
+				scrollTrigger: {
+					scrub: true,
+					trigger: cardStack,
+					start: "left left",
+					end: () => "+=" + (cardStackWidth - window.innerWidth),
+					invalidateOnRefresh: true,
+					// markers: true,
+					containerAnimation: this.tween,
+				},
+				x: () => "+=" + (cardStackWidth - window.innerWidth),
+				ease: "none",
+			})
+		})
 	}
 
 	handleBackgroundColor() {

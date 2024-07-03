@@ -112,7 +112,6 @@ class HorizontalScroll {
       totalWidth += panel.offsetWidth;
     });
     this.tween = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(this.panels, {
-      // xPercent: -100 * (this.panels.length - 1),
       x: -totalWidth + window.innerWidth,
       // Adjust for the viewport width
       ease: "none",
@@ -120,8 +119,10 @@ class HorizontalScroll {
         trigger: this.panelsInnerContainer,
         pin: true,
         start: "top top",
-        scrub: 1,
-        end: () => "+=" + this.panelsInnerContainer.scrollWidth - innerWidth,
+        scrub: 0.8,
+        // markers: true,
+        end: () => "+=" + this.panelsInnerContainer.scrollWidth,
+        // The bigger the end value, the slower the scroll
         onUpdate: self => {
           // also useful!
           // console.log(self.progress, "/1")
@@ -186,15 +187,21 @@ class HorizontalScroll {
   handleActivePanel() {
     this.panels.forEach((panel, index) => {
       const splitHeading = this.panelUI[index].splitHeading;
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].registerPlugin(gsap_dist_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger, gsap_dist_ScrollToPlugin__WEBPACK_IMPORTED_MODULE_2__.ScrollToPlugin, gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_3__.SplitText);
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(splitHeading.chars, {
+        xPercent: 0,
+        opacity: 0
+      });
+
+      // SPLIT TEXT ANIMATION
       gsap_dist_ScrollTrigger__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger.create({
         trigger: panel,
         containerAnimation: this.tween,
         // markers: true,
-        start: "center right",
-        end: "center left",
+        start: () => `center-=${window.innerWidth * 0.2} right`,
+        end: "right left",
         onEnter: () => {
           this.activePanel = panel;
-          this.togglePanelVisibility();
           this.pathname = this.panelUI[index].section;
           this.handlePathname();
           this.animateHeading(splitHeading, "in");
@@ -212,10 +219,27 @@ class HorizontalScroll {
           this.animateHeading(splitHeading, "out");
         }
       });
+
+      // PIN TITLE ANIMATION
+      const heading = panel.querySelector(".home-heading");
+      const cardStack = panel.querySelector(".cards-home");
+      if (!cardStack) return;
+      const cardStackWidth = cardStack.offsetWidth;
+      if (cardStackWidth < window.innerWidth) return;
+      gsap__WEBPACK_IMPORTED_MODULE_0__["default"].to(heading, {
+        scrollTrigger: {
+          scrub: true,
+          trigger: cardStack,
+          start: "left left",
+          end: () => "+=" + (cardStackWidth - window.innerWidth),
+          invalidateOnRefresh: true,
+          // markers: true,
+          containerAnimation: this.tween
+        },
+        x: () => "+=" + (cardStackWidth - window.innerWidth),
+        ease: "none"
+      });
     });
-  }
-  togglePanelVisibility() {
-    this.panels.forEach(panel => panel.classList.toggle("transparent", panel !== this.activePanel));
   }
   handleBackgroundColor() {
     const panel = this.activePanel;

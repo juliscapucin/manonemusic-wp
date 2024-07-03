@@ -285,3 +285,10 @@ Text Domain: manonemusic
 .is-style-indent-right {
 	@apply mr-16 lg:mr-32 mt-4;
 }
+
+/* ----------------- */
+
+.sticky-heading {
+	position: fixed;
+	left: 0;
+}

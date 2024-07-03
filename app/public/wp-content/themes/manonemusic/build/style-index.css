@@ -802,6 +802,10 @@ cite{
   top: 4rem;
 }
 
+.left-8{
+  left: 2rem;
+}
+
 .isolate{
   isolation: isolate;
 }
@@ -1132,11 +1136,6 @@ cite{
 .px-1{
   padding-left: 0.25rem;
   padding-right: 0.25rem;
-}
-
-.px-16{
-  padding-left: 4rem;
-  padding-right: 4rem;
 }
 
 .px-8{
@@ -1660,6 +1659,13 @@ cite{
   .is-style-indent-right{
     margin-right: 8rem;
   }
+}
+
+/* ----------------- */
+
+.sticky-heading {
+  position: fixed;
+  left: 0;
 }
 
 @media (min-width: 768px){
