@@ -230,7 +230,7 @@ Text Domain: manonemusic
 /* HOME SECTIONS */
 /* panel */
 .is-style-group-section {
-	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8 lg:pr-96 lg:last:pr-0;
+	@apply relative h-[--container-height-desktop] min-w-screen w-fit px-8 md:px-16 lg:pr-96 lg:last:pr-0;
 }
 
 /* inner panel */

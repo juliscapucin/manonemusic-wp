@@ -79,13 +79,13 @@ class HorizontalScroll {
     /* Main navigation */
     this.panelsOuterContainer = document.querySelector("#panels-outer-container");
     this.panelsInnerContainer = document.querySelector("#panels-inner-container");
+    if (!this.panelsInnerContainer || !this.panelsOuterContainer) return;
     this.headerLinks = document.querySelectorAll("header a");
     this.panels = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].utils.toArray("#panels-inner-container .panel");
     this.pathname = window.location.pathname;
     const headings = document.querySelectorAll(".home-heading");
     this.panelUI.forEach((panel, index) => {
       panel.x = this.panels[index].offsetLeft;
-      console.log(panel.x);
       panel.splitHeading = new gsap_dist_SplitText__WEBPACK_IMPORTED_MODULE_3__.SplitText(headings[index], {
         type: "chars"
       }); // Create SplitText instance for each heading
@@ -228,15 +228,11 @@ class HorizontalScroll {
     const xTranslate = 500;
     const delay = 0.2;
     const tl = gsap__WEBPACK_IMPORTED_MODULE_0__["default"].timeline();
-    gsap__WEBPACK_IMPORTED_MODULE_0__["default"].set(panel.chars, {
-      xPercent: index => direction === "in" ? xTranslate * (index + 1) : 0,
-      opacity: 0
-    });
     tl.fromTo(panel.chars, {
       xPercent: index => direction === "in" ? xTranslate * (index + 1) : 0,
-      opacity: 1
+      opacity: () => direction === "in" ? 0 : 1
     }, {
-      opacity: 1,
+      opacity: () => direction === "in" ? 1 : 0,
       xPercent: index => direction === "in" ? 0 : xTranslate * (index + 1),
       duration: 0.5,
       delay: delay || 0,

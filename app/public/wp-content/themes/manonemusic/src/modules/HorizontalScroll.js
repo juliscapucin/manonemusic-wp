@@ -68,6 +68,9 @@ class HorizontalScroll {
 		this.panelsInnerContainer = document.querySelector(
 			"#panels-inner-container"
 		)
+
+		if (!this.panelsInnerContainer || !this.panelsOuterContainer) return
+
 		this.headerLinks = document.querySelectorAll("header a")
 		this.panels = gsap.utils.toArray("#panels-inner-container .panel")
 		this.pathname = window.location.pathname
@@ -76,7 +79,6 @@ class HorizontalScroll {
 
 		this.panelUI.forEach((panel, index) => {
 			panel.x = this.panels[index].offsetLeft
-			console.log(panel.x)
 			panel.splitHeading = new SplitText(headings[index], { type: "chars" }) // Create SplitText instance for each heading
 		})
 
@@ -249,20 +251,15 @@ class HorizontalScroll {
 
 		const tl = gsap.timeline()
 
-		gsap.set(panel.chars, {
-			xPercent: (index) => (direction === "in" ? xTranslate * (index + 1) : 0),
-			opacity: 0,
-		})
-
 		tl.fromTo(
 			panel.chars,
 			{
 				xPercent: (index) =>
 					direction === "in" ? xTranslate * (index + 1) : 0,
-				opacity: 1,
+				opacity: () => (direction === "in" ? 0 : 1),
 			},
 			{
-				opacity: 1,
+				opacity: () => (direction === "in" ? 1 : 0),
 				xPercent: (index) =>
 					direction === "in" ? 0 : xTranslate * (index + 1),
 				duration: 0.5,
